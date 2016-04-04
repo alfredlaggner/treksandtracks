@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Confirmation email</title>
+</head>
+
+<body>
+				<h2>Thank you for booking! </h2>
+                
+				<p>Activity: <span>   <strong>{activity_name} </strong></span></p> 
+				<p>Location: <span>   <strong>{location}</strong></span></p>  
+				<p> Date/Time: <strong> {activity_date} </strong> from <b>  
+		{activity_time} 
+		</b> to <b>  {activity_duration}
+		</b></h4>  
+			<h3>Booking Details</h3> 
+			<p>Invoice Number: <strong>{invoice_number} </strong></p> 
+			<p>Promo Code:    <strong>{promo_code}</strong></p> 
+			<p>Amount Paid:<strong> {price}</strong></p> 
+			<h3>Please bring: </h3> 
+<p> {you_bring} </p>
+<h3>Directions: </h3>
+{directions}
+<h3>Rescheduling: </h3>
+
+<p>If a scheduling conflict arises and you need to reschedule, we are happy to reactivate your voucher If a reschedule is requested within 10 days prior to your class, a $25 fee will apply</p><h3>Participants: </h3> 
+<p>{participants} </p>
+<p>&nbsp; </p> 
+				<p> See you soon!</p> 
+				<p> Your Treks and Tracks Team</p> 
+				<p>&nbsp; </p> 
+				<p>&nbsp; </p> 
+				<p style="font-size: 6px"> $row->customer_id  /  $event_group_id </p> 
+</html></body>;
+
+
+
+</body>
+</html>

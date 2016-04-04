@@ -1,0 +1,12 @@
+// JavaScript Document
+function InitPage(){
+
+Spry.$$('#MenuBar1 li').forEach(function(node){
+    var a=node.getElementsByTagName("a")[0]; // finds all a elements inside the li, but we only want the first so [0]
+    if(a.href == window.location){
+        Spry.Utils.addClassName(node,"activeMenuItem");
+/*        Spry.Utils.addClassName(parent,"activeMenuItem");
+*/    }
+});
+}
+Spry.Utils.addLoadListener(InitPage);

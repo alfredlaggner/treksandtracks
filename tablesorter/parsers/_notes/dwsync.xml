@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="parser-date-extract.js" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130990682760000000" remote="131003120580000000" Dst="1" />
+<file name="parser-date-iso8601.js" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130990682760000000" remote="131003120580000000" Dst="1" />
+<file name="parser-date-month.js" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130990682760000000" remote="131003120580000000" Dst="1" />
+<file name="parser-date-range.js" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130990682760000000" remote="131003120590000000" Dst="1" />
+<file name="parser-date-two-digit-year.js" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130990682760000000" remote="131003120590000000" Dst="1" />
+<file name="parser-date-weekday.js" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130990682760000000" remote="131003120590000000" Dst="1" />
+<file name="parser-date.js" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130990682760000000" remote="131003120590000000" Dst="1" />
+<file name="parser-duration.js" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130990682760000000" remote="131003120590000000" Dst="1" />
+<file name="parser-feet-inch-fraction.js" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130990682760000000" remote="131003120590000000" Dst="1" />
+<file name="parser-file-type.js" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130990682760000000" remote="131003120590000000" Dst="1" />
+<file name="parser-globalize.js" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130990682760000000" remote="131003120590000000" Dst="1" />
+<file name="parser-ignore-articles.js" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130990682760000000" remote="131003120590000000" Dst="1" />
+<file name="parser-image.js" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130990682760000000" remote="131003120590000000" Dst="1" />
+<file name="parser-input-select.js" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130990682760000000" remote="131003120590000000" Dst="1" />
+<file name="parser-metric.js" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130990682760000000" remote="131003120600000000" Dst="1" />
+<file name="parser-named-numbers.js" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130990682760000000" remote="131003120600000000" Dst="1" />
+<file name="parser-network.js" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130990682760000000" remote="131003120600000000" Dst="1" />
+<file name="parser-roman.js" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130990682760000000" remote="131003120600000000" Dst="1" />
+</dwsync>

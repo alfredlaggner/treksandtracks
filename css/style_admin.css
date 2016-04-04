@@ -1,0 +1,110 @@
+@charset "utf-8";
+/* CSS Document */
+	/* Required */
+
+#inputform span {
+	position:relative;
+}
+
+#inputform span.req{
+	display:inline;
+	float:none;
+	color:red !important;
+	font-weight:bold;
+}
+
+
+#inputform input.error {
+	background-color:#f9e5e6;
+	border-color:#b50007;
+}
+
+#inputform label.error {
+	font-weight:bold;
+	color:#b50007;
+	padding:5px 0 0 5px;
+	float:none;
+
+}
+
+#inputform .gray {
+	opacity:0.7;
+}
+/* */
+#inputform {
+	margin:0;
+	padding:5px 5px;
+	border-radius: 10pt;
+}
+#inputform * {
+	color:#7a7a7a;
+}
+#inputform td.buttons {
+	margin:5px 0 5px 0;
+}
+#inputform label {
+	float:left;
+	margin:0;
+	width:100px;
+	padding:5px 0;
+	font:normal 11px Arial, Helvetica, sans-serif;
+/*	color:#222;
+*/}
+#inputform label span {
+	font:normal 10px Arial, Helvetica, sans-serif;
+}
+#inputform input.text {
+	border:1px solid #B1B1B1;
+	border-radius: 5px;
+	width:380px;
+	margin:5px 0;
+	padding:5px 2px;
+	height:15px;
+/*	background:#f8f8f8;
+*/}
+#inputform select.text {
+	width:385px;
+	border:1px solid #B1B1B1;
+	border-radius: 5px;
+	margin:5px 0;
+	padding:2px 2px;
+	height:27px;
+/*	background:#f8f8f8;
+*/}
+#inputform textarea {
+	width:380px;
+	border:1px solid #B1B1B1;
+	border-radius: 5px;
+	margin:5px 0;
+	padding:2px;
+	background:#f8f8f8;
+	height:280px;
+	width:680px;
+}
+#inputform .buttons  {
+	padding:3px ;
+	margin: 5px 0 0 0;
+	border:1;
+	border-radius: 4px;
+	color: #333;
+}
+#inputform .buttons input {
+	border:0;
+	color: #FFF;
+}
+#inputform td {
+	padding:4px 10px 0 0;
+	vertical-align: top; 
+}
+.clear {
+	clear:both;
+	margin:0px;
+	padding:0px;
+}
+.content-box .left_column
+{float:left;
+width: 50%}
+
+.content-box .right_column
+{float:left;
+width: 50%}

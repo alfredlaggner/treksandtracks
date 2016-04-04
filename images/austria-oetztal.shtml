@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ice="http://ns.adobe.com/incontextediting">
+<head>
+<title>Oetztal Adventure</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta Name="Description" Content="Ski in Austria, this backcountry skiing oriented tour takes you too the truly wild skiing mountains in Austria, do not miss this opportunity if you are an avid powder skier." />
+<meta Name="Keywords" Content="Ski in austria, powder skiing in austria, backountry skiing in austria, guided backcountry skiing in austria" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+<!--
+.arial {
+	font-size: 12px;
+}
+-->
+</style>
+<script src="SpryAssets/SpryMenuBar.js" type="text/javascript"></script>
+<script src="includes/ice/ice.js" type="text/javascript"></script>
+<link href="SpryAssets/SpryMenuBarHorizontal.css" rel="stylesheet" type="text/css" />
+<link rel="icon" type="image/gif" href="favicon.ico" />
+</head>
+<body>
+<div class="main">
+	<!--#include file="SSI/main-menu-expeditions.ssi" -->
+	<div class="clr"></div>
+	<!--#include file="SSI/upper-menu.ssi" -->
+	<!--#include file="SSI/slogan-expeditions.ssi" -->
+	<div class="clr"></div>
+	<div class="expeditions">
+		<div class="body_resize">
+			<div class="body">
+				<div class="left" ice:editable="*">
+					<h3> Austria: Oetztal Adventure<br />
+						<span><strong>Join us in the heart of the Alps!</strong></span> </h3>
+					<p><img src="images/powderat.jpg" width="388" height="440" alt="Skiing in Austria" /></p>
+					<p>This adventure is for skiers who want to experience authentic backcountry skiing in the heart of the Alps.</p>
+					<p>We do most of our skiing out of the town of Solden from where our local guides will take us to the most pristine and hidden gems in the region. We explore untoutched snow and explore the different glaciers and ski fields in Oetztal.</p>
+					<p>This is an opportunity to experience the chore culture of skiing in the Alps while learning essential backcountry ski and ski mountaineering skills from the best guides in the industry!</p>
+<p><strong>Space is limited, so reserve your spot!</strong></p>
+				</div>
+				<div class="right" ice:editable="*">
+  <h3>
+    2011 Dates and Fees:<br />
+  </h3>
+</div>
+				<div class="right" ice:editable="*">
+  <hr />
+  <table class="arial" border="0">
+    <tbody>
+      <tr style="font-weight: bold;">
+        <td class="from">
+          From
+        </td>
+        <td class="to">
+          To
+        </td>
+        <td class="attendants">
+          Leader
+        </td>
+        <td class="status">
+          Status
+        </td>
+      </tr>
+      <tr>
+        <td class="from">
+          March 12
+        </td>
+        <td class="to">
+          March 21
+        </td>
+        <td class="attendants">
+          <a href="guides.shtml#jakob">Jakob</a>
+        </td>
+        <td class="status">
+          open
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="arial">
+    Location: Austria<span style="font-weight: bold;"><br />
+    <br />
+    9 days Price $3,230*&nbsp; &nbsp; &nbsp;</span><a href="contact.shtml">Reserve now</a>
+  </h5>
+  <p class="small-print">
+    *Price does not include airfare or trip insurance. Based on double occupancy; single occupancy includes and additional $425 fee. Prices are given in US Dollars. Trips may be customized, cost may vary depending on itinerary.
+  </p>
+</div>
+				<div class="clr"></div>
+				<div class="port_resize" ice:editable="*">
+					<h2> Itinerary<br />
+					</h2>
+					<img src="images/oetztal-skiing-3-small.jpg" width="298" height="198" alt="Oetztal" /> <br />
+					<div>
+						<p><strong><a href="itinerary-austria-oetztal.shtml">Click here for a detailled itineray</a></strong><br />
+						</p>
+					</div>
+					<br />
+				</div>
+				<div class="port_resize" ice:editable="*">
+  <h2>
+    <span style="font-weight: bold;">What you should bring</span><br />
+  </h2><img src="images/oetztal-skiing-2-small.jpg" alt="Oetztal" height="198" width="298" />
+  <p>
+    Passport<br />
+    Travel Insurance<br />
+    Comfortable clothing for lodge time<br />
+    Quick dry clothing as well as rain and cold weather gear<br />
+    Personal hygiene supplies<br />
+    Small Backpack<br />
+    Personal Ski Gear<br />
+  </p>
+  <p>&nbsp;
+    
+  </p>
+</div>
+				<div class="port_resize" ice:editable="*">
+  <h2>
+    <span style="font-weight: bold;">What’s Included</span><br />
+  </h2><img src="images/oetztal-skiing-1-small.jpg" alt="Oetztal skiing" height="198" width="298" />
+  <p>
+    Expert leadership &amp; support personnel&nbsp;<br />
+    All accommodations as noted&nbsp;<br />
+    Meals as noted<br />
+    Land excursions as in itinerary&nbsp;<br />
+    Avalanche gear and safety equipment<br />
+    Ground transportation including transfers<br />
+  </p>
+</div>
+				<div class="clr"></div>
+			</div>
+			<div class="clr"></div>
+		</div>
+	</div>
+</div>
+<!--#include file="SSI/bottom-expeditions.ssi" -->
+<!--#include file="SSI/footer.ssi" -->
+</body>
+</html>

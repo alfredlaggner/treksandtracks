@@ -1,0 +1,184 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>akaishi documentation</title>
+	<meta name="viewport" content="user-scalable=no, width=device-width" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" media="all" />
+</head>
+<body>
+    <a id="goto-top" href="#">top</a>
+	<div id="container">
+	   <header></header>
+	   <div class="section">
+	       <h2>akaishi theme</h2>
+	       <p>01.02.2012<br />This theme was designed by <a class="black" href="http://www.designofseven.com/">Luca Bertaiola</a> for <a class="black" href="http://www.mountainthemes.com/">Mountain Themes</a> </p>
+	   </div>
+	   <nav>
+	       <ol>
+	           <li><span>01.</span><a href="#html">html structure</a></li>
+	           <li><span>02.</span><a href="#css">css files and structure</a></li>
+	           <li><span>03.</span><a href="#darkskin">the dark skin</a></li>
+	           <li><span>04.</span><a href="#homeslider">home slider</a></li>
+	           <li><span>05.</span><a href="#homefeatured">home featured products</a></li>
+	           <li><span>06.</span><a href="#javascript">javascript</a></li>
+	           <li><span>07.</span><a href="#psd">psd files</a></li>
+	           <li><span>08.</span><a href="#thumbs">advice for the thumbnails</a></li>
+	           <li><span>09.</span><a href="#comments">activate the comments in the blog</a></li>
+	           <li><span>10.</span><a href="#blog-thumbs">add a thumbnail in blog posts lists</a></li>
+	       </ul>
+	   </nav>
+	   
+	   <!-- !html -->
+	   <div class="section">
+	       <a href="javascript:void(0)" name="html"></a>
+	       <h3>html structure</h3>
+	       <p>Akaishi theme has a fixed layout built with a 35 columns grid. every element is wrapped up in a container div (<code>#container</code>). The only element that is outside the container div is the top bar (<code>#top-bar</code>) which contains the user login and the checkout button. You can easily find this elements inside the layout file.</p>
+	       <p>Every section of the layout is prefixed with an html comment just like this one: <code>&lt;!-- !header --&gt;</code>. The main sections are:</p>
+	       <ul>
+	           <li>header: here you can find the logo, the main menu and the search form</li>
+	           <li>footer: contains the bottom menu and a custom text</li>
+	       </ul>	       
+	       <p>There a lot of other sections which are relative to pages. They are wrapped between the <code>&lt;!-- !PAGE-CONTENT --&gt;</code> and <code>&lt;!-- !PAGE-CONTENT-END --&gt;</code> html comment tags.</p>
+	   </div>
+	   
+	   <!-- !css -->
+	   <div class="section">
+	       <a href="javascript:void(0)" name="css"></a>
+	       <h3>css files and structure</h3>
+	       <h4>the squaregrid framework</h4>
+	       <p>Akaishi theme is built with squaregrid grid system (<a href="http://thesquaregrid.com/">thesquaregrid.com</a>), this css framework generates a grid with 35 columns. Every box of the layout generate a space of 1 column and a variable width of columns, this value is defined inside the class of the 'box' element of the framework and it has the 'sg-' prefix. Every section of the layout has this class value and you can try to modify it in order to alter the width of the elements.<br />For example the slider inside the the home page (<code>section#home-slider</code>) has the '<code>sg-23</code>' class. If you modify the 23 value in 24 you add a column of width to the slider element, obviously this practice could broken the layout. Remember: if you add one or more columns of width you must reduce another element in the same row by the same value because the total of the elements plus spaces must be 35.</p>
+	       <h4>css structure</h4>
+	       <p>Akaishi theme comes with 5 css files:</p>
+	       <p><strong>css-chosen.css</strong><br />This file define the styles for the jquery plugin '<a href="http://harvesthq.github.com/chosen/">chosen</a>' which enhance the user experience of <code>select</code> elements.</p>
+	       <p><strong>css-fonts.css</strong><br />Imports from google the webfonts 'Chivo' e 'Droid Serif'</p>
+	       <p><strong>css-layout.css</strong><br />This is the main css file, it defines the layout, the tyopgraphy and every other things related to the akaishi design.</p>
+	       <p><strong>css-shadowbox.css</strong><br />Defines the styles for the Lightbox plugin called '<a href="http://www.shadowbox-js.com/">Shadowbox</a>'</p>
+	       <p><strong>css-squaregrid.css</strong><br />This is the file for the squaregrid framework. It defines the main classes of the grid.</p>
+	       <p><strong>css-layout-skin-01.css</strong><br />The dark skin of Akaishi. (optional)</p>
+	       <h4>css-layout.css</h4>
+	       <p>Let's have a deep look into the main css file of the theme. This file is structured in sections. Every section has a top comment just like this example : <code>/* top-bar */</code></p>
+	       <p>At the top of the file there are the reset rule (the one with the <code>*</code> selector), the base rules of the <code>body</code> element and html tags, in fact you should fin easily the secions 'anchors', 'paragraphs', 'headings' and 'tags', these are the basic styles for the html tags.</p>
+	       <p>After the 'tags' section there are some 'general purpose' classes used in many pages of the theme, then the 'isotope' section which defines some css3 rules for the <a href="http://isotope.metafizzy.co/">isotope</a> jquery plugin used in the home page of the featured products box.</p>
+	       <p>After the isotope section there are sections for every box of the layout, they are: </p>
+	       <ul>
+	           <li>top-bar</li>
+	           <li>header</li>
+	           <li>header-nav</li>
+	           <li>home-slider</li>
+	           <li>home-intro</li>
+	           <li>home-featured</li>
+	           <li>bottom-box</li>
+	           <li>icons</li>
+	           <li>collections-top</li>
+	           <li>collection-product</li>
+	           <li>pagination</li>
+	           <li>product</li>
+	           <li>blog-post</li>
+	           <li>list</li>
+	           <li>cart</li>
+	           <li>search results</li>
+	           <li>lists</li>
+	           <li>footer</li>
+	       </ul>
+	   </div>
+	   
+	   <!-- !darkskin -->
+	   <div class="section">
+	       <a href="javascript:void(0)" name="darkskin"></a>
+	       <h3>the dark skin</h3>
+	       <p>Akaishi Theme comes with 2 skins White and Dark. The only thing you must do in order to enable the dark skin is to add the link to the css-layout-skin-01.css file. </p>
+	       <img src="img/install-01.png" alt="" />
+	       <p>Remember just one thing. Add the reference link tag after the others links, specially after 'layout.css' link tag.</p>
+	   </div>
+	   
+	   <!-- !homeslider -->
+	   <div class="section">
+	       <a href="javascript:void(0)" name="homeslider"></a>
+	       <h3>home slider</h3>
+	       <p>In order to add and remove sections to the home slider ('home-slider' section in the index.html file) you need to add (or remove):</p>
+	       <ul>
+	           <li>an image tag.</li>
+	           <li>a div element containing the price of the product</li>
+	           <li>a javascript array key containing the url of the product page</li>
+	           <li>a div element containing the product name and description</li>
+	       </ul>
+	       <p>Note that every element has an index number which is a reference to the product display (this is not a product id, it's a simple incremental index used by the slider script).</p>
+	       <img src="img/install-02.png" alt="" />
+	       <p>If you want to add an element just add every element with the correct incremental index. If you want to remove an element be sure to not interrupt the incremental scale of indexes.</p>
+	   </div>
+	   
+	   <!-- !homeslider -->
+	   <div class="section">
+	       <a href="javascript:void(0)" name="homefeatured"></a>
+	       <h3>home featured products script</h3>
+	       <p>Add your products to the featured products grid in home page is very easy, believe me.</p>
+	       <p>Open index.html and find the 'featured' section. Just after the title (the h3 tag) there's a script tag with all the featured products data. Just edit this list of javascript array and objects and you're done.</p>
+	       <p>Let's see in detail the code:</p>
+	       <img src="img/install-03.png" alt="" />
+	       <ul>
+	           <li><strong>productId</strong>: replace the value (123 and 234 in the above image) with your product id</li>
+	           <li><strong>app.isotope.vars.homeFeaturedImages</strong>: place in this array the images url of your product.</li>
+	           <li><strong>app.isotope.vars.homeFeaturedProducts</strong>: this js object ha 3 keys: 'name' is the product name, 'price' is the product price and 'url' is the product url page.</li>
+	       </ul>
+	       <p>Repeat this process for every product you want to add inside the featured products grid.</p>
+	   </div>
+	   
+	   <!-- !javascript -->
+	   <div class="section">
+	       <a href="javascript:void(0)" name="javascript"></a>
+	       <h3>javascript</h3>
+	       <p>Akaishi theme comes with 7 javascript files, not all of them are present in every page:</p>
+	       <p><strong>js-akaishi.js</strong><br />the main javascript file of the theme.</p>
+	       <p><strong>js-app.js</strong><br />a custom miniframework i've developed.</p>
+	       <p><strong>js-chosen.jquery.min.js</strong><br />the js file for the chosen jquery plugin.</p>
+	       <p><strong>js-jquery.1.7.min.js</strong><br />jquery framework, version 1.7</p>
+	       <p><strong>js-jquery.isotope.min.js</strong><br />isotope plugin for jquery.</p>
+	       <p><strong>js-shadovbox.js</strong><br />shadowbox plugin.</p>
+	       <p><strong>js-jquery.plugins.js</strong><br />a collection of plugins for jquery.</p>
+	       
+	       <h4>js-akaishi.js</h4>
+	       <p>This is the main Javascript file of the theme. This is the only js file you should modify if you want to modify something about the functionalities of the theme.
+	       <br />Just like the main css file js-akaishi.js is structured in sections that starts with a js comment. The sections of the files are:</p>
+	       <ul>
+	           <li><strong>slider</strong>: manage the home page slider.</li>
+	           <li><strong>isotope</strong>: manage the featured products section of the theme.</li>
+	           <li><strong>chosen</strong>: manage the chosen plugin which replace every <code>select</code> element.</li>
+	           <li><strong>preload</strong>: manage the preload of the images.</li>
+	           <li><strong>focusBoxes</strong>: manage the effect visible in the collections pages products.</li>
+	           <li><strong>twitter</strong>: manage the twitter box.</li>
+	           <li><strong>shadowbox</strong>: manage the shadowbox plugin.</li>
+	       </ul>
+	       <p>Others sections manage some minor functions of the theme.</p>
+	       <img src="img/install-08.png" alt="" />
+	       <p>In the above example you can find a javascript section which starts with a javascript comment (<code>/* !preload */</code> in this example) and end with the final brace of app.preload object.</p>
+	       
+	   </div>
+	   
+	   <!-- !psd -->
+	   <div class="section">
+	       <a href="javascript:void(0)" name="psd"></a>
+	       <h3>psd files</h3>
+	       <p>There are 3 psd files included with the package: The home page, the collection and the product page.</p>
+	   </div>
+	   
+	   
+	   
+	   <!-- !install -->
+	   <div class="section">
+	       <a href="javascript:void(0)" name="comments"></a>
+	       <h3>activate the comments in the blog</h3>
+	       <p>Akaishi theme uses the Disqus comment system for the articles of the blog and you need a (free) account for this plattform to provide a working comment system for your blogs. Let see how to register and activate the comments in your blog.</p>
+	       <h4>step one</h4>
+	       <p>go to <a href="http://disqus.com/">disqus.com</a> and click on the 'signup' button.</p>
+	       <img src="img/install-05.png" alt="" />
+	       <p>Then complete and submit the form (take note of your 'site shortname' value because you have to set it later in the theme panel), in the next section customize your account and then click on 'continue'.</p>
+	       <h4>step two</h4>
+	       <p>Open article.html, go to line 96 and modifiy the javascript variable 'disqus_shortname' with the value of your 'site shortname' previously noted. Note that disquss comment system doesn't work on your local host.</p>
+	   </div>
+	   
+	</div>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    
+    <meta charset="UTF-8" />
+    <title>Akaishi Ecommerce - Home page</title>
+    <meta name='author' content="Mountain Themes - mountainthemes.com" />
+    <!-- !js -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="assets/js/jquery.1.7.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.isotope.min.js"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/chosen.jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.plugins.js"></script>
+    <script type="text/javascript" src="assets/js/akaishi.js"></script>
+    
+    <script type="text/javascript" src="assets/js/shadowbox.js"></script>
+    <script type="text/javascript" src="http://twitter.com/statuses/user_timeline/luglio7.json?callback=app.twitter.callback&amp;count=1&amp;exclude_replies=true"></script>
+    
+    <script type="text/javascript">
+        app.vars.currencySymbol = '$';
+    </script>
+    
+    <!-- !css -->
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Serif|Chivo" media="all" />
+    <link rel="stylesheet" type="text/css" href="assets/css/squaregrid.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="assets/css/chosen.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="assets/css/layout.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="assets/css/shadowbox.css" media="all" />
+    
+</head>
+<body>
+    
+    <!-- !top-bar -->
+    <div id="top-bar">
+        <div id="top-bar-content">
+            <span id="top-bar-content-user">
+                logged in as <a href="javascript:void(0)">Adam</a> (<a href="javascript:void(0)">logout</a>)
+            </span>
+            <a href="cart.html" id="top-bar-checkout">checkout</a>
+            <span id="top-bar-content-items">you have 4 products in your cart</span>
+        </div>
+    </div>
+    
+    <!-- !wrapper -->
+    <div id="wrapper">
+        <div id="container">
+            
+            <!-- !header -->
+            <header class="sg-35">
+                <a id="header-logo" href="index.html"></a>
+                <nav id="header-nav">
+                    <ul>
+                        <li><a href="index.html">home</a></li>
+                        <li><a href="page.html">about us</a></li>
+                        <li><a href="collection.html">collections</a></li>
+                        <li><a href="blog.html">blog</a></li>
+                    </ul>
+                </nav>
+				
+                <form action="/search" method="get" id="header-search">
+                    <input id="header-search-text" name="q" placeholder="search" type="text" />
+                    <input id="header-search-submit" type="image" src="assets/img/img-px.png" alt="search" />
+                </form>
+
+            </header>
+            
+            <!-- !PAGE-CONTENT -->
+            
+            <div class="sg-35">
+            <h3 class="title">cart</h3>
+            	
+            <form action="cart.html" method="post" name="cartform">
+            		
+            	<table id="cart-table" cellpadding="0" cellspacing="0">
+            		<tr>
+            			<th colspan="2" class="start">product</th>
+            			<th>price</th>
+            			<th>quantity</th>
+            			<th>delete</th>
+            			<th class="end">total</th>
+            		</tr>
+            		
+            		<tr class="{% cycle "odd", "even" %}">
+            			<td class="cart-table-picture">
+            				<a href="product.html"><img class="preload" src="assets/img/img-test-07.jpg" width="50" alt="product title" /></a>
+            			</td>
+            			<td class="cart-table-ttle">
+            				<a href="product.html">Mauris iaculis porttitor</a>
+            			</td>
+            			<td class="cart-table-price">
+            				<span>70.00 $</span>
+            			</td>
+            			<td class="cart-table-quantity">
+            				<input tabindex="0" type="text" class="field" name="updates[]" value="1" />
+            			</td>
+            			<td class="cart-table-remove">
+            				<a href="javascript:void(0)">remove</a>
+            			</td>
+            			<td class="cart-table-price">
+            				<strong>70.00</strong>
+            			</td>
+            		</tr>
+            		<tr class="{% cycle "odd", "even" %}">
+            			<td class="cart-table-picture">
+            				<a href="product.html"><img class="preload" src="assets/img/img-test-08.jpg" width="50" alt="product title" /></a>
+            			</td>
+            			<td class="cart-table-ttle">
+            				<a href="product.html">Donec congue lacinia dui}</a>
+            			</td>
+            			<td class="cart-table-price">
+            				<span>99.00 $</span>
+            			</td>
+            			<td class="cart-table-quantity">
+            				<input tabindex="1" type="text" class="field" name="updates[]" value="1" />
+            			</td>
+            			<td class="cart-table-remove">
+            				<a href="javascript:void(0)">remove</a>
+            			</td>
+            			<td class="cart-table-price">
+            				<strong>99.00</strong>
+            			</td>
+            		</tr>
+            		<tr class="{% cycle "odd", "even" %}">
+            			<td class="cart-table-picture">
+            				<a href="product.html"><img class="preload" src="assets/img/img-test-09.jpg" width="50" alt="product title" /></a>
+            			</td>
+            			<td class="cart-table-ttle">
+            				<a href="product.html">Lorem ipsum dolor sit amet</a>
+            			</td>
+            			<td class="cart-table-price">
+            				<span>133.00</span>
+            			</td>
+            			<td class="cart-table-quantity">
+            				<input tabindex="2" type="text" class="field" name="updates[]" value="1" />
+            			</td>
+            			<td class="cart-table-remove">
+            				<a href="javascript:void(0)">remove</a>
+            			</td>
+            			<td class="cart-table-price">
+            				<strong>133.00</strong>
+            			</td>
+            		</tr>
+            		<tr class="{% cycle "odd", "even" %}">
+            			<td class="cart-table-picture">
+            				<a href="product.html"><img class="preload" src="assets/img/img-test-10.jpg" width="50" alt="product title" /></a>
+            			</td>
+            			<td class="cart-table-ttle">
+            				<a href="product.html">In pellentesque faucibus vestibulum}</a>
+            			</td>
+            			<td class="cart-table-price">
+            				<span>55.00</span>
+            			</td>
+            			<td class="cart-table-quantity">
+            				<input tabindex="3" type="text" class="field" name="updates[]" value="1" />
+            			</td>
+            			<td class="cart-table-remove">
+            				<a href="javascript:void(0)">remove</a>
+            			</td>
+            			<td class="cart-table-price">
+            				<strong>55.00</strong>
+            			</td>
+            		</tr>
+            		<tr class="{% cycle "odd", "even" %}">
+            			<td colspan="4">&nbsp;</td>
+            			<th>total:</th>
+            			<td>357.00</td>
+            		</tr>
+            		
+            	</table>
+            	
+            	
+            	<div id="cart-notes">
+            		<label for="note">Tell us about any special instructions</label>
+            		<textarea name="note" id="note" rows="" cols=""></textarea>
+            	</div>
+            	
+            	<div id="cart-complete">
+            		
+            		<input type="submit" alt="Update" value="update cart" name="update" class="update" />
+            		<input type="submit" alt="Checkout" value="checkout" name="checkout" class="checkout" />
+            		
+            		<div class="clear"></div>
+            		
+            	</div>
+            </form>
+            </div>
+            
+            <!-- !PAGE-CONTENT-END -->
+            
+            <!-- !line -->
+            <div class="sg-35 line"></div>
+            
+            <footer class="sg-35">
+	
+            <nav>
+                <ul>
+                    <li class="sel"><a href="javascript:void(0)">home</a></li>
+                        <li><a href="javascript:void(0)">about us</a></li>
+                        <li><a href="javascript:void(0)">collections</a></li>
+                        <li><a href="javascript:void(0)">blog</a></li>
+                        <li><a href="javascript:void(0)">contact us</a></li>
+                </ul>
+            </nav>
+
+            Class aptent taciti sociosqu ad litora torquent per conubia.
+            </footer>
+            
+        </div>
+    </div>
+    
+</body>
+</html>

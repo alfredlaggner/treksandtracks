@@ -1,0 +1,356 @@
+body
+{
+    background-image: url('../img/img-body-bkg-01.png');
+    text-shadow: 0 -1px 0 rgba(0,0,0,.2);
+    color: #eee;
+}
+
+/* !classes */
+
+.sub-title
+{
+    color: #c33;
+}
+
+.list
+{
+    border-color: #555;
+}
+
+.list a
+{
+    color: #aaa;
+}
+
+.list li.alt
+{
+    background-image: url('../img/img-white-10.png')
+}
+
+.article-image
+{
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.25);
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,.25);
+    -o-box-shadow: 0 0 10px rgba(0,0,0,.25);
+    -ms-box-shadow: 0 0 10px rgba(0,0,0,.25);
+    box-shadow: 0 0 10px rgba(0,0,0,.25);
+}
+
+/* !line */
+
+.line
+{
+    background-color: #383838;
+    
+    -webkit-box-shadow: 0 -1px 0 rgba(0,0,0,.2);
+    -moz-box-shadow: 0 -1px 0 rgba(0,0,0,.2);
+    -o-box-shadow: 0 -1px 0 rgba(0,0,0,.2);
+    -ms-box-shadow: 0 -1px 0 rgba(0,0,0,.2);
+    box-shadow: 0 -1px 0 rgba(0,0,0,.2);
+}
+
+/* !top-bar */
+
+#top-bar
+{
+    background-image: url('../img/img-black-10.png');
+    color: #666;
+}
+
+#top-bar a
+{
+    color: #999;
+}
+
+a#top-bar-checkout
+{
+    color: #fff;
+}
+
+#top-bar-content-user
+{
+    background-image: url('../img/img-top-bar-user-1.png')
+}
+
+/* !header */
+
+#header-logo
+{
+    background: transparent url('../img/img-header-logo-1.png') no-repeat scroll 0 0;
+}
+
+#header-nav li a
+{
+    color: #eee;
+}
+
+/* !header-search */
+
+#header-search
+{
+    background-image: url('../img/img-white-10.png');
+    
+    -moz-box-shadow: inset -1px 1px 0 rgba(0,0,0,.4);
+    -webkit-box-shadow: inset -1px 1px 0 rgba(0,0,0,.4);
+    -o-box-shadow: inset -1px 1px 0 rgba(0,0,0,.4);
+    -ms-box-shadow: inset -1px 1px 0 rgba(0,0,0,.4);
+    box-shadow: inset -1px 1px 0 rgba(0,0,0,.4);
+}
+
+#header-search-text
+{
+    color: #999;
+}
+
+#header-search-submit, #search-search-submit
+{
+    background-image: url('../img/img-ico-search-22-1.png');
+}
+
+/* !home-stuff */
+
+#home-slider
+{
+    background-image: url('../img/img-black-10.png');
+}
+
+#home-intro-cta
+{
+    color: #eee;
+    background-image: url('../img/img-black-10.png');
+}
+
+#home-intro
+{
+    background-image: url('../img/img-ico-love-18-1.png');
+}
+
+#home-intro-content p
+{
+    color: #aaa;
+}
+
+/* !home-featured */
+
+.home-featured-item
+{
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.5);
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,.5);
+    -o-box-shadow: 0 0 10px rgba(0,0,0,.5);
+    -ms-box-shadow: 0 0 10px rgba(0,0,0,.5);
+    box-shadow: 0 0 10px rgba(0,0,0,.5);
+}
+
+/* !bottom-box */
+
+#bottom-box-latest-post
+{
+    background-image: url('../img/img-ico-bottom-box-latest-post-eee.png');
+    background-position: 0 5px;
+}
+
+#bottom-box-twitter-socials
+{
+    background-image: url('../img/img-ico-bottom-box-twitter-eee.png');
+    background-position: 0 5px;
+}
+
+#bottom-box-twitter-socials cite
+{
+    color: #aaa;
+    background-image: url('../img/img-cite-bkg-eee.png');
+}
+
+#bottom-box-newsletter
+{
+    background-image: url('../img/img-ico-newsletter-eee.png');
+    background-position: 0 5px;
+}
+
+.twitter-icon
+{
+    background-image: url('../img/img-ico-twitter-sprite-28-1.png');
+}
+
+.vimeo-icon
+{
+    background-image: url('../img/img-ico-vimeo-sprite-28-1.png');
+}
+
+.facebook-icon
+{
+    background-image: url('../img/img-ico-facebook-sprite-28-1.png');
+}
+
+#bottom-box-latest-post p
+{
+    color: #aaa;
+}
+
+.bottom-box h4
+{
+    color: #fff;
+}
+
+/* !rss-link */
+
+#rss-link
+{
+    background-image: url('../img/img-white-10.png');
+    color: #eee;
+}
+
+/* !article */
+
+article h3 a
+{
+    color: #eee;
+}
+
+.blog-post
+{
+    border-color: #555;
+}
+
+.blog-post-thumb 
+{
+    background-image: url('../img/img-black-10.png');
+}
+
+/* !pagination */
+
+#pagination span.page
+{
+    background-color: #111;
+    color: #eee;
+}
+
+#pagination span.current
+{
+    background-color: #444;
+    color: #eee;
+}
+
+/* !cart-table */
+
+#cart-table, #cart-table th, #cart-table td
+{
+    border-color: #555;
+}
+
+td.cart-table-quantity input
+{
+    border-color: #222 #222 transparent transparent;
+    background-image: url('../img/img-white-10.png');
+}
+
+#cart-notes textarea
+{
+    background-image: url('../img/img-white-10.png');
+    border-color: #222 #222 transparent transparent;
+}
+
+/* !collection-product */
+
+.collection-product img
+{
+    border-color: #282828;
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.5);
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,.5);
+    -o-box-shadow: 0 0 10px rgba(0,0,0,.5);
+    -ms-box-shadow: 0 0 10px rgba(0,0,0,.5);
+    box-shadow: 0 0 10px rgba(0,0,0,.5);
+}
+
+.collection-product-description a
+{
+    color: #eee;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.5)
+}
+
+.collection-product-description a:hover
+{
+    color: #c33;
+}
+
+.collection-product-description-price
+{
+    background-color: #222;
+    color: #eee;
+    text-shadow: none;
+}
+
+.collection-product-description-price span
+{
+    background-color: #444;
+    border-color: transparent;
+}
+
+#collection-top-menu li.sel
+{
+    background-color: #222;
+}
+
+#collection-top-menu li.sel a
+{
+    color: #c33;
+}
+
+.collection-top-filter
+{
+    color: #333;
+}
+
+/* !product */
+
+#product-description h1
+{
+    text-shadow: 0 -1px 0 rgba(0,0,0,.2)
+}
+
+#product-image img
+{
+    border-color: #282828;
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.5);
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,.5);
+    -o-box-shadow: 0 0 10px rgba(0,0,0,.5);
+    -ms-box-shadow: 0 0 10px rgba(0,0,0,.5);
+    box-shadow: 0 0 10px rgba(0,0,0,.5);
+}
+
+#product-description-data-thumbs a
+{
+    border-color: #282828;
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.25);
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,.25);
+    -o-box-shadow: 0 0 10px rgba(0,0,0,.25);
+    -ms-box-shadow: 0 0 10px rgba(0,0,0,.25);
+    box-shadow: 0 0 10px rgba(0,0,0,.25);
+}
+
+.product-description-data-row
+{
+    text-shadow: 0 -1px rgba(0,0,0,.2)
+}
+
+#product-image-buy
+{
+    background-image: url('../img/img-black-10.png');
+}
+
+#product-image-buy-quantity
+{
+    text-shadow: 0 -1px 0 rgba(0,0,0,.2);
+}
+
+/* !search */
+
+#search-results li
+{
+    border-color: #555;
+}
+
+#search-results li h4 a
+{
+    color: #eee;
+}

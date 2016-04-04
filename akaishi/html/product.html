@@ -1,0 +1,229 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    
+    <meta charset="UTF-8" />
+    <title>Akaishi Ecommerce - Home page</title>
+    <meta name='author' content="Mountain Themes - mountainthemes.com" />
+    <!-- !js -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="assets/js/jquery.1.7.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.isotope.min.js"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/chosen.jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.plugins.js"></script>
+    <script type="text/javascript" src="assets/js/akaishi.js"></script>
+    
+    <script type="text/javascript" src="assets/js/shadowbox.js"></script>
+    <script type="text/javascript" src="http://twitter.com/statuses/user_timeline/luglio7.json?callback=app.twitter.callback&amp;count=1&amp;exclude_replies=true"></script>
+    
+    <script type="text/javascript">
+        app.vars.currencySymbol = '$';
+    </script>
+    
+    <!-- !css -->
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Droid+Serif|Chivo" media="all" />
+    <link rel="stylesheet" type="text/css" href="assets/css/squaregrid.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="assets/css/chosen.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="assets/css/layout.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="assets/css/shadowbox.css" media="all" />
+    
+</head>
+<body>
+    
+    <!-- !top-bar -->
+    <div id="top-bar">
+        <div id="top-bar-content">
+            <span id="top-bar-content-user">
+                logged in as <a href="javascript:void(0)">Adam</a> (<a href="javascript:void(0)">logout</a>)
+            </span>
+            <a href="cart.html" id="top-bar-checkout">checkout</a>
+            <span id="top-bar-content-items">you have 4 products in your cart</span>
+        </div>
+    </div>
+    
+    <!-- !wrapper -->
+    <div id="wrapper">
+        <div id="container">
+            
+            <!-- !header -->
+            <header class="sg-35">
+                <a id="header-logo" href="index.html"></a>
+                <nav id="header-nav">
+                    <ul>
+                        <li><a href="index.html">home</a></li>
+                        <li><a href="page.html">about us</a></li>
+                        <li class="sel"><a href="collection.html">collections</a></li>
+                        <li><a href="blog.html">blog</a></li>
+                    </ul>
+                </nav>
+                
+                <form action="#" method="get" id="header-search">
+                    <input id="header-search-text" name="q" placeholder="search" type="text" />
+                    <input id="header-search-submit" type="image" src="assets/img/img-px.png" alt="search" />
+                </form>
+
+            </header>
+            
+            <!-- !line -->
+            <div class="sg-35 line"></div>
+            
+            <!-- !PAGE-CONTENT -->
+            
+            <div id="product-image" class="sg-17">
+                
+                <a rel="shadowbox[gallery]" href="assets/img/img-test-11.jpg"><img src="assets/img/img-test-11.jpg" class="preload" alt="" /></a>
+                
+                <div id="product-image-price">
+                    <div id="product-image-price-valuta">$</div>
+                    <div id="product-image-price-value">158.90</div>
+                </div>
+                
+                <form id="product-image-buy" method="post" action="/cart/add">      
+            
+                    <div id="product-image-buy-labels">
+                        <label id="product-image-buy-label-models">models</label>
+                        <label id="product-image-buy-label-quantity">quantity</label>
+                    </div>
+                
+                    <a href="javascript:void(0)" id="product-image-buy-link">add to cart</a>
+                    <input placeholder="1" type="text" name="quantity" id="product-image-buy-quantity" />
+                    <div id="product-image-buy-models">
+                        <select id="product-image-buy-models-select" name="id">
+                            <option value=""></option>
+                            <option id="product-image-buy-models-select-option-1234" rel="price:158.90" value="1234">White</option>
+                            <option id="product-image-buy-models-select-option-1235" rel="price:168.00" value="1235">Red</option>
+                            <option id="product-image-buy-models-select-option-1236" rel="price:177.10" value="1236">Blue</option>
+                        </select>
+                    </div>
+                </form>
+                
+            </div>
+            
+            <div id="product-description" class="sg-17">
+            
+                <h1>The Lorem Ipsum Lamp</h1>
+                
+                <div id="product-description-data">
+                    <div class="line"></div>
+                    <div class="product-description-data-row"><span class="product-description-data-row-label">type</span><span>lamps</span></div>
+                    <div class="product-description-data-row"><span class="product-description-data-row-label">brand</span><span>ikea</span></div>
+                    <div class="line"></div>
+                    <div class="product-description-data-row"><span class="product-description-data-row-label">available</span><span>yes</span></div>
+                    <div class="product-description-data-row"><span class="product-description-data-row-label">models</span><span>3</span></div>
+                    <div class="line"></div>
+                    
+                    <div id="product-description-data-thumbs">
+                        <a rel="shadowbox[gallery]" href="assets/img/img-test-10.jpg"><img width="100" class="preload" src="assets/img/img-test-10.jpg" alt="" /></a>
+                        <a rel="shadowbox[gallery]" href="assets/img/img-test-09.jpg"><img width="100" class="preload" src="assets/img/img-test-09.jpg" alt="" /></a>
+                        <a rel="shadowbox[gallery]" href="assets/img/img-test-08.jpg"><img width="100" class="preload" src="assets/img/img-test-08.jpg" alt="" /></a>
+                    </div>
+            
+                </div>
+            
+            </div>
+            
+            <!-- !line -->
+            <div class="clear"></div>
+            <div class="sg-35 line"></div>
+            
+            <div class="sg-35">
+                
+                
+                <div class="addthis_toolbox addthis_default_style ">
+                    <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+                    <a class="addthis_button_tweet"></a>
+                    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+                    <a class="addthis_counter addthis_pill_style"></a>
+                </div>
+                <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4ed647e85c970dff"></script>
+                
+                <div class="line"></div>
+                
+                <h3 class="title">Vivamus luctus urna sed urna ultricies ac tempor dui.</h3>
+                <div id="product-description-text">
+                    <p>Nulla facilisi. Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus<br />ornare ante, ac egestas est urna sit amet arcu.</p>
+                    <p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed molestie augue sit amet leo.</p>
+                    <p>Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet arcu. Class aptent taciti sociosqu ad litora.</p>
+                </div>
+            </div>
+            
+            <!-- !line -->
+            <div class="clear"></div>
+            <div class="sg-35 line"></div>
+            
+            <div class="sg-35 sg-no-margin-bottom">
+                <h3 class="title">Related Products</h3>
+            </div>
+            
+            <div class="sg-8 collection-product focus-box">
+                <a href="product.html"><img src="assets/img/img-test-08.jpg" class="preload" alt="product title" /></a>
+                <div class="line"></div>
+                <div class="collection-product-description">
+                    <a href="product.html">Nullam in dui mauris</a>
+                    <div class="collection-product-description-price">
+                        <span>$</span> 156.00
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sg-8 collection-product focus-box">
+                <a href="product.html"><img src="assets/img/img-test-09.jpg" class="preload" alt="product title" /></a>
+                <div class="line"></div>
+                <div class="collection-product-description">
+                    <a href="product.html">Proin quis tortor orci</a>
+                    <div class="collection-product-description-price">
+                        <span>$</span> 110.00
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sg-8 collection-product focus-box">
+                <a href="product.html"><img src="assets/img/img-test-10.jpg" class="preload" alt="product title" /></a>
+                <div class="line"></div>
+                <div class="collection-product-description">
+                    <a href="product.html">Mauris iaculis porttitor</a>
+                    <div class="collection-product-description-price">
+                        <span>$</span> 90.00
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sg-8 collection-product focus-box">
+                <a href="product.html"><img src="assets/img/img-test-11.jpg" class="preload" alt="product title" /></a>
+                <div class="line"></div>
+                <div class="collection-product-description">
+                    <a href="product.html">Nullam in dui mauris</a>
+                    <div class="collection-product-description-price">
+                        <span>$</span> 77.30
+                    </div>
+                </div>
+            </div>
+            
+            <!-- !PAGE-CONTENT-END -->
+            
+            <!-- !line -->
+            <div class="sg-35 line"></div>
+            
+            <footer class="sg-35">
+    
+            <nav>
+                <ul>
+                    <li class="sel"><a href="javascript:void(0)">home</a></li>
+                        <li><a href="javascript:void(0)">about us</a></li>
+                        <li><a href="javascript:void(0)">collections</a></li>
+                        <li><a href="javascript:void(0)">blog</a></li>
+                        <li><a href="javascript:void(0)">contact us</a></li>
+                </ul>
+            </nav>
+
+            Class aptent taciti sociosqu ad litora torquent per conubia.
+            </footer>
+            
+        </div>
+    </div>
+    
+</body>
+</html>

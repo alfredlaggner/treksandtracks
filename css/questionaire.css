@@ -1,0 +1,25 @@
+/* CSS Document */
+				<style type="text/css">
+* {
+    padding: 0px;
+    margin: 0px;
+}
+.wb {
+    width: 15px;
+    height: 15px;
+    float: left;
+	 vertical-align: middle;
+}
+#somelabel {
+    float: left;
+    padding-left: 3px;
+	 
+}
+#new_line, #customer_data li { width:100%}
+
+#customer_data fieldset {
+	margin-top: 10px;
+}	
+</style>
+
+

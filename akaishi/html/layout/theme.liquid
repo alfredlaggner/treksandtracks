@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	
+<meta charset="UTF-8" />
+<title>{{ shop.name }} - {{ page_title }}</title>
+<meta name='author' content="Mountain Themes - mountainthemes.com" />
+{{ content_for_header }}
+
+<!-- !js -->
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+{{ "js-jquery.1.7.min.js" | asset_url | script_tag }}
+{{ "js-jquery.isotope.min.js" | asset_url | script_tag }}
+{{ "js-app.js" | asset_url | script_tag }}
+{{ "js-chosen.jquery.min.js" | asset_url | script_tag }}
+{{ "js.jquery.plugins.js" | asset_url | script_tag }}
+{{ "js-akaishi.js" | asset_url | script_tag }}
+
+{% if settings.general_twitter_username.size %}
+
+{% capture twitter_url %}http://twitter.com/statuses/user_timeline/{{settings.general_twitter_username}}.json?callback=app.twitter.callback&amp;count=1&amp;exclude_replies=true{% endcapture %}
+{{ twitter_url | script_tag }}
+
+{% endif %}
+
+<script type="text/javascript">
+	app.vars.currencySymbol = {% if settings.currency_symbol.size > 0 %}'{{settings.currency_symbol}}'{% else %}'$'{% endif %};
+</script>
+
+{% if template contains 'customers' %}
+	{{ "shopify_common.js" | shopify_asset_url | script_tag }}
+	{{ "customer_area.js"  | shopify_asset_url | script_tag }}
+{% endif %}
+
+<!-- !css -->
+{{ "css-fonts.css" | asset_url | stylesheet_tag }}
+{{ "css-squaregrid.css" | asset_url | stylesheet_tag }}
+{{ "css-chosen.css" | asset_url | stylesheet_tag }}
+{{ "css-layout.css" | asset_url | stylesheet_tag }}
+
+<!-- shadowbox -->
+{% if template contains 'product' %}
+	
+{{ "js-shadowbox.js" | asset_url | script_tag }}
+{{ "css-shadowbox.css" | asset_url | stylesheet_tag }}
+	
+{% endif %}
+	
+</head>
+<body>
+	
+	<!-- !top -->
+	{% if template != 'cart' %}
+	{% if settings.general_display_top_bar %}
+	<div id="top-bar" {% if settings.general_scrolling_top_bar %}class="top-bar-fixed"{% endif %}>
+		<div id="top-bar-content">
+			<span id="top-bar-content-user">
+			{% if shop.customer_accounts_enabled %}
+				{% if customer  %}
+					<a href="/account">{{ settings.general_logged_in_as_text }} {{ customer.first_name }}</a> ({{ "Logout" | customer_logout_link }})
+				{% else %}
+					{{ settings.general_login_prefix_text }} {{ settings.general_login_text | customer_login_link }}.
+				{% endif %}
+			{% endif %}
+			</span>
+			
+			<a href="/cart" id="top-bar-checkout">{{ settings.general_checkout_text }}</a>
+			
+			<span id="top-bar-content-items">
+			{% if cart.items.size > 0 %}
+			{{ settings.general_top_bar_items_prefix }} {{cart.items.size}} {{ settings.general_top_bar_items_suffix }} 
+			{% endif %}
+			</span>
+			
+		</div>
+	</div>
+	{% endif %}
+	{% endif %}
+	
+    <div id="wrapper">
+        <div id="container">
+            
+            <!-- !header -->
+            <header class="sg-35 {% if settings.general_display_top_bar == false or template contains 'cart' %}header-no-padding{% endif %}">
+                <a id="header-logo" href="{{ shop.url }}"><img src="{{ 'img-header-logo.png' | asset_url }}" alt="{{ shop.name | escape }}" /></a>
+				{% if linklists[settings.general_top_menu].size > 0  %}
+                <nav id="header-nav">
+                    <ul>
+						{% for link in linklists[settings.general_top_menu].links %}
+							{% if link.active %}<li class="sel">{% else %}<li>{% endif %} {{ link.title | link_to: link.url }} </li>
+						{% endfor %}
+                    </ul>
+                </nav>
+				{% endif %}
+				
+				{% if template != 'search' %}
+                <form action="/search" method="get" id="header-search">
+                    <input id="header-search-text" name="q" placeholder="{{ settings.general_search_placeholder }}" type="text" />
+                    <input id="header-search-submit" type="image" src="{{ 'img-px.png' | asset_url }}" alt="search" />
+                </form>
+				{% endif %}
+
+            </header>
+        	
+			{% if template == 'list-collections' %}
+			{% include 'collection-listing' %}
+			{% else %}
+			{{ content_for_layout }}
+			{% endif %}
+            
+            <!-- !line -->
+            <div class="sg-35 line"></div>
+            
+            <footer class="sg-35">
+	
+			{% if linklists[settings.general_footer_menu].size > 0  %}
+            <nav>
+                <ul>
+					{% for link in linklists[settings.general_footer_menu].links %}
+						{% if link.active %}<li class="sel">{% else %}<li>{% endif %} {{ link.title | link_to: link.url }} </li>
+					{% endfor %}
+                </ul>
+            </nav>
+			{% endif %}
+
+            {{ settings.general_footer_text }}
+            </footer>
+            
+        </div>
+    </div>
+</body>
+</html>
