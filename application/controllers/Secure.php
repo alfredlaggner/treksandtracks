@@ -5,142 +5,142 @@ class Secure extends CI_Controller
 {
 
 
-    function __construct()
-    {
-        parent::__construct();
-        $this->auth->is_logged_in();
-    }
+	function __construct()
+	{
+		parent::__construct();
+		$this->auth->is_logged_in();
+	}
 
 
-    function index()
-    {
-        $this->load->library('facebook');
+	function index()
+	{
+		$this->load->library('facebook');
 
-        $this->load->model('fizzlebizzle');
+		$this->load->model('fizzlebizzle');
 
-        $result = $this->fizzlebizzle->get_access_token();
+		$result = $this->fizzlebizzle->get_access_token();
 
 
-        if ($result['is_true']) {
+		if ($result['is_true']) {
 
-            $this->session->set_userdata(array('access_token' => $result['access_token']));
+			$this->session->set_userdata(array('access_token' => $result['access_token']));
 
-        } else {
+		} else {
 
-            $this->session->set_userdata(array('access_token' => FALSE));
+			$this->session->set_userdata(array('access_token' => FALSE));
 
-        }
+		}
 
 
-        $data['page'] = 'secure_view';
+		$data['page'] = 'secure_view';
 
-        $this->load->view('template', $data);
+		$this->load->view('template', $data);
 
-    }
+	}
 
 
 
-    //some example functions
+	//some example functions
 
-    //function me is DRY and dynamic to show as example
+	//function me is DRY and dynamic to show as example
 
-    //object: likes, home, feed, movies, music, books, notes, permissions, photos, albums, videos, uploaded, events, groups, checkins, locations, etc.
+	//object: likes, home, feed, movies, music, books, notes, permissions, photos, albums, videos, uploaded, events, groups, checkins, locations, etc.
 
-    //https://developers.facebook.com/docs/reference/api/
+	//https://developers.facebook.com/docs/reference/api/
 
-    function me($object = NULL)
-    {
+	function me($object = NULL)
+	{
 
-        if ($object == NULL) {
+		if ($object == NULL) {
 
-            $this->index();
+			$this->index();
 
-        } else {
+		} else {
 
-            $this->load->model('fizzlebizzle');
+			$this->load->model('fizzlebizzle');
 
-            $result = $this->fizzlebizzle->get_facebook_object($object, $this->session->userdata('facebook_uid'), $this->session->userdata('access_token'));
+			$result = $this->fizzlebizzle->get_facebook_object($object, $this->session->userdata('facebook_uid'), $this->session->userdata('access_token'));
 
 
-            if ($result['is_true']) {
+			if ($result['is_true']) {
 
-                $data['objects'] = $result['data'];
+				$data['objects'] = $result['data'];
 
-            } else {
+			} else {
 
-                $data['error_message'] = $result['message'];
+				$data['error_message'] = $result['message'];
 
-                $data['objects'] = array();
+				$data['objects'] = array();
 
-            }
+			}
 
 
-            $data['page'] = 'objects_view';
+			$data['page'] = 'objects_view';
 
-            $this->load->view('template', $data);
+			$this->load->view('template', $data);
 
-        }
+		}
 
-    }
+	}
 
 
-    //example function
+	//example function
 
-    function friends()
-    {
+	function friends()
+	{
 
-        $this->load->model('fizzlebizzle');
+		$this->load->model('fizzlebizzle');
 
-        $result = $this->fizzlebizzle->get_facebook_object('friends', $this->session->userdata('facebook_uid'), $this->session->userdata('access_token'));
+		$result = $this->fizzlebizzle->get_facebook_object('friends', $this->session->userdata('facebook_uid'), $this->session->userdata('access_token'));
 
 
-        if ($result['is_true']) {
+		if ($result['is_true']) {
 
-            $data['friends'] = $result['data'];
+			$data['friends'] = $result['data'];
 
-        } else {
+		} else {
 
-            $data['error_message'] = $result['message'];
+			$data['error_message'] = $result['message'];
 
-            $data['friends'] = array();
+			$data['friends'] = array();
 
-        }
+		}
 
 
-        $data['page'] = 'friends_view';
+		$data['page'] = 'friends_view';
 
-        $this->load->view('template', $data);
+		$this->load->view('template', $data);
 
-    }
+	}
 
 
-    //example function
+	//example function
 
-    function likes()
-    {
+	function likes()
+	{
 
-        $this->load->model('fizzlebizzle');
+		$this->load->model('fizzlebizzle');
 
-        $result = $this->fizzlebizzle->get_facebook_object('likes', $this->session->userdata('facebook_uid'), $this->session->userdata('access_token'));
+		$result = $this->fizzlebizzle->get_facebook_object('likes', $this->session->userdata('facebook_uid'), $this->session->userdata('access_token'));
 
 
-        if ($result['is_true']) {
+		if ($result['is_true']) {
 
-            $data['likes'] = $result['data'];
+			$data['likes'] = $result['data'];
 
-        } else {
+		} else {
 
-            $data['error_message'] = $result['message'];
+			$data['error_message'] = $result['message'];
 
-            $data['likes'] = array();
+			$data['likes'] = array();
 
-        }
+		}
 
 
-        $data['page'] = 'likes_view';
+		$data['page'] = 'likes_view';
 
-        $this->load->view('template', $data);
+		$this->load->view('template', $data);
 
-    }
+	}
 
 }

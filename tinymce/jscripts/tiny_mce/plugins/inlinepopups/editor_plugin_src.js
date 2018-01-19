@@ -2,7 +2,7 @@
  * $Id: editor_plugin_src.js 1150 2009-06-01 11:50:46Z spocke $
  *
  * @author Moxiecode
- * @copyright Copyright © 2004-2008, Moxiecode Systems AB, All rights reserved.
+ * @copyright Copyright ï¿½ 2004-2008, Moxiecode Systems AB, All rights reserved.
  */
 
 (function() {
@@ -370,8 +370,7 @@
 				sy = cp.y + p.y - vp.y;
 				DOM.add(eb.get(), 'div', {id : 'mcePlaceHolder', 'class' : 'mcePlaceHolder', style : {left : sx, top : sy, width : sz.w, height : sz.h}});
 				ph = new Element('mcePlaceHolder');
-			};
-
+			}
 			// Handle mouse move/drag
 			mm = Event.add(d, 'mousemove', function(e) {
 				var x, y, v;

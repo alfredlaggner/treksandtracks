@@ -69,7 +69,7 @@ Control.RatingBar = Class.create({
 		for (var i = 0; i < this.element.childNodes.length; ++i) {
 			var child = $(this.element.childNodes[i]); 
 			if (child.hasClassName(this.options.starClass)) {
-				this.setStarBehavior(child, i + this.options.min)
+				this.setStarBehavior(child, i + this.options.min);;
 				this.stars.push(child);
 			}
 		}

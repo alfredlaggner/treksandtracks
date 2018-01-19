@@ -3,9 +3,9 @@
 class Test1 extends CI_Controller
 {
 
-    public function index()
-    {
+	public function index()
+	{
 		echo "this is a test";
-    }
+	}
 
 }

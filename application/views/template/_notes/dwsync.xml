@@ -44,4 +44,8 @@
 <file name="result.php" server="localhost//home/forge/treksandtracks.com/public/" local="130797500090000000" remote="131006733000000000" Dst="1" />
 <file name="show_result.php" server="localhost//home/forge/treksandtracks.com/public/" local="130797500100000000" remote="131006733000000000" Dst="1" />
 <file name="test-view.php" server="localhost//home/forge/treksandtracks.com/public/" local="130797500120000000" remote="131006733000000000" Dst="1" />
+<file name="index.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797500090000000" remote="130797500090000000" Dst="2" />
+<file name="result.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797500090000000" remote="130797500090000000" Dst="2" />
+<file name="show_result.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797500100000000" remote="130797500100000000" Dst="2" />
+<file name="test-view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797500120000000" remote="130797500120000000" Dst="2" />
 </dwsync>

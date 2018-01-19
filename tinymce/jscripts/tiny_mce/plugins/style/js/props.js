@@ -352,8 +352,7 @@ function isSame(e, pr, sf, b) {
 	}
 
 	return true;
-};
-
+}
 function hasEqualValues(a) {
 	var i, x;
 

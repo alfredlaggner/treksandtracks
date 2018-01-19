@@ -87,4 +87,18 @@
 <file name="top_bar_org.php" server="localhost//home/forge/treksandtracks.com/public/" local="130880437610000000" remote="131006733000000000" Dst="1" />
 <file name="top_bar_wrk.php" server="localhost//home/forge/treksandtracks.com/public/" local="130880442670000000" remote="131006733000000000" Dst="1" />
 <file name="head.php" server="localhost//home/forge/sunnydays.me/public/" local="131034756141253703" remote="131034756000000000" Dst="2" />
+<file name="footer-2.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130880437610000000" remote="130880437610000000" Dst="2" />
+<file name="footer.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130880442660000000" remote="130880442660000000" Dst="2" />
+<file name="footer_boxes.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130997675820000000" remote="131045966000000000" Dst="2" />
+<file name="head-2.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130880437610000000" remote="130880437610000000" Dst="2" />
+<file name="head.php" server="159.203.224.137//home/forge/sunnydays.me/" local="131034756140000000" remote="131034756140000000" Dst="2" />
+<file name="header-2.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130880437610000000" remote="130880437610000000" Dst="2" />
+<file name="header.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130997048730000000" remote="131045966000000000" Dst="2" />
+<file name="javascript.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130880437610000000" remote="130880437610000000" Dst="2" />
+<file name="pages_sidebar.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130880437610000000" remote="130880437610000000" Dst="2" />
+<file name="top_bar.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130880437610000000" remote="130880437610000000" Dst="2" />
+<file name="top_bar_index.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130880437610000000" remote="130880437610000000" Dst="2" />
+<file name="top_bar_index_with_region.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130880442670000000" remote="130880442670000000" Dst="2" />
+<file name="top_bar_org.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130880437610000000" remote="130880437610000000" Dst="2" />
+<file name="top_bar_wrk.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130880442670000000" remote="130880442670000000" Dst="2" />
 </dwsync>

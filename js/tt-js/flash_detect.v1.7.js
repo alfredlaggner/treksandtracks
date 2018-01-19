@@ -1,4 +1,4 @@
-<!--
+<!--;;
 //v1.7
 // Flash Player Version Detection
 // Detect Client Browser type
@@ -191,10 +191,10 @@ function AC_SW_RunContent(){
   AC_Generateobj(ret.objAttrs, ret.params, ret.embedAttrs);
 }
 function AC_GetArgs(args, ext, srcParamName, classid, mimeType){
-  var ret = new Object();
-  ret.embedAttrs = new Object();
-  ret.params = new Object();
-  ret.objAttrs = new Object();
+  var ret = {};
+  ret.embedAttrs = {};
+  ret.params = {};
+  ret.objAttrs = {};
   for (var i=0; i < args.length; i=i+2){
     var currArg = args[i].toLowerCase();    
     switch (currArg){	

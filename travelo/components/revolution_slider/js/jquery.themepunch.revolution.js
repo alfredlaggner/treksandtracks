@@ -132,7 +132,7 @@
 						punchgs.TweenLite.lagSmoothing(1000,16);
 						punchgs.force3D = "true";
 
-						initSlider(jQuery(this),options)
+						initSlider(jQuery(this),options);;
 
 						try{
 							console.groupEnd();
@@ -257,7 +257,7 @@
 				}
 
 
-})
+});;
 
 		function initSlider(container,opt) {
 							if (opt.navigationStyle=="preview1" ||  opt.navigationStyle=="preview3" || opt.navigationStyle=="preview4") {
@@ -284,16 +284,16 @@
 							container.css({maxHeight:opt.startheight+"px"});
 
 						if (is_mobile() && opt.hideThumbsOnMobile=="on" && opt.navigationType=="thumb")
-						   opt.navigationType = "none"
+						   opt.navigationType = "none";;
 
 						if (is_mobile() && opt.hideBulletsOnMobile=="on" && opt.navigationType=="bullet")
-						   opt.navigationType = "none"
+						   opt.navigationType = "none";;
 
 						if (is_mobile() && opt.hideBulletsOnMobile=="on" && opt.navigationType=="both")
-						   opt.navigationType = "none"
+						   opt.navigationType = "none";;
 
 						if (is_mobile() && opt.hideArrowsOnMobile=="on")
-						   opt.navigationArrows = "none"
+						   opt.navigationArrows = "none";;
 
 						if (opt.forceFullWidth=="on" && container.closest('.forcefullwidth_wrapper_tp_banner').length==0) {
 
@@ -484,10 +484,8 @@
 									var bt=container.find('.tp-bannertimer');
 									if (bt.length>0) {
 										bt.css({'width':'0%'});
-									};
-
-
-									// WE NEED TO ADD A BASIC CLASS FOR SETTINGS.CSS
+									}
+							// WE NEED TO ADD A BASIC CLASS FOR SETTINGS.CSS
 									container.addClass("tp-simpleresponsive");
 									opt.container=container;
 
@@ -575,7 +573,7 @@
 
 										     },200);
 									     }
-									})
+									});;
 
 
 									// IF RESIZED, NEED TO STOP ACTUAL TRANSITION AND RESIZE ACTUAL IMAGES
@@ -663,7 +661,7 @@
 					vars[hash[0]] = hash[1];
 				}
 				return vars;
-			}
+			};;
 
 		//////////////////////////
 		//	CONTAINER RESIZED	//
@@ -744,7 +742,7 @@
 			//restartBannerTimer(opt,container);
 			setBulPos(container,opt);
 
-		}
+		};;
 
 
 
@@ -758,14 +756,14 @@
 		    var ieTest = $div.find('a').length;
 		    $div.remove();
 		    return ieTest;
-		}
+		};;
 
 
 		var callingNewSlide = function(opt,container) {
 
 						swapSlide(container,opt);
 
-		}
+		};;
 
 
 
@@ -832,7 +830,7 @@
 
 
 
-		}
+		};;
 
 		//////////////////////
 		//	CREATE ARROWS	//
@@ -886,7 +884,7 @@
 
 						setBulPos(container,opt);
 
-		}
+		};;
 
 		//////////////////////
 		//	CREATE ARROWS	//
@@ -919,7 +917,7 @@
 
 						setBulPos(container,opt);
 
-		}
+		};;
 
 		////////////////////////////
 		// SET THE SWIPE FUNCTION //
@@ -964,7 +962,7 @@
 						} catch(e) {}
 				}
 
-		}
+		};;
 
 
 
@@ -1084,7 +1082,7 @@
 			}
 
 
-		}
+		};;
 
 
 
@@ -1105,7 +1103,7 @@
 
 					thumb.css({'width':opt.thumbWidth * opt.bw+"px", 'height':opt.thumbHeight*opt.bh+"px"});
 
-				})
+				});;
 				var bup = bullets.find('.tp-mask');
 
 				bup.width(opt.thumbWidth*opt.thumbAmount * opt.bw);
@@ -1181,7 +1179,7 @@
 			if (opt.navigationHAlign=="center")	bullets.css({'left':'50%','marginLeft':(loff+opt.navigationHOffset-Math.round(bullets.innerWidth()/2))+"px"});
 			if (opt.navigationHAlign=="left")	bullets.css({'left':(0+opt.navigationHOffset+loff)+"px"});
 			if (opt.navigationHAlign=="right")	bullets.css({'right':(0+opt.navigationHOffset-loff)+"px"});
-		}
+		};;
 
 
 		/*******************************************************
@@ -1265,7 +1263,7 @@
 			}
 
 			if (beforli.data('thumb')!=undefined) previmgsrc = beforli.data('thumb');
-			if (comingli.data('thumb')!=undefined) nextimgsrc = comingli.data('thumb')
+			if (comingli.data('thumb')!=undefined) nextimgsrc = comingli.data('thumb');;
 
 
 			// CHANGE THE IMAGE SOURCE (AND ANIMATE IF PREVIEW4 MODE IS ON
@@ -1336,7 +1334,7 @@
 			}
 			// END OF NAVIGATION ARROW CONTENT FILLING
 
-		}
+		};;
 		//////////////////////////////////////////////////////////
 		//	-	SET THE IMAGE SIZE TO FIT INTO THE CONTIANER -  //
 		////////////////////////////////////////////////////////
@@ -1428,7 +1426,7 @@
 
 
 
-		}
+		};;
 
 
 
@@ -1522,7 +1520,7 @@
 
 				if (bgfit==undefined) bgfit="cover";
 				if (bgrepeat==undefined) bgrepeat="no-repeat";
-				if (bgposition==undefined) bgposition="center center"
+				if (bgposition==undefined) bgposition="center center";;
 
 
 				var pari = img.closest('.slotholder');
@@ -1537,7 +1535,7 @@
 				img.data('li-id',j);
 
 			});
-		}
+		};;
 
 
 
@@ -1559,7 +1557,7 @@
 				if (img.data('curscale')!=undefined)
 					scalestart = img.data('curscale');
 
-				setSize(img,opt)
+				setSize(img,opt);;
 
 				var src = img.data('src'),
 					bgcolor=img.css('background-color'),
@@ -1667,7 +1665,7 @@
 
 
 
-		}
+		};;
 
 
 
@@ -1689,7 +1687,7 @@
 
 
 
-				setSize(img,opt)
+				setSize(img,opt);;
 				var src = img.data('src');
 				var bgcolor=img.css('backgroundColor');
 
@@ -1716,7 +1714,7 @@
 				// SET THE MINIMAL SIZE OF A BOX
 				var basicsize = 0;
 				if (opt.sloth>opt.slotw)
-					basicsize=opt.sloth
+					basicsize=opt.sloth;;
 				else
 					basicsize=opt.slotw;
 
@@ -1789,7 +1787,7 @@
 					}
 					x=x+basicsize;
 				}
-		}
+		};;
 
 		/***********************************************
 			-	MOVE IE8 IMAGE IN RIGHT POSITION	-
@@ -1807,9 +1805,9 @@
 
 
 					if (opt.startwidth/opt.startheight <nextsh.data('owidth')/nextsh.data('oheight'))
-						ie8img.css({width:"auto",height:"100%"})
+						ie8img.css({width:"auto",height:"100%"});;
 					else
-						ie8img.css({width:"100%",height:"auto"})
+						ie8img.css({width:"100%",height:"auto"});;
 
 
 					setTimeout(function() {
@@ -1846,7 +1844,7 @@
 							ie8img.css({position:"absolute",top:opt.height/2 - ie8h/2+"px", left:"0px"});
 					},20);
 				}
-		}
+		};;
 
 
 
@@ -1862,7 +1860,7 @@
 				});
 				opt.transition = 0;
 
-		}
+		};;
 
 
 		/*******************************************
@@ -1883,10 +1881,10 @@
 						limg.onload = function(i) {
 							img.data('lazydone',1);
 							if (img.hasClass("defaultimg")) setDefImg(img,limg);
-						}
+						};;
 						limg.error = function() {
 							img.data('lazydone',1);
-						}
+						};;
 
 						limg.src=img.attr('src');
 						if (limg.complete) {
@@ -1902,10 +1900,10 @@
 						limg.onload = function() {
 							if (img.hasClass("defaultimg")) setDefImg(img,limg);
 							img.data('lazydone',1);
-						}
+						};;
 						limg.error = function() {
 							img.data('lazydone',1);
-						}
+						};;
 
 
 						if (img.attr('src')!=undefined && img.attr('src')!='undefined') 	{
@@ -1922,7 +1920,7 @@
 					}
 				}
 			})
-		}
+		};;
 
 		var setDefImg = function(img,limg) {
 			var nextli = img.closest('li');
@@ -1933,7 +1931,7 @@
 			nextli.find('.slotholder').data('owidth',ww);
 			nextli.find('.slotholder').data('oheight',hh);
 			nextli.data('loadeddone',1);
-		}
+		};;
 
 		var waitForLoads = function(element,call,opt) {
 
@@ -1959,7 +1957,7 @@
 				 }
 
 			},100)
-		}
+		};;
 
 
 		//////////////////////////////
@@ -2022,7 +2020,7 @@
 
 				 swapSlideCall(opt,defimg,container)
 			}
-		}
+		};;
 
 		var swapSlideCall = function(opt,defimg,container) {
 			opt.bannertimeronpause = false;
@@ -2034,7 +2032,7 @@
 			setSize(defimg,opt);
 		   	swapSlideProgress(container,opt);
 
-		}
+		};;
 
 		/******************************
 			-	SWAP SLIDE PROGRESS	-
@@ -2105,7 +2103,7 @@
 				slideAnimation(container,opt,nextli,actli,actsh,nextsh);
 			},removetime)
 
-		}
+		};;
 
 
 		/******************************************
@@ -2217,26 +2215,26 @@
 
 
 			if (comingtransition=="slidehorizontal") {
-						comingtransition = "slideleft"
+						comingtransition = "slideleft";;
 					if (opt.leftarrowpressed==1)
 						comingtransition = "slideright"
 				}
 
 			if (comingtransition=="slidevertical") {
-						comingtransition = "slideup"
+						comingtransition = "slideup";;
 					if (opt.leftarrowpressed==1)
 						comingtransition = "slidedown"
 				}
 
 			if (comingtransition=="parallaxhorizontal") {
-						comingtransition = "parallaxtoleft"
+						comingtransition = "parallaxtoleft";;
 					if (opt.leftarrowpressed==1)
 						comingtransition = "parallaxtoright"
 				}
 
 
 			if (comingtransition=="parallaxvertical") {
-						comingtransition = "parallaxtotop"
+						comingtransition = "parallaxtotop";;
 					if (opt.leftarrowpressed==1)
 						comingtransition = "parallaxtobottom"
 				}
@@ -2295,13 +2293,13 @@
 
 
 			var flatTransitions = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45];
-			var premiumTransitions = [16,17,18,19,20,21,22,23,24,25,26,27]
+			var premiumTransitions = [16,17,18,19,20,21,22,23,24,25,26,27];;
 
 			var nexttrans =0;
 			var specials = 1;
 			var STAindex = 0;
 			var indexcounter =0;
-			var STA = new Array;
+			var STA = [];
 
 			//START THE KEN BURN PAN ZOOM ANIMATION
 			if (nextsh.data('kenburns')=="on") {
@@ -2462,7 +2460,7 @@
 			//  SET A RANDOM AMOUNT OF SLOTS          //
 			///////////////////////////////////////////
 			if (nextli.data('rotate')==undefined)
-				opt.rotate = 0
+				opt.rotate = 0;;
 			 else
 				if (nextli.data('rotate')==999)
 					opt.rotate=Math.round(Math.random()*360);
@@ -2831,7 +2829,7 @@
 
 
 						// ALL NEW SLOTS SHOULD BE SLIDED FROM THE LEFT TO THE RIGHT
-						var ssn=nextsh.find('.slotslide')
+						var ssn=nextsh.find('.slotslide');;
 
 
 
@@ -2942,8 +2940,8 @@
 						ooh = container.height();
 
 
-					actli.find('.tp-half-one .defaultimg').wrap('<div class="tp-papercut" style="width:'+oow+'px;height:'+ooh+'px;"></div>')
-					actli.find('.tp-half-two .defaultimg').wrap('<div class="tp-papercut" style="width:'+oow+'px;height:'+ooh+'px;"></div>')
+					actli.find('.tp-half-one .defaultimg').wrap('<div class="tp-papercut" style="width:'+oow+'px;height:'+ooh+'px;"></div>');;
+					actli.find('.tp-half-two .defaultimg').wrap('<div class="tp-papercut" style="width:'+oow+'px;height:'+ooh+'px;"></div>');;
 					actli.find('.tp-half-two .defaultimg').css({position:'absolute',top:'-50%'});
 					actli.find('.tp-half-two .tp-caption').wrapAll('<div style="position:absolute;top:-50%;left:0px;"></div>');
 
@@ -3110,7 +3108,7 @@
 						var chix2=actli.css('z-index');
 
 						if (direction==1) {
-						   var ofx = -opt.width
+						   var ofx = -opt.width;;
 						   var rot  =70;
 						   var torig = "left center -"+opt.height/2;
 						} else {
@@ -3138,7 +3136,7 @@
 							var ss=jQuery(this);
 
 							if (direction!=1) {
-							   var ofx = -opt.width
+							   var ofx = -opt.width;;
 							   var rot  =70;
 							   var torig = "left center -"+opt.height/2;
 							} else {
@@ -3168,11 +3166,11 @@
 						var chix2=actli.css('z-index');
 
 						if (direction==1) {
-						   var ofx = -opt.width
+						   var ofx = -opt.width;;
 						   var rot  =90;
 
 						   if (nexttrans==25) {
-						   	 var torig = "center top 0"
+						   	 var torig = "center top 0";;
 						   	 rot2 = -rot;
 						   	 rot = opt.rotate;
 						   } else {
@@ -3184,7 +3182,7 @@
 							var ofx = opt.width;
 							var rot = -90;
 							if (nexttrans==25) {
-						   	 var torig = "center bottom 0"
+						   	 var torig = "center bottom 0";;
 						   	 rot2 = -rot;
 						   	 rot = opt.rotate;
 						   } else {
@@ -3206,11 +3204,11 @@
 
 
 						if (direction!=1) {
-						   var ofx = -opt.width
+						   var ofx = -opt.width;;
 						   var rot  = 90;
 
 						   if (nexttrans==25) {
-						   	 var torig = "center top 0"
+						   	 var torig = "center top 0";;
 						   	 rot2 = -rot;
 						   	 rot = opt.rotate;
 						   } else {
@@ -3222,7 +3220,7 @@
 							var ofx = opt.width;
 							var rot = -90;
 							if (nexttrans==25) {
-						   	 var torig = "center bottom 0"
+						   	 var torig = "center bottom 0";;
 						   	 rot2 = -rot;
 						   	 rot = opt.rotate;
 						   } else {
@@ -3315,7 +3313,7 @@
 			setTimeout(function() { container.trigger('revolution.slide.onafterswap'); },masterspeed);
 			container.trigger('revolution.slide.onvideostop');
 
-		}
+		};;
 
 
 
@@ -3347,7 +3345,7 @@
 
 					mtl.clear();
 
-			}
+			};;
 
 
 		//////////////////////////////////////////
@@ -3356,7 +3354,7 @@
 		var  onPlayerStateChange = function(event) {
 
 			 var embedCode = event.target.getVideoEmbedCode();
-			 var ytcont = jQuery('#'+embedCode.split('id="')[1].split('"')[0])
+			 var ytcont = jQuery('#'+embedCode.split('id="')[1].split('"')[0]);;
 			 var container = ytcont.closest('.tp-simpleresponsive');
 			 var player = ytcont.parent().data('player');
 
@@ -3392,7 +3390,7 @@
 				opt.container.revnext();
 
 
-		  }
+		  };;
 
 
 
@@ -3404,7 +3402,7 @@
 					if (element.addEventListener)  element.addEventListener(eventName, callback, false);
 						else
 					element.attachEvent(eventName, callback, false);
-		}
+		};;
 
 
 
@@ -3454,7 +3452,7 @@
 							container.trigger('revolution.slide.onvideostop'); //opt.videostoppednow=1;
 					});
 			});
-			}
+			};;
 
 
 
@@ -3515,7 +3513,7 @@
 					}
 
 
-				}
+				};;
 
 
 
@@ -3524,7 +3522,7 @@
 				/////////////////////////////////////
 
 				var newAnimObject = function() {
-										var a = new Object();
+										var a = {};
 										a.x=0;
 										a.y=0;
 										a.rotationX = 0;
@@ -3540,7 +3538,7 @@
 										a.transformPerspective = 400;
 										a.rotation = 0;
 										return a;
-									}
+									};;
 
 				///////////////////////////////////////////////////
 				// ANALYSE AND READ OUT DATAS FROM HTML CAPTIONS //
@@ -3550,7 +3548,7 @@
 									var customarray = data.split(';');
 									jQuery.each(customarray,function(index,param) {
 
-										param = param.split(":")
+										param = param.split(":");;
 
 										var w = param[0],
 											v = param[1];
@@ -3568,23 +3566,23 @@
 										if (w=="z") frm.z = parseInt(v,0);
 										if (w=="transformOrigin") frm.transformOrigin = v.toString();
 										if (w=="transformPerspective") frm.transformPerspective=parseInt(v,0);
-									})
+									});;
 
 									return frm;
-								}
+								};;
 				///////////////////////////////////////////////////////////////////
 				// ANALYSE AND READ OUT DATAS FROM HTML CAPTIONS ANIMATION STEPS //
 				///////////////////////////////////////////////////////////////////
 				var getAnimSteps = function(data) {
 
 						var paramarray = data.split("animation:");
-						var params = new Object();
+						var params = {};
 
 						params.animation = getAnimDatas(newAnimObject(),paramarray[1]);
 						var customarray = paramarray[0].split(';');
 
 						jQuery.each(customarray,function(index,param) {
-							param = param.split(":")
+							param = param.split(":");;
 							var w = param[0],
 								v = param[1];
 							if (w=="typ") params.typ = v;
@@ -3592,10 +3590,10 @@
 							if (w=="start") params.start = parseInt(v,0)/1000;
 							if (w=="elementdelay")  params.elementdelay = parseFloat(v);
 							if (w=="ease")  params.ease = v;
-						})
+						});;
 
 					return params;
-				}
+				};;
 
 
 
@@ -3680,9 +3678,8 @@
 									  offsety = opt.height/2 - (opt.startheight*opt.bh)/2;
 
 								if (opt.autoHeight=="on")
-									  offsety = opt.container.height()/2 - (opt.startheight*opt.bh)/2;;
-
-								if (offsety<0) offsety=0;
+									offsety = opt.container.height() / 2 - (opt.startheight * opt.bh) / 2;
+							if (offsety<0) offsety=0;
 
 
 
@@ -3690,11 +3687,11 @@
 
 								// HIDE CAPTION IF RESOLUTION IS TOO LOW
 								if (opt.width<opt.hideCaptionAtLimit && nextcaption.data('captionhidden')=="on") {
-									nextcaption.addClass("tp-hidden-caption")
+									nextcaption.addClass("tp-hidden-caption");;
 									handlecaption=1;
 								} else {
 									if (opt.width<opt.hideAllCaptionAtLimit || opt.width<opt.hideAllCaptionAtLilmit)	{
-										nextcaption.addClass("tp-hidden-caption")
+										nextcaption.addClass("tp-hidden-caption");;
 										handlecaption=1;
 									} else {
 										nextcaption.removeClass("tp-hidden-caption")
@@ -3707,7 +3704,7 @@
 
 									// ADD A CLICK LISTENER TO THE CAPTION
 									if (nextcaption.data('linktoslide')!=undefined && !nextcaption.hasClass("hasclicklistener")) {
-										nextcaption.addClass("hasclicklistener")
+										nextcaption.addClass("hasclicklistener");;
 										nextcaption.css({'cursor':'pointer'});
 										if (nextcaption.data('linktoslide')!="no") {
 											nextcaption.click(function() {
@@ -3819,7 +3816,7 @@
 																 punchgs.TweenLite.to(jQuery(this),0.3,{opacity:0,force3D:"auto",ease:punchgs.Power3.easeInOut,onComplete: function() {
 																	 nextcaption.find('.tp-thumb-image').remove();
 																	}
-																 })
+																 });;
 																 if (!is_mobile()) {
 																	 var player=nextcaption.data('player');
 																	 player.playVideo();
@@ -3888,7 +3885,7 @@
 																 punchgs.TweenLite.to(jQuery(this),0.3,{opacity:0,force3D:"auto",ease:punchgs.Power3.easeInOut,onComplete: function() {
 																	 nextcaption.find('.tp-thumb-image').remove();
 																	}
-																 })
+																 });;
 																 var ifr = nextcaption.find('iframe');
 																 var id = ifr.attr('id');
 																 var vimint = setInterval(function() {
@@ -3933,7 +3930,7 @@
 
 												if (!jvideo.hasClass("HasListener")) {
 
-														jvideo.addClass("HasListener")
+														jvideo.addClass("HasListener");;
 														video.addEventListener("play",function() {
 															html5vid.addClass("videoisplaying");
 															html5vid.find('.tp-poster').remove();
@@ -4092,7 +4089,7 @@
 														opt.videoplaying=true;
 														opt.container.trigger('stoptimer');
 
-													},200)
+													},200);;
 													opt.videoplaying=true;
 													opt.container.trigger('stoptimer');
 
@@ -4206,12 +4203,12 @@
 																	else  {
 
 																		   offsetx=0; offsety=0;
-																		   nextcaption.data('x',0)
-																		   nextcaption.data('y',0)
+																		   nextcaption.data('x',0);;
+																		   nextcaption.data('y',0);;
 
-																		   var ovhh = opt.height
+																		   var ovhh = opt.height;;
 																		   if (opt.autoHeight=="on")
-																		   		ovhh = opt.container.height()
+																		   		ovhh = opt.container.height();;
 																			nextcaption.css({
 
 																				'width':opt.width,
@@ -4503,9 +4500,9 @@
 									if (nextcaption.hasClass('sfb')) frm.y = 50;
 
 
-									if (nextcaption.hasClass('skewfromright') || nextcaption.hasClass('skewfromrightshort')) frm.skewX = -85
+									if (nextcaption.hasClass('skewfromright') || nextcaption.hasClass('skewfromrightshort')) frm.skewX = -85;;
 									else
-									if (nextcaption.hasClass('skewfromleft') || nextcaption.hasClass('skewfromleftshort')) frm.skewX =  85
+									if (nextcaption.hasClass('skewfromleft') || nextcaption.hasClass('skewfromleftshort')) frm.skewX =  85;;
 
 
 									if (nextcaption.hasClass("fade") || nextcaption.hasClass('sft') || nextcaption.hasClass('sfl') || nextcaption.hasClass('sfb') || nextcaption.hasClass('skewfromleftshort')  || nextcaption.hasClass('sfr') || nextcaption.hasClass('skewfromrightshort'))
@@ -4522,11 +4519,11 @@
 
 									// DISTANCES SHOULD BE RESIZED ALSO
 
-									frm.data = new Object();
+									frm.data = {};
 									frm.data.oldx = frm.x;
 									frm.data.oldy = frm.y;
 
-									endfrm.data = new Object();
+									endfrm.data = {};
 									endfrm.data.oldx = endfrm.x;
 									endfrm.data.oldy = endfrm.y;
 
@@ -4547,7 +4544,7 @@
 											  endfrm.opacity = 1;
 											  endfrm.onComplete = animcompleted();
 											  endfrm.delay = mdelay;
-											  endfrm.force3D="auto"
+											  endfrm.force3D="auto";;
 
 											  tl.add(newtl.staggerFromTo(animobject,mspeed,frm,endfrm,elemdelay),"frame0");
 
@@ -4566,8 +4563,8 @@
 												if (nextcaption.hasClass("randomrotate") && animobject != nextcaption) {
 
 													for (var i=0;i<animobject.length;i++) {
-														var obj =new Object();
-														var endobj = new Object();
+														var obj ={};
+														var endobj = {};
 														jQuery.extend(obj,frm);
 														jQuery.extend(endobj,endfrm);
 														frm.scale = Math.random()*3+1;
@@ -4593,7 +4590,7 @@
 									nextcaption.data('timeline',tl);
 
 									// FURTHER ANIMATIONS IN CASE THERE ARE MORE THAN ONE STEP IN THE ANIMATION CHAIN
-									var frames = new Array();
+									var frames = [];
 									if (nextcaption.data('frames')!=undefined) {
 										var rowtext = nextcaption.data('frames');
 										rowtext = rowtext.replace(/\s+/g, '');
@@ -4658,7 +4655,7 @@
 								  	}
 						  }
 
-					})
+					});;
 
 						var bt=jQuery('body').find('#'+opt.container.attr('id')).find('.tp-bannertimer');
 						bt.data('opt',opt);
@@ -4669,7 +4666,7 @@
 						mtl.resume();
 					},30);
 
-				}
+				};;
 
 
 				var get_browser = function(){
@@ -4678,14 +4675,14 @@
 				    if(M && (tem= ua.match(/version\/([\.\d]+)/i))!= null) M[2]= tem[1];
 				    M=M? [M[1], M[2]]: [N, navigator.appVersion, '-?'];
 				    return M[0];
-				    }
+				    };;
 				var get_browser_version  = function(){
 				    var N=navigator.appName, ua=navigator.userAgent, tem;
 				    var M=ua.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i);
 				    if(M && (tem= ua.match(/version\/([\.\d]+)/i))!= null) M[2]= tem[1];
 				    M=M? [M[1], M[2]]: [N, navigator.appVersion, '-?'];
 				    return M[1];
-				    }
+				    };;
 
 				/////////////////////////////////////////////////////////////////
 				//	-	CALCULATE THE RESPONSIVE SIZES OF THE CAPTIONS	-	  //
@@ -4779,7 +4776,7 @@
 										if (nc.data('maxwidth')!='none')
 											nc.css({'maxWidth':(nc.data('maxwidth') * opt.bw) + "px"});
 								}
-						}
+						};;
 
 
 				/******************************
@@ -4809,7 +4806,7 @@
 											}}));
 										}
 
-									})
+									});;
 
 									// SOME LOOPING ANIMATION ON INTERNAL ELEMENTS
 									nextcaption.find('.rs-slideloop').each(function() {
@@ -4834,7 +4831,7 @@
 											}}));
 										}
 
-									})
+									});;
 
 									// SOME LOOPING ANIMATION ON INTERNAL ELEMENTS
 									nextcaption.find('.rs-pulse').each(function() {
@@ -4852,7 +4849,7 @@
 											}}));
 										}
 
-									})
+									});;
 
 									nextcaption.find('.rs-wave').each(function() {
 										var el = jQuery(this);
@@ -4889,7 +4886,7 @@
 										}
 
 									})
-				}
+				};;
 
 				var killCaptionLoops = function(nextcaption) {
 							// SOME LOOPING ANIMATION ON INTERNAL ELEMENTS
@@ -4900,7 +4897,7 @@
 										el.data('timeline',null);
 									}
 								});
-				}
+				};;
 
 				//////////////////////////
 				//	REMOVE THE CAPTIONS //
@@ -5015,7 +5012,7 @@
 						});
 
 						return removetime;
-				}
+				};;
 
 				//////////////////////////////
 				//	MOVE THE CAPTIONS  //
@@ -5035,7 +5032,7 @@
 							params.animation.ease = params.ease;
 
 							if (params.animation.rotationZ !=undefined) params.animation.rotation = params.animation.rotationZ;
-							params.animation.data = new Object();
+							params.animation.data = {};
 							params.animation.data.oldx = params.animation.x;
 							params.animation.data.oldy = params.animation.y;
 
@@ -5048,7 +5045,7 @@
 
 							nextcaption.data('timeline',tl);
 
-				}
+				};;
 				//////////////////////////////
 				//	MOVE OUT THE CAPTIONS  //
 				////////////////////////////
@@ -5081,9 +5078,9 @@
 										nextcaption.hasClass("randomrotateout"))
 									{
 
-										if (nextcaption.hasClass('skewtoright') || nextcaption.hasClass('skewtorightshort')) frm.skewX = 35
+										if (nextcaption.hasClass('skewtoright') || nextcaption.hasClass('skewtorightshort')) frm.skewX = 35;;
 										else
-										if (nextcaption.hasClass('skewtoleft') || nextcaption.hasClass('skewtoleftshort')) frm.skewX =  -35
+										if (nextcaption.hasClass('skewtoleft') || nextcaption.hasClass('skewtoleftshort')) frm.skewX =  -35;;
 
 
 										if (nextcaption.hasClass('ltr') || nextcaption.hasClass('skewtoright'))
@@ -5114,8 +5111,8 @@
 
 										if (nextcaption.hasClass('skewtorightshort')) frm.x = 270;
 										else
-										if (nextcaption.hasClass('skewtoleftshort')) frm.x =  -270
-										frm.data = new Object();
+										if (nextcaption.hasClass('skewtoleftshort')) frm.x =  -270;;
+										frm.data = {};
 										frm.data.oldx = frm.x;
 										frm.data.oldy = frm.y;
 										frm.x = frm.x * downscale;
@@ -5155,9 +5152,9 @@
 																	  transformOrigin:frm.transformOrigin,
 																	  overwrite:"auto"
 																  });
-										}
+										};;
 
-										frm.data = new Object();
+										frm.data = {};
 										frm.data.oldx = frm.x;
 										frm.data.oldy = frm.y;
 
@@ -5176,7 +5173,7 @@
 								tl.addLabel(frame,mdelay);
 
 								nextcaption.data('timeline',tl);
-			}
+			};;
 
 		///////////////////////////
 		//	REMOVE THE LISTENERS //
@@ -5187,14 +5184,14 @@
 			  try{ jQuery(this).die('mouseenter');} catch(e) {}
 			  try{ jQuery(this).die('mouseleave');} catch(e) {}
 			  try{ jQuery(this).unbind('hover');} catch(e) {}
-			})
+			});;
 			try{ container.die('click','mouseenter','mouseleave');} catch(e) {}
 			clearInterval(opt.cdint);
 			container=null;
 
 
 
-		}
+		};;
 
 		///////////////////////////
 		//	-	countDown	-	//
@@ -5299,7 +5296,7 @@
 						// SWAP THE SLIDES
 						swapSlide(container,opt);
 
-					}
+					};;
 
 					bt.data('tween',punchgs.TweenLite.fromTo(bt,opt.delay/1000,{width:"0%"},{force3D:"auto",width:"100%",ease:punchgs.Linear.easeNone,onComplete:countDownNext,delay:1}));
 					bt.data('opt',opt);
@@ -5336,7 +5333,7 @@
 							}
 						});
 			}
-		}
+		};;
 
 
 	//////////////////
@@ -5353,7 +5350,7 @@
 	          }
 	    }
 	    return ismobile;
-	}
+	};;
 
 
 
@@ -5384,7 +5381,7 @@
 					var hfactor = (nheight / opt.container.height())*proc;
 					return (proc+"% "+hfactor+"%");
 				}
-			}
+			};;
 
 
 
@@ -5436,7 +5433,7 @@
 			if (zoe<1) zoe=1;
 
 
-			var imgobj = new Object();
+			var imgobj = {};
 			imgobj.w = parseInt(bgfb.split(" ")[0],0),
 			imgobj.h = parseInt(bgfb.split(" ")[1],0);
 
@@ -5507,14 +5504,14 @@
 							//punchgs.TweenLite.set(defimg,{rotation:defimg.data('currotate'), backgroundPosition:defimg.data('bgposition'), backgroundSize:defimg.data('curscale')});
 					}}));
 		})
-	}
+	};;
 
 	/*************************************************
 		-	CALCULATE KENBURNS IMAGE POSITIONS	-
 	**************************************************/
 
 	var calculateKenBurnImgPos = function(opt,bgp,bgf,img,turned) {
-			var imgobj = new Object;
+			var imgobj = {};
 
 			if (!turned)
 				imgobj.w = parseInt(bgf.split(" ")[0],0) / 100;
@@ -5575,7 +5572,7 @@
 
 
 			return imgobj;
-		}
+		};;
 
 		/******************************
 			-	GET ROTATION DEGREES	-
@@ -5593,7 +5590,7 @@
 				        var angle = Math.round(Math.atan2(b, a) * (180/Math.PI));
 				    } else { var angle = 0; }
 				    return (angle < 0) ? angle +=360 : angle;
-				}
+				};;
 
 
 		/******************************
@@ -5628,7 +5625,7 @@
 				if (defimg!= undefined && defimg.data('kenburn img') != undefined && defimg.data('kenburn img').length>0) punchgs.TweenLite.set(defimg.data('kenburn img'),{autoAlpha:0});
 
 			});
-		}
+		};;
 
 //// END OF KENBURNS EXTNESION
 
@@ -5654,7 +5651,7 @@
 						var pw = jQuery(this);
 						pw.wrap('<div style="position:absolute;top:0px;left:0px;width:100%;height:100%;z-index:'+pw.css('zIndex')+'" class="tp-parallax-container" data-parallaxlevel="'+opt.parallaxLevels[i-1]+'"></div>');
 					});
-			})
+			});;
 
 
 
@@ -5669,7 +5666,7 @@
 									currslide.data("enterx",ex);
 									currslide.data("entery",ey);
 
-						})
+						});;
 
 						container.on('mousemove.hoverdir, mouseleave.hoverdir',function(event) {
 							var currslide = container.find('.current-sr-slide-visible');
@@ -5690,14 +5687,14 @@
 												offsh =	diffh * pl,
 												offsv =	diffv * pl;
 											punchgs.TweenLite.to(pc,0.4,{force3D:"auto",x:offsh,y:offsv,ease:punchgs.Power3.easeOut,overwrite:"all"});
-										})
+										});;
 
 								break;
 								case "mouseleave":
 										currslide.find(".tp-parallax-container").each(function() {
 											var pc = jQuery(this);
 											punchgs.TweenLite.to(pc,1.5,{force3D:"auto",x:0,y:0,ease:punchgs.Power3.easeOut});
-										})
+										});;
 								break;
 							}
 						});
@@ -5729,7 +5726,7 @@
 													offsh =	curh * pl,
 													offsv =	curv * pl;
 												punchgs.TweenLite.to(pc,0.2,{force3D:"auto",x:offsh,y:offsv,ease:punchgs.Power3.easeOut});
-											})
+											});;
 
 							  // y: -90 -> +90,  x:-180 -> +180
 
@@ -5742,7 +5739,7 @@
 							scrollParallax(container,opt);
 						});
 			}
-		}
+		};;
 
 		/***************************************
 			-	SET POST OF SCROLL PARALLAX	-
@@ -5764,14 +5761,14 @@
 					offsv =	diffv * pl;
 				pc.data('parallaxoffset',offsv);
 				punchgs.TweenLite.to(pc,0.2,{force3D:"auto",y:offsv,ease:punchgs.Power3.easeOut});
-			})
+			});;
 
 			if (opt.parallaxBgFreeze!="on") {
 				var pl = opt.parallaxLevels[0]/100,
 					offsv =	diffv * pl;
 				punchgs.TweenLite.to(container,0.2,{force3D:"auto",y:offsv,ease:punchgs.Power3.easeOut});
 			}
-		}
+		};;
 
 		/**************************************************************************
 		 * Revolution Slider - THUMBNAIL MODULE
@@ -5804,7 +5801,7 @@
 							var li= container.find(">ul:first >li:eq("+i+")");
 							var bgcolor = li.find(".defaultimg").css("backgroundColor");
 							if (li.data('thumb') !=undefined)
-								var src= li.data('thumb')
+								var src= li.data('thumb');;
 							else
 								var src=li.find("img:first").attr('src');
 
@@ -5910,7 +5907,7 @@
 			}
 
 
-		}
+		};;
 
 
 		///////////////////////////////
@@ -5938,7 +5935,7 @@
 									if (!$this.hasClass("over")) {
 										moveThumbSliderToPosition($this,pos,200);
 									}
-		}
+		};;
 
 
 		////////////////////////////////////
@@ -5967,7 +5964,7 @@ function revslider_showDoubleJqueryError(sliderID) {
 	errorMessage += "<br> This includes make eliminates the revolution slider libraries, and make it not work.";
 	errorMessage += "<br><br> To fix it you can:<br>&nbsp;&nbsp;&nbsp; 1. In the Slider Settings -> Troubleshooting set option:  <strong><b>Put JS Includes To Body</b></strong> option to true.";
 	errorMessage += "<br>&nbsp;&nbsp;&nbsp; 2. Find the double jquery.js include and remove it.";
-	errorMessage = "<span style='font-size:16px;color:#BC0C06;'>" + errorMessage + "</span>"
+	errorMessage = "<span style='font-size:16px;color:#BC0C06;'>" + errorMessage + "</span>";;
 		jQuery(sliderID).show().html(errorMessage);
 }
 

@@ -1,143 +1,147 @@
 <?php
 
-class Tt_model_v2 extends CI_Model {
-	
-		private $q_string;
+class Tt_model_v2 extends CI_Model
+{
 
-		function __construct()
+	private $q_string;
+
+	function __construct()
 	{
 		parent::__construct();
 
-		}
-	
+	}
+
 	function get_Regions()
 	{
 		$query = $this->db->get('region');
 		return $query->result();
 
 	}
+
 	function get_region_name($region_id)
 	{
 //echo "region id =" . $region_id;	
-		if ($region_id) $this->db->where('region_id', $region_id); else return "all regions" ;
+		if ($region_id) $this->db->where('region_id', $region_id); else return "all regions";
 
 		$query = $this->db->get('region');
-		foreach ($query->result() as $row)
-		{
+		foreach ($query->result() as $row) {
 			return $row->region;
 		}
 
 	}
+
 	// get the first picture from each set
-	function xget_featured_pictures($is_featured=0)
+	function xget_featured_pictures($is_featured = 0)
 	{
 		$region_id = 0;
 		$region_id = $this->session->userdata('region_id'); // chosen region
-		if ($region_id) 
+		if ($region_id)
 			$this->db->where('region_id', $region_id);
-		if ($is_featured) 
+		if ($is_featured)
 			$this->db->where('is_featured', $is_featured);
-			
-		$this->db->select('activity.activity_id, activity.code, activity_pictures.picture');	
-		$this->db->join('activity_pictures', 'activity_pictures.activity_id = activity.activity_id', 'left'); 
+
+		$this->db->select('activity.activity_id, activity.code, activity_pictures.picture');
+		$this->db->join('activity_pictures', 'activity_pictures.activity_id = activity.activity_id', 'left');
 		$this->db->join('rate_price', 'rate_price.activity_id = activity.activity_id', 'left'); //new
-		$this->db->group_by('activity.activity_id'); //new	
-		$this->db->order_by('rate_price.effective_date desc'); //new	
-		$this->db->where('rate_price.effective_date <=',date("Y-m-d")); //new	
+		$this->db->group_by('activity.activity_id'); //new
+		$this->db->order_by('rate_price.effective_date desc'); //new
+		$this->db->where('rate_price.effective_date <=', date("Y-m-d")); //new
 		$query = $this->db->get('activity');
-		$pictures=array();
-		foreach ($query->result() AS $row)
-			{array_push($pictures, base_url() . CLASSES_IMAGE_DIR .
-			 strtoupper($row->code) . '/' . strtoupper($row->picture));}
-		return  $pictures;
-		
+		$pictures = array();
+		foreach ($query->result() AS $row) {
+			array_push($pictures, base_url() . CLASSES_IMAGE_DIR .
+				strtoupper($row->code) . '/' . strtoupper($row->picture));
+		}
+		return $pictures;
+
 	}
-	
+
 //	function get_all_classes($limit, $offset, $is_featured=0)
-	function get_all_classes($style_id,$is_featured)
+	function get_all_classes($style_id, $is_featured)
 	{
 //		echo "query: ". $isQuery.'<br>';
 //		echo "limit: ".$limit.'<br>';
 //		echo "offset: ".$offset.'<br>';
 		date_default_timezone_set('America/Los_Angeles');
 
-		
+
 		$region_id = 0;
 		$region_id = $this->session->userdata('region_id'); // chosen region
-		if ($region_id) 
+		if ($region_id)
 			$this->db->where('activity_to_region.region_id', $region_id);
-		if ($is_featured) 
+		if ($is_featured)
 			$this->db->where('is_featured', $is_featured);
-		if ($style_id) 
+		if ($style_id)
 			$this->db->where('activity.style_id', $style_id);
-			
+
 		$this->db->where('activity.is_active', TRUE);
-			
-		$this->db->select('activity.*, rate_price.price as rate_price_price, activity_pictures.picture');	
-		if ($region_id) 
-			$this->db->join('activity_to_region', 'activity_to_region.activity_id = activity.activity_id'); 
+
+		$this->db->select('activity.*, rate_price.price as rate_price_price, activity_pictures.picture');
+		if ($region_id)
+			$this->db->join('activity_to_region', 'activity_to_region.activity_id = activity.activity_id');
 
 		$this->db->join('rate_price', 'rate_price.activity_id = activity.activity_id', 'left'); //new
-		$this->db->join('activity_pictures', 'activity_pictures.activity_id = activity.activity_id', 'left'); 
-		$this->db->join('style', 'activity.style_id = style.style_id', 'left'); 
-		$this->db->group_by('activity.activity_id'); //new	
-		$this->db->order_by('activity.order asc'); //new	
-		$this->db->order_by('rate_price.effective_date desc'); //new	
-		$this->db->where('rate_price.effective_date <=',date("Y-m-d")); //new	
+		$this->db->join('activity_pictures', 'activity_pictures.activity_id = activity.activity_id', 'left');
+		$this->db->join('style', 'activity.style_id = style.style_id', 'left');
+		$this->db->group_by('activity.activity_id'); //new
+		$this->db->order_by('activity.order asc'); //new
+		$this->db->order_by('rate_price.effective_date desc'); //new
+		$this->db->where('rate_price.effective_date <=', date("Y-m-d")); //new
 		$query = $this->db->get('activity');
-	//	$query = $this->db->get('activity_to_region');
+		//	$query = $this->db->get('activity_to_region');
 //print_r($query->result()); die();		
-		return  $query->result();
+		return $query->result();
 
 	}
-	function get_paginated_classes_featured( $limit, $offset)
-		{
+
+	function get_paginated_classes_featured($limit, $offset)
+	{
 
 		$this->session->set_userdata('limit', $limit);  // save it for later
 		$this->session->set_userdata('offset', $offset);  // save it for later
-				
+
 		$region_id = 0;
 		$region_id = $this->session->userdata('region_id'); // chosen region
-		
-		if ($region_id) 
+
+		if ($region_id)
 			$this->db->where('region_id', $region_id);
-		$this->db->where('is_featured',TRUE);
-		if ($limit) 
+		$this->db->where('is_featured', TRUE);
+		if ($limit)
 			$this->db->limit($limit);
-		if ($offset) 
+		if ($offset)
 			$this->db->offset($offset);
-			
+
 		$query = $this->db->get('activity');
-		
-		return  $query->result();
+
+		return $query->result();
 	}
 
-	function get_paginated_classes( $limit, $offset, $is_featured=0)
-		{
+	function get_paginated_classes($limit, $offset, $is_featured = 0)
+	{
 
 		$this->session->set_userdata('limit', $limit);  // save it for later
 		$this->session->set_userdata('offset', $offset);  // save it for later
-				
+
 		$region_id = 0;
 		$region_id = $this->session->userdata('region_id'); // chosen region
-		
-		if ($region_id) 
+
+		if ($region_id)
 			$this->db->where('region_id', $region_id);
-		if ($is_featured) 
+		if ($is_featured)
 			$this->db->where('is_featured', $is_featured);
-		if ($limit) 
+		if ($limit)
 			$this->db->limit($limit);
-		if ($offset) 
+		if ($offset)
 			$this->db->offset($offset);
-			
+
 		$query = $this->db->get('activity');
-		
-		return  $query->result();
+
+		return $query->result();
 	}
 
-	function get_class( $activity_id)
-		{
-			
+	function get_class($activity_id)
+	{
+
 		$this->db->select('
 			activity.*, 
 			activity_pictures.*, 
@@ -152,15 +156,16 @@ class Tt_model_v2 extends CI_Model {
 		$this->db->join('physical_level', 'activity.physical_level_id = physical_level.physical_level_id');
 		$this->db->join('service_level', 'activity.service_level_id = service_level.service_level_id');
 		$this->db->join('rate_price', 'rate_price.activity_id = activity.activity_id', 'left'); //new
-		$this->db->join('activity_pictures', 'activity_pictures.activity_id = activity.activity_id', 'left'); 
-		$this->db->group_by('activity.activity_id'); //new	
-		$this->db->where('rate_price.effective_date <=',date("Y-m-d")); //new	
+		$this->db->join('activity_pictures', 'activity_pictures.activity_id = activity.activity_id', 'left');
+		$this->db->group_by('activity.activity_id'); //new
+		$this->db->where('rate_price.effective_date <=', date("Y-m-d")); //new
 		$query = $this->db->get('activity');
-		return  $query->result();
+		return $query->result();
 	}
+
 	function get_related_activities($activity_id)
 	{
-				$this->db->select('
+		$this->db->select('
 			activity_related.*,
 			activity.*, 
 			activity_pictures.*, 
@@ -176,246 +181,132 @@ class Tt_model_v2 extends CI_Model {
 		$this->db->join('physical_level', 'activity.physical_level_id = physical_level.physical_level_id');
 		$this->db->join('service_level', 'activity.service_level_id = service_level.service_level_id');
 		$this->db->join('rate_price', 'rate_price.activity_id = activity.activity_id', 'left'); //new
-		$this->db->join('activity_pictures', 'activity_pictures.activity_id = activity.activity_id', 'left'); 
-		$this->db->group_by('activity.activity_id'); //new	
-		$this->db->where('rate_price.effective_date <=',date("Y-m-d")); //new	
+		$this->db->join('activity_pictures', 'activity_pictures.activity_id = activity.activity_id', 'left');
+		$this->db->group_by('activity.activity_id'); //new
+		$this->db->where('rate_price.effective_date <=', date("Y-m-d")); //new
 		$query = $this->db->get('activity_related');
-		return  $query->result();
+		return $query->result();
 
-		}
+	}
 
 	function get_rows()
 	{
 		$region_id = 0;
 		$region_id = $this->session->userdata('region_id'); // chosen region
-		
-		if ($region_id) 
+
+		if ($region_id)
 			$this->db->where('region_id', $region_id);
 		$query = $this->db->get('activity');
-		return  $query->num_rows();
+		return $query->num_rows();
 
 	}
+
 	function get_rows_featured()
 	{
 		$region_id = 0;
 		$region_id = $this->session->userdata('region_id'); // chosen region
-		
-		if ($region_id) 
+
+		if ($region_id)
 			$this->db->where('region_id', $region_id);
-		$this->db->where('is_featured',TRUE);
+		$this->db->where('is_featured', TRUE);
 		$query = $this->db->get('activity');
-		return  $query->num_rows();
+		return $query->num_rows();
 
 	}
 
-	
-////////////////////////////////////////////////////////////////	
-	
-	function get_Query_Real_Estates($limit, $offset)
+	function format_booking1($locations, $events)
 	{
-			$Pr_Zo_ID = "0";
-			$Pr_T2_ID = "0";
-			$Pr_Bed = 0;
-			$Pr_Price_L = "0";
-			$Pr_Price_H = "10000000";
-			$Keyword = "";
-			$Pr_Desc = "";
+		$test = FALSE;
 
-		
-				$Pr_Zo_ID = $this->input->post('Pr_Zo_ID'); 
-				$Pr_T2_ID = $this->input->post('Pr_T2_ID');
-				$Pr_Bed = $this->input->post('Pr_Bed');
-				$Pr_Price_L = $this->input->post('Pr_Price_L');
-				$Pr_Price_H = $this->input->post('Pr_Price_H'); 
-				$Keyword = $this->input->post('Keyword');
-				
-			$this->session->set_userdata('Pr_Zo_ID', $Pr_Zo_ID);  // save it for later
-			$this->session->set_userdata('Pr_T2_ID', $Pr_T2_ID);  // save it for later
-			$this->session->set_userdata('Pr_Bed', $Pr_Bed);  // save it for later
-			$this->session->set_userdata('Pr_Price_L', $Pr_Price_L);  // save it for later
-			$this->session->set_userdata('Pr_Price_H', $Pr_Price_H);  // save it for later
-			$this->session->set_userdata('Keyword', $Keyword);  // save it for later
-			$this->session->set_userdata('limit', $limit);  // save it for later
-			$this->session->set_userdata('offset', $offset);  // save it for later
+		$data = [];
+		$j = 1;
+		if (isset($locations)) {
+			$pre_month = '0';
+			$pre_location = '0';
+			$is_month = '-1';
+			$i = 1;
+			$k = 1;
+			$lc = 0;
+			$mc = 0;
+			$ec = 0;
 
-			
-		$q_string = "SELECT * FROM Properties, Zone, Type2 WHERE " .
-			"Pr_Zo_ID = Zo_ID AND " .
-			"Pr_T2_ID = Ty2_ID AND " .
-			"Pr_T1_ID = 1 AND " .
-			"$Pr_Price_L <= Pr_Price AND $Pr_Price_H >= Pr_Price AND " .
-			"Pr_Vis LIKE 'Y'  " ;				
-			if ($Pr_Bed > 0) {
-				$q_string .= "AND Pr_Bed = $Pr_Bed " ; } else {}
-			if ($Pr_T2_ID > 0) {
-				$q_string .= "AND Pr_T2_ID = $Pr_T2_ID " ;  } else {}
-			if ($Pr_Zo_ID > 0) {
-				$q_string .= "AND Pr_Zo_ID = $Pr_Zo_ID " ;  } else {}
-			if ($Keyword) {
-				$q_string .= "AND (Pr_Desc LIKE '%$Keyword%' OR Pr_Name LIKE '%$Keyword%') " ; } else {}
-			$q_string .= "ORDER BY Pr_Price DESC" ;
-					
-			if($limit) {
-				$q_string .= " LIMIT $limit " ;  }
-			if($offset) {
-				$q_string .= " OFFSET $offset " ;  }
-			
-			$q= $this->db->query($q_string);
-			$num_r = $q->num_rows();
-	
-			if ($q->num_rows() > 0) 
-			{
-				foreach ($q->result() as $row)
-				{ 
-								$data[] = $row;
+			$all_location_counter = 0;
+			$all_event_counter = 0;
+			foreach ($locations as $location) {
+				++$all_location_counter;
+				if ($test) echo "all_location_counter: " . $all_location_counter . "<br>";
+
+				if ($test) echo $location->name . ' (' . $pre_location . ")<br>";
+				if ($pre_location) {
+					if ($test) echo "end location <br> ";
+					$data[$i++] = array('end_location' => 1, 'end_month' => 0, 'location' => 0, 'event_date' => 0, 'mc' => $mc, 'ec' => $ec, 'month' => 0);
 				}
-				return $data; // data
+				$pre_month = '0';
+				$pre_location = '0';
+				$is_month = '-1';
+
+				$pre_location = $location->name;
+				$data[$i++] = array('lc' => ++$lc, 'location' => $location->name, 'month' => 0, 'event_date' => 0, 'end_month' => 0, 'mc' => $mc, 'ec' => $ec, 'end_location' => 0);
+
+				if (isset($events)) {
+					foreach ($events as $event) {
+						++$all_event_counter;
+						if ($test) echo " <br> all_event_counter: " . $all_event_counter . "<br>";
+
+						if ($location->location_id == $event['location_id']) {
+							$is_month = date('m', strtotime($event['event_date']));
+							if ($is_month != $pre_month) {
+								if ($pre_month != 0) {
+									$data[$i++] = array('end_month' => 1, 'location' => 0, 'event_date' => 0, 'mc' => $mc, 'ec' => $ec, 'month' => 0, 'end_location' => 0);
+									if ($test) echo "end month <br> ";
+								}
+
+								$ec = 1;
+								if ($test) echo "new month: ";
+								if ($test) echo date('F, Y', strtotime($event['event_date'])) . "<br>";
+								$pre_month = date('m', strtotime($event['event_date']));
+								$k++;
+								$data[$i++] = array('end_month' => 0, 'location' => 0, 'event_date' => 0, 'mc' => ++$mc, 'ec' => $ec, 'month' => date('F, Y', strtotime($event['event_date'])), 'end_location' => 0);
+							}
+
+							if ($event['is_two_days'] and get_cookie('set_admin_status')) $disable = "X"; else $disable = "";
+
+							if ($test) echo date('D, M j', strtotime($event['event_date']));
+							if ($test) echo date('g:i', strtotime($event['event_time']));
+							$data[$i++] = array('end_location' => 0,
+								'end_month' => 0,
+								'location' => 0,
+								'month' => 0,
+								'ec' => $ec++,
+								'mc' => $mc,
+								'all_events' => $all_event_counter,
+								'all_locations' => $all_location_counter,
+								'event_date' => date('D, M j', strtotime($event['event_date'])),
+								'event_time' => date('g:i', strtotime($event['event_time'])),
+								'duration' => date('g:i', strtotime($event['event_time']) + $event['duration'] * 3600),
+								'is_two_days' => $event['is_two_days'] ? 1 : 0,
+								'is_two_days_message' => $event['is_two_days'] ? '<span style="color:#00F" >Please call <span style="color:#C00">(650) 557-4893 </span> to make a last minute reservation! </span>' : 'Please continue with the order',
+								'available' => $event['capacity'] - $this->ledger_model->attending($event['event_event_id']));
+
+							if ($event['is_two_days']) {
+								$twodays = TRUE;         //  <span style="color:#00F" >Please call <span style="color:#C00">(650) 557-4893 </span> to make a last minute reservation! </span>
+							}
+							if ($test) echo '<br>';
+						}
+
+					}
+					if ($test) echo " very end month <br> ";
+					$data[$i++] = array('end_location' => 0, 'end_month' => 1, 'location' => 0, 'event_date' => 0, 'mc' => $mc, 'ec' => $ec, 'month' => 0);
+				}
+
+
 			}
-			$q->free_result();
-	}
+			if ($test) echo " very end location <br> ";
+			$data[$i++] = array('end_location' => 1, 'end_month' => 0, 'location' => 0, 'event_date' => 0, 'mc' => $mc, 'ec' => $ec, 'month' => 0);
 
-	function get_Paginated_Real_Estates( $limit, $offset)
-		{
-//			echo "current offset= ".$offset;
-			$Pr_Zo_ID = "0";
-			$Pr_T2_ID = "0";
-			$Pr_Bed = 0;
-			$Pr_Price_L = "0";
-			$Pr_Price_H = "10000000";
-			$Keyword = "";
-			$Pr_Desc = "";
-
-					
-
-				$this->session->set_userdata('limit', $limit);  // save it for later
-				$this->session->set_userdata('offset', $offset);  // save it for later
-				
-				$Pr_Zo_ID = $this->session->userdata('Pr_Zo_ID');  // save it for later
-				$Pr_T2_ID = $this->session->userdata('Pr_T2_ID');  // save it for later
-				$Pr_Bed = $this->session->userdata('Pr_Bed');  // save it for later
-				$Pr_Price_L = $this->session->userdata('Pr_Price_L');  // save it for later
-				$Pr_Price_H = $this->session->userdata('Pr_Price_H');  // save it for later
-				$Keyword = $this->session->userdata('Keyword');  // save it for later
-
-				
-		$q_string = "SELECT * FROM Properties, Zone, Type2 WHERE " .
-			"Pr_Zo_ID = Zo_ID AND " .
-			"Pr_T2_ID = Ty2_ID AND " .
-			"Pr_T1_ID = 1 AND " .
-			"$Pr_Price_L <= Pr_Price AND $Pr_Price_H >= Pr_Price AND " .
-			"Pr_Vis LIKE 'Y'  " ;				
-			if ($Pr_Bed > 0) {
-				$q_string .= "AND Pr_Bed = $Pr_Bed " ; } else {}
-			if ($Pr_T2_ID > 0) {
-				$q_string .= "AND Pr_T2_ID = $Pr_T2_ID " ;  } else {}
-			if ($Pr_Zo_ID > 0) {
-				$q_string .= "AND Pr_Zo_ID = $Pr_Zo_ID " ;  } else {}
-			if ($Keyword) {
-				$q_string .= "AND (Pr_Desc LIKE '%$Keyword%' OR Pr_Name LIKE '%$Keyword%') " ; } else {}
-			$q_string .= "ORDER BY Pr_Price DESC" ;
-				
-		if($limit) {
-			$q_string .= " LIMIT $limit " ;  } else {};
-			
-		if($offset) {
-			$q_string .= " OFFSET $offset " ;  } else {};
-			
-			
-		$q= $this->db->query($q_string);
-		$num_r = $q->num_rows();
-		if ($q->num_rows() > 0) {
-			foreach ($q->result() as $row)
-			{ 
-				$data[] = $row;
-			}
-			
-		$q->free_result();
-		return $data;
+			$j++;
 		}
-	}
-
-	function xget_rows()
-	{
-				$Pr_Zo_ID = $this->session->userdata('Pr_Zo_ID');  // save it for later
-				$Pr_T2_ID = $this->session->userdata('Pr_T2_ID');  // save it for later
-				$Pr_Bed = $this->session->userdata('Pr_Bed');  // save it for later
-				$Pr_Price_L = $this->session->userdata('Pr_Price_L');  // save it for later
-				$Pr_Price_H = $this->session->userdata('Pr_Price_H');  // save it for later
-				$Keyword = $this->session->userdata('Keyword');  // save it for later
-		
-//echo "getting the rows <br>"; 		
-//echo "Pr_Zo_ID: ".		$Pr_Zo_ID  .'<br>';
-//echo "Pr_T2_ID: ". $Pr_T2_ID .'<br>';
-//echo "Pr_Bed: ". $Pr_Bed .'<br>';
-//echo "Pr_Price_DL: ". $Pr_Price_DL.'<br>';
-//echo "Pr_Price_DH: ". $Pr_Price_DH.'<br>';
-//echo "Pr_Price_WL: ". $Pr_Price_WL.'<br>' ;
-//echo "Pr_Price_WH: ". $Pr_Price_WH.'<br>' ;
-//echo "Pr_Price_ML: ". $Pr_Price_ML.'<br>' ;
-//echo "Pr_Price_MH: ". $Pr_Price_MH.'<br>' ;
-//echo "Pr_Long_Term: ". $Pr_Long_Term.'<br>' ;
-//echo "Keyword: ". $Keyword .'<br>';
-
-		$q_string = "SELECT * FROM Properties, Zone, Type2 WHERE " .
-			"Pr_Zo_ID = Zo_ID AND " .
-			"Pr_T2_ID = Ty2_ID AND " .
-			"Pr_T1_ID = 1 AND " .
-			"$Pr_Price_L <= Pr_Price AND $Pr_Price_H >= Pr_Price AND " .
-			"Pr_Vis LIKE 'Y'  " ;				
-			if ($Pr_Bed > 0) {
-				$q_string .= "AND Pr_Bed = $Pr_Bed " ; } else {}
-			if ($Pr_T2_ID > 0) {
-				$q_string .= "AND Pr_T2_ID = $Pr_T2_ID " ;  } else {}
-			if ($Pr_Zo_ID > 0) {
-				$q_string .= "AND Pr_Zo_ID = $Pr_Zo_ID " ;  } else {}
-			if ($Keyword) {
-				$q_string .= "AND (Pr_Desc LIKE '%$Keyword%' OR Pr_Name LIKE '%$Keyword%') " ; } else {}
-			$q_string .= "ORDER BY Pr_Price DESC" ;
-			
-			$q= $this->db->query($q_string);
-			return $q->num_rows();
-	}
-		function get_Zone()
-	{
-		$this->db->order_by('Zo_Name');
-		$query = $this->db->get('Zone');
-		return $query->result();
-	}
-		function get_Type2()
-	{
-		$this->db->order_by('Ty2_Name');
-		$query = $this->db->get('Type2');
-		return $query->result();
-	}
-//		function get_property_name()
-//	{
-//		$Pr_ID = $this->uri->segment(3);
-//		$this->db->where('Pr_ID','$Pr_ID');
-//		$query = $this->db->get('Properties');
-//		return $query->result();
-//	}
-	function get_property_profile()
-	{
-		$Pr_ID = $this->uri->segment(3);
-		$q_string = "SELECT * FROM Properties, Zone, Colonias, Cities, Type1, Type2 WHERE " .
-			"Pr_Zo_ID = Zo_ID AND " .
-			"Pr_Ci_ID = Ci_ID AND " .
-			"Pr_Col_ID = Col_ID AND " .
-			"Pr_T1_ID = Ty1_ID AND " .
-			"Pr_T2_ID = Ty2_ID AND " .
-			"Pr_ID = $Pr_ID";
-			
-		$q= $this->db->query($q_string);
-		$num_r = $q->num_rows();
-		if ($q->num_rows() > 0) {
-			foreach ($q->result() as $row)
-			{ 
-				$data[] = $row;
-			}
-			
-		$q->free_result();
-		return $data;
-		}
+		return ($data);
 	}
 }
 // end of model class

@@ -68,4 +68,15 @@
 <file name="TandT_new_logo_v2.fw.png" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130804473500000000" remote="131003122030000000" Dst="1" />
 <file name="TandT_new_logo_v2.gif" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130804470530000000" remote="131003122040000000" Dst="1" />
 <file name="travelo_process.png" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130474378200000000" remote="131003122100000000" Dst="1" />
+<file name="404-style1.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130480669620000000" remote="130480669620000000" Dst="2" />
+<file name="favicon.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130474414220000000" remote="130474414220000000" Dst="2" />
+<file name="logo-org.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130475460960000000" remote="130475460960000000" Dst="2" />
+<file name="logo-ttx.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130804094620000000" remote="130804094620000000" Dst="2" />
+<file name="logo.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130475496960000000" remote="130475496960000000" Dst="2" />
+<file name="logo2-org.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130474378180000000" remote="130474378180000000" Dst="2" />
+<file name="logo2.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130474414180000000" remote="130474414180000000" Dst="2" />
+<file name="logo_txt.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130474414160000000" remote="130474414160000000" Dst="2" />
+<file name="TandT_new_logo_v2.fw.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130804473500000000" remote="130804473500000000" Dst="2" />
+<file name="TandT_new_logo_v2.gif" server="159.203.224.137//home/forge/sunnydays.me/" local="130804470530000000" remote="130804470530000000" Dst="2" />
+<file name="travelo_process.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130474414200000000" remote="130474414200000000" Dst="2" />
 </dwsync>

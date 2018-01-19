@@ -8,22 +8,22 @@
 		<div class="fullwidthbanner-container">
 			<div class="revolution-slider" style="height: 0; overflow: hidden;">
 				<ul>
-					<!-- SLIDE  --> 
+					<!-- SLIDE  -->
 					<!-- Slide1 -->
-					<li data-transition="zoomin" data-slotamount="7" data-masterspeed="1500"> 
-						<!-- MAIN IMAGE --> 
-						<img src="<?= base_url() ?>images/classes/RAPTT/IMGP1294.JPG" alt=""> </li>
-					
+					<li data-transition="zoomin" data-slotamount="7" data-masterspeed="1500">
+						<!-- MAIN IMAGE -->
+						<img src="<?= base_url() ?>images/classes/RAPTT/IMGP1294.JPG" alt=""></li>
+
 					<!-- Slide2 -->
-					<li data-transition="zoomout" data-slotamount="7" data-masterspeed="1500"> 
-						<!-- MAIN IMAGE --> 
-						<img src="<?= base_url() ?>images/classes/RAPTT/RAPTT3.jpg" alt=""> </li>
-					
+					<li data-transition="zoomout" data-slotamount="7" data-masterspeed="1500">
+						<!-- MAIN IMAGE -->
+						<img src="<?= base_url() ?>images/classes/RAPTT/RAPTT3.jpg" alt=""></li>
+
 					<!-- Slide3 -->
-					<li data-transition="slidedown" data-slotamount="7" data-masterspeed="1500"> 
-						<!-- MAIN IMAGE --> 
-						<img src="<?= base_url() ?>images/classes/RAPTT/RAPTT4.jpg" alt=""> </li>
-						<!--<img src="http://placehold.it/2080x646" alt="">--> </li>
+					<li data-transition="slidedown" data-slotamount="7" data-masterspeed="1500">
+						<!-- MAIN IMAGE -->
+						<img src="<?= base_url() ?>images/classes/RAPTT/RAPTT4.jpg" alt=""></li>
+					<!--<img src="http://placehold.it/2080x646" alt="">--> </li>
 				</ul>
 			</div>
 		</div>
@@ -58,7 +58,8 @@
 								<div class="form-group col-sm-6 col-md-3">
 									<h4 class="title">Where</h4>
 									<label>Your Destination</label>
-									<input type="text" class="input-text full-width" placeholder="enter a destination or hotel name" />
+									<input type="text" class="input-text full-width"
+									       placeholder="enter a destination or hotel name"/>
 								</div>
 								<div class="form-group col-sm-6 col-md-4">
 									<h4 class="title">When</h4>
@@ -66,13 +67,15 @@
 										<div class="col-xs-6">
 											<label>Check In</label>
 											<div class="datepicker-wrap">
-												<input type="text" name="date_from" class="input-text full-width" placeholder="mm/dd/yy" />
+												<input type="text" name="date_from" class="input-text full-width"
+												       placeholder="mm/dd/yy"/>
 											</div>
 										</div>
 										<div class="col-xs-6">
 											<label>Check Out</label>
 											<div class="datepicker-wrap">
-												<input type="text" name="date_to" class="input-text full-width" placeholder="mm/dd/yy" />
+												<input type="text" name="date_to" class="input-text full-width"
+												       placeholder="mm/dd/yy"/>
 											</div>
 										</div>
 									</div>
@@ -117,7 +120,9 @@
 								</div>
 								<div class="form-group col-sm-6 col-md-2 fixheight">
 									<label class="hidden-xs">&nbsp;</label>
-									<button type="submit" class="full-width icon-check animated" data-animation-type="bounce" data-animation-duration="1">SEARCH NOW</button>
+									<button type="submit" class="full-width icon-check animated"
+									        data-animation-type="bounce" data-animation-duration="1">SEARCH NOW
+									</button>
 								</div>
 							</div>
 						</form>
@@ -129,11 +134,13 @@
 									<h4 class="title">Where</h4>
 									<div class="form-group">
 										<label>Leaving From</label>
-										<input type="text" class="input-text full-width" placeholder="city, distirct or specific airpot" />
+										<input type="text" class="input-text full-width"
+										       placeholder="city, distirct or specific airpot"/>
 									</div>
 									<div class="form-group">
 										<label>Going To</label>
-										<input type="text" class="input-text full-width" placeholder="city, distirct or specific airpot" />
+										<input type="text" class="input-text full-width"
+										       placeholder="city, distirct or specific airpot"/>
 									</div>
 								</div>
 								<div class="col-md-4">
@@ -142,7 +149,8 @@
 									<div class="form-group row">
 										<div class="col-xs-6">
 											<div class="datepicker-wrap">
-												<input type="text" name="date_from" class="input-text full-width" placeholder="mm/dd/yy" />
+												<input type="text" name="date_from" class="input-text full-width"
+												       placeholder="mm/dd/yy"/>
 											</div>
 										</div>
 										<div class="col-xs-6">
@@ -158,7 +166,8 @@
 									<div class="form-group row">
 										<div class="col-xs-6">
 											<div class="datepicker-wrap">
-												<input type="text" name="date_to" class="input-text full-width" placeholder="mm/dd/yy" />
+												<input type="text" name="date_to" class="input-text full-width"
+												       placeholder="mm/dd/yy"/>
 											</div>
 										</div>
 										<div class="col-xs-6">
@@ -198,7 +207,7 @@
 										</div>
 										<div class="col-xs-6">
 											<label>Promo Code</label>
-											<input type="text" class="input-text full-width" placeholder="type here" />
+											<input type="text" class="input-text full-width" placeholder="type here"/>
 										</div>
 									</div>
 									<div class="form-group row">
@@ -229,11 +238,13 @@
 									<h4 class="title">Where</h4>
 									<div class="form-group">
 										<label>Leaving From</label>
-										<input type="text" class="input-text full-width" placeholder="city, distirct or specific airpot" />
+										<input type="text" class="input-text full-width"
+										       placeholder="city, distirct or specific airpot"/>
 									</div>
 									<div class="form-group">
 										<label>Going To</label>
-										<input type="text" class="input-text full-width" placeholder="city, distirct or specific airpot" />
+										<input type="text" class="input-text full-width"
+										       placeholder="city, distirct or specific airpot"/>
 									</div>
 								</div>
 								<div class="col-md-4">
@@ -242,7 +253,8 @@
 									<div class="form-group row">
 										<div class="col-xs-6">
 											<div class="datepicker-wrap">
-												<input type="text" name="date_from" class="input-text full-width" placeholder="mm/dd/yy" />
+												<input type="text" name="date_from" class="input-text full-width"
+												       placeholder="mm/dd/yy"/>
 											</div>
 										</div>
 										<div class="col-xs-6">
@@ -258,7 +270,8 @@
 									<div class="form-group row">
 										<div class="col-xs-6">
 											<div class="datepicker-wrap">
-												<input type="text" name="date_to" class="input-text full-width" placeholder="mm/dd/yy" />
+												<input type="text" name="date_to" class="input-text full-width"
+												       placeholder="mm/dd/yy"/>
 											</div>
 										</div>
 										<div class="col-xs-6">
@@ -298,7 +311,7 @@
 										</div>
 										<div class="col-xs-6">
 											<label>Promo Code</label>
-											<input type="text" class="input-text full-width" placeholder="type here" />
+											<input type="text" class="input-text full-width" placeholder="type here"/>
 										</div>
 									</div>
 									<div class="form-group row">
@@ -329,11 +342,13 @@
 									<h4 class="title">Where</h4>
 									<div class="form-group">
 										<label>Pick Up</label>
-										<input type="text" class="input-text full-width" placeholder="city, distirct or specific airpot" />
+										<input type="text" class="input-text full-width"
+										       placeholder="city, distirct or specific airpot"/>
 									</div>
 									<div class="form-group">
 										<label>Drop Off</label>
-										<input type="text" class="input-text full-width" placeholder="city, distirct or specific airpot" />
+										<input type="text" class="input-text full-width"
+										       placeholder="city, distirct or specific airpot"/>
 									</div>
 								</div>
 								<div class="col-md-4">
@@ -343,7 +358,8 @@
 										<div class="row">
 											<div class="col-xs-6">
 												<div class="datepicker-wrap">
-													<input type="text" name="date_from" class="input-text full-width" placeholder="mm/dd/yy" />
+													<input type="text" name="date_from" class="input-text full-width"
+													       placeholder="mm/dd/yy"/>
 												</div>
 											</div>
 											<div class="col-xs-6">
@@ -361,7 +377,8 @@
 										<div class="row">
 											<div class="col-xs-6">
 												<div class="datepicker-wrap">
-													<input type="text" name="date_to" class="input-text full-width" placeholder="mm/dd/yy" />
+													<input type="text" name="date_to" class="input-text full-width"
+													       placeholder="mm/dd/yy"/>
 												</div>
 											</div>
 											<div class="col-xs-6">
@@ -402,7 +419,7 @@
 										</div>
 										<div class="col-xs-6">
 											<label>Promo Code</label>
-											<input type="text" class="input-text full-width" placeholder="type here" />
+											<input type="text" class="input-text full-width" placeholder="type here"/>
 										</div>
 									</div>
 									<div class="form-group row">
@@ -432,7 +449,8 @@
 									<h4 class="title">Where</h4>
 									<div class="form-group">
 										<label>Your Destination</label>
-										<input type="text" class="input-text full-width" placeholder="enter a destination or hotel name" />
+										<input type="text" class="input-text full-width"
+										       placeholder="enter a destination or hotel name"/>
 									</div>
 								</div>
 								<div class="col-md-4">
@@ -441,7 +459,8 @@
 										<div class="col-xs-6">
 											<label>Departure Date</label>
 											<div class="datepicker-wrap">
-												<input type="text" class="input-text full-width" placeholder="mm/dd/yy" />
+												<input type="text" class="input-text full-width"
+												       placeholder="mm/dd/yy"/>
 											</div>
 										</div>
 										<div class="col-xs-6">
@@ -511,11 +530,13 @@
 									<div class="form-group row">
 										<div class="col-xs-6">
 											<label>Leaving From</label>
-											<input type="text" class="input-text full-width" placeholder="enter a city or place name" />
+											<input type="text" class="input-text full-width"
+											       placeholder="enter a city or place name"/>
 										</div>
 										<div class="col-xs-6">
 											<label>Going To</label>
-											<input type="text" class="input-text full-width" placeholder="enter a city or place name" />
+											<input type="text" class="input-text full-width"
+											       placeholder="enter a city or place name"/>
 										</div>
 									</div>
 								</div>
@@ -524,7 +545,7 @@
 									<div class="form-group">
 										<label>Departure Date</label>
 										<div class="datepicker-wrap">
-											<input type="text" class="input-text full-width" placeholder="mm/dd/yy" />
+											<input type="text" class="input-text full-width" placeholder="mm/dd/yy"/>
 										</div>
 									</div>
 								</div>
@@ -532,7 +553,8 @@
 									<h4 class="title">Who</h4>
 									<div class="form-group">
 										<label>Flight Number</label>
-										<input type="text" class="input-text full-width" placeholder="enter flight number" />
+										<input type="text" class="input-text full-width"
+										       placeholder="enter flight number"/>
 									</div>
 								</div>
 								<div class="form-group col-md-2 fixheight">
@@ -550,11 +572,13 @@
 									<div class="form-group row">
 										<div class="col-xs-6">
 											<label>Leaving From</label>
-											<input type="text" class="input-text full-width" placeholder="enter a city or place name" />
+											<input type="text" class="input-text full-width"
+											       placeholder="enter a city or place name"/>
 										</div>
 										<div class="col-xs-6">
 											<label>Going To</label>
-											<input type="text" class="input-text full-width" placeholder="enter a city or place name" />
+											<input type="text" class="input-text full-width"
+											       placeholder="enter a city or place name"/>
 										</div>
 									</div>
 								</div>
@@ -563,7 +587,7 @@
 									<div class="form-group">
 										<label>Departure Date</label>
 										<div class="datepicker-wrap">
-											<input type="text" class="input-text full-width" placeholder="mm/dd/yy" />
+											<input type="text" class="input-text full-width" placeholder="mm/dd/yy"/>
 										</div>
 									</div>
 								</div>
@@ -571,7 +595,8 @@
 									<h4 class="title">Who</h4>
 									<div class="form-group">
 										<label>Full Name</label>
-										<input type="text" class="input-text full-width" placeholder="enter your full name" />
+										<input type="text" class="input-text full-width"
+										       placeholder="enter your full name"/>
 									</div>
 								</div>
 								<div class="form-group col-md-2 fixheight">
@@ -585,222 +610,287 @@
 			</div>
 		</div>
 		<div class="container">
-		<!-- Popuplar Destinations -->
-		<div class="old destinations section">
-			<div class="container">
-				<h2>Popular Destinations</h2>
-				<li><a class="xhover-effect" data-group="all" href="#">All</a></li>
-				<? if ($styles) : foreach ($styles as $style) : ?>
-				<li><a class="xhover-effect" data-group="<?= $style->name ?>" onClick="xajax_getProducts(<?= $style->style_id ?>);return false;" href='#'>
-					<?= $style->name ?>
-					</a></li>
-				<? endforeach; endif ?>
-				<div id="product_display" class="row image-box style1 add-clearfix" >
-					<? $i= 0 ?>
-					<? if ($all_classes) : foreach ($all_classes as $row) : ?>
-					<? $picture = base_url() . CLASSES_IMAGE_DIR . strtoupper($row->code) . '/' . strtoupper($row->code) . '2.jpg' ; ?>
-					<div class="col-sms-6 col-sm-6 col-md-3"  >
-						<article class="box">
-							<figure class="animated" data-animation-type="fadeInDown" data-animation-duration="1"> <a href="<?= site_url() . 'tt_v2/product/' . $row->activity_id . '/photos_tab'?>" title="" class="hover-effect"><img src=<?= $picture ?> alt="" width="270" height="160" /></a> </figure>
-							<div class="details"> 
-								<h4 class="box-title"><a href="<?= site_url() . 'tt_v2/product/' . $row->activity_id ?>"><?= $row->name ?><small>Paris</small></a></h4>
-							<div><span class="price"><small></small>$<?= $row->rate_price_price ?></span></div>
+			<!-- Popuplar Destinations -->
+			<div class="old destinations section">
+				<div class="container">
+					<h2>Popular Destinations</h2>
+					<li><a class="xhover-effect" data-group="all" href="#">All</a></li>
+					<? if ($styles) : foreach ($styles as $style) : ?>
+						<li><a class="xhover-effect" data-group="<?= $style->name ?>"
+						       onClick="xajax_getProducts(<?= $style->style_id ?>);return false;" href='#'>
+								<?= $style->name ?>
+							</a></li>
+					<? endforeach; endif ?>
+					<div id="product_display" class="row image-box style1 add-clearfix">
+						<? $i = 0 ?>
+						<? if ($all_classes) : foreach ($all_classes as $row) : ?>
+							<? $picture = base_url() . CLASSES_IMAGE_DIR . strtoupper($row->code) . '/' . strtoupper($row->code) . '2.jpg'; ?>
+							<div class="col-sms-6 col-sm-6 col-md-3">
+								<article class="box">
+									<figure class="animated" data-animation-type="fadeInDown"
+									        data-animation-duration="1"><a
+											href="<?= site_url() . 'tt_v2/product/' . $row->activity_id . '/photos_tab' ?>"
+											title="" class="hover-effect"><img src=<?= $picture ?> alt="" width="270"
+									                                           height="160"/></a></figure>
+									<div class="details">
+										<h4 class="box-title"><a
+												href="<?= site_url() . 'tt_v2/product/' . $row->activity_id ?>"><?= $row->name ?>
+												<small>Paris</small>
+											</a></h4>
+										<div><span class="price"><small></small>$<?= $row->rate_price_price ?></span>
+										</div>
+									</div>
+									<hr>
+									<div class="text-center">
+										<div class="times"><i class="soap-icon-clock yellow-color"></i> <span>01 Nov 2014 - 08 Nov 2014</span>
+										</div>
+									</div>
+									<a href="<?= site_url() . 'tt_v2/product_booking1/' . $row->activity_id ?>"
+									   class="button btn-small full-width">CHECK DATES</a>
+								</article>
 							</div>
-							<hr>
-							<div class="text-center">
-								<div class="times"> <i class="soap-icon-clock yellow-color"></i> <span>01 Nov 2014 - 08 Nov 2014</span> </div>
-							</div>
-							<a href="<?= site_url() . 'tt_v2/product_booking1/' . $row->activity_id ?>" class="button btn-small full-width">CHECK DATES</a> 
-						</article>
+							<? $i++ ?>
+						<? endforeach ?>
+						<? else : ?>
+							<p style="margin-left:15px; font-weight:bold;"> No class in this group found! Please choose
+								from another group. </p>
+						<? endif ?>
 					</div>
-					<? $i++ ?>
-					<? endforeach ?>
-					<? else : ?>
-					<p style="margin-left:15px; font-weight:bold;"> No class in this group found! Please choose from another group. </p>
-					<? endif ?>
 				</div>
 			</div>
-		</div>
-		
-		<!-- Honeymoon -->
-		<div class="honeymoon section global-map-area promo-box parallax" data-stellar-background-ratio="0.5">
-			<div class="container">
-				<div class="col-sm-6 content-section description pull-right">
-					<h1 class="title">Popular Destinations for Honeymoon</h1>
-					<p>Nunc cursus libero purusac congue arcu cursus utsed vitae pulvinar massa idporta neque purusac Etiam elerisque mi id faucibus iaculis vitae pulvinar.</p>
-					<div class="row places image-box style9">
-						<div class="col-sms-4 col-sm-4">
+
+			<!-- Honeymoon -->
+			<div class="honeymoon section global-map-area promo-box parallax" data-stellar-background-ratio="0.5">
+				<div class="container">
+					<div class="col-sm-6 content-section description pull-right">
+						<h1 class="title">Popular Destinations for Honeymoon</h1>
+						<p>Nunc cursus libero purusac congue arcu cursus utsed vitae pulvinar massa idporta neque
+							purusac Etiam elerisque mi id faucibus iaculis vitae pulvinar.</p>
+						<div class="row places image-box style9">
+							<div class="col-sms-4 col-sm-4">
+								<article class="box">
+									<figure><a href="hotel-list-view.html" title=""
+									           class="hover-effect yellow middle-block animated"
+									           data-animation-type="fadeInUp" data-animation-duration="1"> <img
+												src="http://placehold.it/370x170" alt=""/></a></figure>
+									<div class="details">
+										<h4 class="box-title">Paris
+											<small>(990 PLACES)</small>
+										</h4>
+										<a href="hotel-list-view.html" title="" class="button">SEE ALL</a></div>
+								</article>
+							</div>
+							<div class="col-sms-4 col-sm-4">
+								<article class="box">
+									<figure><a href="hotel-list-view.html" title=""
+									           class="hover-effect yellow middle-block animated"
+									           data-animation-type="fadeInUp" data-animation-duration="1"
+									           data-animation-delay="0.4"><img src="http://placehold.it/370x170"
+									                                           alt=""/></a></figure>
+									<div class="details">
+										<h4 class="box-title">Greece
+											<small>(990 PLACES)</small>
+										</h4>
+										<a href="hotel-list-view.html" title="" class="button">SEE ALL</a></div>
+								</article>
+							</div>
+							<div class="col-sms-4 col-sm-4">
+								<article class="box">
+									<figure><a href="hotel-list-view.html" title=""
+									           class="hover-effect yellow middle-block animated"
+									           data-animation-type="fadeInUp" data-animation-duration="1"
+									           data-animation-delay="0.8"><img src="http://placehold.it/370x170"
+									                                           alt=""/></a></figure>
+									<div class="details">
+										<h4 class="box-title">Australia
+											<small>(990 PLACES)</small>
+										</h4>
+										<a href="hotel-list-view.html" title="" class="button">SEE ALL</a></div>
+								</article>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 image-container no-margin"><img src="http://placehold.it/524x540" alt=""
+					                                                     class="animated" data-animation-type="fadeInUp"
+					                                                     data-animation-duration="2"></div>
+				</div>
+			</div>
+
+			<!-- Did you Know? section -->
+			<div class="offers section">
+				<div class="container">
+					<h1 class="text-center">Did you know?</h1>
+					<p class="col-xs-9 center-block no-float text-center">Mauris ullamcorper nibh quis leo ultrices in
+						hendrerit velit tristiqueut augue in nulla lacinia bibendum liberoras rutrum ac purus ut
+						tristique.
+						Nullam placerat lacinia dolor quis pretium. Phasellus vitae lacinia quam, at pellentesque lorem.
+						Sed euismod turpis quis mattis fringilla.</p>
+					<div class="row image-box style2">
+						<div class="col-md-6">
 							<article class="box">
-								<figure> <a href="hotel-list-view.html" title="" class="hover-effect yellow middle-block animated" data-animation-type="fadeInUp" data-animation-duration="1"> <img src="http://placehold.it/370x170" alt="" /></a> </figure>
+								<figure class="animated" data-animation-type="fadeInLeft" data-animation-duration="1"><a
+										href="#" title=""><img src="http://placehold.it/270x192" alt="" width="270"
+								                               height="192"/></a></figure>
 								<div class="details">
-									<h4 class="box-title">Paris<small>(990 PLACES)</small></h4>
-									<a href="hotel-list-view.html" title="" class="button">SEE ALL</a> </div>
+									<h4>Hire Cars</h4>
+									<p>Nunc cursus libero purus ac congue ar lorem cursus ut sed vitae pulvinar massa
+										idend porta nequetiam elerisque mi id.</p>
+									<a href="#" title="" class="button">SEE ALL</a></div>
 							</article>
 						</div>
-						<div class="col-sms-4 col-sm-4">
+						<div class="col-md-6">
 							<article class="box">
-								<figure> <a href="hotel-list-view.html" title="" class="hover-effect yellow middle-block animated" data-animation-type="fadeInUp" data-animation-duration="1" data-animation-delay="0.4"><img src="http://placehold.it/370x170" alt="" /></a> </figure>
+								<figure class="animated" data-animation-type="fadeInLeft" data-animation-duration="1"
+								        data-animation-delay="0.4"><a href="#" title=""><img
+											src="http://placehold.it/270x192" alt="" width="270" height="192"/></a>
+								</figure>
 								<div class="details">
-									<h4 class="box-title">Greece<small>(990 PLACES)</small></h4>
-									<a href="hotel-list-view.html" title="" class="button">SEE ALL</a> </div>
+									<h4>Cruise Deals</h4>
+									<p>Nunc cursus libero purus ac congue ar lorem cursus ut sed vitae pulvinar massa
+										idend porta nequetiam elerisque mi id.</p>
+									<a href="#" title="" class="button">SEE ALL</a></div>
 							</article>
 						</div>
-						<div class="col-sms-4 col-sm-4">
+						<div class="col-md-6">
 							<article class="box">
-								<figure> <a href="hotel-list-view.html" title="" class="hover-effect yellow middle-block animated" data-animation-type="fadeInUp" data-animation-duration="1" data-animation-delay="0.8"><img src="http://placehold.it/370x170" alt="" /></a> </figure>
+								<figure class="animated" data-animation-type="fadeInLeft" data-animation-duration="1"><a
+										href="#" title=""><img src="http://placehold.it/270x192" alt="" width="270"
+								                               height="192"/></a></figure>
 								<div class="details">
-									<h4 class="box-title">Australia<small>(990 PLACES)</small></h4>
-									<a href="hotel-list-view.html" title="" class="button">SEE ALL</a> </div>
+									<h4>Things To Do</h4>
+									<p>Nunc cursus libero purus ac congue ar lorem cursus ut sed vitae pulvinar massa
+										idend porta nequetiam elerisque mi id.</p>
+									<a href="#" title="" class="button">SEE ALL</a></div>
+							</article>
+						</div>
+						<div class="col-md-6">
+							<article class="box">
+								<figure class="animated" data-animation-type="fadeInLeft" data-animation-duration="1"
+								        data-animation-delay="0.4"><a href="#" title=""><img
+											src="http://placehold.it/270x192" alt="" width="270" height="192"/></a>
+								</figure>
+								<div class="details">
+									<h4>Fly in Comfort</h4>
+									<p>Nunc cursus libero purus ac congue ar lorem cursus ut sed vitae pulvinar massa
+										idend porta nequetiam elerisque mi id.</p>
+									<a href="#" title="" class="button">SEE ALL</a></div>
 							</article>
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-6 image-container no-margin"> <img src="http://placehold.it/524x540" alt="" class="animated" data-animation-type="fadeInUp" data-animation-duration="2"> </div>
 			</div>
-		</div>
-		
-		<!-- Did you Know? section -->
-		<div class="offers section">
-			<div class="container">
-				<h1 class="text-center">Did you know?</h1>
-				<p class="col-xs-9 center-block no-float text-center">Mauris ullamcorper nibh quis leo ultrices in hendrerit velit tristiqueut augue in nulla lacinia bibendum liberoras rutrum ac purus ut tristique.
-					Nullam placerat lacinia dolor quis pretium. Phasellus vitae lacinia quam, at pellentesque lorem. Sed euismod turpis quis mattis fringilla.</p>
-				<div class="row image-box style2">
-					<div class="col-md-6">
-						<article class="box">
-							<figure class="animated" data-animation-type="fadeInLeft" data-animation-duration="1"> <a href="#" title=""><img src="http://placehold.it/270x192" alt="" width="270" height="192" /></a> </figure>
-							<div class="details">
-								<h4>Hire Cars</h4>
-								<p>Nunc cursus libero purus ac congue ar lorem cursus ut sed vitae pulvinar massa idend porta nequetiam elerisque mi id.</p>
-								<a href="#" title="" class="button">SEE ALL</a> </div>
-						</article>
-					</div>
-					<div class="col-md-6">
-						<article class="box">
-							<figure class="animated" data-animation-type="fadeInLeft" data-animation-duration="1" data-animation-delay="0.4"> <a href="#" title=""><img src="http://placehold.it/270x192" alt="" width="270" height="192" /></a> </figure>
-							<div class="details">
-								<h4>Cruise Deals</h4>
-								<p>Nunc cursus libero purus ac congue ar lorem cursus ut sed vitae pulvinar massa idend porta nequetiam elerisque mi id.</p>
-								<a href="#" title="" class="button">SEE ALL</a> </div>
-						</article>
-					</div>
-					<div class="col-md-6">
-						<article class="box">
-							<figure class="animated" data-animation-type="fadeInLeft" data-animation-duration="1"> <a href="#" title=""><img src="http://placehold.it/270x192" alt="" width="270" height="192" /></a> </figure>
-							<div class="details">
-								<h4>Things To Do</h4>
-								<p>Nunc cursus libero purus ac congue ar lorem cursus ut sed vitae pulvinar massa idend porta nequetiam elerisque mi id.</p>
-								<a href="#" title="" class="button">SEE ALL</a> </div>
-						</article>
-					</div>
-					<div class="col-md-6">
-						<article class="box">
-							<figure class="animated" data-animation-type="fadeInLeft" data-animation-duration="1" data-animation-delay="0.4"> <a href="#" title=""><img src="http://placehold.it/270x192" alt="" width="270" height="192" /></a> </figure>
-							<div class="details">
-								<h4>Fly in Comfort</h4>
-								<p>Nunc cursus libero purus ac congue ar lorem cursus ut sed vitae pulvinar massa idend porta nequetiam elerisque mi id.</p>
-								<a href="#" title="" class="button">SEE ALL</a> </div>
-						</article>
+			<!-- Features section -->
+			<div class="features section global-map-area parallax" data-stellar-background-ratio="0.5">
+				<div class="container">
+					<div class="row image-box style7">
+						<div class="col-sms-6 col-sm-6 col-md-3">
+							<article class="box">
+								<figure class="middle-block"><img src="http://placehold.it/300x120" alt=""
+								                                  class="middle-item"/> <span
+										class="opacity-wrapper"></span></figure>
+								<div class="details">
+									<h4><a href="#">Best Price Guarantee</a></h4>
+									<p> Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa
+										idporta nequetiam elerisque mi id faucibus iaculis vitae pulvinar. </p>
+								</div>
+							</article>
+						</div>
+						<div class="col-sms-6 col-sm-6 col-md-3">
+							<article class="box">
+								<figure class="middle-block"><img src="http://placehold.it/300x120" alt=""
+								                                  class="middle-item"/> <span
+										class="opacity-wrapper"></span></figure>
+								<div class="details">
+									<h4><a href="#">Travel Insurance</a></h4>
+									<p> Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa
+										idporta nequetiam elerisque mi id faucibus iaculis vitae pulvinar. </p>
+								</div>
+							</article>
+						</div>
+						<div class="col-sms-6 col-sm-6 col-md-3">
+							<article class="box">
+								<figure class="middle-block"><img src="http://placehold.it/300x120" alt=""
+								                                  class="middle-item"/> <span
+										class="opacity-wrapper"></span></figure>
+								<div class="details">
+									<h4><a href="#">Why Chose Us</a></h4>
+									<p> Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa
+										idporta nequetiam elerisque mi id faucibus iaculis vitae pulvinar. </p>
+								</div>
+							</article>
+						</div>
+						<div class="col-sms-6 col-sm-6 col-md-3">
+							<article class="box">
+								<figure class="middle-block"><img src="http://placehold.it/300x120" alt=""
+								                                  class="middle-item"/> <span
+										class="opacity-wrapper"></span></figure>
+								<div class="details">
+									<h4><a href="#">Need Help?</a></h4>
+									<p> Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa
+										idporta nequetiam elerisque mi id faucibus iaculis vitae pulvinar. </p>
+								</div>
+							</article>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<!-- Features section -->
-		<div class="features section global-map-area parallax" data-stellar-background-ratio="0.5">
-			<div class="container">
-				<div class="row image-box style7">
-					<div class="col-sms-6 col-sm-6 col-md-3">
-						<article class="box">
-							<figure class="middle-block"> <img src="http://placehold.it/300x120" alt="" class="middle-item" /> <span class="opacity-wrapper"></span> </figure>
-							<div class="details">
-								<h4><a href="#">Best Price Guarantee</a></h4>
-								<p> Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa idporta nequetiam elerisque mi id faucibus iaculis vitae pulvinar. </p>
-							</div>
-						</article>
-					</div>
-					<div class="col-sms-6 col-sm-6 col-md-3">
-						<article class="box">
-							<figure class="middle-block"> <img src="http://placehold.it/300x120" alt="" class="middle-item" /> <span class="opacity-wrapper"></span> </figure>
-							<div class="details">
-								<h4><a href="#">Travel Insurance</a></h4>
-								<p> Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa idporta nequetiam elerisque mi id faucibus iaculis vitae pulvinar. </p>
-							</div>
-						</article>
-					</div>
-					<div class="col-sms-6 col-sm-6 col-md-3">
-						<article class="box">
-							<figure class="middle-block"> <img src="http://placehold.it/300x120" alt="" class="middle-item" /> <span class="opacity-wrapper"></span> </figure>
-							<div class="details">
-								<h4><a href="#">Why Chose Us</a></h4>
-								<p> Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa idporta nequetiam elerisque mi id faucibus iaculis vitae pulvinar. </p>
-							</div>
-						</article>
-					</div>
-					<div class="col-sms-6 col-sm-6 col-md-3">
-						<article class="box">
-							<figure class="middle-block"> <img src="http://placehold.it/300x120" alt="" class="middle-item" /> <span class="opacity-wrapper"></span> </figure>
-							<div class="details">
-								<h4><a href="#">Need Help?</a></h4>
-								<p> Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa idporta nequetiam elerisque mi id faucibus iaculis vitae pulvinar. </p>
-							</div>
-						</article>
-					</div>
-				</div>
-			</div>
-		</div>
 	</section>
 	<?= $footer ?>
 </div>
-<!-- Javascript --> 
-<script type="text/javascript" src="<?= base_url() . JS_DIR ?>js/jquery-1.11.1.min.js"></script> 
-<script type="text/javascript" src="<?= base_url() . JS_DIR ?>js/jquery.noconflict.js"></script> 
-<script type="text/javascript" src="<?= base_url() . JS_DIR ?>js/modernizr.2.7.1.min.js"></script> 
-<script type="text/javascript" src="<?= base_url() . JS_DIR ?>js/jquery-migrate-1.2.1.min.js"></script> 
-<script type="text/javascript" src="<?= base_url() . JS_DIR ?>js/jquery.placeholder.js"></script> 
-<script type="text/javascript" src="<?= base_url() . JS_DIR ?>js/jquery-ui.1.10.4.min.js"></script> 
+<!-- Javascript -->
+<script type="text/javascript" src="<?= base_url() . JS_DIR ?>js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="<?= base_url() . JS_DIR ?>js/jquery.noconflict.js"></script>
+<script type="text/javascript" src="<?= base_url() . JS_DIR ?>js/modernizr.2.7.1.min.js"></script>
+<script type="text/javascript" src="<?= base_url() . JS_DIR ?>js/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="<?= base_url() . JS_DIR ?>js/jquery.placeholder.js"></script>
+<script type="text/javascript" src="<?= base_url() . JS_DIR ?>js/jquery-ui.1.10.4.min.js"></script>
 
-<!-- Twitter Bootstrap --> 
-<script type="text/javascript" src="<?= base_url() . JS_DIR ?>js/bootstrap.min.js"></script> 
+<!-- Twitter Bootstrap -->
+<script type="text/javascript" src="<?= base_url() . JS_DIR ?>js/bootstrap.min.js"></script>
 
-<!-- load revolution slider scripts --> 
-<script type="text/javascript" src="<?= base_url() . COMPONENTS_DIR ?>components/revolution_slider/js/jquery.themepunch.plugins.min.js"></script> 
-<script type="text/javascript" src="<?= base_url() . COMPONENTS_DIR ?>components/revolution_slider/js/jquery.themepunch.revolution.min.js"></script> 
+<!-- load revolution slider scripts -->
+<script type="text/javascript"
+        src="<?= base_url() . COMPONENTS_DIR ?>components/revolution_slider/js/jquery.themepunch.plugins.min.js"></script>
+<script type="text/javascript"
+        src="<?= base_url() . COMPONENTS_DIR ?>components/revolution_slider/js/jquery.themepunch.revolution.min.js"></script>
 
-<!-- load BXSlider scripts --> 
-<script type="text/javascript" src="<?= base_url() . COMPONENTS_DIR ?>components/jquery.bxslider/jquery.bxslider.min.js"></script> 
+<!-- load BXSlider scripts -->
+<script type="text/javascript"
+        src="<?= base_url() . COMPONENTS_DIR ?>components/jquery.bxslider/jquery.bxslider.min.js"></script>
 
-<!-- Flex Slider --> 
-<script type="text/javascript" src="<?= base_url() . COMPONENTS_DIR ?>components/flexslider/jquery.flexslider.js"></script> 
+<!-- Flex Slider -->
+<script type="text/javascript"
+        src="<?= base_url() . COMPONENTS_DIR ?>components/flexslider/jquery.flexslider.js"></script>
 
-<!-- parallax --> 
-<script type="text/javascript" src="<?= base_url() . JS_DIR ?>js/jquery.stellar.min.js"></script> 
+<!-- parallax -->
+<script type="text/javascript" src="<?= base_url() . JS_DIR ?>js/jquery.stellar.min.js"></script>
 
-<!-- parallax --> 
-<script type="text/javascript" src="<?= base_url() . JS_DIR ?>js/jquery.stellar.min.js"></script> 
+<!-- parallax -->
+<script type="text/javascript" src="<?= base_url() . JS_DIR ?>js/jquery.stellar.min.js"></script>
 
-<!-- waypoint --> 
-<script type="text/javascript" src="<?= base_url() . JS_DIR ?>js/waypoints.min.js"></script> 
+<!-- waypoint -->
+<script type="text/javascript" src="<?= base_url() . JS_DIR ?>js/waypoints.min.js"></script>
 
-<!-- load page Javascript --> 
-<script type="text/javascript" src="<?= base_url() . JS_DIR ?>js/theme-scripts.js"></script> 
-<script type="text/javascript" src="<?= base_url() . JS_DIR ?>js/scripts.js"></script> 
+<!-- load page Javascript -->
+<script type="text/javascript" src="<?= base_url() . JS_DIR ?>js/theme-scripts.js"></script>
+<script type="text/javascript" src="<?= base_url() . JS_DIR ?>js/scripts.js"></script>
 <script type="text/javascript">
-	tjq(document).ready(function() {
+	tjq(document).ready(function () {
 		tjq('.revolution-slider').revolution(
-		{
-			dottedOverlay:"none",
-			delay:8000,
-			startwidth:1170,
-			startheight:646,
-			onHoverStop:"on",
-			hideThumbs:10,
-			fullWidth:"on",
-			forceFullWidth:"on",
-			navigationType:"none",
-			shadow:0,
-			spinner:"spinner4",
-			hideTimerBar:"on",
-		});
+			{
+				dottedOverlay: "none",
+				delay: 8000,
+				startwidth: 1170,
+				startheight: 646,
+				onHoverStop: "on",
+				hideThumbs: 10,
+				fullWidth: "on",
+				forceFullWidth: "on",
+				navigationType: "none",
+				shadow: 0,
+				spinner: "spinner4",
+				hideTimerBar: "on",
+			});
 	});
 </script>
 </body>

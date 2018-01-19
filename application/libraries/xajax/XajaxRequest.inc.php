@@ -22,33 +22,33 @@
 	Constant: XAJAX_FORM_VALUES
 		Specifies that the parameter will consist of an array of form values.
 */
-if (!defined ('XAJAX_FORM_VALUES')) define ('XAJAX_FORM_VALUES', 'get form values');
+if (!defined('XAJAX_FORM_VALUES')) define('XAJAX_FORM_VALUES', 'get form values');
 /*		
 	Constant: XAJAX_INPUT_VALUE
 		Specifies that the parameter will contain the value of an input control.
 */
-if (!defined ('XAJAX_INPUT_VALUE')) define ('XAJAX_INPUT_VALUE', 'get input value');
+if (!defined('XAJAX_INPUT_VALUE')) define('XAJAX_INPUT_VALUE', 'get input value');
 /*		
 	Constant: XAJAX_CHECKED_VALUE
 		Specifies that the parameter will consist of a boolean value of a checkbox.
 */
-if (!defined ('XAJAX_CHECKED_VALUE')) define ('XAJAX_CHECKED_VALUE', 'get checked value');
+if (!defined('XAJAX_CHECKED_VALUE')) define('XAJAX_CHECKED_VALUE', 'get checked value');
 /*		
 	Constant: XAJAX_ELEMENT_INNERHTML
 		Specifies that the parameter value will be the innerHTML value of the element.
 */
-if (!defined ('XAJAX_ELEMENT_INNERHTML')) define ('XAJAX_ELEMENT_INNERHTML', 'get element innerHTML');
+if (!defined('XAJAX_ELEMENT_INNERHTML')) define('XAJAX_ELEMENT_INNERHTML', 'get element innerHTML');
 /*		
 	Constant: XAJAX_QUOTED_VALUE
 		Specifies that the parameter will be a quoted value (string).
 */
-if (!defined ('XAJAX_QUOTED_VALUE')) define ('XAJAX_QUOTED_VALUE', 'quoted value');
+if (!defined('XAJAX_QUOTED_VALUE')) define('XAJAX_QUOTED_VALUE', 'quoted value');
 /*		
 	Constant: XAJAX_JS_VALUE
 		Specifies that the parameter will be a non-quoted value (evaluated by the 
 		browsers javascript engine at run time.
 */
-if (!defined ('XAJAX_JS_VALUE')) define ('XAJAX_JS_VALUE', 'unquoted value');
+if (!defined('XAJAX_JS_VALUE')) define('XAJAX_JS_VALUE', 'unquoted value');
 
 /*
 	Class: xajaxRequest
@@ -61,6 +61,7 @@ if (!defined ('XAJAX_JS_VALUE')) define ('XAJAX_JS_VALUE', 'unquoted value');
 	to initiate a xajax request to the registered function, object, event
 	or other xajax call.
 */
+
 class xajaxRequest
 {
 	/*
@@ -69,7 +70,7 @@ class xajaxRequest
 		The name of the function.
 	*/
 	private $sName;
-	
+
 	/*
 		String: sQuoteCharacter
 		
@@ -78,7 +79,7 @@ class xajaxRequest
 		this function.  This can be set prior to calling <xajaxRequest->printScript>
 	*/
 	private $sQuoteCharacter;
-	
+
 	/*
 		Array: aParameters
 	
@@ -86,7 +87,7 @@ class xajaxRequest
 		for this function when the javascript is output in <xajaxRequest->printScript>	
 	*/
 	private $aParameters;
-	
+
 	/*
 		Function: xajaxRequest
 		
@@ -100,7 +101,7 @@ class xajaxRequest
 		$this->sQuoteCharacter = '"';
 		$this->sName = $sName;
 	}
-	
+
 	/*
 		Function: useSingleQuote
 		
@@ -111,7 +112,7 @@ class xajaxRequest
 	{
 		$this->sQuoteCharacter = "'";
 	}
-	
+
 	/*
 		Function: useDoubleQuote
 		
@@ -122,7 +123,7 @@ class xajaxRequest
 	{
 		$this->sQuoteCharacter = '"';
 	}
-	
+
 	/*
 		Function: clearParameters
 		
@@ -132,7 +133,7 @@ class xajaxRequest
 	{
 		$this->aParameters = array();
 	}
-	
+
 	/*
 		Function: addParameter
 		
@@ -147,14 +148,14 @@ class xajaxRequest
 	public function addParameter()
 	{
 		$aArgs = func_get_args();
-		
+
 		if (1 < count($aArgs))
 			$this->setParameter(
-				count($this->aParameters), 
-				$aArgs[0], 
+				count($this->aParameters),
+				$aArgs[0],
 				$aArgs[1]);
 	}
-	
+
 	/*
 		Function: setParameter
 		
@@ -181,62 +182,50 @@ class xajaxRequest
 	public function setParameter()
 	{
 		$aArgs = func_get_args();
-		
-		if (2 < count($aArgs))
-		{
+
+		if (2 < count($aArgs)) {
 			$nParameter = $aArgs[0];
 			$sType = $aArgs[1];
-			
-			if (XAJAX_FORM_VALUES == $sType)
-			{
+
+			if (XAJAX_FORM_VALUES == $sType) {
 				$sFormID = $aArgs[2];
-				$this->aParameters[$nParameter] = 
-					"xajax.getFormValues(" 
-					. $this->sQuoteCharacter 
-					. $sFormID 
-					. $this->sQuoteCharacter 
+				$this->aParameters[$nParameter] =
+					"xajax.getFormValues("
+					. $this->sQuoteCharacter
+					. $sFormID
+					. $this->sQuoteCharacter
 					. ")";
-			}
-			else if (XAJAX_INPUT_VALUE == $sType)
-			{
+			} else if (XAJAX_INPUT_VALUE == $sType) {
 				$sInputID = $aArgs[2];
-				$this->aParameters[$nParameter] = 
-					"xajax.$(" 
-					. $this->sQuoteCharacter 
-					. $sInputID 
-					. $this->sQuoteCharacter 
+				$this->aParameters[$nParameter] =
+					"xajax.$("
+					. $this->sQuoteCharacter
+					. $sInputID
+					. $this->sQuoteCharacter
 					. ").value";
-			}
-			else if (XAJAX_CHECKED_VALUE == $sType)
-			{
+			} else if (XAJAX_CHECKED_VALUE == $sType) {
 				$sCheckedID = $aArgs[2];
-				$this->aParameters[$nParameter] = 
-					"xajax.$(" 
-					. $this->sQuoteCharacter 
-					. $sCheckedID 
-					. $this->sQuoteCharacter 
+				$this->aParameters[$nParameter] =
+					"xajax.$("
+					. $this->sQuoteCharacter
+					. $sCheckedID
+					. $this->sQuoteCharacter
 					. ").checked";
-			}
-			else if (XAJAX_ELEMENT_INNERHTML == $sType)
-			{
+			} else if (XAJAX_ELEMENT_INNERHTML == $sType) {
 				$sElementID = $aArgs[2];
-				$this->aParameters[$nParameter] = 
-					"xajax.$(" 
-					. $this->sQuoteCharacter 
-					. $sElementID 
-					. $this->sQuoteCharacter 
+				$this->aParameters[$nParameter] =
+					"xajax.$("
+					. $this->sQuoteCharacter
+					. $sElementID
+					. $this->sQuoteCharacter
 					. ").innerHTML";
-			}
-			else if (XAJAX_QUOTED_VALUE == $sType)
-			{
+			} else if (XAJAX_QUOTED_VALUE == $sType) {
 				$sValue = $aArgs[2];
-				$this->aParameters[$nParameter] = 
-					$this->sQuoteCharacter 
-					. $sValue 
+				$this->aParameters[$nParameter] =
+					$this->sQuoteCharacter
+					. $sValue
 					. $this->sQuoteCharacter;
-			}
-			else if (XAJAX_JS_VALUE == $sType)
-			{
+			} else if (XAJAX_JS_VALUE == $sType) {
 				$sValue = $aArgs[2];
 				$this->aParameters[$nParameter] = $sValue;
 			}
@@ -255,7 +244,7 @@ class xajaxRequest
 		$this->printScript();
 		return ob_get_clean();
 	}
-		
+
 	/*
 		Function: printScript
 		
@@ -266,16 +255,15 @@ class xajaxRequest
 	{
 		echo $this->sName;
 		echo '(';
-		
+
 		$sSeparator = '';
-		
-		foreach ($this->aParameters as $sParameter)
-		{
+
+		foreach ($this->aParameters as $sParameter) {
 			echo $sSeparator;
 			echo $sParameter;
 			$sSeparator = ', ';
 		}
-		
+
 		echo ')';
 	}
 }
@@ -288,18 +276,19 @@ class xajaxRequest
 	of this class is to provide simple scripting services to the <xajaxControl>
 	based objects, like <clsInput>, <clsTable> and <clsButton>.
 */
+
 class xajaxCustomRequest extends xajaxRequest
 {
 	/*
 		Array: aVariables;
 	*/
 	var $aVariables;
-	
+
 	/*
 		String: sScript;
 	*/
 	var $sScript;
-	
+
 	/*
 		Function: xajaxCustomRequest
 		
@@ -317,7 +306,7 @@ class xajaxCustomRequest extends xajaxRequest
 		$this->aVariables = array();
 		$this->sScript = $sScript;
 	}
-	
+
 	/*
 		Function: clearVariables
 		
@@ -328,7 +317,7 @@ class xajaxCustomRequest extends xajaxRequest
 	{
 		$this->aVariables = array();
 	}
-	
+
 	/*
 		Function: setVariable
 		
@@ -345,7 +334,7 @@ class xajaxCustomRequest extends xajaxRequest
 	{
 		$this->aVariables[$sName] = $sValue;
 	}
-	
+
 	/*
 		Function: printScript
 	*/

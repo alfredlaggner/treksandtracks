@@ -47,64 +47,65 @@ class PHPExcel_Reader_CSV extends PHPExcel_Reader_Abstract implements PHPExcel_R
 	/**
 	 * Input encoding
 	 *
-	 * @access	private
-	 * @var	string
+	 * @access    private
+	 * @var    string
 	 */
-	private $_inputEncoding	= 'UTF-8';
+	private $_inputEncoding = 'UTF-8';
 
 	/**
 	 * Delimiter
 	 *
-	 * @access	private
+	 * @access    private
 	 * @var string
 	 */
-	private $_delimiter		= ',';
+	private $_delimiter = ',';
 
 	/**
 	 * Enclosure
 	 *
-	 * @access	private
-	 * @var	string
+	 * @access    private
+	 * @var    string
 	 */
-	private $_enclosure		= '"';
+	private $_enclosure = '"';
 
 	/**
 	 * Line ending
 	 *
-	 * @access	private
-	 * @var	string
+	 * @access    private
+	 * @var    string
 	 */
-	private $_lineEnding	= PHP_EOL;
+	private $_lineEnding = PHP_EOL;
 
 	/**
 	 * Sheet index to read
 	 *
-	 * @access	private
-	 * @var	int
+	 * @access    private
+	 * @var    int
 	 */
-	private $_sheetIndex	= 0;
+	private $_sheetIndex = 0;
 
 	/**
 	 * Load rows contiguously
 	 *
-	 * @access	private
-	 * @var	int
+	 * @access    private
+	 * @var    int
 	 */
-	private $_contiguous	= false;
+	private $_contiguous = false;
 
 	/**
 	 * Row counter for loading rows contiguously
 	 *
-	 * @var	int
+	 * @var    int
 	 */
-	private $_contiguousRow	= -1;
+	private $_contiguousRow = -1;
 
 
 	/**
 	 * Create a new PHPExcel_Reader_CSV
 	 */
-	public function __construct() {
-		$this->_readFilter		= new PHPExcel_Reader_DefaultReadFilter();
+	public function __construct()
+	{
+		$this->_readFilter = new PHPExcel_Reader_DefaultReadFilter();
 	}
 
 	/**
@@ -175,15 +176,15 @@ class PHPExcel_Reader_CSV extends PHPExcel_Reader_Abstract implements PHPExcel_R
 	/**
 	 * Return worksheet info (Name, Last Column Letter, Last Column Index, Total Rows, Total Columns)
 	 *
-	 * @param 	string 		$pFilename
-	 * @throws	PHPExcel_Reader_Exception
+	 * @param    string $pFilename
+	 * @throws    PHPExcel_Reader_Exception
 	 */
 	public function listWorksheetInfo($pFilename)
 	{
 		// Open file
 		$this->_openFile($pFilename);
 		if (!$this->_isValidFormat()) {
-			fclose ($this->_fileHandle);
+			fclose($this->_fileHandle);
 			throw new PHPExcel_Reader_Exception($pFilename . " is an Invalid Spreadsheet file.");
 		}
 		$fileHandle = $this->_fileHandle;
@@ -191,7 +192,7 @@ class PHPExcel_Reader_CSV extends PHPExcel_Reader_Abstract implements PHPExcel_R
 		// Skip BOM, if any
 		$this->_skipBOM();
 
-		$escapeEnclosures = array( "\\" . $this->_enclosure, $this->_enclosure . $this->_enclosure );
+		$escapeEnclosures = array("\\" . $this->_enclosure, $this->_enclosure . $this->_enclosure);
 
 		$worksheetInfo = array();
 		$worksheetInfo[0]['worksheetName'] = 'Worksheet';
@@ -218,7 +219,7 @@ class PHPExcel_Reader_CSV extends PHPExcel_Reader_Abstract implements PHPExcel_R
 	/**
 	 * Loads PHPExcel from file
 	 *
-	 * @param 	string 		$pFilename
+	 * @param    string $pFilename
 	 * @return PHPExcel
 	 * @throws PHPExcel_Reader_Exception
 	 */
@@ -234,10 +235,10 @@ class PHPExcel_Reader_CSV extends PHPExcel_Reader_Abstract implements PHPExcel_R
 	/**
 	 * Loads PHPExcel from file into PHPExcel instance
 	 *
-	 * @param 	string 		$pFilename
-	 * @param	PHPExcel	$objPHPExcel
-	 * @return 	PHPExcel
-	 * @throws 	PHPExcel_Reader_Exception
+	 * @param    string $pFilename
+	 * @param    PHPExcel $objPHPExcel
+	 * @return    PHPExcel
+	 * @throws    PHPExcel_Reader_Exception
 	 */
 	public function loadIntoExisting($pFilename, PHPExcel $objPHPExcel)
 	{
@@ -247,7 +248,7 @@ class PHPExcel_Reader_CSV extends PHPExcel_Reader_Abstract implements PHPExcel_R
 		// Open file
 		$this->_openFile($pFilename);
 		if (!$this->_isValidFormat()) {
-			fclose ($this->_fileHandle);
+			fclose($this->_fileHandle);
 			throw new PHPExcel_Reader_Exception($pFilename . " is an Invalid Spreadsheet file.");
 		}
 		$fileHandle = $this->_fileHandle;
@@ -261,20 +262,20 @@ class PHPExcel_Reader_CSV extends PHPExcel_Reader_Abstract implements PHPExcel_R
 		}
 		$sheet = $objPHPExcel->setActiveSheetIndex($this->_sheetIndex);
 
-		$escapeEnclosures = array( "\\" . $this->_enclosure,
-								   $this->_enclosure . $this->_enclosure
-								 );
+		$escapeEnclosures = array("\\" . $this->_enclosure,
+			$this->_enclosure . $this->_enclosure
+		);
 
 		// Set our starting row based on whether we're in contiguous mode or not
 		$currentRow = 1;
 		if ($this->_contiguous) {
-			$currentRow = ($this->_contiguousRow == -1) ? $sheet->getHighestRow(): $this->_contiguousRow;
+			$currentRow = ($this->_contiguousRow == -1) ? $sheet->getHighestRow() : $this->_contiguousRow;
 		}
 
 		// Loop through each line of the file in turn
 		while (($rowData = fgetcsv($fileHandle, 0, $this->_delimiter, $this->_enclosure)) !== FALSE) {
 			$columnLetter = 'A';
-			foreach($rowData as $rowDatum) {
+			foreach ($rowData as $rowDatum) {
 				if ($rowDatum != '' && $this->_readFilter->readCell($columnLetter, $currentRow)) {
 					// Unescape enclosures
 					$rowDatum = str_replace($escapeEnclosures, $this->_enclosure, $rowDatum);
@@ -310,17 +311,19 @@ class PHPExcel_Reader_CSV extends PHPExcel_Reader_Abstract implements PHPExcel_R
 	 *
 	 * @return string
 	 */
-	public function getDelimiter() {
+	public function getDelimiter()
+	{
 		return $this->_delimiter;
 	}
 
 	/**
 	 * Set delimiter
 	 *
-	 * @param	string	$pValue		Delimiter, defaults to ,
-	 * @return	PHPExcel_Reader_CSV
+	 * @param    string $pValue Delimiter, defaults to ,
+	 * @return    PHPExcel_Reader_CSV
 	 */
-	public function setDelimiter($pValue = ',') {
+	public function setDelimiter($pValue = ',')
+	{
 		$this->_delimiter = $pValue;
 		return $this;
 	}
@@ -330,17 +333,19 @@ class PHPExcel_Reader_CSV extends PHPExcel_Reader_Abstract implements PHPExcel_R
 	 *
 	 * @return string
 	 */
-	public function getEnclosure() {
+	public function getEnclosure()
+	{
 		return $this->_enclosure;
 	}
 
 	/**
 	 * Set enclosure
 	 *
-	 * @param	string	$pValue		Enclosure, defaults to "
+	 * @param    string $pValue Enclosure, defaults to "
 	 * @return PHPExcel_Reader_CSV
 	 */
-	public function setEnclosure($pValue = '"') {
+	public function setEnclosure($pValue = '"')
+	{
 		if ($pValue == '') {
 			$pValue = '"';
 		}
@@ -353,17 +358,19 @@ class PHPExcel_Reader_CSV extends PHPExcel_Reader_Abstract implements PHPExcel_R
 	 *
 	 * @return string
 	 */
-	public function getLineEnding() {
+	public function getLineEnding()
+	{
 		return $this->_lineEnding;
 	}
 
 	/**
 	 * Set line ending
 	 *
-	 * @param	string	$pValue		Line ending, defaults to OS line ending (PHP_EOL)
+	 * @param    string $pValue Line ending, defaults to OS line ending (PHP_EOL)
 	 * @return PHPExcel_Reader_CSV
 	 */
-	public function setLineEnding($pValue = PHP_EOL) {
+	public function setLineEnding($pValue = PHP_EOL)
+	{
 		$this->_lineEnding = $pValue;
 		return $this;
 	}
@@ -373,17 +380,19 @@ class PHPExcel_Reader_CSV extends PHPExcel_Reader_Abstract implements PHPExcel_R
 	 *
 	 * @return integer
 	 */
-	public function getSheetIndex() {
+	public function getSheetIndex()
+	{
 		return $this->_sheetIndex;
 	}
 
 	/**
 	 * Set sheet index
 	 *
-	 * @param	integer		$pValue		Sheet index
+	 * @param    integer $pValue Sheet index
 	 * @return PHPExcel_Reader_CSV
 	 */
-	public function setSheetIndex($pValue = 0) {
+	public function setSheetIndex($pValue = 0)
+	{
 		$this->_sheetIndex = $pValue;
 		return $this;
 	}
@@ -395,7 +404,7 @@ class PHPExcel_Reader_CSV extends PHPExcel_Reader_Abstract implements PHPExcel_R
 	 */
 	public function setContiguous($contiguous = FALSE)
 	{
-		$this->_contiguous = (bool) $contiguous;
+		$this->_contiguous = (bool)$contiguous;
 		if (!$contiguous) {
 			$this->_contiguousRow = -1;
 		}
@@ -408,7 +417,8 @@ class PHPExcel_Reader_CSV extends PHPExcel_Reader_Abstract implements PHPExcel_R
 	 *
 	 * @return boolean
 	 */
-	public function getContiguous() {
+	public function getContiguous()
+	{
 		return $this->_contiguous;
 	}
 

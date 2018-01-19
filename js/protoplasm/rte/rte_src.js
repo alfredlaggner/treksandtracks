@@ -369,7 +369,7 @@ Control.RTE.prototype = {
 	getSelectedText: function() {
 		if (this.selectedRange) {
 			if (this.isIE)
-				return new String(this.selectedRange.htmlText).stripTags();
+				return String(this.selectedRange.htmlText).stripTags();
 			else {
 				return this.selectedRange.toString().stripTags();
 			}
@@ -525,7 +525,7 @@ Control.RTE.prototype = {
 
 	getEditorDoc: function(html, cssUrl) {
 		var frameHtml = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">\n';
-		frameHtml += '<html>\n'
+		frameHtml += '<html>\n';;
 		frameHtml += '<head>\n';
 		if (cssUrl) {
 			frameHtml += '<link media="all" type="text/css" href="' + cssUrl + '" rel="stylesheet">\n';
@@ -591,8 +591,7 @@ Control.RTE.prototype = {
 				case 'b': command = "bold"; break;
 				case 'i': command = "italic"; break;
 				case 'u': command = "underline"; break;
-			};
-
+			}
 			if (command) {
 				this.doCommand(command, false, null);
 				this.updateToolbarState();
@@ -906,7 +905,7 @@ Object.extend(Control.RTE.Toolbar.prototype, {
 	}
 });
 
-Control.RTE.ToolbarItem = new Object();
+Control.RTE.ToolbarItem = {};
 Object.extend(Control.RTE.ToolbarItem, {
 	element: null,
 	toolbar: null,

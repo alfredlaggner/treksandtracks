@@ -137,4 +137,17 @@
 <file name="reschedule_view.php" server="localhost//home/forge/treksandtracks.com/public/" local="130797499100000000" remote="131006732400000000" Dst="1" />
 <file name="customer_questionaire_view.php" server="localhost//home/forge/sunnydays.me/public/" local="131035982990559963" remote="131035982400000000" Dst="2" />
 <file name="booked_customers_by_event_view.php" server="localhost//home/forge/sunnydays.me/public/" local="131035678018589138" remote="131035677600000000" Dst="2" />
+<file name="attendants_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499010000000" remote="130797499010000000" Dst="2" />
+<file name="booked_customers_by_event_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="131035678010000000" remote="131035678010000000" Dst="2" />
+<file name="booked_customers_over_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499030000000" remote="130797499030000000" Dst="2" />
+<file name="customer_contact_create_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499030000000" remote="130797499030000000" Dst="2" />
+<file name="customer_contact_over_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499050000000" remote="130797499050000000" Dst="2" />
+<file name="customer_contact_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499060000000" remote="130797499060000000" Dst="2" />
+<file name="customer_create_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499060000000" remote="130797499060000000" Dst="2" />
+<file name="customer_delete.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499080000000" remote="130797499080000000" Dst="2" />
+<file name="customer_mail_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499080000000" remote="130797499080000000" Dst="2" />
+<file name="customer_over_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499080000000" remote="130797499080000000" Dst="2" />
+<file name="customer_questionaire_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="131035982990000000" remote="131035982990000000" Dst="2" />
+<file name="customer_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499100000000" remote="130797499100000000" Dst="2" />
+<file name="reschedule_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499100000000" remote="130797499100000000" Dst="2" />
 </dwsync>

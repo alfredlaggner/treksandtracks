@@ -99,4 +99,13 @@
 <file name="install-07.png" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130308294250000000" remote="131003110350000000" Dst="1" />
 <file name="install-08.png" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130308294250000000" remote="131003110350000000" Dst="1" />
 <file name="logo.png" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130308294240000000" remote="131003110360000000" Dst="1" />
+<file name="install-01.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130308294250000000" remote="131045963470000000" Dst="2" />
+<file name="install-02.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130308294240000000" remote="131045963470000000" Dst="2" />
+<file name="install-03.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130308294240000000" remote="131045963480000000" Dst="2" />
+<file name="install-04.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130308294230000000" remote="131045963480000000" Dst="2" />
+<file name="install-05.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130308294240000000" remote="131045963480000000" Dst="2" />
+<file name="install-06.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130308294250000000" remote="131045963480000000" Dst="2" />
+<file name="install-07.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130308294250000000" remote="131045963480000000" Dst="2" />
+<file name="install-08.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130308294250000000" remote="131045963480000000" Dst="2" />
+<file name="logo.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130308294240000000" remote="131045963480000000" Dst="2" />
 </dwsync>

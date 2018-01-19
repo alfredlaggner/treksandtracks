@@ -28,9 +28,9 @@
 /**
  * PHPExcel_Reader_Excel5_RC4
  *
- * @category	PHPExcel
- * @package		PHPExcel_Reader_Excel5
- * @copyright	Copyright (c) 2006 - 2014 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @category    PHPExcel
+ * @package        PHPExcel_Reader_Excel5
+ * @copyright    Copyright (c) 2006 - 2014 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Reader_Excel5_RC4
 {
@@ -41,7 +41,7 @@ class PHPExcel_Reader_Excel5_RC4
 
 	/**
 	 * RC4 stream decryption/encryption constrcutor
-	 * 
+	 *
 	 * @param string $key Encryption key/passphrase
 	 */
 	public function __construct($key)
@@ -64,9 +64,9 @@ class PHPExcel_Reader_Excel5_RC4
 
 	/**
 	 * Symmetric decryption/encryption function
-	 * 
+	 *
 	 * @param string $data Data to encrypt/decrypt
-	 * 
+	 *
 	 * @return string
 	 */
 	public function RC4($data)

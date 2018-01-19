@@ -1,12 +1,12 @@
-<?php class Send_reminders extends CI_Controller 
+<?php class Send_reminders extends CI_Controller
 {
 	function index()
 	{
-        $customer_data = $this->template_model->send_reminder_emails();
-		$count = 0;		
-        foreach ($customer_data as $row) {
+		$customer_data = $this->template_model->send_reminder_emails();
+		$count = 0;
+		foreach ($customer_data as $row) {
 
-			echo 'email sent to: ' . $row->first_name . ' ' . $row->last_name . ' '  . $row->email . '<br>';
+			echo 'email sent to: ' . $row->first_name . ' ' . $row->last_name . ' ' . $row->email . '<br>';
 
 			$this->email->from('info@treksandtracks.com', 'Treks and Tracks LLC');
 			$this->email->to('alfred.laggner@gmail.com');
@@ -29,7 +29,7 @@
 				);
 				$this->mail_model->add_record($data);
 // for test purposes turn off 	
-			
+
 				$data = array(
 					'is_automated_sent' => TRUE,
 					'is_automated_sent_at' => date(TIME_FORMAT),
@@ -37,17 +37,17 @@
 				);
 				$this->ledger_model->update_record($row->ledger_id, $data);
 //echo "i got here";
-echo $row->ledger_id . '<br>';
+//echo $row->ledger_id . '<br>';
 			} else {
 				// echo $this->email->print_debugger(array('headers'));
 			}
 			$count++;
-        }
-		
+		}
+
 		$this->email->clear(true);
 		echo $count . ' emails sent!';
 		die();
 	}
-	
-	
+
+
 }

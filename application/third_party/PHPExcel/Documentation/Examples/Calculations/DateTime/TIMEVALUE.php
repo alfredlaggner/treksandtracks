@@ -9,9 +9,9 @@ date_default_timezone_set('Europe/London');
 ?>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
-<title>PHPExcel Calculation Examples</title>
+	<title>PHPExcel Calculation Examples</title>
 
 </head>
 <body>
@@ -32,19 +32,19 @@ $objPHPExcel = new PHPExcel();
 $worksheet = $objPHPExcel->getActiveSheet();
 
 // Add some data
-$testDates = array(	'3:15',	'13:15',	'15:15:15',	'3:15 AM',	'3:15 PM',	'5PM',	'9:15AM',	'13:15AM'
-				  );
+$testDates = array('3:15', '13:15', '15:15:15', '3:15 AM', '3:15 PM', '5PM', '9:15AM', '13:15AM'
+);
 $testDateCount = count($testDates);
 
-for($row = 1; $row <= $testDateCount; ++$row) {
-	$worksheet->setCellValue('A'.$row, $testDates[$row-1]);
-	$worksheet->setCellValue('B'.$row, '=TIMEVALUE(A'.$row.')');
-	$worksheet->setCellValue('C'.$row, '=B'.$row);
+for ($row = 1; $row <= $testDateCount; ++$row) {
+	$worksheet->setCellValue('A' . $row, $testDates[$row - 1]);
+	$worksheet->setCellValue('B' . $row, '=TIMEVALUE(A' . $row . ')');
+	$worksheet->setCellValue('C' . $row, '=B' . $row);
 }
 
-$worksheet->getStyle('C1:C'.$testDateCount)
-          ->getNumberFormat()
-          ->setFormatCode('hh:mm:ss');
+$worksheet->getStyle('C1:C' . $testDateCount)
+	->getNumberFormat()
+	->setFormatCode('hh:mm:ss');
 
 
 echo '<hr />';
@@ -62,10 +62,10 @@ echo '<hr />';
 	<?php
 	for ($row = 1; $row <= $testDateCount; ++$row) {
 		echo '<tr>';
-		    echo '<td>' , $worksheet->getCell('A'.$row)->getFormattedValue() , '</td>';
-			echo '<td>' , $worksheet->getCell('B'.$row)->getValue() , '</td>';
-			echo '<td>' , $worksheet->getCell('B'.$row)->getFormattedValue() , '</td>';
-			echo '<td>' , $worksheet->getCell('C'.$row)->getFormattedValue() , '</td>';
+		echo '<td>', $worksheet->getCell('A' . $row)->getFormattedValue(), '</td>';
+		echo '<td>', $worksheet->getCell('B' . $row)->getValue(), '</td>';
+		echo '<td>', $worksheet->getCell('B' . $row)->getFormattedValue(), '</td>';
+		echo '<td>', $worksheet->getCell('C' . $row)->getFormattedValue(), '</td>';
 		echo '</tr>';
 	}
 	?>

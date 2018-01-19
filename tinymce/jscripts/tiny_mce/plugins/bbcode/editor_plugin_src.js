@@ -2,7 +2,7 @@
  * $Id: editor_plugin_src.js 201 2007-02-12 15:56:56Z spocke $
  *
  * @author Moxiecode
- * @copyright Copyright © 2004-2008, Moxiecode Systems AB, All rights reserved.
+ * @copyright Copyright ï¿½ 2004-2008, Moxiecode Systems AB, All rights reserved.
  */
 
 (function() {
@@ -41,8 +41,7 @@
 
 			function rep(re, str) {
 				s = s.replace(re, str);
-			};
-
+			}
 			// example: <strong> to [b]
 			rep(/<a.*?href=\"(.*?)\".*?>(.*?)<\/a>/gi,"[url=$1]$2[/url]");
 			rep(/<font.*?color=\"(.*?)\".*?class=\"codeStyle\".*?>(.*?)<\/font>/gi,"[code][color=$1]$2[/color][/code]");
@@ -91,8 +90,7 @@
 
 			function rep(re, str) {
 				s = s.replace(re, str);
-			};
-
+			}
 			// example: [b] to <strong>
 			rep(/\n/gi,"<br />");
 			rep(/\[b\]/gi,"<strong>");

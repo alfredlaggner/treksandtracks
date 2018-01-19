@@ -371,7 +371,7 @@ jQuery.extend( jQuery.easing,
 		    	settings.complete(el);
 	    	}
 		    
-	    }
+	    };;
 	    
 	    // loop elements
 	    
@@ -438,7 +438,7 @@ jQuery.extend( jQuery.easing,
 				settings.callback(element, eventName);
 			}
 			
-		}
+		};;
 		
 		// events
 		

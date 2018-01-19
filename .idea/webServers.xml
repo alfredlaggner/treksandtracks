@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="3f55bdda-7bcd-45f5-9cc8-c399247f553c" name="sunnydays.me - localhost" url="http://localhost/sunnydays">
+        <fileTransfer port="0" mountedRoot="C:\wamp64\www" accessType="MOUNT" />
+      </webServer>
+      <webServer id="b39954dc-f7e5-48f1-923e-2d35e92121d0" name="Localhost" url="http://localhost">
+        <fileTransfer port="0" mountedRoot="C:\wamp64\www\treksandtracks" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>

@@ -5,7 +5,7 @@
 <div id="sub-nav">
 	<div class="page-title">
 		<h1><?php echo $title ?></h1>
-		<span><?php echo $breadcrumb ?><?php echo $title_action ?></span> </div>
+		<span><?php echo $breadcrumb ?><?php echo $title_action ?></span></div>
 	<?php $this->load->view('modules/top_buttons') ?>
 </div>
 <div id="page-layout">
@@ -14,40 +14,47 @@
 			<div class="inner-page-title">
 				<h2><?php echo $title_action ?></h2>
 				<span><?php echo $top_note ?></span>
-				<p style="float:right";>
-					<?php  echo anchor('equipment/equipment_create', 'Create New Equipment List')?>
+				<p style="float:right" ;>
+					<?php echo anchor('equipment/equipment_create', 'Create New Equipment List') ?>
 				</p>
 			</div>
 			<div class="hastable">
 				<form name="myform" class="pager-form" method="post" action="">
 					<table id="sort-table">
 						<thead>
-							<tr>
-								<th><input type="checkbox" value="check_none" onclick="this.value=check(this.form.list)" class="submit"/></th>
-								<th>Name</th>
-								<th>Equipment</th>
-								<th style="width:128px">Options</th>
-							</tr>
+						<tr>
+							<th><input type="checkbox" value="check_none" onclick="this.value=check(this.form.list)"
+							           class="submit"/></th>
+							<th>Name</th>
+							<th>Equipment</th>
+							<th style="width:128px">Options</th>
+						</tr>
 						</thead>
 						<tbody>
-						
+
 						{records}
 						<tr>
 							<td class="center"><input type="checkbox" value="1" name="list" class="checkbox"/></td>
 							<td>{name}</td>
 							<td>{equipment}</td>
 							<td>
-                            
-                            <a class="btn_no_text btn ui-state-default ui-corner-all tooltip" title="Edit Equipment" href="<?php echo site_url().'equipment/equipment_view/'?>{equipment_id}"> <span class="ui-icon ui-icon-wrench"></span> </a>
-                                                        
-                             <a class="btn_no_text btn ui-state-default ui-corner-all tooltip confirmClick" title="Delete Equipment" href="<?php echo site_url().'equipment/delete/'?>{equipment_id}"> <span class="ui-icon ui-icon-trash"></span> </a></td>
+
+								<a class="btn_no_text btn ui-state-default ui-corner-all tooltip" title="Edit Equipment"
+								   href="<?php echo site_url() . 'equipment/equipment_view/' ?>{equipment_id}"> <span
+										class="ui-icon ui-icon-wrench"></span> </a>
+
+								<a class="btn_no_text btn ui-state-default ui-corner-all tooltip confirmClick"
+								   title="Delete Equipment"
+								   href="<?php echo site_url() . 'equipment/delete/' ?>{equipment_id}"> <span
+										class="ui-icon ui-icon-trash"></span> </a></td>
 						</tr>
 						{/records}
-							</tbody>
-						
+						</tbody>
+
 					</table>
 				</form>
-				<i class="note">Sort multiple columns simultaneously by holding down the shift key and clicking a second, third or even fourth column header!</i> </div>
+				<i class="note">Sort multiple columns simultaneously by holding down the shift key and clicking a
+					second, third or even fourth column header!</i></div>
 			<div class="clear"></div>
 			<?php $this->load->view('modules/sidebar') ?>
 		</div>

@@ -8,7 +8,7 @@ function init() {
 
 	document.getElementById('backgroundimagebrowsercontainer').innerHTML = getBrowserHTML('backgroundimagebrowser','backgroundimage','image','table');
 	document.getElementById('bordercolor_pickcontainer').innerHTML = getColorPickerHTML('bordercolor_pick','bordercolor');
-	document.getElementById('bgcolor_pickcontainer').innerHTML = getColorPickerHTML('bgcolor_pick','bgcolor')
+	document.getElementById('bgcolor_pickcontainer').innerHTML = getColorPickerHTML('bgcolor_pick','bgcolor');;
 
 	var inst = ed;
 	var tdElm = ed.dom.getParent(ed.selection.getNode(), "td,th");
@@ -24,7 +24,7 @@ function init() {
 	var bordercolor = convertRGBToHex(getStyle(tdElm, 'bordercolor', 'borderLeftColor'));
 	var bgcolor = convertRGBToHex(getStyle(tdElm, 'bgcolor', 'backgroundColor'));
 	var className = ed.dom.getAttrib(tdElm, 'class');
-	var backgroundimage = getStyle(tdElm, 'background', 'backgroundImage').replace(new RegExp("url\\('?([^']*)'?\\)", 'gi'), "$1");;
+	var backgroundimage = getStyle(tdElm, 'background', 'backgroundImage').replace(new RegExp("url\\('?([^']*)'?\\)", 'gi'), "$1");
 	var id = ed.dom.getAttrib(tdElm, 'id');
 	var lang = ed.dom.getAttrib(tdElm, 'lang');
 	var dir = ed.dom.getAttrib(tdElm, 'dir');
@@ -82,8 +82,7 @@ function updateAction() {
 					inst.execCommand('mceEndUndoLevel');
 					tinyMCEPopup.close();
 				}
-			};
-
+			}
 			if (ed.getParam("accessibility_warnings", 1)) {
 				if (celltype == "th" && scope == "")
 					tinyMCEPopup.confirm(ed.getLang('table_dlg.missing_scope', '', true), doUpdate);

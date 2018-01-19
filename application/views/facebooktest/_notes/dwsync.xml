@@ -22,4 +22,6 @@
 <file name="test2.php" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130797499270000000" remote="131003113410000000" Dst="1" />
 <file name="mystuff.php" server="localhost//home/forge/treksandtracks.com/public/" local="130797499260000000" remote="131006732400000000" Dst="1" />
 <file name="test2.php" server="localhost//home/forge/treksandtracks.com/public/" local="130797499270000000" remote="131006732400000000" Dst="1" />
+<file name="mystuff.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499260000000" remote="130797499260000000" Dst="2" />
+<file name="test2.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499270000000" remote="130797499270000000" Dst="2" />
 </dwsync>

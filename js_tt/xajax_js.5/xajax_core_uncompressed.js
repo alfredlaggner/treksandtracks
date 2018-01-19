@@ -52,7 +52,7 @@ if ('undefined' == typeof xajax.config)
 xajax.config.setDefault = function(option, defaultValue) {
 	if ('undefined' == typeof xajax.config[option])
 		xajax.config[option] = defaultValue;
-}
+};;
 
 /*
 	Object: commonHeaders
@@ -254,7 +254,7 @@ xajax.config.status = {
 			onComplete: function() {}
 		}
 	}
-}
+};;
 
 /*
 	Class: xajax.config.cursor
@@ -296,7 +296,7 @@ xajax.config.cursor = {
 			onComplete: function() {}
 		}
 	}
-}
+};;
 
 /*
 	Class: xajax.tools
@@ -304,7 +304,7 @@ xajax.config.cursor = {
 	This contains utility functions which are used throughout
 	the xajax core.
 */
-xajax.tools = {}
+xajax.tools = {};;
 
 /*
 	Function: xajax.tools.$
@@ -345,7 +345,7 @@ xajax.tools.$ = function(sId) {
 		return oDoc.all[sId];
 
 	return obj;
-}
+};;
 
 /*
 	Function xajax.tools.in_array
@@ -376,7 +376,7 @@ xajax.tools.in_array = function(array, valueToCheck) {
 		++i;
 	}
 	return false;
-}
+};;
 
 /*
 	Function: xajax.tools.doubleQuotes
@@ -394,7 +394,7 @@ xajax.tools.in_array = function(array, valueToCheck) {
 */
 xajax.tools.doubleQuotes = function(haystack) {
 	return haystack.replace(new RegExp("'", 'g'), '"');
-}
+};;
 
 /*
 	Function: xajax.tools.singleQuotes
@@ -569,7 +569,7 @@ xajax.tools._objectToXML = function(obj, guard) {
 		(unknown) - The value provided converted to the correct data type.
 */
 xajax.tools._enforceDataType = function(value) {
-	value = new String(value);
+	value = String(value);
 	var type = value.substr(0, 1);
 	value = value.substr(1);
 
@@ -583,7 +583,7 @@ xajax.tools._enforceDataType = function(value) {
 //		value = new String(value);
 
 	return value;
-}
+};;
 
 /*
 	Function: xajax.tools._nodeToObject
@@ -610,7 +610,7 @@ xajax.tools._nodeToObject = function(node) {
 		} else if ('xjxobj' == node.nodeName) {
 			var key = null;
 			var value = null;
-			var data = new Array;
+			var data = [];
 			var child = node.firstChild;
 			while (child) {
 				if ('e' == child.nodeName) {
@@ -619,7 +619,7 @@ xajax.tools._nodeToObject = function(node) {
 						if ('k' == grandChild.nodeName)
 							// Don't support objects here, only number, string, etc...
 							key = xajax.tools._enforceDataType(grandChild.firstChild.data);
-						else ('v' == grandChild.nodeName)
+						else ('v' == grandChild.nodeName);;
 							// Value might be object, string, number, boolean... even null or undefined
 							value = xajax.tools._nodeToObject(grandChild.firstChild);
 						grandChild = grandChild.nextSibling;
@@ -637,7 +637,7 @@ xajax.tools._nodeToObject = function(node) {
 	}
 	
 	throw { code: 10001, data: node.nodeName };
-}
+};;
 
 /*
 	Function: xajax.tools.getRequestObject
@@ -665,10 +665,10 @@ xajax.tools.getRequestObject = function() {
 					} catch (e2) {
 						xajax.tools.getRequestObject = function() {
 							return new ActiveXObject('Microsoft.XMLHTTP');
-						}
+						};;
 						return xajax.tools.getRequestObject();
 					}
-				}
+				};;
 				return xajax.tools.getRequestObject();
 			}
 		}
@@ -685,7 +685,7 @@ xajax.tools.getRequestObject = function() {
 	// this would seem to cause an infinite loop, however, the function should
 	// be reassigned by now and therefore, it will not loop.
 	return xajax.tools.getRequestObject();
-}
+};;
 
 /*
 	Function: xajax.tools.getBrowserHTML
@@ -723,7 +723,7 @@ xajax.tools.getBrowserHTML = function(sValue) {
 	elWorkspace.innerHTML = '';	
 	
 	return browserHTML;
-}
+};;
 
 /*
 	Function: xajax.tools.willChange
@@ -757,7 +757,7 @@ xajax.tools.willChange = function(element, attribute, newData) {
 	}
 
 	return false;
-}
+};;
 
 /*
 	Function: xajax.tools.getFormValues
@@ -799,7 +799,7 @@ xajax.tools.getFormValues = function(parent) {
 			xajax.tools._getFormValues(aFormValues, parent.childNodes, submitDisabledElements, prefix);
 	
 	return aFormValues;
-}
+};;
 
 /*
 	Function: xajax.tools._getFormValues
@@ -817,7 +817,7 @@ xajax.tools._getFormValues = function(aFormValues, children, submitDisabledEleme
 			xajax.tools._getFormValues(aFormValues, child.childNodes, submitDisabledElements, prefix);
 		xajax.tools._getFormValue(aFormValues, child, submitDisabledElements, prefix);
 	}
-}
+};;
 
 /*
 	Function: xajax.tools._getFormValue
@@ -893,7 +893,7 @@ xajax.tools._getFormValue = function(aFormValues, child, submitDisabledElements,
 	} else {
 		aFormValues[name] = values;
 	}
-}
+};;
 
 /*
 	Function: xajax.tools.stripOnPrefix
@@ -915,7 +915,7 @@ xajax.tools.stripOnPrefix = function(sEventName) {
 		sEventName = sEventName.replace(/on/,'');
 	
 	return sEventName;
-}
+};;
 
 /*
 	Function: xajax.tools.addOnPrefix
@@ -937,7 +937,7 @@ xajax.tools.addOnPrefix = function(sEventName) {
 		sEventName = 'on' + sEventName;
 	
 	return sEventName;
-}
+};;
 
 
 
@@ -971,7 +971,7 @@ xajax.tools.xml.parseAttributes = function(child, obj) {
 		var attr = child.attributes[i];
 		obj[attr.name] = attr.value;
 	}
-}
+};;
 
 /*
 	Function: xajax.tools.xml.parseChildren
@@ -1011,7 +1011,7 @@ xajax.tools.xml.parseChildren = function(child, obj) {
 	}
 	
 	obj.data = xajax.tools._enforceDataType(obj.data);
-}
+};;
 
 /*
 	Function: xajax.tools.xml.processFragment
@@ -1044,13 +1044,13 @@ xajax.tools.xml.processFragment = function(xmlNode, seq, oRet, oRequest) {
 		} else if ('debugmsg' == xmlNode.nodeName) {
 			// txt = xt._nodeToObject(xmlNode.firstChild);
 		} else 
-			throw { code: 10004, data: xmlNode.nodeName }
+			throw { code: 10004, data: xmlNode.nodeName };;
 			
 		++seq;
 		xmlNode = xmlNode.nextSibling;
 	}
 	return oRet;
-}
+};;
 
 /*
 	Class: xajax.tools.queue
@@ -1058,7 +1058,7 @@ xajax.tools.xml.processFragment = function(xmlNode, seq, oRet, oRequest) {
 	This contains the code and variables for building, populating
 	and processing First In Last Out (FILO) buffers.
 */
-xajax.tools.queue = {}
+xajax.tools.queue = {};;
 
 /*
 	Function: create
@@ -1078,7 +1078,7 @@ xajax.tools.queue.create = function(size) {
 		commands: [],
 		timeout: null
 	}
-}
+};;
 
 /*
 	Function: xajax.tools.queue.retry
@@ -1108,7 +1108,7 @@ xajax.tools.queue.retry = function(obj, count) {
 	} else retries = count;
 	obj.retries = retries;
 	return true;
-}
+};;
 
 /*
 	Function: xajax.tools.queue.rewind
@@ -1126,7 +1126,7 @@ xajax.tools.queue.rewind = function(theQ) {
 		--theQ.start;
 	else
 		theQ.start = theQ.size;
-}
+};;
 
 /*
 	Function: xajax.tools.queue.setWakeup
@@ -1151,7 +1151,7 @@ xajax.tools.queue.setWakeup = function(theQ, when) {
 		theQ.timeout = null;
 	}
 	theQ.timout = setTimeout(function() { xajax.tools.queue.process(theQ); }, when);
-}
+};;
 
 /*
 	Function: xajax.tools.queue.process
@@ -1199,7 +1199,7 @@ xajax.tools.queue.process = function(theQ) {
 		obj = xajax.tools.queue.pop(theQ);
 	}
 	return true;
-}
+};;
 
 /*
 	Function: xajax.tools.queue.push
@@ -1224,7 +1224,7 @@ xajax.tools.queue.push = function(theQ, obj) {
 		theQ.end = next;
 	} else
 		throw { code: 10003 }
-}
+};;
 
 /*
 	Function: xajax.tools.queue.pushFront
@@ -1244,7 +1244,7 @@ xajax.tools.queue.push = function(theQ, obj) {
 xajax.tools.queue.pushFront = function(theQ, obj) {
 	xajax.tools.queue.rewind(theQ);
 	theQ.commands[theQ.start] = obj;
-}
+};;
 
 /*
 	Function: xajax.tools.queue.pop
@@ -1272,7 +1272,7 @@ xajax.tools.queue.pop = function(theQ) {
 	delete theQ.commands[theQ.start];
 	theQ.start = next;
 	return obj;
-}
+};;
 
 /*
 	Class: xajax.responseProcessor
@@ -1292,7 +1292,7 @@ xajax.responseProcessor = {};
 */
 
 
-xajax.tools.json = {}
+xajax.tools.json = {};;
 
 xajax.tools.json.processFragment = function(nodes, seq, oRet, oRequest) {
 	var xx = xajax;
@@ -1319,7 +1319,7 @@ xajax.tools.json.processFragment = function(nodes, seq, oRet, oRequest) {
 			throw { code: 10004, data: obj.fullName}
 	}
 	return oRet;
-}
+};;
 
 xajax.responseProcessor.json = function (oRequest) {
 	
@@ -1369,7 +1369,7 @@ xajax.responseProcessor.json = function (oRequest) {
 	return oRet;
 
 	
-}
+};;
 
 /*
 	Function: xajax.responseProcessor.xml
@@ -1424,7 +1424,7 @@ xajax.responseProcessor.xml = function(oRequest) {
 	}
 	
 	return oRet;
-}
+};;
 
 /*
 	Class: xajax.js
@@ -1432,7 +1432,7 @@ xajax.responseProcessor.xml = function(oRequest) {
 	Contains the functions for javascript file and function
 	manipulation.
 */
-xajax.js = {}
+xajax.js = {};;
 
 /*
 	Function: xajax.js.includeScriptOnce
@@ -1466,7 +1466,7 @@ xajax.js.includeScriptOnce = function(command) {
 		}
     }
 	return xajax.js.includeScript(command);
-}
+};;
 
 /*
 	Function: xajax.js.includeScript
@@ -1493,7 +1493,7 @@ xajax.js.includeScript = function(command) {
 	if ('undefined' != typeof command.type) objScript.setAttribute('id', command.elm_id);
 	objHead[0].appendChild(objScript);
 	return true;
-}
+};;
 
 /*
 	Function: xajax.js.removeScript
@@ -1532,7 +1532,7 @@ xajax.js.removeScript = function(command) {
 		}
 	}
 	return true;
-}
+};;
 
 /*
 	Function: xajax.js.sleep
@@ -1563,7 +1563,7 @@ xajax.js.sleep = function(command) {
 	}
 	// wake up, continue processing queue
 	return true;
-}
+};;
 
 /*
 	Function: xajax.js.confirmCommands
@@ -1592,7 +1592,7 @@ xajax.js.confirmCommands = function(command) {
 		}
 	}
 	return true;
-}
+};;
 
 /*
 	Function: xajax.js.execute
@@ -1621,7 +1621,7 @@ xajax.js.execute = function(args) {
 	};
 	args.context.xajaxDelegateCall();
 	return returnValue;
-}
+};;
 
 /*
 	Function: xajax.js.waitFor
@@ -1658,7 +1658,7 @@ xajax.js.waitFor = function(args) {
 	try {
 		args.context.xajaxDelegateCall = function() {
 			eval(cmdToEval);
-		}
+		};;
 		args.context.xajaxDelegateCall();
 	} catch (e) {
 	}
@@ -1672,7 +1672,7 @@ xajax.js.waitFor = function(args) {
 		// give up, continue processing queue
 	}
 	return true;
-}
+};;
 
 /*
 	Function: xajax.js.call
@@ -1698,7 +1698,7 @@ xajax.js.call = function(args) {
 	
 	var parameters = args.data;
 	
-	var scr = new Array();
+	var scr = [];
 	scr.push(args.func);
 	scr.push('(');
 	if ('undefined' != typeof parameters) {
@@ -1714,10 +1714,10 @@ xajax.js.call = function(args) {
 	scr.push(');');
 	args.context.xajaxDelegateCall = function() {
 		eval(scr.join(''));
-	}
+	};;
 	args.context.xajaxDelegateCall();
 	return true;
-}
+};;
 
 /*
 	Function: xajax.js.setFunction
@@ -1741,7 +1741,7 @@ xajax.js.call = function(args) {
 xajax.js.setFunction = function(args) {
 	args.fullName = 'setFunction';
 
-	var code = new Array();
+	var code = [];
 	code.push(args.func);
 	code.push(' = function(');
 	if ('object' == typeof args.prop) {
@@ -1757,10 +1757,10 @@ xajax.js.setFunction = function(args) {
 	code.push(' }');
 	args.context.xajaxDelegateCall = function() {
 		eval(code.join(''));
-	}
+	};;
 	args.context.xajaxDelegateCall();
 	return true;
-}
+};;
 
 /*
 	Function: xajax.js.wrapFunction
@@ -1788,17 +1788,17 @@ xajax.js.setFunction = function(args) {
 xajax.js.wrapFunction = function(args) {
 	args.fullName = 'wrapFunction';
 
-	var code = new Array();
+	var code = [];
 	code.push(args.func);
 	code.push(' = xajax.js.makeWrapper(');
 	code.push(args.func);
 	code.push(', args.prop, args.data, args.type, args.context);');
 	args.context.xajaxDelegateCall = function() {
 		eval(code.join(''));
-	}
+	};;
 	args.context.xajaxDelegateCall();
 	return true;
-}
+};;
 
 /*
 	Function: xajax.js.makeWrapper
@@ -1857,15 +1857,15 @@ xajax.js.makeWrapper = function(origFun, args, codeBlocks, returnVariable, conte
 	var wrapper = null;
 	context.xajaxDelegateCall = function() {
 		eval(code);
-	}
+	};;
 	context.xajaxDelegateCall();
 	return wrapper;
-}
+};;
 
 /*
 	Class: xajax.dom
 */
-xajax.dom = {}
+xajax.dom = {};;
 
 /*
 	Function: xajax.dom.assign
@@ -1904,7 +1904,7 @@ xajax.dom.assign = function(element, property, data) {
 		break;
 	}
 	return true;
-}
+};;
 
 /*
 	Function: xajax.dom.append
@@ -1927,7 +1927,7 @@ xajax.dom.append = function(element, property, data) {
 	
 	eval('element.' + property + ' += data;');
 	return true;
-}
+};;
 
 /*
 	Function: xajax.dom.prepend
@@ -1950,7 +1950,7 @@ xajax.dom.prepend = function(element, property, data) {
 	
 	eval('element.' + property + ' = data + element.' + property);
 	return true;
-}
+};;
 
 /*
 	Function: xajax.dom.replace
@@ -2006,7 +2006,7 @@ xajax.dom.replace = function(element, sAttribute, aData) {
 		}
 	}
 	return true;
-}
+};;
 
 /*
 	Function: xajax.dom.remove
@@ -2030,7 +2030,7 @@ xajax.dom.remove = function(element) {
 		element.parentNode.removeChild(element);
 
 	return true;
-}
+};;
 
 /*
 	Function: xajax.dom.create
@@ -2057,7 +2057,7 @@ xajax.dom.create = function(objParent, sTag, sId) {
 	if (objParent)
 		objParent.appendChild(target);
 	return true;
-}
+};;
 
 /*
 	Function: xajax.dom.insert
@@ -2083,7 +2083,7 @@ xajax.dom.insert = function(objSibling, sTag, sId) {
 	target.setAttribute('id', sId);
 	objSibling.parentNode.insertBefore(target, objSibling);
 	return true;
-}
+};;
 
 /*
 	Function: xajax.dom.insertAfter
@@ -2109,7 +2109,7 @@ xajax.dom.insertAfter = function(objSibling, sTag, sId) {
 	target.setAttribute('id', sId);
 	objSibling.parentNode.insertBefore(target, objSibling.nextSibling);
 	return true;
-}
+};;
 
 /*
 	Function: xajax.dom.contextAssign
@@ -2140,10 +2140,10 @@ xajax.dom.contextAssign = function(args) {
 	code = code.join('');
 	args.context.xajaxDelegateCall = function(data) {
 		eval(code);
-	}
+	};;
 	args.context.xajaxDelegateCall(args.data);
 	return true;
-}
+};;
 
 /*
 	Function: xajax.dom.contextAppend
@@ -2174,10 +2174,10 @@ xajax.dom.contextAppend = function(args) {
 	code = code.join('');
 	args.context.xajaxDelegateCall = function(data) {
 		eval(code);
-	}
+	};;
 	args.context.xajaxDelegateCall(args.data);
 	return true;
-}
+};;
 
 /*
 	Function: xajax.dom.contextPrepend
@@ -2210,27 +2210,27 @@ xajax.dom.contextPrepend = function(args) {
 	code = code.join('');
 	args.context.xajaxDelegateCall = function(data) {
 		eval(code);
-	}
+	};;
 	args.context.xajaxDelegateCall(args.data);
 	return true;
-}
+};;
 
 
 /*
 	Class: xajax.domResponse
 */
-xajax.domResponse = {}
+xajax.domResponse = {};;
 
 xajax.domResponse.startResponse = function(args) {
 	xjxElm = [];
-}
+};;
 
 xajax.domResponse.createElement = function(args) {
 	eval(
 		[ args.tgt, ' = document.createElement(args.data)' ]
 		.join('')
 		);
-}
+};;
 
 xajax.domResponse.setAttribute = function(args) {
 	args.context.xajaxDelegateCall = function() {
@@ -2238,9 +2238,9 @@ xajax.domResponse.setAttribute = function(args) {
 			[ args.tgt, '.setAttribute(args.key, args.data)' ]
 			.join('')
 			);
-	}
+	};;
 	args.context.xajaxDelegateCall();
-}
+};;
 
 xajax.domResponse.appendChild = function(args) {
 	args.context.xajaxDelegateCall = function() {
@@ -2248,9 +2248,9 @@ xajax.domResponse.appendChild = function(args) {
 			[ args.par, '.appendChild(', args.data, ')' ]
 			.join('')
 			);
-	}
+	};;
 	args.context.xajaxDelegateCall();
-}
+};;
 
 xajax.domResponse.insertBefore = function(args) {
 	args.context.xajaxDelegateCall = function() {
@@ -2258,9 +2258,9 @@ xajax.domResponse.insertBefore = function(args) {
 			[ args.tgt, '.parentNode.insertBefore(', args.data, ', ', args.tgt, ')' ]
 			.join('')
 			);
-	}
+	};;
 	args.context.xajaxDelegateCall();
-}
+};;
 
 xajax.domResponse.insertAfter = function(args) {
 	args.context.xajaxDelegateCall = function() {
@@ -2268,9 +2268,9 @@ xajax.domResponse.insertAfter = function(args) {
 			[ args.tgt, 'parentNode.insertBefore(', args.data, ', ', args.tgt, '.nextSibling)' ]
 			.join('')
 			);
-	}
+	};;
 	args.context.xajaxDelegateCall();
-}
+};;
 
 xajax.domResponse.appendText = function(args) {
 	args.context.xajaxDelegateCall = function() {
@@ -2278,9 +2278,9 @@ xajax.domResponse.appendText = function(args) {
 			[ args.par, '.appendChild(document.createTextNode(args.data))' ]
 			.join('')
 			);
-	}
+	};;
 	args.context.xajaxDelegateCall();
-}
+};;
 
 xajax.domResponse.removeChildren = function(args) {
 	var skip = args.skip || 0;
@@ -2288,7 +2288,7 @@ xajax.domResponse.removeChildren = function(args) {
 	var element = null;
 	args.context.xajaxDelegateCall = function() {
 		eval( [ 'element = ', args.data ].join( '' ) );
-	}
+	};;
 	args.context.xajaxDelegateCall();
 	var children = element.childNodes;
 	for (var i in children) {
@@ -2301,17 +2301,17 @@ xajax.domResponse.removeChildren = function(args) {
 			}
 		}
 	}
-}
+};;
 
 xajax.domResponse.endResponse = function(args) {
 	xjxElm = [];
-}
+};;
 
 
 /*
 	Class: xajax.css
 */
-xajax.css = {}
+xajax.css = {};;
 
 /*
 	Function: xajax.css.add
@@ -2351,7 +2351,7 @@ xajax.css.add = function(fileName, media) {
 	}
 	
 	return true;
-}
+};;
 
 /*
 	Function: xajax.css.remove
@@ -2380,7 +2380,7 @@ xajax.css.remove = function(fileName, media) {
 		else ++i;
 	
 	return true;
-}
+};;
 
 /*
 	Function: xajax.css.waitForCSS
@@ -2435,13 +2435,13 @@ xajax.css.waitForCSS = function(args) {
 		// give up, continue processing queue
 	}
 	return true;
-}
+};;
 
 
 /*
 	Class: xajax.forms
 */
-xajax.forms = {}
+xajax.forms = {};;
 
 /*
 	Function: xajax.forms.getInput
@@ -2474,7 +2474,7 @@ xajax.forms.getInput = function(type, name, id) {
 		}
 	}
 	return xajax.forms.getInput(type, name, id);
-}
+};;
 
 /*
 	Function: xajax.forms.createInput
@@ -2508,7 +2508,7 @@ xajax.forms.createInput = function(command) {
 		objParent.appendChild(target);
 	}
 	return true;
-}
+};;
 
 /*
 	Function: xajax.forms.insertInput
@@ -2539,7 +2539,7 @@ xajax.forms.insertInput = function(command) {
 	if (target && objSibling && objSibling.parentNode)
 		objSibling.parentNode.insertBefore(target, objSibling);
 	return true;
-}
+};;
 
 /*
 	Function: xajax.forms.insertInputAfter
@@ -2570,12 +2570,12 @@ xajax.forms.insertInputAfter = function(command) {
 	if (target && objSibling && objSibling.parentNode)
 		objSibling.parentNode.insertBefore(target, objSibling.nextSibling);
 	return true;
-}
+};;
 
 /*
 	Class: xajax.events
 */
-xajax.events = {}
+xajax.events = {};;
 
 /*
 	Function: xajax.events.setEvent
@@ -2604,7 +2604,7 @@ xajax.events.setEvent = function(command) {
 	code = xajax.tools.doubleQuotes(code);
 	eval('element.' + sEvent + ' = function() { ' + code + '; }');
 	return true;
-}
+};;
 
 /*
 	Function: xajax.events.addHandler
@@ -2649,7 +2649,7 @@ xajax.events.addHandler = function(element, sEvent, fun) {
 		}
 	}
 	return xajax.events.addHandler(element, sEvent, fun);
-}
+};;
 
 /*
 	Function: xajax.events.removeHandler
@@ -2695,12 +2695,12 @@ xajax.events.removeHandler = function(element, sEvent, fun) {
 		}
 	}
 	return xajax.events.removeHandler(element, sEvent, fun);
-}
+};;
 
 /*
 	Class: xajax.callback
 */
-xajax.callback = {}
+xajax.callback = {};;
 
 /*
 	Function: xajax.callback.create
@@ -2717,7 +2717,7 @@ xajax.callback.create = function() {
 	var xc = xx.config;
 	var xcb = xx.callback;
 	
-	var oCB = {}
+	var oCB = {};;
 	oCB.timers = {};
 	
 	oCB.timers.onResponseDelay = xcb.setupTimer(
@@ -2740,7 +2740,7 @@ xajax.callback.create = function() {
 	oCB.onComplete = null;
 	
 	return oCB;
-}
+};;
 
 /*
 	Function: xajax.callback.setupTimer
@@ -2759,7 +2759,7 @@ xajax.callback.create = function() {
 xajax.callback.setupTimer = function(iDelay)
 {
 	return { timer: null, delay: iDelay };
-}
+};;
 
 /*
 	Function: xajax.callback.clearTimer
@@ -2784,7 +2784,7 @@ xajax.callback.clearTimer = function(oCallback, sFunction)
 		for (var i = 0; i < iLen; ++i)
 			xajax.callback.clearTimer(oCallback[i], sFunction);
 	}
-}
+};;
 
 /*
 	Function: xajax.callback.execute
@@ -2816,7 +2816,7 @@ xajax.callback.execute = function(oCallback, sFunction, args) {
 		for (var i = 0; i < iLen; ++i)
 			xajax.callback.execute(oCallback[i], sFunction, args);
 	}
-}
+};;
 
 /*
 	Class: xajax.callback.global
@@ -2926,7 +2926,7 @@ xajax.command.create = function(sequence, request, context) {
 	newCmd.request = request;
 	newCmd.context = context;
 	return newCmd;
-}
+};;
 
 /*
 	Class: xajax.command.handler
@@ -2952,7 +2952,7 @@ if ('undefined' == typeof xajax.command.handler.handlers)
 */
 xajax.command.handler.register = function(shortName, func) {
 	xajax.command.handler.handlers[shortName] = func;
-}
+};;
 
 /*
 	Function: xajax.command.handler.unregister
@@ -2969,7 +2969,7 @@ xajax.command.handler.unregister = function(shortName) {
 	var func = xajax.command.handler.handlers[shortName];
 	delete xajax.command.handler.handlers[shortName];
 	return func;
-}
+};;
 
 /*
 	Function: xajax.command.handler.isRegistered
@@ -2990,7 +2990,7 @@ xajax.command.handler.isRegistered = function(command) {
 	if (xajax.command.handler.handlers[shortName])
 		return true;
 	return false;
-}
+};;
 
 /*
 	Function: xajax.command.handler.call
@@ -3008,7 +3008,7 @@ xajax.command.handler.isRegistered = function(command) {
 xajax.command.handler.call = function(command) {
 	var shortName = command.cmd;
 	return xajax.command.handler.handlers[shortName](command);
-}
+};;
 
 xajax.command.handler.register('rcmplt', function(args) {
 	xajax.completeResponse(args.request);
@@ -3137,7 +3137,7 @@ xajax.initializeRequest = function(oRequest) {
 				if ('undefined' == typeof this[opt][itmName])
 					this[opt][itmName] = def[itmName];
 		} else this[opt] = def;
-	}
+	};;
 	
 	oRequest.append('commonHeaders', xc.commonHeaders);
 	oRequest.append('postHeaders', xc.postHeaders);
@@ -3146,7 +3146,7 @@ xajax.initializeRequest = function(oRequest) {
 	oRequest.set = function(option, defaultValue) {
 		if ('undefined' == typeof this[option])
 			this[option] = defaultValue;
-	}
+	};;
 	
 	oRequest.set('statusMessages', xc.statusMessages);
 	oRequest.set('waitCursor', xc.waitCursor);
@@ -3171,7 +3171,7 @@ xajax.initializeRequest = function(oRequest) {
 			lcb.hasEvents = true;
 		}
 		delete frm[opt];
-	}
+	};;
 	
 	lcb.take(oRequest, 'onRequest');
 	lcb.take(oRequest, 'onResponseDelay');
@@ -3212,7 +3212,7 @@ xajax.initializeRequest = function(oRequest) {
 
 	if ('undefined' == typeof oRequest.URI)
 		throw { code: 10005 }
-}
+};;
 
 /*
 	Function: xajax.processParameters
@@ -3303,7 +3303,7 @@ xajax.processParameters = function(oRequest) {
 	}
 	
 	oRequest.requestData = rd.join('');
-}
+};;
 
 /*
 	Function: xajax.prepareRequest
@@ -3332,18 +3332,18 @@ xajax.prepareRequest = function(oRequest) {
 			for (var optionName in headers)
 				this.request.setRequestHeader(optionName, headers[optionName]);
 		}
-	}
+	};;
 	oRequest.setCommonRequestHeaders = function() {
 		this.setRequestHeaders(this.commonHeaders);
 		if (this.challengeResponse)
 			this.request.setRequestHeader('challenge-response', this.challengeResponse);
-	}
+	};;
 	oRequest.setPostRequestHeaders = function() {
 		this.setRequestHeaders(this.postHeaders);
-	}
+	};;
 	oRequest.setGetRequestHeaders = function() {
 		this.setRequestHeaders(this.getHeaders);
-	}
+	};;
 	
 	if ('asynchronous' == oRequest.mode) {
 		// references inside this function should be expanded
@@ -3352,7 +3352,7 @@ xajax.prepareRequest = function(oRequest) {
 			if (oRequest.request.readyState != 4)
 				return;
 			xajax.responseReceived(oRequest);
-		}
+		};;
 		oRequest.finishRequest = function() {
 			return this.returnValue;
 		}
@@ -3400,7 +3400,7 @@ xajax.prepareRequest = function(oRequest) {
 			this.setGetRequestHeaders();
 		}
 	}
-}
+};;
 
 /*
 	Function: xajax.request
@@ -3424,7 +3424,7 @@ xajax.request = function() {
 	if (0 == numArgs)
 		return false;
 	
-	var oRequest = {}
+	var oRequest = {};;
 	if (1 < numArgs)
 		oRequest = arguments[1];
 	
@@ -3449,7 +3449,7 @@ xajax.request = function() {
 				throw e;
 		}
 	}
-}
+};;
 
 /*
 	Function: xajax.submitRequest
@@ -3484,7 +3484,7 @@ xajax.submitRequest = function(oRequest) {
 	
 	// synchronous mode causes response to be processed immediately here
 	return oRequest.finishRequest();
-}
+};;
 
 /*
 	Function: xajax._internalSend
@@ -3499,7 +3499,7 @@ xajax.submitRequest = function(oRequest) {
 xajax._internalSend = function(oRequest) {
 	// this may block if synchronous mode is selected
 	oRequest.request.send(oRequest.requestData);
-}
+};;
 
 /*
 	Function: xajax.abortRequest
@@ -3515,7 +3515,7 @@ xajax.abortRequest = function(oRequest)
 	oRequest.aborted = true;
 	oRequest.request.abort();
 	xajax.completeResponse(oRequest);
-}
+};;
 
 /*
 	Function: xajax.responseReceived
@@ -3556,7 +3556,7 @@ xajax.responseReceived = function(oRequest) {
 	}
 	
 	return fProc(oRequest);
-}
+};;
 
 /*
 	Function: xajax.getResponseProcessor
@@ -3588,7 +3588,7 @@ xajax.getResponseProcessor = function(oRequest) {
 	} else fProc = oRequest.responseProcessor;
 	
 	return fProc;
-}
+};;
 
 /*
 	Function: xajax.executeCommand 
@@ -3627,7 +3627,7 @@ xajax.executeCommand = function(command) {
 		}
 	}
 	return true;
-}
+};;
 
 /*
 	Function: xajax.completeResponse
@@ -3664,7 +3664,7 @@ xajax.completeResponse = function(oRequest) {
 	delete oRequest['status'];
 	delete oRequest['cursor'];
 	delete oRequest['challengeResponse'];
-}
+};;
 
 /*
 	Function: xajax.$
@@ -3693,7 +3693,7 @@ xajax.isLoaded = true;
 	
 	Contains shortcut's to frequently used functions.
 */
-xjx = {}
+xjx = {};;
 
 /*
 	Function: xjx.$

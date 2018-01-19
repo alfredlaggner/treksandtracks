@@ -2,7 +2,7 @@
  * $Id: editor_plugin_src.js 1225 2009-09-07 19:06:19Z spocke $
  *
  * @author Moxiecode
- * @copyright Copyright © 2004-2008, Moxiecode Systems AB, All rights reserved.
+ * @copyright Copyright ï¿½ 2004-2008, Moxiecode Systems AB, All rights reserved.
  */
 
 (function() {
@@ -54,8 +54,7 @@
 					t._insertBlockContent(ed, dom, o.content);
 				else
 					t._insert(o.content);
-			};
-
+			}
 			// Add command for external usage
 			ed.addCommand('mceInsertClipboardContent', function(u, o) {
 				process(o);
@@ -142,8 +141,7 @@
 						process({content : h});
 					}, 0);
 				}
-			};
-
+			}
 			// Check if we should use the new auto process method			
 			if (ed.getParam('paste_auto_cleanup_on_paste', true)) {
 				// Is it's Opera or older FF use key handler
@@ -199,8 +197,7 @@
 					else
 						h = h.replace(v[0], v[1]);
 				});
-			};
-
+			}
 			// Detect Word content and process it more aggressive
 			if (/(class=\"?Mso|style=\"[^\"]*\bmso\-|w:WordDocument)/.test(h) || o.wordContent) {
 				o.wordContent = true; // Mark the pasted contents as word specific content
@@ -261,8 +258,7 @@
 					}
 
 					return ' class="' + out + '"';
-				};
-
+				}
 				process([
 					[/ class=\"([^\"]*)\"/gi, cleanClasses],	// class attributes with quotes
 					[/ class=(\w+)/gi, cleanClasses]			// class attributes without quotes (IE)
@@ -449,8 +445,7 @@
 					sel.select(n, 1);
 					sel.collapse(false);
 				}
-			};
-
+			}
 			// Insert a marker for the caret position
 			this._insert('<span id="_marker">&nbsp;</span>', 1);
 			marker = dom.get('_marker');

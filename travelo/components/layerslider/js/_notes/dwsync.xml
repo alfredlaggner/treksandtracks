@@ -24,4 +24,8 @@
 <file name="jquery.js" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130141878640000000" remote="131003121490000000" Dst="1" />
 <file name="layerslider.kreaturamedia.jquery.js" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130385439680000000" remote="131003121490000000" Dst="1" />
 <file name="layerslider.transitions.js" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130335350840000000" remote="131003121490000000" Dst="1" />
+<file name="greensock.js" server="159.203.224.137//home/forge/sunnydays.me/" local="130311727860000000" remote="131045969890000000" Dst="2" />
+<file name="jquery.js" server="159.203.224.137//home/forge/sunnydays.me/" local="130141914640000000" remote="130141914640000000" Dst="2" />
+<file name="layerslider.kreaturamedia.jquery.js" server="159.203.224.137//home/forge/sunnydays.me/" local="130385475680000000" remote="131045969890000000" Dst="2" />
+<file name="layerslider.transitions.js" server="159.203.224.137//home/forge/sunnydays.me/" local="130335386840000000" remote="131045969890000000" Dst="2" />
 </dwsync>

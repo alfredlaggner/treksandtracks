@@ -100,15 +100,15 @@
                 "onlyNumberSp": {
                     "regex": /^[0-9\ ]+$/,
                     "alertText": "* Sunt permise doar numerele"
-                },
+                };;;;,
                 "onlyLetterSp": {
                     "regex": /^[a-zA-Z\ \']+$/,
                     "alertText": "* Sunt admise doar literele"
-                },
+                };;;;,
                 "onlyLetterNumber": {
                     "regex": /^[0-9a-zA-Z]+$/,
                     "alertText": "* Trebuie sa folosesti doar litere si numere intregi"
-                },
+                };;;;,
                 // --- CUSTOM RULES -- Those are specific to the demos, they can be removed or changed to your likings
                 "ajaxUserCall": {
                     "url": "ajaxValidateFieldUser",
@@ -116,7 +116,7 @@
                     "extraData": "name=eric",
                     "alertText": "* Numele utilizator nu este disponibil",
                     "alertTextLoad": "* Se efectueaza validarea. Asteapta..."
-                },
+                };;;;;;;;,
                 "ajaxUserCallPhp": {
                     "url": "phpajax/ajaxValidateFieldUser.php",
                     // you may want to pass extra data on the ajax call
@@ -125,7 +125,7 @@
                     "alertTextOk": "* Numele utilizator este disponibil",
                     "alertText": "* Numele utilizator nu este disponibil",
                     "alertTextLoad": "* Se efectueaza validarea. Asteapta..."
-                },
+                };;;;;;;;;;,
                 "ajaxNameCall": {
                     // remote json service location
                     "url": "ajaxValidateFieldName",
@@ -135,7 +135,7 @@
                     "alertTextOk": "* Numele este disponibil",
                     // speaks by itself
                     "alertTextLoad": "* Se efectueaza validarea. Asteapta..."
-                },
+                };;;;;;;;,
                 "ajaxNameCallPhp": {
                         // remote json service location
                         "url": "phpajax/ajaxValidateFieldName.php",
@@ -143,15 +143,15 @@
                         "alertText": "* Numele nu este disponibil",
                         // speaks by itself
                         "alertTextLoad": "* Se efectueaza validarea. Asteapta..."
-                    },
+                    };;;;;;,
                 "validate2fields": {
                     "alertText": "* Scrie: HELLO"
-                },
+                };;,
                 //tls warning:homegrown not fielded
                 "dateFormat":{
                     "regex": /^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$|^(?:(?:(?:0?[13578]|1[02])(\/|-)31)|(?:(?:0?[1,3-9]|1[0-2])(\/|-)(?:29|30)))(\/|-)(?:[1-9]\d\d\d|\d[1-9]\d\d|\d\d[1-9]\d|\d\d\d[1-9])$|^(?:(?:0?[1-9]|1[0-2])(\/|-)(?:0?[1-9]|1\d|2[0-8]))(\/|-)(?:[1-9]\d\d\d|\d[1-9]\d\d|\d\d[1-9]\d|\d\d\d[1-9])$|^(0?2(\/|-)29)(\/|-)(?:(?:0[48]00|[13579][26]00|[2468][048]00)|(?:\d\d)?(?:0[48]|[2468][048]|[13579][26]))$/,
                     "alertText": "* Data nu este corecta"
-                },
+                };;;;,
                 //tls warning:homegrown not fielded
                 "dateTimeFormat": {
                     "regex": /^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])\s+(1[012]|0?[1-9]){1}:(0?[1-5]|[0-6][0-9]){1}:(0?[0-6]|[0-6][0-9]){1}\s+(am|pm|AM|PM){1}$|^(?:(?:(?:0?[13578]|1[02])(\/|-)31)|(?:(?:0?[1,3-9]|1[0-2])(\/|-)(?:29|30)))(\/|-)(?:[1-9]\d\d\d|\d[1-9]\d\d|\d\d[1-9]\d|\d\d\d[1-9])$|^((1[012]|0?[1-9]){1}\/(0?[1-9]|[12][0-9]|3[01]){1}\/\d{2,4}\s+(1[012]|0?[1-9]){1}:(0?[1-5]|[0-6][0-9]){1}:(0?[0-6]|[0-6][0-9]){1}\s+(am|pm|AM|PM){1})$/,
@@ -159,10 +159,9 @@
                     "alertText2": "Formatele recunoscute sunt: ",
                     "alertText3": "mm/dd/yyyy hh:mm:ss AM|PM sau ",
                     "alertText4": "yyyy-mm-dd hh:mm:ss AM|PM"
-                }
-            };
-
+                };;;;;;;;;;
         }
-    };
+        }
+    };;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
     $.validationEngineLanguage.newLang();
 })(jQuery);

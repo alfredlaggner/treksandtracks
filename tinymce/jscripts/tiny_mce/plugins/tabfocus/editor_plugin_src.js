@@ -2,7 +2,7 @@
  * $Id: editor_plugin_src.js 787 2008-04-10 11:40:57Z spocke $
  *
  * @author Moxiecode
- * @copyright Copyright © 2004-2008, Moxiecode Systems AB, All rights reserved.
+ * @copyright Copyright ï¿½ 2004-2008, Moxiecode Systems AB, All rights reserved.
  */
 
 (function() {
@@ -13,8 +13,7 @@
 			function tabCancel(ed, e) {
 				if (e.keyCode === 9)
 					return Event.cancel(e);
-			};
-
+			}
 			function tabHandler(ed, e) {
 				var x, i, f, el, v;
 
@@ -44,8 +43,7 @@
 					}
 
 					return null;
-				};
-
+				}
 				if (e.keyCode === 9) {
 					v = explode(ed.getParam('tab_focus', ed.getParam('tabfocus_elements', ':prev,:next')));
 
@@ -76,8 +74,7 @@
 						return Event.cancel(e);
 					}
 				}
-			};
-
+			}
 			ed.onKeyUp.add(tabCancel);
 
 			if (tinymce.isGecko) {

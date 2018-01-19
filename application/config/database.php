@@ -1,4 +1,4 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 /*
 | -------------------------------------------------------------------
 | DATABASE CONNECTIVITY SETTINGS
@@ -43,16 +43,16 @@
 | The $active_record variables lets you determine whether or not to load
 | the active record class
 */
-$active_group = 'default';
+$active_group = 'hosted';
 // $active_record = TRUE;
 $query_builder = TRUE;
 
 //$active_group = 'default';
 //$active_record = TRUE;
 
-$db['hosted']['hostname'] = 'treksand.startlogicmysql.com';
+$db['hosted']['hostname'] = 'mysql';
 $db['hosted']['username'] = 'alfred';
-$db['hosted']['password'] = 'Ilm2dogs12$$$';
+$db['hosted']['password'] = 'laggner';
 $db['hosted']['database'] = 'treksandtracks';
 $db['hosted']['dbdriver'] = 'mysqli';
 $db['hosted']['dbprefix'] = '';
@@ -65,23 +65,6 @@ $db['hosted']['dbcollat'] = 'utf8_general_ci';
 $db['hosted']['swap_pre'] = '';
 $db['hosted']['autoinit'] = TRUE;
 $db['hosted']['stricton'] = FALSE;
-
-$db['lsdcoach']['hostname'] = 'terramarinfo.fatcowmysql.com';
-$db['lsdcoach']['username'] = 'alfred';
-$db['lsdcoach']['password'] = 'laggner';
-$db['lsdcoach']['database'] = 'treksandtracks';
-$db['lsdcoach']['dbdriver'] = 'mysqli';
-$db['lsdcoach']['dbprefix'] = '';
-$db['lsdcoach']['pconnect'] = FALSE;
-$db['lsdcoach']['db_debug'] = TRUE;
-$db['lsdcoach']['cache_on'] = FALSE;
-$db['lsdcoach']['cachedir'] = 'cache';
-$db['lsdcoach']['char_set'] = 'utf8';
-$db['lsdcoach']['dbcollat'] = 'utf8_general_ci';
-$db['lsdcoach']['swap_pre'] = '';
-$db['lsdcoach']['autoinit'] = TRUE;
-$db['lsdcoach']['stricton'] = FALSE;
-
 
 $db['sunnydays']['hostname'] = 'treksand.startlogicmysql.com';
 $db['sunnydays']['username'] = 'alfred';
@@ -100,9 +83,9 @@ $db['sunnydays']['autoinit'] = TRUE;
 $db['sunnydays']['stricton'] = FALSE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'Alfred';
-$db['default']['password'] = 'Laggner';
-$db['default']['database'] = 'treksandtracks_local';
+$db['default']['username'] = 'forge';
+$db['default']['password'] = 'LPegKhNBsLI3AHPIJoy5';
+$db['default']['database'] = 'tt_prod_v7';
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = false;
@@ -114,7 +97,7 @@ $db['default']['dbcollat'] = 'utf8_general_ci';
 $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
- 
+
 
 /* End of file database.php */
 /* Location: ./application/config/database.php */

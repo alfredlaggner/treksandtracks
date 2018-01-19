@@ -101,4 +101,14 @@
 <file name="template_over_view.php" server="localhost//home/forge/treksandtracks.com/public/" local="130888153750000000" remote="131006732400000000" Dst="1" />
 <file name="template_select_activity.php" server="localhost//home/forge/treksandtracks.com/public/" local="130887852920000000" remote="131006732400000000" Dst="1" />
 <file name="template_view.php" server="localhost//home/forge/treksandtracks.com/public/" local="130797500220000000" remote="131006732400000000" Dst="1" />
+<file name="admin_footer.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797500120000000" remote="130797500120000000" Dst="2" />
+<file name="admin_head.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797500140000000" remote="130797500140000000" Dst="2" />
+<file name="admin_header.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797500140000000" remote="130797500140000000" Dst="2" />
+<file name="admin_top_bar.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797500140000000" remote="130797500140000000" Dst="2" />
+<file name="template_create.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130887871860000000" remote="130887871860000000" Dst="2" />
+<file name="template_create_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130887871320000000" remote="130887871320000000" Dst="2" />
+<file name="template_edit.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130933671160000000" remote="131045965910000000" Dst="2" />
+<file name="template_over_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130888153750000000" remote="130888153750000000" Dst="2" />
+<file name="template_select_activity.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130887852920000000" remote="130887852920000000" Dst="2" />
+<file name="template_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797500220000000" remote="130797500220000000" Dst="2" />
 </dwsync>

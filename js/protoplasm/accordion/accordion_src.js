@@ -13,7 +13,7 @@ Control.Accordion = Class.create({
 	initialize: function(container, options) {
 		this.container = $(container);
 		this.lastExpandedTab = null;
-		this.accordionTabs = new Array();
+		this.accordionTabs = [];
 		this.setOptions(options);
 		this._attachBehaviors();
 
@@ -93,7 +93,7 @@ Control.Accordion = Class.create({
 	},
 
 	_getDirectChildrenByTag: function(e, tagName) {
-		var kids = new Array();
+		var kids = [];
 		var allKids = e.childNodes;
 		for(var i = 0; i < allKids.length; i++)
 			if (allKids[i] && allKids[i].tagName && allKids[i].tagName == tagName)
@@ -120,7 +120,7 @@ Control.Accordion.Tab = Class.create({
 	showCollapsed: function() {
 		this.expanded = false;
 		if (this.accordion.options.collapsedClass)
-			this.titleBar.className = this.accordion.options.collapsedClass
+			this.titleBar.className = this.accordion.options.collapsedClass;;
 		this.content.style.overflow = "hidden";
 	},
 

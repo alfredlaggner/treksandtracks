@@ -22,7 +22,7 @@
 jQuery.validator.addMethod("creditcard2", function(value, element, param) {
 	var cardName = param;
 
-	var cards = new Array();
+	var cards = [];
 	cards[0] = { cardName: "Visa", lengths: "13,16", prefixes: "4", checkdigit: true };
 	cards[1] = { cardName: "MasterCard", lengths: "16", prefixes: "51,52,53,54,55", checkdigit: true };
 	cards[2] = { cardName: "DinersClub", lengths: "14,16", prefixes: "305,36,38,54,55", checkdigit: true };
@@ -68,7 +68,11 @@ jQuery.validator.addMethod("creditcard2", function(value, element, param) {
 				calc = calc - 10;
 			}
 			checksum = checksum + calc;
-			if (j == 1) { j = 2 } else { j = 1 };
+			if (j == 1) {
+				j = 2
+			} else {
+				j = 1
+			}
 		}
 
 		if (checksum % 10 != 0) { return false; } // not mod10
@@ -76,8 +80,8 @@ jQuery.validator.addMethod("creditcard2", function(value, element, param) {
 
 	var lengthValid = false;
 	var prefixValid = false;
-	var prefix = new Array();
-	var lengths = new Array();
+	var prefix = [];
+	var lengths = [];
 
 	prefix = cards[cardType].prefixes.split(",");
 	for (i = 0; i < prefix.length; i++) {

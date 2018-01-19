@@ -26,35 +26,34 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * @package	CodeIgniter
- * @author	EllisLab Dev Team
- * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
- * @copyright	Copyright (c) 2014 - 2016, British Columbia Institute of Technology (http://bcit.ca/)
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	https://codeigniter.com
- * @since	Version 1.0.0
+ * @package    CodeIgniter
+ * @author    EllisLab Dev Team
+ * @copyright    Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+ * @copyright    Copyright (c) 2014 - 2016, British Columbia Institute of Technology (http://bcit.ca/)
+ * @license    http://opensource.org/licenses/MIT	MIT License
+ * @link    https://codeigniter.com
+ * @since    Version 1.0.0
  * @filesource
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-if ( ! function_exists('form_date'))
-{
+if (!function_exists('form_date')) {
 	/**
 	 * Text date Field
 	 *
-	 * @param	mixed
-	 * @param	string
-	 * @param	mixed
-	 * @return	string
+	 * @param    mixed
+	 * @param    string
+	 * @param    mixed
+	 * @return    string
 	 */
 	function form_date($data = '', $value = '', $extra = '')
-	{ 
+	{
 		$defaults = array(
 			'type' => 'date',
 			'name' => is_array($data) ? '' : $data,
 			'value' => $value
 		);
 
-		return '<input '._parse_form_attributes($data, $defaults)._attributes_to_string($extra)." />\n";
+		return '<input ' . _parse_form_attributes($data, $defaults) . _attributes_to_string($extra) . " />\n";
 	}
 }

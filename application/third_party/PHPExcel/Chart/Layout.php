@@ -18,20 +18,20 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  *
- * @category	PHPExcel
- * @package		PHPExcel_Chart
- * @copyright	Copyright (c) 2006 - 2014 PHPExcel (http://www.codeplex.com/PHPExcel)
- * @license		http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version		1.8.0, 2014-03-02
+ * @category    PHPExcel
+ * @package        PHPExcel_Chart
+ * @copyright    Copyright (c) 2006 - 2014 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @license        http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
+ * @version        1.8.0, 2014-03-02
  */
 
 
 /**
  * PHPExcel_Chart_Layout
  *
- * @category	PHPExcel
- * @package		PHPExcel_Chart
- * @copyright	Copyright (c) 2006 - 2014 PHPExcel (http://www.codeplex.com/PHPExcel)
+ * @category    PHPExcel
+ * @package        PHPExcel_Chart
+ * @copyright    Copyright (c) 2006 - 2014 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Chart_Layout
 {
@@ -47,42 +47,42 @@ class PHPExcel_Chart_Layout
 	 *
 	 * @var string
 	 */
-	private $_xMode		= NULL;
+	private $_xMode = NULL;
 
 	/**
 	 * Y Mode
 	 *
 	 * @var string
 	 */
-	private $_yMode		= NULL;
+	private $_yMode = NULL;
 
 	/**
 	 * X-Position
 	 *
 	 * @var float
 	 */
-	private $_xPos		= NULL;
+	private $_xPos = NULL;
 
 	/**
 	 * Y-Position
 	 *
 	 * @var float
 	 */
-	private $_yPos		= NULL;
+	private $_yPos = NULL;
 
 	/**
 	 * width
 	 *
 	 * @var float
 	 */
-	private $_width		= NULL;
+	private $_width = NULL;
 
 	/**
 	 * height
 	 *
 	 * @var float
 	 */
-	private $_height	= NULL;
+	private $_height = NULL;
 
 	/**
 	 * show legend key
@@ -90,7 +90,7 @@ class PHPExcel_Chart_Layout
 	 *
 	 * @var boolean
 	 */
-	private $_showLegendKey	= NULL;
+	private $_showLegendKey = NULL;
 
 	/**
 	 * show value
@@ -98,7 +98,7 @@ class PHPExcel_Chart_Layout
 	 *
 	 * @var boolean
 	 */
-	private $_showVal	= NULL;
+	private $_showVal = NULL;
 
 	/**
 	 * show category name
@@ -106,7 +106,7 @@ class PHPExcel_Chart_Layout
 	 *
 	 * @var boolean
 	 */
-	private $_showCatName	= NULL;
+	private $_showCatName = NULL;
 
 	/**
 	 * show data series name
@@ -114,7 +114,7 @@ class PHPExcel_Chart_Layout
 	 *
 	 * @var boolean
 	 */
-	private $_showSerName	= NULL;
+	private $_showSerName = NULL;
 
 	/**
 	 * show percentage
@@ -122,14 +122,14 @@ class PHPExcel_Chart_Layout
 	 *
 	 * @var boolean
 	 */
-	private $_showPercent	= NULL;
+	private $_showPercent = NULL;
 
 	/**
 	 * show bubble size
 	 *
 	 * @var boolean
 	 */
-	private $_showBubbleSize	= NULL;
+	private $_showBubbleSize = NULL;
 
 	/**
 	 * show leader lines
@@ -137,21 +137,35 @@ class PHPExcel_Chart_Layout
 	 *
 	 * @var boolean
 	 */
-	private $_showLeaderLines	= NULL;
+	private $_showLeaderLines = NULL;
 
 
 	/**
 	 * Create a new PHPExcel_Chart_Layout
 	 */
-	public function __construct($layout=array())
+	public function __construct($layout = array())
 	{
-		if (isset($layout['layoutTarget']))	{ $this->_layoutTarget	= $layout['layoutTarget'];	}
-		if (isset($layout['xMode']))		{ $this->_xMode			= $layout['xMode'];			}
-		if (isset($layout['yMode']))		{ $this->_yMode			= $layout['yMode'];			}
-		if (isset($layout['x']))			{ $this->_xPos			= (float) $layout['x'];		}
-		if (isset($layout['y']))			{ $this->_yPos			= (float) $layout['y'];		}
-		if (isset($layout['w']))			{ $this->_width			= (float) $layout['w'];		}
-		if (isset($layout['h']))			{ $this->_height		= (float) $layout['h'];		}
+		if (isset($layout['layoutTarget'])) {
+			$this->_layoutTarget = $layout['layoutTarget'];
+		}
+		if (isset($layout['xMode'])) {
+			$this->_xMode = $layout['xMode'];
+		}
+		if (isset($layout['yMode'])) {
+			$this->_yMode = $layout['yMode'];
+		}
+		if (isset($layout['x'])) {
+			$this->_xPos = (float)$layout['x'];
+		}
+		if (isset($layout['y'])) {
+			$this->_yPos = (float)$layout['y'];
+		}
+		if (isset($layout['w'])) {
+			$this->_width = (float)$layout['w'];
+		}
+		if (isset($layout['h'])) {
+			$this->_height = (float)$layout['h'];
+		}
 	}
 
 	/**
@@ -159,7 +173,8 @@ class PHPExcel_Chart_Layout
 	 *
 	 * @return string
 	 */
-	public function getLayoutTarget() {
+	public function getLayoutTarget()
+	{
 		return $this->_layoutTarget;
 	}
 
@@ -167,11 +182,12 @@ class PHPExcel_Chart_Layout
 	 * Set Layout Target
 	 *
 	 * @param Layout Target $value
-     * @return PHPExcel_Chart_Layout
+	 * @return PHPExcel_Chart_Layout
 	 */
-	public function setLayoutTarget($value) {
+	public function setLayoutTarget($value)
+	{
 		$this->_layoutTarget = $value;
-        return $this;
+		return $this;
 	}
 
 	/**
@@ -179,19 +195,21 @@ class PHPExcel_Chart_Layout
 	 *
 	 * @return string
 	 */
-	public function getXMode() {
+	public function getXMode()
+	{
 		return $this->_xMode;
 	}
 
 	/**
 	 * Set X-Mode
 	 *
-	 * @param X-Mode $value
-     * @return PHPExcel_Chart_Layout
+	 * @param X -Mode $value
+	 * @return PHPExcel_Chart_Layout
 	 */
-	public function setXMode($value) {
+	public function setXMode($value)
+	{
 		$this->_xMode = $value;
-        return $this;
+		return $this;
 	}
 
 	/**
@@ -199,19 +217,21 @@ class PHPExcel_Chart_Layout
 	 *
 	 * @return string
 	 */
-	public function getYMode() {
+	public function getYMode()
+	{
 		return $this->_yMode;
 	}
 
 	/**
 	 * Set Y-Mode
 	 *
-	 * @param Y-Mode $value
-     * @return PHPExcel_Chart_Layout
+	 * @param Y -Mode $value
+	 * @return PHPExcel_Chart_Layout
 	 */
-	public function setYMode($value) {
+	public function setYMode($value)
+	{
 		$this->_yMode = $value;
-        return $this;
+		return $this;
 	}
 
 	/**
@@ -219,19 +239,21 @@ class PHPExcel_Chart_Layout
 	 *
 	 * @return number
 	 */
-	public function getXPosition() {
+	public function getXPosition()
+	{
 		return $this->_xPos;
 	}
 
 	/**
 	 * Set X-Position
 	 *
-	 * @param X-Position $value
-     * @return PHPExcel_Chart_Layout
+	 * @param X -Position $value
+	 * @return PHPExcel_Chart_Layout
 	 */
-	public function setXPosition($value) {
+	public function setXPosition($value)
+	{
 		$this->_xPos = $value;
-        return $this;
+		return $this;
 	}
 
 	/**
@@ -239,19 +261,21 @@ class PHPExcel_Chart_Layout
 	 *
 	 * @return number
 	 */
-	public function getYPosition() {
+	public function getYPosition()
+	{
 		return $this->_yPos;
 	}
 
 	/**
 	 * Set Y-Position
 	 *
-	 * @param Y-Position $value
-     * @return PHPExcel_Chart_Layout
+	 * @param Y -Position $value
+	 * @return PHPExcel_Chart_Layout
 	 */
-	public function setYPosition($value) {
+	public function setYPosition($value)
+	{
 		$this->_yPos = $value;
-        return $this;
+		return $this;
 	}
 
 	/**
@@ -259,7 +283,8 @@ class PHPExcel_Chart_Layout
 	 *
 	 * @return number
 	 */
-	public function getWidth() {
+	public function getWidth()
+	{
 		return $this->_width;
 	}
 
@@ -267,11 +292,12 @@ class PHPExcel_Chart_Layout
 	 * Set Width
 	 *
 	 * @param Width $value
-     * @return PHPExcel_Chart_Layout
+	 * @return PHPExcel_Chart_Layout
 	 */
-	public function setWidth($value) {
+	public function setWidth($value)
+	{
 		$this->_width = $value;
-        return $this;
+		return $this;
 	}
 
 	/**
@@ -279,7 +305,8 @@ class PHPExcel_Chart_Layout
 	 *
 	 * @return number
 	 */
-	public function getHeight() {
+	public function getHeight()
+	{
 		return $this->_height;
 	}
 
@@ -287,11 +314,12 @@ class PHPExcel_Chart_Layout
 	 * Set Height
 	 *
 	 * @param Height $value
-     * @return PHPExcel_Chart_Layout
+	 * @return PHPExcel_Chart_Layout
 	 */
-	public function setHeight($value) {
+	public function setHeight($value)
+	{
 		$this->_height = $value;
-        return $this;
+		return $this;
 	}
 
 
@@ -300,7 +328,8 @@ class PHPExcel_Chart_Layout
 	 *
 	 * @return boolean
 	 */
-	public function getShowLegendKey() {
+	public function getShowLegendKey()
+	{
 		return $this->_showLegendKey;
 	}
 
@@ -308,12 +337,13 @@ class PHPExcel_Chart_Layout
 	 * Set show legend key
 	 * Specifies that legend keys should be shown in data labels.
 	 *
-	 * @param boolean $value		Show legend key
-     * @return PHPExcel_Chart_Layout
+	 * @param boolean $value Show legend key
+	 * @return PHPExcel_Chart_Layout
 	 */
-	public function setShowLegendKey($value) {
+	public function setShowLegendKey($value)
+	{
 		$this->_showLegendKey = $value;
-        return $this;
+		return $this;
 	}
 
 	/**
@@ -321,7 +351,8 @@ class PHPExcel_Chart_Layout
 	 *
 	 * @return boolean
 	 */
-	public function getShowVal() {
+	public function getShowVal()
+	{
 		return $this->_showVal;
 	}
 
@@ -329,12 +360,13 @@ class PHPExcel_Chart_Layout
 	 * Set show val
 	 * Specifies that the value should be shown in data labels.
 	 *
-	 * @param boolean $value		Show val
-     * @return PHPExcel_Chart_Layout
+	 * @param boolean $value Show val
+	 * @return PHPExcel_Chart_Layout
 	 */
-	public function setShowVal($value) {
+	public function setShowVal($value)
+	{
 		$this->_showVal = $value;
-        return $this;
+		return $this;
 	}
 
 	/**
@@ -342,7 +374,8 @@ class PHPExcel_Chart_Layout
 	 *
 	 * @return boolean
 	 */
-	public function getShowCatName() {
+	public function getShowCatName()
+	{
 		return $this->_showCatName;
 	}
 
@@ -350,12 +383,13 @@ class PHPExcel_Chart_Layout
 	 * Set show cat name
 	 * Specifies that the category name should be shown in data labels.
 	 *
-	 * @param boolean $value		Show cat name
-     * @return PHPExcel_Chart_Layout
+	 * @param boolean $value Show cat name
+	 * @return PHPExcel_Chart_Layout
 	 */
-	public function setShowCatName($value) {
+	public function setShowCatName($value)
+	{
 		$this->_showCatName = $value;
-        return $this;
+		return $this;
 	}
 
 	/**
@@ -363,7 +397,8 @@ class PHPExcel_Chart_Layout
 	 *
 	 * @return boolean
 	 */
-	public function getShowSerName() {
+	public function getShowSerName()
+	{
 		return $this->_showSerName;
 	}
 
@@ -371,12 +406,13 @@ class PHPExcel_Chart_Layout
 	 * Set show ser name
 	 * Specifies that the series name should be shown in data labels.
 	 *
-	 * @param boolean $value		Show series name
-     * @return PHPExcel_Chart_Layout
+	 * @param boolean $value Show series name
+	 * @return PHPExcel_Chart_Layout
 	 */
-	public function setShowSerName($value) {
+	public function setShowSerName($value)
+	{
 		$this->_showSerName = $value;
-        return $this;
+		return $this;
 	}
 
 	/**
@@ -384,7 +420,8 @@ class PHPExcel_Chart_Layout
 	 *
 	 * @return boolean
 	 */
-	public function getShowPercent() {
+	public function getShowPercent()
+	{
 		return $this->_showPercent;
 	}
 
@@ -392,12 +429,13 @@ class PHPExcel_Chart_Layout
 	 * Set show percentage
 	 * Specifies that the percentage should be shown in data labels.
 	 *
-	 * @param boolean $value		Show percentage
-     * @return PHPExcel_Chart_Layout
+	 * @param boolean $value Show percentage
+	 * @return PHPExcel_Chart_Layout
 	 */
-	public function setShowPercent($value) {
+	public function setShowPercent($value)
+	{
 		$this->_showPercent = $value;
-        return $this;
+		return $this;
 	}
 
 	/**
@@ -405,7 +443,8 @@ class PHPExcel_Chart_Layout
 	 *
 	 * @return boolean
 	 */
-	public function getShowBubbleSize() {
+	public function getShowBubbleSize()
+	{
 		return $this->_showBubbleSize;
 	}
 
@@ -413,12 +452,13 @@ class PHPExcel_Chart_Layout
 	 * Set show bubble size
 	 * Specifies that the bubble size should be shown in data labels.
 	 *
-	 * @param boolean $value		Show bubble size
-     * @return PHPExcel_Chart_Layout
+	 * @param boolean $value Show bubble size
+	 * @return PHPExcel_Chart_Layout
 	 */
-	public function setShowBubbleSize($value) {
+	public function setShowBubbleSize($value)
+	{
 		$this->_showBubbleSize = $value;
-        return $this;
+		return $this;
 	}
 
 	/**
@@ -426,7 +466,8 @@ class PHPExcel_Chart_Layout
 	 *
 	 * @return boolean
 	 */
-	public function getShowLeaderLines() {
+	public function getShowLeaderLines()
+	{
 		return $this->_showLeaderLines;
 	}
 
@@ -434,12 +475,13 @@ class PHPExcel_Chart_Layout
 	 * Set show leader lines
 	 * Specifies that leader lines should be shown in data labels.
 	 *
-	 * @param boolean $value		Show leader lines
-     * @return PHPExcel_Chart_Layout
+	 * @param boolean $value Show leader lines
+	 * @return PHPExcel_Chart_Layout
 	 */
-	public function setShowLeaderLines($value) {
+	public function setShowLeaderLines($value)
+	{
 		$this->_showLeaderLines = $value;
-        return $this;
+		return $this;
 	}
 
 }

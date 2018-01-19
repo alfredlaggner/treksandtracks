@@ -11,7 +11,7 @@
 			    location.reload();
 			}
 			$(this).addClass("active");
-		})
+		});;
 			
 	    var side_cookie = $.cookie('side_pos');
 
@@ -19,12 +19,10 @@
 
 		if (side_cookie == 'sidebar-left') {
 			$('body').attr("id","sidebar-left");
-
-	    };
-
+		
+}
 		if (side_cookie == 'sidebar-right') {
 			$('body').attr("id","sidebar-right");
-
-	    };
-
-    });
+		
+}
+	});

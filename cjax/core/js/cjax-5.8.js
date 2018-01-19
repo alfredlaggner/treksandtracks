@@ -512,7 +512,7 @@ function CJAX_FRAMEWORK() {
 					} catch(e) {
 						console.log("Could not convert Json Object");
 						return;
-					};
+					}
 					if(json) {
 						return json;
 					}
@@ -631,7 +631,7 @@ function CJAX_FRAMEWORK() {
 				},
 				byClassName:function(theClass,tag)
 				{
-					var allHTMLTags = new Array();
+					var allHTMLTags = [];
 					if(tag == null ) {
 						var tag = "*";
 					}
@@ -1397,7 +1397,7 @@ function CJAX_FRAMEWORK() {
 			buffer = events[x];
 			CJAX.set.event(element, buffer.event? buffer.event: event, buffer.xml, x);
 		}
-	}
+	};;
 	
 	this.is_cjax		=		function(buffer) {
 		if(typeof buffer !='string') {
@@ -1493,17 +1493,17 @@ function CJAX_FRAMEWORK() {
 						if(item[0]==element) {
 							item[0].removeEventListener(item[1], item[2], item[3]);
 						}
-					};
+					}
 					if(item[1].substring(0, 2) != "on"){
 						item[1] = "on" + item[1];
-					};
+					}
 					if(item[0].detachEvent){
 						if(item[0]==element) {
 							item[0].detachEvent(item[1], item[0][eventtype+item[2]]);
 						}
-					};
+					}
 					item[0][item[1]] = null;
-				};
+				}
 			},
 			flush : function( event_id ){
 				if(typeof event_id =='undefined') var event_id;
@@ -1512,16 +1512,16 @@ function CJAX_FRAMEWORK() {
 					item = listEvents[i];
 					if(item[0].removeEventListener){
 						item[0].removeEventListener(item[1], item[2], item[3]);
-					};
+					}
 					if(item[1].substring(0, 2) != "on"){
 						item[1] = "on" + item[1];
-					};
+					}
 					if(item[0].detachEvent){
 						//item[0].detachEvent(item[1], item[2]);
 						item[0].detachEvent(item[1], item[0][eventtype+item[2]]);
-					};
+					}
 					item[0][item[1]] = null;
-				};
+				}
 			}
 		};
 	}();
@@ -1621,7 +1621,7 @@ function CJAX_FRAMEWORK() {
 								start: function() {
 									_stop = false;
 								}
-							}
+							};;
 							return props;
 						};
 						fn_object = new x_fn();
@@ -2674,8 +2674,7 @@ function CJAX_FRAMEWORK() {
 		}
 		if(!CJAX.is_cjax(buffer)) {
 			alert('no cjax - caller: '+caller+'\n'+buffer);return false ;
-		};
-		
+		}
 		CJAX._process(buffer, obj_buffer, caller, uniqid);
 	};
 	
@@ -2760,7 +2759,7 @@ function CJAX_FRAMEWORK() {
 			} catch( _e ) {
 				alert('#process unabled to load function#1: '+ CJAX.method+'();  '+_e.message);
 			}
-			return;
+			
 		} else {
 			alert("CJAX XML-Processor#1:"+_FUNCTION+' function not found.');
 		}
@@ -3371,7 +3370,9 @@ function CJAX_FRAMEWORK() {
 		
 		try {
 			CJAX.HTTP_REQUEST_INSTANCE.send (  ((is_post)? full_url:null) );
-		}catch(e){console.log(e);};
+		} catch (e) {
+			console.log(e);
+		}
 	};
 	
 	this.setHandler		=		function(name, callback_handler)
@@ -3711,7 +3712,9 @@ function CJAX_FRAMEWORK() {
 		}
 		try  {
 			CJAX.HTTP_REQUEST_INSTANCE.send ( ((CJAX.IS_POST)? full_url:null) );
-		} catch(e){console.log(e);};
+		} catch (e) {
+			console.log(e);
+		}
 		return response;
 	};
 
@@ -3982,7 +3985,7 @@ function CJAX_FRAMEWORK() {
 	this.success	=	function(message, seconds)
 	{
 		if(typeof message=='undefined') {
-			var message = CJAX.defaultMessages.success;;
+			var message = CJAX.defaultMessages.success;
 		}
 		if(typeof seconds =='undefined') {
 			var seconds = CJAX.default_timeout;
@@ -4118,7 +4121,7 @@ function CJAX_FRAMEWORK() {
 									stop: function() {
 										CJAX.ajaxSettings.stop = true;
 									}
-								}
+								};;
 								return props;
 							};
 							fn_object = new _fn();

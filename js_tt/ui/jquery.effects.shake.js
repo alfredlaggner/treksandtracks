@@ -42,7 +42,7 @@ $.effects.shake = function(o) {
 		el.animate(animation, speed, o.options.easing);
 		for (var i = 1; i < times; i++) { // Shakes
 			el.animate(animation1, speed, o.options.easing).animate(animation2, speed, o.options.easing);
-		};
+		}
 		el.animate(animation1, speed, o.options.easing).
 		animate(animation, speed / 2, o.options.easing, function(){ // Last shake
 			$.effects.restore(el, props); $.effects.removeWrapper(el); // Restore

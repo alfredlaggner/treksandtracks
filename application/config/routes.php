@@ -1,4 +1,4 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 /*
 | -------------------------------------------------------------------------
 | URI ROUTING
@@ -39,7 +39,7 @@
 */
 
 //$route['default_controller'] = "calendar/display";
-$route['default_controller'] = "tt_v1";
+$route['default_controller'] = "tt_v3";
 $route['404_override'] = '';
 
 

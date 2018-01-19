@@ -3,23 +3,23 @@
 class Home extends CI_Controller
 {
 
-    public function __construct()
-    {
-        parent::__construct();
-        $this->load->helper('facebook');
-    }
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->helper('facebook');
+	}
 
 
-    function Home()
-    {
-        //	parent::Controller();
-        $this->load->helper('facebook');
-    }
+	function Home()
+	{
+		//	parent::Controller();
+		$this->load->helper('facebook');
+	}
 
-    function index()
-    {
-        $this->load->view('example');
-    }
+	function index()
+	{
+		$this->load->view('example');
+	}
 //        function Facebooktest(){
 //                parent::Controller();
 //                $this->load->model('facebook_model');

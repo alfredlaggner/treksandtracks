@@ -90,4 +90,14 @@
 <file name="discount_upload_work.php" server="localhost//home/forge/treksandtracks.com/public/" local="130668801000000000" remote="131006732400000000" Dst="1" />
 <file name="discount_view.php" server="localhost//home/forge/treksandtracks.com/public/" local="130963355480000000" remote="131006732400000000" Dst="1" />
 <file name="discount_groups_view.php" server="localhost//home/forge/sunnydays.me/public/" local="131019294544697311" remote="131019294000000000" Dst="1" />
+<file name="discount_create_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130963353280000000" remote="131045965900000000" Dst="2" />
+<file name="discount_groups_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="131019294540000000" remote="131045965900000000" Dst="2" />
+<file name="discount_over_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130998960660000000" remote="131045965900000000" Dst="2" />
+<file name="discount_to_activities.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499150000000" remote="130797499150000000" Dst="2" />
+<file name="discount_upload.old.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130985843300000000" remote="131045965900000000" Dst="2" />
+<file name="discount_upload.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130989078080000000" remote="131045965900000000" Dst="2" />
+<file name="discount_upload_file.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130989091620000000" remote="131045965900000000" Dst="2" />
+<file name="discount_upload_success.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499150000000" remote="130797499150000000" Dst="2" />
+<file name="discount_upload_work.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130668801000000000" remote="131045965900000000" Dst="2" />
+<file name="discount_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130963355480000000" remote="131045965910000000" Dst="2" />
 </dwsync>

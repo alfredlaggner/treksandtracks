@@ -29,7 +29,7 @@ Control.LiveGrid = Class.create({
 		this.sortDir = options.sortDir ? options.sortDir : null;
 
 		// Create core components
-		var columnCount = this.table.rows[0].cells.length
+		var columnCount = this.table.rows[0].cells.length;;
 		this.metaData = new Control.LiveGrid.MetaData(visibleRows, totalRows, columnCount, options);
 		this.buffer   = new Control.LiveGrid.Buffer(this.metaData);
 		this.viewPort = new Control.LiveGrid.ViewPort(this.table, this.buffer, this.metaData);
@@ -245,12 +245,12 @@ Control.LiveGrid.convertToLiveGridRows = function(rows, tableCols) {
 	var rowdata = Array();
 	if (rows.length) {
 		for (var i = 0; i < rows.length; ++i) {
-			rowdata[i] = { id: rows[i].id, columns: new Array() };
+			rowdata[i] = { id: rows[i].id, columns: [] };
 			for (var j = 0; j < tableCols.length; ++j)
 				rowdata[i].columns[j] = rows[i][tableCols[j]];
 		}
 	} else {
-		rowdata[0] = { id: rows.id, columns: new Array() };
+		rowdata[0] = { id: rows.id, columns: [] };
 		for (var j = 0; j < tableCols.length; ++j)
 			rowdata[0].columns[j] = rows[tableCols[j]];
 	}
@@ -308,7 +308,7 @@ Control.LiveGrid.Scroller = Class.create({
 		this.isIE = navigator.userAgent.toLowerCase().indexOf("msie") >= 0;
 		this.createScrollBar();
 		this.scrollTimeout = null;
-		this.rows = new Array();
+		this.rows = [];
 	},
 
 	isUnPlugged: function() {
@@ -407,7 +407,7 @@ Control.LiveGrid.Buffer = Class.create({
 		this.startPos = 0;
 		this.size = 0;
 		this.metaData = metaData;
-		this.rows = new Array();
+		this.rows = [];
 		this.updateInProgress = false;
 		this.viewPort = viewPort;
 		this.maxBufferSize = metaData.getLargeBufferSize() * 2;
@@ -417,7 +417,7 @@ Control.LiveGrid.Buffer = Class.create({
 
 	getBlankRow: function() {
 		if (!this.blankRow) {
-			this.blankRow = new Array();
+			this.blankRow = [];
 			for (var i=0; i < this.metaData.columnCount ; i++)
 				this.blankRow[i] = "&nbsp;";
 		}
@@ -447,7 +447,7 @@ Control.LiveGrid.Buffer = Class.create({
 					this.rows = this.rows.concat(newRows.slice(0, newRows.length));
 				if (this.rows.length > this.maxBufferSize) {
 					var fullSize = this.rows.length;
-					this.rows = this.rows.slice(this.rows.length - this.maxBufferSize, this.rows.length)
+					this.rows = this.rows.slice(this.rows.length - this.maxBufferSize, this.rows.length);;
 					this.startPos = this.startPos +	(fullSize - this.rows.length);
 				}
 			}
@@ -465,7 +465,7 @@ Control.LiveGrid.Buffer = Class.create({
 	},
 
 	clear: function() {
-		this.rows = new Array();
+		this.rows = [];
 		this.startPos = 0;
 		this.size = 0;
 	},
@@ -536,14 +536,14 @@ Control.LiveGrid.Buffer = Class.create({
 	},
 
 	getRows: function(start, count) {
-		var begPos = start - this.startPos
-		var endPos = begPos + count
+		var begPos = start - this.startPos;;
+		var endPos = begPos + count;;
 
 		// er? need more data...
 		if (endPos > this.size)
 			endPos = this.size;
 
-		var results = new Array()
+		var results = [];
 		var index = 0;
 		for (var i=begPos ; i < endPos; i++)
 			results[index++] = this.rows[i];
@@ -676,7 +676,7 @@ Control.LiveGrid.ViewPort = Class.create({
 			return;
 		}
 		this.isBlank = false;
-		var viewPrecedesBuffer = this.buffer.startPos > startPos
+		var viewPrecedesBuffer = this.buffer.startPos > startPos;;
 		var contentStartPos = viewPrecedesBuffer ? this.buffer.startPos: startPos;
 
 		var contentEndPos = (this.buffer.startPos + this.buffer.size < startPos + this.visibleRows)
@@ -704,8 +704,8 @@ Control.LiveGrid.ViewPort = Class.create({
 		if (this.lastPixelOffset == pixelOffset)
 			return;
 
-		this.refreshContents(parseInt(pixelOffset / this.rowHeight))
-		this.div.scrollTop = pixelOffset % this.rowHeight		
+		this.refreshContents(parseInt(pixelOffset / this.rowHeight));;
+		this.div.scrollTop = pixelOffset % this.rowHeight;;		
 	
 		this.lastPixelOffset = pixelOffset;
 	},
@@ -839,7 +839,7 @@ Control.LiveGrid.Selector = Class.create({
 	 * Return the CSS ID of all rows marked by onrowclick() in the given table.
 	 */
 	selectedRows: function() {
-		var selected = new Array();
+		var selected = [];
 		var offset = (this.rowIdPrefix ? this.rowIdPrefix.length : 0);
 		for (var i = 0; i < this.selections.length; ++i) {
 			if (this.selections[i])
@@ -859,7 +859,7 @@ Control.LiveGrid.Selector = Class.create({
 			this.onrowselect(null, this);
 	},
 	deselectAllRows: function(skipEvent) {
-		this.selections = new Array();
+		this.selections = [];
 		this.redrawSelections();
 		this.lastRowSelected = null;
 		this.previousSelections = null;

@@ -5,7 +5,7 @@
 <div id="sub-nav">
 	<div class="page-title">
 		<h1><?php echo $title ?></h1>
-		<span><?php echo $breadcrumb ?><?php echo $title_action ?></span> </div>
+		<span><?php echo $breadcrumb ?><?php echo $title_action ?></span></div>
 	<?php $this->load->view('modules/top_buttons') ?>
 </div>
 <div id="page-layout">
@@ -16,42 +16,43 @@
 				<span><?php echo $top_note ?></span>
 			</div>
 			<div class="hastable">
-						<? $attributes = array('id' => 'template_select'); ?>
-						<?= form_open('template/template_over_view',$attributes );?>
-						<div id="inputform">
-							<div>
-								<ul>
-									<li>
-										<label>Activity</label>
-										<select type="text" name="activity_id" id="activity_id" class="text"  value='<?=$activity_id?>' />
-										
-										<option          value="0" > All </option>
-										<? if(isset($activities)) : foreach($activities as $activity): ?>
-										<? if ($activity_id == $activity->activity_id) : ?>
-										<option selected class="text" value="<?=  $activity->activity_id; ?>">
-										<?=  $activity->code .'  '. $activity->name; ?>
+				<? $attributes = array('id' => 'template_select'); ?>
+				<?= form_open('template/template_over_view', $attributes); ?>
+				<div id="inputform">
+					<div>
+						<ul>
+							<li>
+								<label>Activity</label>
+								<select type="text" name="activity_id" id="activity_id" class="text"
+								        value='<?= $activity_id ?>'/>
+
+								<option value="0"> All</option>
+								<? if (isset($activities)) : foreach ($activities as $activity): ?>
+									<? if ($activity_id == $activity->activity_id) : ?>
+										<option selected class="text" value="<?= $activity->activity_id; ?>">
+											<?= $activity->code . '  ' . $activity->name; ?>
 										</option>
-										<? else : ?>
-										<option value="<?=  $activity->activity_id; ?>">
-										<?=  $activity->activity_id .'  '.$activity->code .'  '. $activity->name; ?>
+									<? else : ?>
+										<option value="<?= $activity->activity_id; ?>">
+											<?= $activity->activity_id . '  ' . $activity->code . '  ' . $activity->name; ?>
 										</option>
-										<? endif; ?>
-										<? endforeach ;endif; ?>
-										</select>
-									</li>
-									<br />
-									<li>
-										<input type="submit" name="template_view" value="View Templates" class="buttons" />
-									</li>
-								</ul>
-								<?= form_close(); ?>
-							</div>
-						</div>
-			
-			<div class="clear"></div>
-			<?php $this->load->view('modules/sidebar') ?>
+									<? endif; ?>
+								<? endforeach;endif; ?>
+								</select>
+							</li>
+							<br/>
+							<li>
+								<input type="submit" name="template_view" value="View Templates" class="buttons"/>
+							</li>
+						</ul>
+						<?= form_close(); ?>
+					</div>
+				</div>
+
+				<div class="clear"></div>
+				<?php $this->load->view('modules/sidebar') ?>
+			</div>
 		</div>
+		<?php $this->load->view('modules/footer') ?>
 	</div>
-	<?php $this->load->view('modules/footer') ?>
-</div>
-</body></html>
+	</body></html>

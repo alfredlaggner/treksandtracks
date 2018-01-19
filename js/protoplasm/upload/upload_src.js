@@ -260,7 +260,7 @@ Control.FileUpload = Class.create(function() {
 		uploadComplete: function(id, filename, file, succeeded) {
 			if (id in this.uploads) {
 				var row = this.uploads[id];
-				var label = row.down('div._pp_upload_label')
+				var label = row.down('div._pp_upload_label');;
 				label.removeClassName('_pp_upload_loading');
 				row.down('div._pp_upload_progress').remove();
 				row.down('div._pp_upload_change').remove();

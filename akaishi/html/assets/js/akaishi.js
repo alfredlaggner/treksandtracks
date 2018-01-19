@@ -193,7 +193,7 @@ app.slider = {
         }
     }
 
-}
+};;
 
 /* !isotope */
 
@@ -613,7 +613,7 @@ app.twitter = {
 		}
 	}
 	
-}
+};;
 
 /* !list */
 
@@ -624,7 +624,7 @@ app.list = {
 		$("ul.list li:odd").addClass('alt');
 	}
 	
-}
+};;
 
 /* !product */
 
@@ -642,7 +642,7 @@ app.product = {
 		}
 	}
 	
-}
+};;
 
 /* !shadowbox */
 
@@ -656,7 +656,7 @@ app.shadowbox = {
 		}
 	}
 	
-}
+};;
 
 /* !addToCartFormSubmit  */
 
@@ -677,6 +677,6 @@ app.addToCartFormSubmit = {
         }
     }
     
-}
+};;
 
 app.recursiveCall('onInit');

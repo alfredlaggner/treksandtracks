@@ -76,7 +76,7 @@
         $myWindow<?= $j; ?><?= $i; ?>.show(); 
         //open the dialog
         $myWindow<?= $j; ?><?= $i; ?>.dialog("open");
-        }
+        };;
 
     //function to close dialog, probably called by a button in the dialog
 //    var closeDialog = function() {

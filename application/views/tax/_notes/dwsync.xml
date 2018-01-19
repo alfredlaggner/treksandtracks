@@ -77,4 +77,11 @@
 <file name="tax_plan_view.php" server="localhost//home/forge/treksandtracks.com/public/" local="130797500070000000" remote="131006733000000000" Dst="1" />
 <file name="tax_view.php" server="localhost//home/forge/treksandtracks.com/public/" local="130797500070000000" remote="131006733000000000" Dst="1" />
 <file name="tax_view_create.php" server="localhost//home/forge/treksandtracks.com/public/" local="130797500070000000" remote="131006733000000000" Dst="1" />
+<file name="add_taxes.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797500030000000" remote="130797500030000000" Dst="2" />
+<file name="tax_over_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797500050000000" remote="130797500050000000" Dst="2" />
+<file name="tax_plan_create_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797500050000000" remote="130797500050000000" Dst="2" />
+<file name="tax_plan_over_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797500050000000" remote="130797500050000000" Dst="2" />
+<file name="tax_plan_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797500070000000" remote="130797500070000000" Dst="2" />
+<file name="tax_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797500070000000" remote="130797500070000000" Dst="2" />
+<file name="tax_view_create.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797500070000000" remote="130797500070000000" Dst="2" />
 </dwsync>

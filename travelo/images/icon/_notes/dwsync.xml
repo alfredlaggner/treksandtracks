@@ -48,4 +48,12 @@
 <file name="icon-check.png" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130474378180000000" remote="131003122000000000" Dst="1" />
 <file name="minus.png" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130474378180000000" remote="131003122000000000" Dst="1" />
 <file name="mobile-menu.png" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130474378180000000" remote="131003122000000000" Dst="1" />
+<file name="back-to-top.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130474414180000000" remote="130474414180000000" Dst="2" />
+<file name="blank.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130474414180000000" remote="130474414180000000" Dst="2" />
+<file name="calendar.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130474414180000000" remote="130474414180000000" Dst="2" />
+<file name="discount.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130514832340000000" remote="130514832340000000" Dst="2" />
+<file name="hover-effect.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130474414180000000" remote="130474414180000000" Dst="2" />
+<file name="icon-check.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130474414180000000" remote="130474414180000000" Dst="2" />
+<file name="minus.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130474414180000000" remote="130474414180000000" Dst="2" />
+<file name="mobile-menu.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130474414180000000" remote="130474414180000000" Dst="2" />
 </dwsync>

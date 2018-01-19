@@ -52,7 +52,7 @@
 
         // Look for rgba(0, 0, 0, 0) == transparent in Safari 3
         if (result = /rgba\(0, 0, 0, 0\)/.exec(color))
-            return colors['transparent']
+            return colors['transparent'];;
 
         // Otherwise, we're most likely dealing with a named color
         return colors[jQuery.trim(color).toLowerCase()];
@@ -72,8 +72,7 @@
         } while ( elem = elem.parentNode );
 
         return getRGB(color);
-    };
-
+    }
     // Some named colors to work with
     // From Interface by Stefan Petre
     // http://interface.eyecon.ro/

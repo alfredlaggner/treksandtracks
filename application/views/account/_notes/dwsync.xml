@@ -33,4 +33,7 @@
 <file name="account_create_view.php" server="localhost//home/forge/treksandtracks.com/public/" local="130797498720000000" remote="131006732400000000" Dst="1" />
 <file name="account_over_view.php" server="localhost//home/forge/treksandtracks.com/public/" local="130797498740000000" remote="131006732400000000" Dst="1" />
 <file name="account_view.php" server="localhost//home/forge/treksandtracks.com/public/" local="130797498740000000" remote="131006732400000000" Dst="1" />
+<file name="account_create_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797498720000000" remote="130797498720000000" Dst="2" />
+<file name="account_over_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797498740000000" remote="130797498740000000" Dst="2" />
+<file name="account_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797498740000000" remote="130797498740000000" Dst="2" />
 </dwsync>

@@ -4,13 +4,12 @@
  * Moxiecode DHTML Tabs script.
  *
  * @author Moxiecode
- * @copyright Copyright © 2004-2008, Moxiecode Systems AB, All rights reserved.
+ * @copyright Copyright ï¿½ 2004-2008, Moxiecode Systems AB, All rights reserved.
  */
 
 function MCTabs() {
 	this.settings = [];
-};
-
+}
 MCTabs.prototype.init = function(settings) {
 	this.settings = settings;
 };

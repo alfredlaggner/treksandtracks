@@ -12,4 +12,6 @@
 <file name="g40.png" server="104.236.178.96//var/www/sunnydays.me/public_html/" local="130279290060000000" remote="130991046950000000" Dst="1" />
 <file name="g30.png" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130279290040000000" remote="131003121700000000" Dst="1" />
 <file name="g40.png" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130279290060000000" remote="131003121700000000" Dst="1" />
+<file name="g30.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130279326040000000" remote="130279326040000000" Dst="2" />
+<file name="g40.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130279326060000000" remote="130279326060000000" Dst="2" />
 </dwsync>

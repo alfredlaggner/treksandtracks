@@ -1266,8 +1266,9 @@ $.ui.plugin.add('timepickr', 'core', {
             var p = $(this).prev('ol');
             try { // .. to not fuckup IE
                 $(this).css('left', p.position().left + p.find('.ui-state-hover').position().left);
-            } catch(e) {};
-        });
+			} catch (e) {
+			}
+		});
     }
 });
 
@@ -2201,8 +2202,9 @@ $.ui.plugin.add('timepickr', 'core', {
             var p = $(this).prev('ol');
             try { // .. to not fuckup IE
                 $(this).css('left', p.position().left + p.find('.ui-state-hover').position().left);
-            } catch(e) {};
-        });
+			} catch (e) {
+			}
+		});
     }
 });
 

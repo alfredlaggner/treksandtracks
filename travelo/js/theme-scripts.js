@@ -13,7 +13,7 @@ String.prototype.lpad = function(padString, length) {
     while (str.length < length)
         str = padString + str;
     return str;
-}
+};;
 
 tjq.fn.removeClassPrefix = function(prefix) {
     this.each(function(i, el) {
@@ -26,7 +26,7 @@ tjq.fn.removeClassPrefix = function(prefix) {
 };
 
 // middle block plugin(set image in the middle of its parent object)
-;(function(window, document, $) {
+(function (window, document, $) {
     var middleblock;
     var prototype = $.fn;
     middleblock = prototype.middleblock = function() {
@@ -101,7 +101,7 @@ tjq.fn.removeClassPrefix = function(prefix) {
 setInterval(function(){c+=l;k++;e(c);"function"==typeof b.onUpdate&&b.onUpdate.call(h,c);k>=j&&(f.removeData("countTo"),clearInterval(d.interval),c=b.to,"function"==typeof b.onComplete&&b.onComplete.call(h,c))},b.refreshInterval);e(c)})};a.fn.countTo.defaults={from:0,to:0,speed:1E3,refreshInterval:100,decimals:0,formatter:function(a,e){return a.toFixed(e.decimals)},onUpdate:null,onComplete:null}})(jQuery);
 
 /* on stage plugin */
-;(function(window, document, $) {
+(function (window, document, $) {
     var onstage;
     var prototype = $.fn;
     onstage = prototype.onstage = function() {
@@ -252,7 +252,7 @@ setInterval(function(){c+=l;k++;e(c);"function"==typeof b.onUpdate&&b.onUpdate.c
             }
             return stp.scrollbarSize;
         }
-    }
+    };;
 
     $.fn.soapPopup = function(options) {
         stp = new SoapPopup();
@@ -287,7 +287,7 @@ setInterval(function(){c+=l;k++;e(c);"function"==typeof b.onUpdate&&b.onUpdate.c
 })(jQuery);
 
 if (typeof enableChaser == "undefined") {
-    enableChaser = 1 // Enable Chaser menu (open on scroll) ?   1 - Yes / 0 - No
+    enableChaser = 1;; // Enable Chaser menu (open on scroll) ?   1 - Yes / 0 - No
 }
 
 /*if(enableChaser == 1) {
@@ -1078,8 +1078,7 @@ tjq(window).load(function() {
             var $container = _container.addClass('active').isotope(_options, function() {
                 _container.css({overflow:'visible'});
             });
-        };
-
+        }
         _links.bind('click',function() {
             var current     = tjq(this),
                 selector    = current.data('filter');
@@ -1138,7 +1137,7 @@ function fixPositionMegaMenu(parentObj) {
             megamenu_items_per_column = parseInt(tjq(this).children(".megamenu-wrapper").data("items-per-column"), 10);
         }
         //tjq(this).children(".megamenu-wrapper").show();
-        var columns_arr = new Array();
+        var columns_arr = [];
         var sum_columns = 0;
         tjq(this).find(".megamenu > li").each(function() {
             var each_columns = Math.ceil(tjq(this).find("li > a").length / megamenu_items_per_column);

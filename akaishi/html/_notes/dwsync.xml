@@ -132,4 +132,18 @@
 <file name="search.html" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130308293440000000" remote="131003111250000000" Dst="1" />
 <file name="terms.html" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130308293440000000" remote="131003111250000000" Dst="1" />
 <file name="whytt.html" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130308293450000000" remote="131003111250000000" Dst="1" />
+<file name="404.html" server="159.203.224.137//home/forge/sunnydays.me/" local="130308293440000000" remote="131045963490000000" Dst="2" />
+<file name="about.html" server="159.203.224.137//home/forge/sunnydays.me/" local="130308293450000000" remote="131045963490000000" Dst="2" />
+<file name="article.html" server="159.203.224.137//home/forge/sunnydays.me/" local="130308293430000000" remote="131045963490000000" Dst="2" />
+<file name="blog.html" server="159.203.224.137//home/forge/sunnydays.me/" local="130308293440000000" remote="131045964170000000" Dst="2" />
+<file name="cart.html" server="159.203.224.137//home/forge/sunnydays.me/" local="130308293430000000" remote="131045964170000000" Dst="2" />
+<file name="collection.html" server="159.203.224.137//home/forge/sunnydays.me/" local="130308293440000000" remote="131045964170000000" Dst="2" />
+<file name="environment.html" server="159.203.224.137//home/forge/sunnydays.me/" local="130308293450000000" remote="131045964170000000" Dst="2" />
+<file name="guides.html" server="159.203.224.137//home/forge/sunnydays.me/" local="130308293430000000" remote="131045964170000000" Dst="2" />
+<file name="index.html" server="159.203.224.137//home/forge/sunnydays.me/" local="130308293440000000" remote="131045964170000000" Dst="2" />
+<file name="page.html" server="159.203.224.137//home/forge/sunnydays.me/" local="130308293440000000" remote="131045964180000000" Dst="2" />
+<file name="product.html" server="159.203.224.137//home/forge/sunnydays.me/" local="130308293440000000" remote="131045964180000000" Dst="2" />
+<file name="search.html" server="159.203.224.137//home/forge/sunnydays.me/" local="130308293440000000" remote="131045964180000000" Dst="2" />
+<file name="terms.html" server="159.203.224.137//home/forge/sunnydays.me/" local="130308293440000000" remote="131045964180000000" Dst="2" />
+<file name="whytt.html" server="159.203.224.137//home/forge/sunnydays.me/" local="130308293450000000" remote="131045964180000000" Dst="2" />
 </dwsync>

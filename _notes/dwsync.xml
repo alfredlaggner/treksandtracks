@@ -3,4 +3,7 @@
 <file name="favicon.ico" server="localhost//home/forge/treksandtracks.com/public/" local="130308268280000000" remote="131005003200000000" Dst="1" />
 <file name="index.php" server="localhost//home/forge/treksandtracks.com/public/" local="130971173660000000" remote="131005510800000000" Dst="1" />
 <file name="confirmation mail template.html" server="localhost//home/forge/sunnydays.me/public/" local="131019471339375095" remote="131019471000000000" Dst="1" />
+<file name="favicon.ico" server="159.203.224.137//home/forge/sunnydays.me/" local="130308268280000000" remote="131044576340000000" Dst="2" />
+<file name="index.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130971173660000000" remote="131044576420000000" Dst="2" />
+<file name="nested_accordeon_sample.html" server="159.203.224.137//home/forge/sunnydays.me/" local="131084456218750475" remote="131084456200000000" Dst="2" />
 </dwsync>

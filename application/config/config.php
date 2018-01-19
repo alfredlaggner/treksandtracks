@@ -1,4 +1,4 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +14,7 @@
 | path to your installation.
 |
 */
-//$config['base_url']	= 'http://treksandtracks.com/';
-//$config['base_url']	= 'http://lsdcoach.com/';
-//$config['base_url']	= 'http://sunnydays.me/';
-$config['base_url']	= 'http://localhost/sunnydays/';
+$config['base_url']	= 'http://trektracks.dev/';
 
 
 /*
@@ -30,7 +27,7 @@ $config['base_url']	= 'http://localhost/sunnydays/';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php/';
+$config['index_page'] = '';
 //$config['index_page'] = '';
 
 /*
@@ -49,7 +46,7 @@ $config['index_page'] = 'index.php/';
 | 'ORIG_PATH_INFO'	Uses the ORIG_PATH_INFO
 |
 */
-$config['uri_protocol']	= 'AUTO';
+$config['uri_protocol'] = 'AUTO';
 
 /*
 |--------------------------------------------------------------------------
@@ -74,7 +71,7 @@ $config['url_suffix'] = '';
 | than english.
 |
 */
-$config['language']	= 'english';
+$config['language'] = 'english';
 
 /*
 |--------------------------------------------------------------------------
@@ -160,11 +157,11 @@ $config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
 | use segment based URLs.
 |
 */
-$config['allow_get_array']		= TRUE;
+$config['allow_get_array'] = TRUE;
 $config['enable_query_strings'] = FALSE;
-$config['controller_trigger']	= 'c';
-$config['function_trigger']		= 'm';
-$config['directory_trigger']	= 'd'; // experimental not currently in use
+$config['controller_trigger'] = 'c';
+$config['function_trigger'] = 'm';
+$config['directory_trigger'] = 'd'; // experimental not currently in use
 
 /*
 |--------------------------------------------------------------------------
@@ -263,7 +260,7 @@ $config['encryption_key'] = 'alfredlaggner';
 $config['sess_driver'] = 'database';
 $config['sess_cookie_name'] = 'ci_session';
 $config['sess_expiration'] = 0;
-$config['sess_save_path'] ='ci_sessions';
+$config['sess_save_path'] = 'ci_sessions';
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 3600;
 $config['sess_regenerate_destroy'] = FALSE;
@@ -278,10 +275,10 @@ $config['sess_regenerate_destroy'] = FALSE;
 | 'cookie_secure' =  Cookies will only be set if a secure HTTPS connection exists.
 |
 */
-$config['cookie_prefix']	= "";
-$config['cookie_domain']	= "";
-$config['cookie_path']		= "/";
-$config['cookie_secure']	= FALSE;
+$config['cookie_prefix'] = "";
+$config['cookie_domain'] = "";
+$config['cookie_path'] = "/";
+$config['cookie_secure'] = FALSE;
 
 /*
 |--------------------------------------------------------------------------
@@ -354,7 +351,7 @@ $config['time_reference'] = 'local';
 | in your view files.  Options are TRUE or FALSE (boolean)
 |
 */
-$config['rewrite_short_tags'] = FALSE;
+$config['rewrite_short_tags'] = TRUE;
 
 
 /*
@@ -371,11 +368,11 @@ $config['rewrite_short_tags'] = FALSE;
 $config['proxy_ips'] = '';
 
 
-$config['at_login']    = "75DKLjwjEr3s"; //your login
-$config['at_password']    = "5eK46Ptp68xFH94d"; //your transaction key
-$config['at_test']    = 1; //Set to 0 for live transactions
-$config['at_debug']    = 1; //Set to 0 for live transactions
+$config['at_login'] = "75DKLjwjEr3s"; //your login
+$config['at_password'] = "5eK46Ptp68xFH94d"; //your transaction key
+$config['at_test'] = 1; //Set to 0 for live transactions
+$config['at_debug'] = 1; //Set to 0 for live transactions
 $config['at_site'] = 'https://test.authorize.net/gateway/transact.dll'; //comment for live trans
- //$config['at_site'] = 'https://secure.authorize.net/gateway/transact.dll'; //uncomment for live trans 
+//$config['at_site'] = 'https://secure.authorize.net/gateway/transact.dll'; //uncomment for live trans 
 /* End of file config.php */
 /* Location: ./application/config/config.php */

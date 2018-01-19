@@ -1,4 +1,4 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 /*
 | -------------------------------------------------------------------
 | AUTO-LOADER
@@ -52,7 +52,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('database','session','parser','ion_auth','form_validation','pagination','session','excel','encrypt');
+$autoload['libraries'] = array('database', 'session', 'parser', 'ion_auth', 'form_validation', 'pagination', 'session', 'excel', 'encrypt');
 
 /*
 | -------------------------------------------------------------------
@@ -62,7 +62,7 @@ $autoload['libraries'] = array('database','session','parser','ion_auth','form_va
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array('url','form','file','force_ssl','file','download','html','cookie','print_r2_helper','form_html5');
+$autoload['helper'] = array('url', 'form', 'file', 'force_ssl', 'file', 'download', 'html', 'cookie', 'print_r2_helper', 'form_html5');
 /*
 | -------------------------------------------------------------------
 |  Auto-load Config files
@@ -76,7 +76,7 @@ $autoload['helper'] = array('url','form','file','force_ssl','file','download','h
 |
 */
 
-$autoload['config'] =  array('Stellar','Facebook');
+$autoload['config'] = array('Stellar', 'Facebook');
 
 
 /*
@@ -106,68 +106,68 @@ $autoload['language'] = array();
 */
 
 $autoload['model'] = array(
-'admin_model',
-'physical_level_model',
-'service_level_model',
-'location_model',
-'inquiry_message_model',
-'confirmation_message_model',
-'booking_message_model',
-'activity_model',
-'activity_related_model',
-'division_model',
-'style_model',
-'rate_plan_model',
-'rate_model',
-'rate_price_model',
-'tax_plan_model',
-'tax_model',
-'tax_plan_to_tax_model',
-'discount_model',
-'discount_type_model',
-'event_model',
-'event_to_employee_model',
-'discount_to_activity_model',
-'coordinates_model',
-'employee_model',
-'customer_model',
-'ledger_model',
-'employee_function_model',
-'activity_booking_model',
-'activity_to_region_model',
-'ledger_to_customer_model',
-'mail_model',
-'mail_sent_model',
-'customer_contact_model',
-'customer_contact_type_model',
-'account_model',
-'employee_cms_model',
-'tt_model',
-'tt_model_v1',
-'tt_model_v2',
-'region_model',
-'equipment_model',
-'activity_pictures_model',
-'gear_model',
-'gear_pictures_model',
-'gear_related_model',
-'gear_related_model',
-'gear_group_model',
-'gear_to_region_model',
-'news_model',
-'news_pictures_model',
-'news_related_model',
-'news_group_model',
-'news_group_model',
-'news_to_region_model',
-'home_slider_model',
-'home_slider_picture_model',
-'fizzlebizzle',
-'template_model',
-'template_to_attachment_model',
-'attachment_model',
-'calendar_model',
-'calendar_model_front'
+	'admin_model',
+	'physical_level_model',
+	'service_level_model',
+	'location_model',
+	'inquiry_message_model',
+	'confirmation_message_model',
+	'booking_message_model',
+	'activity_model',
+	'activity_related_model',
+	'division_model',
+	'style_model',
+	'rate_plan_model',
+	'rate_model',
+	'rate_price_model',
+	'tax_plan_model',
+	'tax_model',
+	'tax_plan_to_tax_model',
+	'discount_model',
+	'discount_type_model',
+	'event_model',
+	'event_to_employee_model',
+	'discount_to_activity_model',
+	'coordinates_model',
+	'employee_model',
+	'customer_model',
+	'ledger_model',
+	'employee_function_model',
+	'activity_booking_model',
+	'activity_to_region_model',
+	'ledger_to_customer_model',
+	'mail_model',
+	'mail_sent_model',
+	'customer_contact_model',
+	'customer_contact_type_model',
+	'account_model',
+	'employee_cms_model',
+	'tt_model',
+	'tt_model_v1',
+	'tt_model_v2',
+	'region_model',
+	'equipment_model',
+	'activity_pictures_model',
+	'gear_model',
+	'gear_pictures_model',
+	'gear_related_model',
+	'gear_related_model',
+	'gear_group_model',
+	'gear_to_region_model',
+	'news_model',
+	'news_pictures_model',
+	'news_related_model',
+	'news_group_model',
+	'news_group_model',
+	'news_to_region_model',
+	'home_slider_model',
+	'home_slider_picture_model',
+	'fizzlebizzle',
+	'template_model',
+	'template_to_attachment_model',
+	'attachment_model',
+	'calendar_model',
+	'calendar_model_front'
 );
 
 

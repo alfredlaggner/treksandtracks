@@ -2,7 +2,7 @@
  * $Id: editor_plugin_src.js 201 2007-02-12 15:56:56Z spocke $
  *
  * @author Moxiecode
- * @copyright Copyright © 2004-2008, Moxiecode Systems AB, All rights reserved.
+ * @copyright Copyright ï¿½ 2004-2008, Moxiecode Systems AB, All rights reserved.
  */
 
 (function() {
@@ -89,8 +89,7 @@
 						o.content = o.content.replace(/<abbr([^>]+)>/gi, '<html:abbr $1>');
 						o.content = o.content.replace(/<\/abbr>/gi, '</html:abbr>');
 					}
-				};
-
+				}
 				ed.onBeforeSetContent.add(fix);
 				ed.onPostProcess.add(fix);
 			}

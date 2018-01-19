@@ -121,4 +121,15 @@
 <file name="rate_price_view.php" server="localhost//home/forge/treksandtracks.com/public/" local="130797499820000000" remote="131006733000000000" Dst="1" />
 <file name="rate_view.php" server="localhost//home/forge/treksandtracks.com/public/" local="130797499830000000" remote="131006733000000000" Dst="1" />
 <file name="rate_view_create.php" server="localhost//home/forge/treksandtracks.com/public/" local="130797499840000000" remote="131006733000000000" Dst="1" />
+<file name="log.txt" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499770000000" remote="130797499770000000" Dst="2" />
+<file name="rate_create_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499740000000" remote="130797499740000000" Dst="2" />
+<file name="rate_over_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499760000000" remote="130797499760000000" Dst="2" />
+<file name="rate_plan_create_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499770000000" remote="130797499770000000" Dst="2" />
+<file name="rate_plan_over_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499790000000" remote="130797499790000000" Dst="2" />
+<file name="rate_plan_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499810000000" remote="130797499810000000" Dst="2" />
+<file name="rate_price_create_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499790000000" remote="130797499790000000" Dst="2" />
+<file name="rate_price_over_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499810000000" remote="130797499810000000" Dst="2" />
+<file name="rate_price_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499820000000" remote="130797499820000000" Dst="2" />
+<file name="rate_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499830000000" remote="130797499830000000" Dst="2" />
+<file name="rate_view_create.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499840000000" remote="130797499840000000" Dst="2" />
 </dwsync>

@@ -33,4 +33,7 @@
 <file name="calendar-old.php" server="localhost//home/forge/treksandtracks.com/public/" local="130797498990000000" remote="131006732400000000" Dst="1" />
 <file name="calendar.php" server="localhost//home/forge/treksandtracks.com/public/" local="130797498990000000" remote="131006732400000000" Dst="1" />
 <file name="mycal.php" server="localhost//home/forge/treksandtracks.com/public/" local="130797499010000000" remote="131006732400000000" Dst="1" />
+<file name="calendar-old.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797498990000000" remote="130797498990000000" Dst="2" />
+<file name="calendar.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797498990000000" remote="130797498990000000" Dst="2" />
+<file name="mycal.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499010000000" remote="130797499010000000" Dst="2" />
 </dwsync>

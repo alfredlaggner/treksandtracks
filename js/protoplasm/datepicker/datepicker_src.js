@@ -617,9 +617,8 @@ Control.DatePicker.Panel = Class.create(function() {
 
 	function pad(x) {
 		if (x < 10) return '0'+x;
-		return new String(x);
-	};
-
+		return String(x);
+	}
 	return {
 /**
  * new Control.DatePicker.Panel([options])
@@ -836,10 +835,10 @@ Control.DatePicker.Panel = Class.create(function() {
 	createHeader: function(date) {
 
 		var today = new Date();
-		var previousYear = new Date(date.getFullYear() - 1, date.getMonth(), 1)
-		var previousMonth = new Date(date.getFullYear(), date.getMonth() - 1, 1)
-		var nextMonth = new Date(date.getFullYear(), date.getMonth() + 1, 1)
-		var nextYear = new Date(date.getFullYear() + 1, date.getMonth(), 1)
+		var previousYear = new Date(date.getFullYear() - 1, date.getMonth(), 1);;
+		var previousMonth = new Date(date.getFullYear(), date.getMonth() - 1, 1);;
+		var nextMonth = new Date(date.getFullYear(), date.getMonth() + 1, 1);;
+		var nextYear = new Date(date.getFullYear() + 1, date.getMonth(), 1);;
 
 		var nav = new Element('div', {'class': '_pp_datepicker_navigation'});
 		var link = new Element('span', {'class': '_pp_datepicker_previous',
@@ -1351,7 +1350,7 @@ Object.extend(Control.DatePicker.DateFormat, {
 		var S=date.getMilliseconds();
 		var yyyy,yy,MMM,MM,dd,hh,h,mm,ss,ampm,HH,H,KK,K,kk,k;
 		// Convert real date parts into formatted versions
-		var value=new Object();
+		var value={};
 		if (y.length < 4) {y=""+(y-0+1900);}
 		value["y"]=""+y;
 		value["yyyy"]=y;

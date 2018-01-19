@@ -16,7 +16,8 @@
 	<h3>/secure/me/<span style="color: red">$object</span>/</h3>
 	<p>Modeled after https://graph.facebook.com/ID/CONNECTION_TYPE</p>
 	<p>See https://developers.facebook.com/docs/reference/api/</p>
-	<p>$object can be modeled after the following CONNECTION_TYPE's: likes, home, feed, movies, music, books, notes, permissions, photos, albums, videos, uploaded, events, groups, checkins, locations, etc.</p>
+	<p>$object can be modeled after the following CONNECTION_TYPE's: likes, home, feed, movies, music, books, notes,
+		permissions, photos, albums, videos, uploaded, events, groups, checkins, locations, etc.</p>
 </div>
 
 <div class=logout_box>

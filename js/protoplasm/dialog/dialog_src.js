@@ -54,7 +54,7 @@ var Dialog = {
 		if (Dialog.active)
 			Dialog.active.failure();
 	}
-}
+};;
 
 /**
  * class Dialog.Base

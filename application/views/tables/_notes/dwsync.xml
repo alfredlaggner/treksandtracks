@@ -185,4 +185,21 @@
 <file name="physical_level_view.php" server="localhost//home/forge/treksandtracks.com/public/" local="130797500000000000" remote="131006733000000000" Dst="1" />
 <file name="service_level_view.php" server="localhost//home/forge/treksandtracks.com/public/" local="130797500020000000" remote="131006733000000000" Dst="1" />
 <file name="style_view.php" server="localhost//home/forge/treksandtracks.com/public/" local="130797500020000000" remote="131006733000000000" Dst="1" />
+<file name="activity_pictures_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499890000000" remote="130797499890000000" Dst="2" />
+<file name="booking_message_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499890000000" remote="130797499890000000" Dst="2" />
+<file name="confirmation_message_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499910000000" remote="130797499910000000" Dst="2" />
+<file name="coordinates-view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499910000000" remote="130797499910000000" Dst="2" />
+<file name="coordinates_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499920000000" remote="130797499920000000" Dst="2" />
+<file name="customer_contact_type_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499930000000" remote="130797499930000000" Dst="2" />
+<file name="discount_type_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499930000000" remote="130797499930000000" Dst="2" />
+<file name="division_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499940000000" remote="130797499940000000" Dst="2" />
+<file name="employee_function_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499950000000" remote="130797499950000000" Dst="2" />
+<file name="flexigrid.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499950000000" remote="130797499950000000" Dst="2" />
+<file name="gear_group_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499960000000" remote="130797499960000000" Dst="2" />
+<file name="gear_pictures_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499980000000" remote="130797499980000000" Dst="2" />
+<file name="home_slider_pictures_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499980000000" remote="130797499980000000" Dst="2" />
+<file name="inquiry_message_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499990000000" remote="130797499990000000" Dst="2" />
+<file name="physical_level_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797500000000000" remote="130797500000000000" Dst="2" />
+<file name="service_level_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797500020000000" remote="130797500020000000" Dst="2" />
+<file name="style_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797500020000000" remote="130797500020000000" Dst="2" />
 </dwsync>

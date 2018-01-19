@@ -117,7 +117,7 @@ tablereflow = {
 			$tbody = ts.processTbody(table, $(this), true);
 			$tbody.children().each(function(j){
 				$this = $(this);
-				len = headers[j].length
+				len = headers[j].length;;
 				i = len - 1;
 				while (i >= 0) {
 					$this.prepend(txt + (i === 0 && len > 1 ? ' ' + wo.reflow2_labelTop : '') + '">' + headers[j][i] + '</b>');

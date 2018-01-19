@@ -49,4 +49,9 @@
 <file name="gear_related_view.php" server="localhost//home/forge/treksandtracks.com/public/" local="130797499300000000" remote="131006732400000000" Dst="1" />
 <file name="gear_to_region.php" server="localhost//home/forge/treksandtracks.com/public/" local="130797499300000000" remote="131006732400000000" Dst="1" />
 <file name="gear_view.php" server="localhost//home/forge/treksandtracks.com/public/" local="130797499320000000" remote="131006732400000000" Dst="1" />
+<file name="gear_create_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499270000000" remote="130797499270000000" Dst="2" />
+<file name="gear_over_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499290000000" remote="130797499290000000" Dst="2" />
+<file name="gear_related_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499300000000" remote="130797499300000000" Dst="2" />
+<file name="gear_to_region.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499300000000" remote="130797499300000000" Dst="2" />
+<file name="gear_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499320000000" remote="130797499320000000" Dst="2" />
 </dwsync>

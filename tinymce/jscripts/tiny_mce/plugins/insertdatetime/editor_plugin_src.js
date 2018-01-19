@@ -2,7 +2,7 @@
  * $Id: editor_plugin_src.js 520 2008-01-07 16:30:32Z spocke $
  *
  * @author Moxiecode
- * @copyright Copyright © 2004-2008, Moxiecode Systems AB, All rights reserved.
+ * @copyright Copyright ï¿½ 2004-2008, Moxiecode Systems AB, All rights reserved.
  */
 
 (function() {
@@ -52,8 +52,7 @@
 				}
 
 				return value;
-			};
-
+			}
 			fmt = fmt.replace("%D", "%m/%d/%y");
 			fmt = fmt.replace("%r", "%I:%M:%S %p");
 			fmt = fmt.replace("%Y", "" + d.getFullYear());

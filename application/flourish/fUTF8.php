@@ -1,18 +1,19 @@
 <?php
+
 /**
  * Provides string functions for UTF-8 strings
- * 
+ *
  * This class is implemented to provide a UTF-8 version of almost every built-in
  * PHP string function. For more information about UTF-8, please visit
  * http://flourishlib.com/docs/UTF-8.
- * 
+ *
  * @copyright  Copyright (c) 2008-2011 Will Bond
  * @author     Will Bond [wb] <will@flourishlib.com>
  * @license    http://flourishlib.com/license
- * 
+ *
  * @package    Flourish
  * @link       http://flourishlib.com/fUTF8
- * 
+ *
  * @version    1.0.0b15
  * @changes    1.0.0b15  Fixed a bug with using IBM's iconv implementation on AIX [wb, 2011-07-29]
  * @changes    1.0.0b14  Added a workaround for iconv having issues in MAMP 1.9.4+ [wb, 2011-07-26]
@@ -33,50 +34,50 @@
 class fUTF8
 {
 	// The following constants allow for nice looking callbacks to static methods
-	const ascii    = 'fUTF8::ascii';
-	const chr      = 'fUTF8::chr';
-	const clean    = 'fUTF8::clean';
-	const cmp      = 'fUTF8::cmp';
-	const explode  = 'fUTF8::explode';
-	const icmp     = 'fUTF8::icmp';
-	const inatcmp  = 'fUTF8::inatcmp';
-	const ipos     = 'fUTF8::ipos';
+	const ascii = 'fUTF8::ascii';
+	const chr = 'fUTF8::chr';
+	const clean = 'fUTF8::clean';
+	const cmp = 'fUTF8::cmp';
+	const explode = 'fUTF8::explode';
+	const icmp = 'fUTF8::icmp';
+	const inatcmp = 'fUTF8::inatcmp';
+	const ipos = 'fUTF8::ipos';
 	const ireplace = 'fUTF8::ireplace';
-	const irpos    = 'fUTF8::irpos';
-	const istr     = 'fUTF8::istr';
-	const len      = 'fUTF8::len';
-	const lower    = 'fUTF8::lower';
-	const ltrim    = 'fUTF8::ltrim';
-	const natcmp   = 'fUTF8::natcmp';
-	const ord      = 'fUTF8::ord';
-	const pad      = 'fUTF8::pad';
-	const pos      = 'fUTF8::pos';
-	const replace  = 'fUTF8::replace';
-	const reset    = 'fUTF8::reset';
-	const rev      = 'fUTF8::rev';
-	const rpos     = 'fUTF8::rpos';
-	const rtrim    = 'fUTF8::rtrim';
-	const str      = 'fUTF8::str';
-	const sub      = 'fUTF8::sub';
-	const trim     = 'fUTF8::trim';
-	const ucfirst  = 'fUTF8::ucfirst';
-	const ucwords  = 'fUTF8::ucwords';
-	const upper    = 'fUTF8::upper';
+	const irpos = 'fUTF8::irpos';
+	const istr = 'fUTF8::istr';
+	const len = 'fUTF8::len';
+	const lower = 'fUTF8::lower';
+	const ltrim = 'fUTF8::ltrim';
+	const natcmp = 'fUTF8::natcmp';
+	const ord = 'fUTF8::ord';
+	const pad = 'fUTF8::pad';
+	const pos = 'fUTF8::pos';
+	const replace = 'fUTF8::replace';
+	const reset = 'fUTF8::reset';
+	const rev = 'fUTF8::rev';
+	const rpos = 'fUTF8::rpos';
+	const rtrim = 'fUTF8::rtrim';
+	const str = 'fUTF8::str';
+	const sub = 'fUTF8::sub';
+	const trim = 'fUTF8::trim';
+	const ucfirst = 'fUTF8::ucfirst';
+	const ucwords = 'fUTF8::ucwords';
+	const upper = 'fUTF8::upper';
 	const wordwrap = 'fUTF8::wordwrap';
-	
-	
+
+
 	/**
 	 * Depending how things are compiled, NetBSD and Solaris don't support //IGNORE in iconv()
-	 * 
+	 *
 	 * If //IGNORE support is not provided strings with invalid characters will be truncated
-	 * 
+	 *
 	 * @var boolean
 	 */
 	static private $can_ignore_invalid = NULL;
-	
+
 	/**
 	 * All lowercase UTF-8 characters mapped to uppercase characters
-	 * 
+	 *
 	 * @var array
 	 */
 	static private $lower_to_upper = array(
@@ -193,10 +194,10 @@ class fUTF8
 		'ｓ' => 'Ｓ', 'ｔ' => 'Ｔ', 'ｕ' => 'Ｕ', 'ｖ' => 'Ｖ', 'ｗ' => 'Ｗ', 'ｘ' => 'Ｘ',
 		'ｙ' => 'Ｙ', 'ｚ' => 'Ｚ'
 	);
-	
+
 	/**
 	 * All lowercase UTF-8 characters not properly handled by [http://php.net/mb_strtoupper mb_strtoupper()] mapped to uppercase characters
-	 * 
+	 *
 	 * @var array
 	 */
 	static private $mb_lower_to_upper_fix = array(
@@ -212,10 +213,10 @@ class fUTF8
 		'ⓞ' => 'Ⓞ', 'ⓟ' => 'Ⓟ', 'ⓠ' => 'Ⓠ', 'ⓡ' => 'Ⓡ', 'ⓢ' => 'Ⓢ', 'ⓣ' => 'Ⓣ',
 		'ⓤ' => 'Ⓤ', 'ⓥ' => 'Ⓥ', 'ⓦ' => 'Ⓦ', 'ⓧ' => 'Ⓧ', 'ⓨ' => 'Ⓨ', 'ⓩ' => 'Ⓩ'
 	);
-	
+
 	/**
 	 * All uppercase UTF-8 characters not properly handled by [http://php.net/mb_strtolower mb_strtolower()] mapped to lowercase characters
-	 * 
+	 *
 	 * @var array
 	 */
 	static private $mb_upper_to_lower_fix = array(
@@ -236,10 +237,10 @@ class fUTF8
 		'Ⓢ' => 'ⓢ', 'Ⓣ' => 'ⓣ', 'Ⓤ' => 'ⓤ', 'Ⓥ' => 'ⓥ', 'Ⓦ' => 'ⓦ', 'Ⓧ' => 'ⓧ',
 		'Ⓨ' => 'ⓨ', 'Ⓩ' => 'ⓩ'
 	);
-	
+
 	/**
 	 * All uppercase UTF-8 characters mapped to lowercase characters
-	 * 
+	 *
 	 * @var array
 	 */
 	static private $upper_to_lower = array(
@@ -356,12 +357,12 @@ class fUTF8
 		'Ｒ' => 'ｒ', 'Ｓ' => 'ｓ', 'Ｔ' => 'ｔ', 'Ｕ' => 'ｕ', 'Ｖ' => 'ｖ', 'Ｗ' => 'ｗ',
 		'Ｘ' => 'ｘ', 'Ｙ' => 'ｙ', 'Ｚ' => 'ｚ'
 	);
-	
+
 	/**
 	 * A mapping of all ASCII-based latin characters, puntuation, symbols and number forms to ASCII.
-	 * 
+	 *
 	 * Includes elements form the following unicode blocks:
-	 * 
+	 *
 	 *  - Latin-1 Supplement
 	 *  - Latin Extended-A
 	 *  - Latin Extended-B
@@ -370,195 +371,195 @@ class fUTF8
 	 *  - General Punctuation
 	 *  - Letterlike symbols
 	 *  - Number Forms
-	 * 
+	 *
 	 * @var array
 	 */
 	static private $utf8_to_ascii = array(
 		// Latin-1 Supplement
-		'©' => '(c)', '«' => '<<',  '®' => '(R)', '»' => '>>',  '¼' => '1/4',
-		'½' => '1/2', '¾' => '3/4', 'À' => 'A',   'Á' => 'A',   'Â' => 'A',
-		'Ã' => 'A',   'Ä' => 'A',   'Å' => 'A',   'Æ' => 'AE',  'Ç' => 'C',
-		'È' => 'E',   'É' => 'E',   'Ê' => 'E',   'Ë' => 'E',   'Ì' => 'I',
-		'Í' => 'I',   'Î' => 'I',   'Ï' => 'I',   'Ñ' => 'N',   'Ò' => 'O',
-		'Ó' => 'O',   'Ô' => 'O',   'Õ' => 'O',   'Ö' => 'O',   'Ø' => 'O',
-		'Ù' => 'U',   'Ú' => 'U',   'Û' => 'U',   'Ü' => 'U',   'Ý' => 'Y',
-		'à' => 'a',   'á' => 'a',   'â' => 'a',   'ã' => 'a',   'ä' => 'a',
-		'å' => 'a',   'æ' => 'ae',  'ç' => 'c',   'è' => 'e',   'é' => 'e',
-		'ê' => 'e',   'ë' => 'e',   'ì' => 'i',   'í' => 'i',   'î' => 'i',
-		'ï' => 'i',   'ñ' => 'n',   'ò' => 'o',   'ó' => 'o',   'ô' => 'o',
-		'õ' => 'o',   'ö' => 'o',   'ø' => 'o',   'ù' => 'u',   'ú' => 'u',
-		'û' => 'u',   'ü' => 'u',   'ý' => 'y',   'ÿ' => 'y',
+		'©' => '(c)', '«' => '<<', '®' => '(R)', '»' => '>>', '¼' => '1/4',
+		'½' => '1/2', '¾' => '3/4', 'À' => 'A', 'Á' => 'A', 'Â' => 'A',
+		'Ã' => 'A', 'Ä' => 'A', 'Å' => 'A', 'Æ' => 'AE', 'Ç' => 'C',
+		'È' => 'E', 'É' => 'E', 'Ê' => 'E', 'Ë' => 'E', 'Ì' => 'I',
+		'Í' => 'I', 'Î' => 'I', 'Ï' => 'I', 'Ñ' => 'N', 'Ò' => 'O',
+		'Ó' => 'O', 'Ô' => 'O', 'Õ' => 'O', 'Ö' => 'O', 'Ø' => 'O',
+		'Ù' => 'U', 'Ú' => 'U', 'Û' => 'U', 'Ü' => 'U', 'Ý' => 'Y',
+		'à' => 'a', 'á' => 'a', 'â' => 'a', 'ã' => 'a', 'ä' => 'a',
+		'å' => 'a', 'æ' => 'ae', 'ç' => 'c', 'è' => 'e', 'é' => 'e',
+		'ê' => 'e', 'ë' => 'e', 'ì' => 'i', 'í' => 'i', 'î' => 'i',
+		'ï' => 'i', 'ñ' => 'n', 'ò' => 'o', 'ó' => 'o', 'ô' => 'o',
+		'õ' => 'o', 'ö' => 'o', 'ø' => 'o', 'ù' => 'u', 'ú' => 'u',
+		'û' => 'u', 'ü' => 'u', 'ý' => 'y', 'ÿ' => 'y',
 		// Latin Extended-A
-		'Ā' => 'A',   'ā' => 'a',   'Ă' => 'A',   'ă' => 'a',   'Ą' => 'A',
-		'ą' => 'a',   'Ć' => 'C',   'ć' => 'c',   'Ĉ' => 'C',   'ĉ' => 'c',
-		'Ċ' => 'C',   'ċ' => 'c',   'Č' => 'C',   'č' => 'c',   'Ď' => 'D',
-		'ď' => 'd',   'Đ' => 'D',   'đ' => 'd',   'Ē' => 'E',   'ē' => 'e',
-		'Ĕ' => 'E',   'ĕ' => 'e',   'Ė' => 'E',   'ė' => 'e',   'Ę' => 'E',
-		'ę' => 'e',   'Ě' => 'E',   'ě' => 'e',   'Ĝ' => 'G',   'ĝ' => 'g',
-		'Ğ' => 'G',   'ğ' => 'g',   'Ġ' => 'G',   'ġ' => 'g',   'Ģ' => 'G',
-		'ģ' => 'g',   'Ĥ' => 'H',   'ĥ' => 'h',   'Ħ' => 'H',   'ħ' => 'h',
-		'Ĩ' => 'I',   'ĩ' => 'i',   'Ī' => 'I',   'ī' => 'i',   'Ĭ' => 'I',
-		'ĭ' => 'i',   'Į' => 'I',   'į' => 'i',   'İ' => 'I',   'ı' => 'i',
-		'Ĳ' => 'IJ',  'ĳ' => 'ij',  'Ĵ' => 'J',   'ĵ' => 'j',   'Ķ' => 'K',
-		'ķ' => 'k',   'Ĺ' => 'L',   'ĺ' => 'l',   'Ļ' => 'L',   'ļ' => 'l',
-		'Ľ' => 'L',   'ľ' => 'l',   'Ŀ' => 'L',   'ŀ' => 'l',   'Ł' => 'L',
-		'ł' => 'l',   'Ń' => 'N',   'ń' => 'n',   'Ņ' => 'N',   'ņ' => 'n',
-		'Ň' => 'N',   'ň' => 'n',   'ŉ' => "'n", 'Ŋ' => 'N',   'ŋ' => 'n',
-		'Ō' => 'O',   'ō' => 'o',   'Ŏ' => 'O',   'ŏ' => 'o',   'Ő' => 'O',
-		'ő' => 'o',   'Œ' => 'OE',  'œ' => 'oe',  'Ŕ' => 'R',   'ŕ' => 'r',
-		'Ŗ' => 'R',   'ŗ' => 'r',   'Ř' => 'R',   'ř' => 'r',   'Ś' => 'S',
-		'ś' => 's',   'Ŝ' => 'S',   'ŝ' => 's',   'Ş' => 'S',   'ş' => 's',
-		'Š' => 'S',   'š' => 's',   'Ţ' => 'T',   'ţ' => 't',   'Ť' => 'T',
-		'ť' => 't',   'Ŧ' => 'T',   'ŧ' => 't',   'Ũ' => 'U',   'ũ' => 'u',
-		'Ū' => 'U',   'ū' => 'u',   'Ŭ' => 'U',   'ŭ' => 'u',   'Ů' => 'U',
-		'ů' => 'u',   'Ű' => 'U',   'ű' => 'u',   'Ų' => 'U',   'ų' => 'u',
-		'Ŵ' => 'W',   'ŵ' => 'w',   'Ŷ' => 'Y',   'ŷ' => 'y',   'Ÿ' => 'Y',
-		'Ź' => 'Z',   'ź' => 'z',   'Ż' => 'Z',   'ż' => 'z',   'Ž' => 'Z',
+		'Ā' => 'A', 'ā' => 'a', 'Ă' => 'A', 'ă' => 'a', 'Ą' => 'A',
+		'ą' => 'a', 'Ć' => 'C', 'ć' => 'c', 'Ĉ' => 'C', 'ĉ' => 'c',
+		'Ċ' => 'C', 'ċ' => 'c', 'Č' => 'C', 'č' => 'c', 'Ď' => 'D',
+		'ď' => 'd', 'Đ' => 'D', 'đ' => 'd', 'Ē' => 'E', 'ē' => 'e',
+		'Ĕ' => 'E', 'ĕ' => 'e', 'Ė' => 'E', 'ė' => 'e', 'Ę' => 'E',
+		'ę' => 'e', 'Ě' => 'E', 'ě' => 'e', 'Ĝ' => 'G', 'ĝ' => 'g',
+		'Ğ' => 'G', 'ğ' => 'g', 'Ġ' => 'G', 'ġ' => 'g', 'Ģ' => 'G',
+		'ģ' => 'g', 'Ĥ' => 'H', 'ĥ' => 'h', 'Ħ' => 'H', 'ħ' => 'h',
+		'Ĩ' => 'I', 'ĩ' => 'i', 'Ī' => 'I', 'ī' => 'i', 'Ĭ' => 'I',
+		'ĭ' => 'i', 'Į' => 'I', 'į' => 'i', 'İ' => 'I', 'ı' => 'i',
+		'Ĳ' => 'IJ', 'ĳ' => 'ij', 'Ĵ' => 'J', 'ĵ' => 'j', 'Ķ' => 'K',
+		'ķ' => 'k', 'Ĺ' => 'L', 'ĺ' => 'l', 'Ļ' => 'L', 'ļ' => 'l',
+		'Ľ' => 'L', 'ľ' => 'l', 'Ŀ' => 'L', 'ŀ' => 'l', 'Ł' => 'L',
+		'ł' => 'l', 'Ń' => 'N', 'ń' => 'n', 'Ņ' => 'N', 'ņ' => 'n',
+		'Ň' => 'N', 'ň' => 'n', 'ŉ' => "'n", 'Ŋ' => 'N', 'ŋ' => 'n',
+		'Ō' => 'O', 'ō' => 'o', 'Ŏ' => 'O', 'ŏ' => 'o', 'Ő' => 'O',
+		'ő' => 'o', 'Œ' => 'OE', 'œ' => 'oe', 'Ŕ' => 'R', 'ŕ' => 'r',
+		'Ŗ' => 'R', 'ŗ' => 'r', 'Ř' => 'R', 'ř' => 'r', 'Ś' => 'S',
+		'ś' => 's', 'Ŝ' => 'S', 'ŝ' => 's', 'Ş' => 'S', 'ş' => 's',
+		'Š' => 'S', 'š' => 's', 'Ţ' => 'T', 'ţ' => 't', 'Ť' => 'T',
+		'ť' => 't', 'Ŧ' => 'T', 'ŧ' => 't', 'Ũ' => 'U', 'ũ' => 'u',
+		'Ū' => 'U', 'ū' => 'u', 'Ŭ' => 'U', 'ŭ' => 'u', 'Ů' => 'U',
+		'ů' => 'u', 'Ű' => 'U', 'ű' => 'u', 'Ų' => 'U', 'ų' => 'u',
+		'Ŵ' => 'W', 'ŵ' => 'w', 'Ŷ' => 'Y', 'ŷ' => 'y', 'Ÿ' => 'Y',
+		'Ź' => 'Z', 'ź' => 'z', 'Ż' => 'Z', 'ż' => 'z', 'Ž' => 'Z',
 		'ž' => 'z',
 		// Latin Extended-B
-		'ƀ' => 'b',   'Ɓ' => 'B',   'Ƃ' => 'B',   'ƃ' => 'b',   'Ɔ' => 'O',
-		'Ƈ' => 'C',   'ƈ' => 'c',   'Ɖ' => 'D',   'Ɗ' => 'D',   'Ƌ' => 'D',
-		'ƌ' => 'd',   'Ǝ' => 'E',   'Ɛ' => 'E',   'Ƒ' => 'F',   'ƒ' => 'f',
-		'Ɠ' => 'G',   'Ɨ' => 'I',   'Ƙ' => 'K',   'ƙ' => 'k',   'ƚ' => 'l',
-		'Ɯ' => 'M',   'Ɲ' => 'N',   'ƞ' => 'n',   'Ɵ' => 'O',   'Ơ' => 'O',
-		'ơ' => 'o',   'Ƣ' => 'OI',  'ƣ' => 'oi',  'Ƥ' => 'P',   'ƥ' => 'p',
-		'ƫ' => 't',   'Ƭ' => 'T',   'ƭ' => 't',   'Ʈ' => 'T',   'Ư' => 'U',
-		'ư' => 'u',   'Ʋ' => 'V',   'Ƴ' => 'Y',   'ƴ' => 'y',   'Ƶ' => 'Z',
-		'ƶ' => 'z',   'ƻ' => '2',   'Ǆ' => 'DZ',  'ǅ' => 'Dz',  'ǆ' => 'dz',
-		'Ǉ' => 'LJ',  'ǈ' => 'Lj',  'ǉ' => 'lj',  'Ǌ' => 'Nj',  'ǋ' => 'Nj',
-		'ǌ' => 'nj',  'Ǎ' => 'A',   'ǎ' => 'a',   'Ǐ' => 'I',   'ǐ' => 'i',
-		'Ǒ' => 'O',   'ǒ' => 'o',   'Ǔ' => 'U',   'ǔ' => 'u',   'Ǖ' => 'U',
-		'ǖ' => 'u',   'Ǘ' => 'U',   'ǘ' => 'u',   'Ǚ' => 'U',   'ǚ' => 'u',
-		'Ǜ' => 'U',   'ǜ' => 'u',   'ǝ' => 'e',   'Ǟ' => 'A',   'ǟ' => 'a',
-		'Ǡ' => 'A',   'ǡ' => 'a',   'Ǣ' => 'AE',  'ǣ' => 'ae',  'Ǥ' => 'G',
-		'ǥ' => 'g',   'Ǧ' => 'G',   'ǧ' => 'g',   'Ǩ' => 'K',   'ǩ' => 'k',
-		'Ǫ' => 'O',   'ǫ' => 'o',   'Ǭ' => 'O',   'ǭ' => 'o',   'ǰ' => 'j',
-		'Ǳ' => 'DZ',  'ǲ' => 'Dz',  'ǳ' => 'dz',  'Ǵ' => 'G',   'ǵ' => 'g',
-		'Ǹ' => 'N',   'ǹ' => 'n',   'Ǻ' => 'A',   'ǻ' => 'a',   'Ǽ' => 'AE',
-		'ǽ' => 'ae',  'Ǿ' => 'O',   'ǿ' => 'o',   'Ȁ' => 'A',   'ȁ' => 'a',
-		'Ȃ' => 'A',   'ȃ' => 'a',   'Ȅ' => 'E',   'ȅ' => 'e',   'Ȇ' => 'E',
-		'ȇ' => 'e',   'Ȉ' => 'I',   'ȉ' => 'i',   'Ȋ' => 'I',   'ȋ' => 'i',
-		'Ȍ' => 'O',   'ȍ' => 'o',   'Ȏ' => 'O',   'ȏ' => 'o',   'Ȑ' => 'R',
-		'ȑ' => 'r',   'Ȓ' => 'R',   'ȓ' => 'r',   'Ȕ' => 'U',   'ȕ' => 'u',
-		'Ȗ' => 'U',   'ȗ' => 'u',   'Ș' => 'S',   'ș' => 's',   'Ț' => 'T',
-		'ț' => 't',   'Ȟ' => 'H',   'ȟ' => 'h',   'Ƞ' => 'N',   'ȡ' => 'd',
-		'Ȥ' => 'Z',   'ȥ' => 'z',   'Ȧ' => 'A',   'ȧ' => 'a',   'Ȩ' => 'E',
-		'ȩ' => 'e',   'Ȫ' => 'O',   'ȫ' => 'o',   'Ȭ' => 'O',   'ȭ' => 'o',
-		'Ȯ' => 'O',   'ȯ' => 'o',   'Ȱ' => 'O',   'ȱ' => 'o',   'Ȳ' => 'Y',
-		'ȳ' => 'y',   'ȴ' => 'l',   'ȵ' => 'n',   'ȶ' => 't',   'ȷ' => 'j',
-		'ȸ' => 'db',  'ȹ' => 'qp',  'Ⱥ' => 'A',   'Ȼ' => 'C',   'ȼ' => 'c',
-		'Ƚ' => 'L',   'Ⱦ' => 'T',   'ȿ' => 's',   'ɀ' => 'z',   'Ƀ' => 'B',
-		'Ʉ' => 'U',   'Ʌ' => 'V',   'Ɇ' => 'E',   'ɇ' => 'e',   'Ɉ' => 'J',
-		'ɉ' => 'j',   'Ɋ' => 'Q',   'ɋ' => 'q',   'Ɍ' => 'R',   'ɍ' => 'r',
-		'Ɏ' => 'Y',   'ɏ' => 'y',
+		'ƀ' => 'b', 'Ɓ' => 'B', 'Ƃ' => 'B', 'ƃ' => 'b', 'Ɔ' => 'O',
+		'Ƈ' => 'C', 'ƈ' => 'c', 'Ɖ' => 'D', 'Ɗ' => 'D', 'Ƌ' => 'D',
+		'ƌ' => 'd', 'Ǝ' => 'E', 'Ɛ' => 'E', 'Ƒ' => 'F', 'ƒ' => 'f',
+		'Ɠ' => 'G', 'Ɨ' => 'I', 'Ƙ' => 'K', 'ƙ' => 'k', 'ƚ' => 'l',
+		'Ɯ' => 'M', 'Ɲ' => 'N', 'ƞ' => 'n', 'Ɵ' => 'O', 'Ơ' => 'O',
+		'ơ' => 'o', 'Ƣ' => 'OI', 'ƣ' => 'oi', 'Ƥ' => 'P', 'ƥ' => 'p',
+		'ƫ' => 't', 'Ƭ' => 'T', 'ƭ' => 't', 'Ʈ' => 'T', 'Ư' => 'U',
+		'ư' => 'u', 'Ʋ' => 'V', 'Ƴ' => 'Y', 'ƴ' => 'y', 'Ƶ' => 'Z',
+		'ƶ' => 'z', 'ƻ' => '2', 'Ǆ' => 'DZ', 'ǅ' => 'Dz', 'ǆ' => 'dz',
+		'Ǉ' => 'LJ', 'ǈ' => 'Lj', 'ǉ' => 'lj', 'Ǌ' => 'Nj', 'ǋ' => 'Nj',
+		'ǌ' => 'nj', 'Ǎ' => 'A', 'ǎ' => 'a', 'Ǐ' => 'I', 'ǐ' => 'i',
+		'Ǒ' => 'O', 'ǒ' => 'o', 'Ǔ' => 'U', 'ǔ' => 'u', 'Ǖ' => 'U',
+		'ǖ' => 'u', 'Ǘ' => 'U', 'ǘ' => 'u', 'Ǚ' => 'U', 'ǚ' => 'u',
+		'Ǜ' => 'U', 'ǜ' => 'u', 'ǝ' => 'e', 'Ǟ' => 'A', 'ǟ' => 'a',
+		'Ǡ' => 'A', 'ǡ' => 'a', 'Ǣ' => 'AE', 'ǣ' => 'ae', 'Ǥ' => 'G',
+		'ǥ' => 'g', 'Ǧ' => 'G', 'ǧ' => 'g', 'Ǩ' => 'K', 'ǩ' => 'k',
+		'Ǫ' => 'O', 'ǫ' => 'o', 'Ǭ' => 'O', 'ǭ' => 'o', 'ǰ' => 'j',
+		'Ǳ' => 'DZ', 'ǲ' => 'Dz', 'ǳ' => 'dz', 'Ǵ' => 'G', 'ǵ' => 'g',
+		'Ǹ' => 'N', 'ǹ' => 'n', 'Ǻ' => 'A', 'ǻ' => 'a', 'Ǽ' => 'AE',
+		'ǽ' => 'ae', 'Ǿ' => 'O', 'ǿ' => 'o', 'Ȁ' => 'A', 'ȁ' => 'a',
+		'Ȃ' => 'A', 'ȃ' => 'a', 'Ȅ' => 'E', 'ȅ' => 'e', 'Ȇ' => 'E',
+		'ȇ' => 'e', 'Ȉ' => 'I', 'ȉ' => 'i', 'Ȋ' => 'I', 'ȋ' => 'i',
+		'Ȍ' => 'O', 'ȍ' => 'o', 'Ȏ' => 'O', 'ȏ' => 'o', 'Ȑ' => 'R',
+		'ȑ' => 'r', 'Ȓ' => 'R', 'ȓ' => 'r', 'Ȕ' => 'U', 'ȕ' => 'u',
+		'Ȗ' => 'U', 'ȗ' => 'u', 'Ș' => 'S', 'ș' => 's', 'Ț' => 'T',
+		'ț' => 't', 'Ȟ' => 'H', 'ȟ' => 'h', 'Ƞ' => 'N', 'ȡ' => 'd',
+		'Ȥ' => 'Z', 'ȥ' => 'z', 'Ȧ' => 'A', 'ȧ' => 'a', 'Ȩ' => 'E',
+		'ȩ' => 'e', 'Ȫ' => 'O', 'ȫ' => 'o', 'Ȭ' => 'O', 'ȭ' => 'o',
+		'Ȯ' => 'O', 'ȯ' => 'o', 'Ȱ' => 'O', 'ȱ' => 'o', 'Ȳ' => 'Y',
+		'ȳ' => 'y', 'ȴ' => 'l', 'ȵ' => 'n', 'ȶ' => 't', 'ȷ' => 'j',
+		'ȸ' => 'db', 'ȹ' => 'qp', 'Ⱥ' => 'A', 'Ȼ' => 'C', 'ȼ' => 'c',
+		'Ƚ' => 'L', 'Ⱦ' => 'T', 'ȿ' => 's', 'ɀ' => 'z', 'Ƀ' => 'B',
+		'Ʉ' => 'U', 'Ʌ' => 'V', 'Ɇ' => 'E', 'ɇ' => 'e', 'Ɉ' => 'J',
+		'ɉ' => 'j', 'Ɋ' => 'Q', 'ɋ' => 'q', 'Ɍ' => 'R', 'ɍ' => 'r',
+		'Ɏ' => 'Y', 'ɏ' => 'y',
 		// IPA Extensions
-		'ɐ' => 'a',   'ɓ' => 'b',   'ɔ' => 'o',   'ɕ' => 'c',   'ɖ' => 'd',
-		'ɗ' => 'd',   'ɘ' => 'e',   'ɛ' => 'e',   'ɜ' => 'e',   'ɝ' => 'e',
-		'ɞ' => 'e',   'ɟ' => 'j',   'ɠ' => 'g',   'ɡ' => 'g',   'ɢ' => 'G',
-		'ɥ' => 'h',   'ɦ' => 'h',   'ɨ' => 'i',   'ɪ' => 'I',   'ɫ' => 'l',
-		'ɬ' => 'l',   'ɭ' => 'l',   'ɯ' => 'm',   'ɰ' => 'm',   'ɱ' => 'm',
-		'ɲ' => 'n',   'ɳ' => 'n',   'ɴ' => 'N',   'ɵ' => 'o',   'ɶ' => 'OE',
-		'ɹ' => 'r',   'ɺ' => 'r',   'ɻ' => 'r',   'ɼ' => 'r',   'ɽ' => 'r',
-		'ɾ' => 'r',   'ɿ' => 'r',   'ʀ' => 'R',   'ʁ' => 'R',   'ʂ' => 's',
-		'ʇ' => 't',   'ʈ' => 't',   'ʉ' => 'u',   'ʋ' => 'v',   'ʌ' => 'v',
-		'ʍ' => 'w',   'ʎ' => 'y',   'ʏ' => 'Y',   'ʐ' => 'z',   'ʑ' => 'z',
-		'ʗ' => 'C',   'ʙ' => 'B',   'ʚ' => 'e',   'ʛ' => 'G',   'ʜ' => 'H',
-		'ʝ' => 'j',   'ʞ' => 'k',   'ʟ' => 'L',   'ʠ' => 'q',   'ʣ' => 'dz',
-		'ʥ' => 'dz',  'ʦ' => 'ts',  'ʨ' => 'tc',  'ʪ' => 'ls',  'ʫ' => 'lz',
-		'ʮ' => 'h',   'ʯ' => 'h',
+		'ɐ' => 'a', 'ɓ' => 'b', 'ɔ' => 'o', 'ɕ' => 'c', 'ɖ' => 'd',
+		'ɗ' => 'd', 'ɘ' => 'e', 'ɛ' => 'e', 'ɜ' => 'e', 'ɝ' => 'e',
+		'ɞ' => 'e', 'ɟ' => 'j', 'ɠ' => 'g', 'ɡ' => 'g', 'ɢ' => 'G',
+		'ɥ' => 'h', 'ɦ' => 'h', 'ɨ' => 'i', 'ɪ' => 'I', 'ɫ' => 'l',
+		'ɬ' => 'l', 'ɭ' => 'l', 'ɯ' => 'm', 'ɰ' => 'm', 'ɱ' => 'm',
+		'ɲ' => 'n', 'ɳ' => 'n', 'ɴ' => 'N', 'ɵ' => 'o', 'ɶ' => 'OE',
+		'ɹ' => 'r', 'ɺ' => 'r', 'ɻ' => 'r', 'ɼ' => 'r', 'ɽ' => 'r',
+		'ɾ' => 'r', 'ɿ' => 'r', 'ʀ' => 'R', 'ʁ' => 'R', 'ʂ' => 's',
+		'ʇ' => 't', 'ʈ' => 't', 'ʉ' => 'u', 'ʋ' => 'v', 'ʌ' => 'v',
+		'ʍ' => 'w', 'ʎ' => 'y', 'ʏ' => 'Y', 'ʐ' => 'z', 'ʑ' => 'z',
+		'ʗ' => 'C', 'ʙ' => 'B', 'ʚ' => 'e', 'ʛ' => 'G', 'ʜ' => 'H',
+		'ʝ' => 'j', 'ʞ' => 'k', 'ʟ' => 'L', 'ʠ' => 'q', 'ʣ' => 'dz',
+		'ʥ' => 'dz', 'ʦ' => 'ts', 'ʨ' => 'tc', 'ʪ' => 'ls', 'ʫ' => 'lz',
+		'ʮ' => 'h', 'ʯ' => 'h',
 		// Latin Extended Additional
-		'Ḁ' => 'A',   'ḁ' => 'a',   'Ḃ' => 'B',   'ḃ' => 'b',   'Ḅ' => 'B',
-		'ḅ' => 'b',   'Ḇ' => 'B',   'ḇ' => 'b',   'Ḉ' => 'C',   'ḉ' => 'c',
-		'Ḋ' => 'D',   'ḋ' => 'd',   'Ḍ' => 'D',   'ḍ' => 'd',   'Ḏ' => 'D',
-		'ḏ' => 'd',   'Ḑ' => 'D',   'ḑ' => 'd',   'Ḓ' => 'D',   'ḓ' => 'd',
-		'Ḕ' => 'E',   'ḕ' => 'e',   'Ḗ' => 'E',   'ḗ' => 'e',   'Ḙ' => 'E',
-		'ḙ' => 'e',   'Ḛ' => 'E',   'ḛ' => 'e',   'Ḝ' => 'E',   'ḝ' => 'e',
-		'Ḟ' => 'F',   'ḟ' => 'f',   'Ḡ' => 'G',   'ḡ' => 'g',   'Ḣ' => 'H',
-		'ḣ' => 'h',   'Ḥ' => 'H',   'ḥ' => 'h',   'Ḧ' => 'H',   'ḧ' => 'h',
-		'Ḩ' => 'H',   'ḩ' => 'h',   'Ḫ' => 'H',   'ḫ' => 'h',   'Ḭ' => 'I',
-		'ḭ' => 'i',   'Ḯ' => 'I',   'ḯ' => 'i',   'Ḱ' => 'K',   'ḱ' => 'k',
-		'Ḳ' => 'K',   'ḳ' => 'k',   'Ḵ' => 'K',   'ḵ' => 'k',   'Ḷ' => 'L',
-		'ḷ' => 'l',   'Ḹ' => 'L',   'ḹ' => 'l',   'Ḻ' => 'L',   'ḻ' => 'l',
-		'Ḽ' => 'L',   'ḽ' => 'l',   'Ḿ' => 'M',   'ḿ' => 'm',   'Ṁ' => 'M',
-		'ṁ' => 'm',   'Ṃ' => 'M',   'ṃ' => 'm',   'Ṅ' => 'N',   'ṅ' => 'n',
-		'Ṇ' => 'N',   'ṇ' => 'n',   'Ṉ' => 'N',   'ṉ' => 'n',   'Ṋ' => 'N',
-		'ṋ' => 'n',   'Ṍ' => 'O',   'ṍ' => 'o',   'Ṏ' => 'O',   'ṏ' => 'o',
-		'Ṑ' => 'O',   'ṑ' => 'o',   'Ṓ' => 'O',   'ṓ' => 'o',   'Ṕ' => 'P',
-		'ṕ' => 'p',   'Ṗ' => 'P',   'ṗ' => 'p',   'Ṙ' => 'R',   'ṙ' => 'r',
-		'Ṛ' => 'R',   'ṛ' => 'r',   'Ṝ' => 'R',   'ṝ' => 'r',   'Ṟ' => 'R',
-		'ṟ' => 'r',   'Ṡ' => 'S',   'ṡ' => 's',   'Ṣ' => 'S',   'ṣ' => 's',
-		'Ṥ' => 'S',   'ṥ' => 's',   'Ṧ' => 'S',   'ṧ' => 's',   'Ṩ' => 'S',
-		'ṩ' => 's',   'Ṫ' => 'T',   'ṫ' => 't',   'Ṭ' => 'T',   'ṭ' => 't',
-		'Ṯ' => 'T',   'ṯ' => 't',   'Ṱ' => 'T',   'ṱ' => 't',   'Ṳ' => 'U',
-		'ṳ' => 'u',   'Ṵ' => 'U',   'ṵ' => 'u',   'Ṷ' => 'U',   'ṷ' => 'u',
-		'Ṹ' => 'U',   'ṹ' => 'u',   'Ṻ' => 'U',   'ṻ' => 'u',   'Ṽ' => 'V',
-		'ṽ' => 'v',   'Ṿ' => 'V',   'ṿ' => 'v',   'Ẁ' => 'W',   'ẁ' => 'w',
-		'Ẃ' => 'W',   'ẃ' => 'w',   'Ẅ' => 'W',   'ẅ' => 'w',   'Ẇ' => 'W',
-		'ẇ' => 'w',   'Ẉ' => 'W',   'ẉ' => 'w',   'Ẋ' => 'X',   'ẋ' => 'x',
-		'Ẍ' => 'X',   'ẍ' => 'x',   'Ẏ' => 'Y',   'ẏ' => 'y',   'Ẑ' => 'Z',
-		'ẑ' => 'z',   'Ẓ' => 'Z',   'ẓ' => 'z',   'Ẕ' => 'Z',   'ẕ' => 'z',
-		'ẖ' => 'h',   'ẗ' => 't',   'ẘ' => 'w',   'ẙ' => 'y',   'ẚ' => 'a',
-		'Ạ' => 'A',   'ạ' => 'a',   'Ả' => 'A',   'ả' => 'a',   'Ấ' => 'A',
-		'ấ' => 'a',   'Ầ' => 'A',   'ầ' => 'a',   'Ẩ' => 'A',   'ẩ' => 'a',
-		'Ẫ' => 'A',   'ẫ' => 'a',   'Ậ' => 'A',   'ậ' => 'a',   'Ắ' => 'A',
-		'ắ' => 'a',   'Ằ' => 'A',   'ằ' => 'a',   'Ẳ' => 'A',   'ẳ' => 'a',
-		'Ẵ' => 'A',   'ẵ' => 'a',   'Ặ' => 'A',   'ặ' => 'a',   'Ẹ' => 'E',
-		'ẹ' => 'e',   'Ẻ' => 'E',   'ẻ' => 'e',   'Ẽ' => 'E',   'ẽ' => 'e',
-		'Ế' => 'E',   'ế' => 'e',   'Ề' => 'E',   'ề' => 'e',   'Ể' => 'E',
-		'ể' => 'e',   'Ễ' => 'E',   'ễ' => 'e',   'Ệ' => 'E',   'ệ' => 'e',
-		'Ỉ' => 'I',   'ỉ' => 'i',   'Ị' => 'I',   'ị' => 'i',   'Ọ' => 'O',
-		'ọ' => 'o',   'Ỏ' => 'O',   'ỏ' => 'o',   'Ố' => 'O',   'ố' => 'o',
-		'Ồ' => 'O',   'ồ' => 'o',   'Ổ' => 'O',   'ổ' => 'o',   'Ỗ' => 'O',
-		'ỗ' => 'o',   'Ộ' => 'O',   'ộ' => 'o',   'Ớ' => 'O',   'ớ' => 'o',
-		'Ờ' => 'O',   'ờ' => 'o',   'Ở' => 'O',   'ở' => 'o',   'Ỡ' => 'O',
-		'ỡ' => 'o',   'Ợ' => 'O',   'ợ' => 'o',   'Ụ' => 'U',   'ụ' => 'u',
-		'Ủ' => 'U',   'ủ' => 'u',   'Ứ' => 'U',   'ứ' => 'u',   'Ừ' => 'U',
-		'ừ' => 'u',   'Ử' => 'U',   'ử' => 'u',   'Ữ' => 'U',   'ữ' => 'u',
-		'Ự' => 'U',   'ự' => 'u',   'Ỳ' => 'Y',   'ỳ' => 'y',   'Ỵ' => 'Y',
-		'ỵ' => 'y',   'Ỷ' => 'Y',   'ỷ' => 'y',   'Ỹ' => 'Y',   'ỹ' => 'y',
+		'Ḁ' => 'A', 'ḁ' => 'a', 'Ḃ' => 'B', 'ḃ' => 'b', 'Ḅ' => 'B',
+		'ḅ' => 'b', 'Ḇ' => 'B', 'ḇ' => 'b', 'Ḉ' => 'C', 'ḉ' => 'c',
+		'Ḋ' => 'D', 'ḋ' => 'd', 'Ḍ' => 'D', 'ḍ' => 'd', 'Ḏ' => 'D',
+		'ḏ' => 'd', 'Ḑ' => 'D', 'ḑ' => 'd', 'Ḓ' => 'D', 'ḓ' => 'd',
+		'Ḕ' => 'E', 'ḕ' => 'e', 'Ḗ' => 'E', 'ḗ' => 'e', 'Ḙ' => 'E',
+		'ḙ' => 'e', 'Ḛ' => 'E', 'ḛ' => 'e', 'Ḝ' => 'E', 'ḝ' => 'e',
+		'Ḟ' => 'F', 'ḟ' => 'f', 'Ḡ' => 'G', 'ḡ' => 'g', 'Ḣ' => 'H',
+		'ḣ' => 'h', 'Ḥ' => 'H', 'ḥ' => 'h', 'Ḧ' => 'H', 'ḧ' => 'h',
+		'Ḩ' => 'H', 'ḩ' => 'h', 'Ḫ' => 'H', 'ḫ' => 'h', 'Ḭ' => 'I',
+		'ḭ' => 'i', 'Ḯ' => 'I', 'ḯ' => 'i', 'Ḱ' => 'K', 'ḱ' => 'k',
+		'Ḳ' => 'K', 'ḳ' => 'k', 'Ḵ' => 'K', 'ḵ' => 'k', 'Ḷ' => 'L',
+		'ḷ' => 'l', 'Ḹ' => 'L', 'ḹ' => 'l', 'Ḻ' => 'L', 'ḻ' => 'l',
+		'Ḽ' => 'L', 'ḽ' => 'l', 'Ḿ' => 'M', 'ḿ' => 'm', 'Ṁ' => 'M',
+		'ṁ' => 'm', 'Ṃ' => 'M', 'ṃ' => 'm', 'Ṅ' => 'N', 'ṅ' => 'n',
+		'Ṇ' => 'N', 'ṇ' => 'n', 'Ṉ' => 'N', 'ṉ' => 'n', 'Ṋ' => 'N',
+		'ṋ' => 'n', 'Ṍ' => 'O', 'ṍ' => 'o', 'Ṏ' => 'O', 'ṏ' => 'o',
+		'Ṑ' => 'O', 'ṑ' => 'o', 'Ṓ' => 'O', 'ṓ' => 'o', 'Ṕ' => 'P',
+		'ṕ' => 'p', 'Ṗ' => 'P', 'ṗ' => 'p', 'Ṙ' => 'R', 'ṙ' => 'r',
+		'Ṛ' => 'R', 'ṛ' => 'r', 'Ṝ' => 'R', 'ṝ' => 'r', 'Ṟ' => 'R',
+		'ṟ' => 'r', 'Ṡ' => 'S', 'ṡ' => 's', 'Ṣ' => 'S', 'ṣ' => 's',
+		'Ṥ' => 'S', 'ṥ' => 's', 'Ṧ' => 'S', 'ṧ' => 's', 'Ṩ' => 'S',
+		'ṩ' => 's', 'Ṫ' => 'T', 'ṫ' => 't', 'Ṭ' => 'T', 'ṭ' => 't',
+		'Ṯ' => 'T', 'ṯ' => 't', 'Ṱ' => 'T', 'ṱ' => 't', 'Ṳ' => 'U',
+		'ṳ' => 'u', 'Ṵ' => 'U', 'ṵ' => 'u', 'Ṷ' => 'U', 'ṷ' => 'u',
+		'Ṹ' => 'U', 'ṹ' => 'u', 'Ṻ' => 'U', 'ṻ' => 'u', 'Ṽ' => 'V',
+		'ṽ' => 'v', 'Ṿ' => 'V', 'ṿ' => 'v', 'Ẁ' => 'W', 'ẁ' => 'w',
+		'Ẃ' => 'W', 'ẃ' => 'w', 'Ẅ' => 'W', 'ẅ' => 'w', 'Ẇ' => 'W',
+		'ẇ' => 'w', 'Ẉ' => 'W', 'ẉ' => 'w', 'Ẋ' => 'X', 'ẋ' => 'x',
+		'Ẍ' => 'X', 'ẍ' => 'x', 'Ẏ' => 'Y', 'ẏ' => 'y', 'Ẑ' => 'Z',
+		'ẑ' => 'z', 'Ẓ' => 'Z', 'ẓ' => 'z', 'Ẕ' => 'Z', 'ẕ' => 'z',
+		'ẖ' => 'h', 'ẗ' => 't', 'ẘ' => 'w', 'ẙ' => 'y', 'ẚ' => 'a',
+		'Ạ' => 'A', 'ạ' => 'a', 'Ả' => 'A', 'ả' => 'a', 'Ấ' => 'A',
+		'ấ' => 'a', 'Ầ' => 'A', 'ầ' => 'a', 'Ẩ' => 'A', 'ẩ' => 'a',
+		'Ẫ' => 'A', 'ẫ' => 'a', 'Ậ' => 'A', 'ậ' => 'a', 'Ắ' => 'A',
+		'ắ' => 'a', 'Ằ' => 'A', 'ằ' => 'a', 'Ẳ' => 'A', 'ẳ' => 'a',
+		'Ẵ' => 'A', 'ẵ' => 'a', 'Ặ' => 'A', 'ặ' => 'a', 'Ẹ' => 'E',
+		'ẹ' => 'e', 'Ẻ' => 'E', 'ẻ' => 'e', 'Ẽ' => 'E', 'ẽ' => 'e',
+		'Ế' => 'E', 'ế' => 'e', 'Ề' => 'E', 'ề' => 'e', 'Ể' => 'E',
+		'ể' => 'e', 'Ễ' => 'E', 'ễ' => 'e', 'Ệ' => 'E', 'ệ' => 'e',
+		'Ỉ' => 'I', 'ỉ' => 'i', 'Ị' => 'I', 'ị' => 'i', 'Ọ' => 'O',
+		'ọ' => 'o', 'Ỏ' => 'O', 'ỏ' => 'o', 'Ố' => 'O', 'ố' => 'o',
+		'Ồ' => 'O', 'ồ' => 'o', 'Ổ' => 'O', 'ổ' => 'o', 'Ỗ' => 'O',
+		'ỗ' => 'o', 'Ộ' => 'O', 'ộ' => 'o', 'Ớ' => 'O', 'ớ' => 'o',
+		'Ờ' => 'O', 'ờ' => 'o', 'Ở' => 'O', 'ở' => 'o', 'Ỡ' => 'O',
+		'ỡ' => 'o', 'Ợ' => 'O', 'ợ' => 'o', 'Ụ' => 'U', 'ụ' => 'u',
+		'Ủ' => 'U', 'ủ' => 'u', 'Ứ' => 'U', 'ứ' => 'u', 'Ừ' => 'U',
+		'ừ' => 'u', 'Ử' => 'U', 'ử' => 'u', 'Ữ' => 'U', 'ữ' => 'u',
+		'Ự' => 'U', 'ự' => 'u', 'Ỳ' => 'Y', 'ỳ' => 'y', 'Ỵ' => 'Y',
+		'ỵ' => 'y', 'Ỷ' => 'Y', 'ỷ' => 'y', 'Ỹ' => 'Y', 'ỹ' => 'y',
 		// General Punctuation
-		' ' => ' ',   ' ' => ' ',   ' ' => ' ',   ' ' => ' ',   ' ' => ' ',
-		' ' => ' ',   ' ' => ' ',   ' ' => ' ',   ' ' => ' ',   ' ' => ' ',
-		' ' => ' ',   '​' => '',    '‌' => '',    '‍' => '',    '‐' => '-',
-		'‑' => '-',   '‒' => '-',   '–' => '-',   '—' => '-',   '―' => '-',
-		'‖' => '||',  '‘' => "'",   '’' => "'",   '‚' => ',',   '‛' => "'",
-		'“' => '"',   '”' => '"',   '‟' => '"',   '․' => '.',   '‥' => '..',
-		'…' => '...', ' ' => ' ',   '′' => "'",   '″' => '"',   '‴' => '\'"',
-		'‵' => "'",   '‶' => '"',   '‷' => '"\'', '‹' => '<',   '›' => '>',
-		'‼' => '!!',  '‽' => '?!',  '⁄' => '/',   '⁇' => '?/',  '⁈' => '?!',
+		' ' => ' ', ' ' => ' ', ' ' => ' ', ' ' => ' ', ' ' => ' ',
+		' ' => ' ', ' ' => ' ', ' ' => ' ', ' ' => ' ', ' ' => ' ',
+		' ' => ' ', '​' => '', '‌' => '', '‍' => '', '‐' => '-',
+		'‑' => '-', '‒' => '-', '–' => '-', '—' => '-', '―' => '-',
+		'‖' => '||', '‘' => "'", '’' => "'", '‚' => ',', '‛' => "'",
+		'“' => '"', '”' => '"', '‟' => '"', '․' => '.', '‥' => '..',
+		'…' => '...', ' ' => ' ', '′' => "'", '″' => '"', '‴' => '\'"',
+		'‵' => "'", '‶' => '"', '‷' => '"\'', '‹' => '<', '›' => '>',
+		'‼' => '!!', '‽' => '?!', '⁄' => '/', '⁇' => '?/', '⁈' => '?!',
 		'⁉' => '!?',
 		// Letterlike Symbols
-		'℠' => 'SM',  '™' => 'TM',
+		'℠' => 'SM', '™' => 'TM',
 		// Number Forms
 		'⅓' => '1/3', '⅔' => '2/3', '⅕' => '1/5', '⅖' => '2/5', '⅗' => '3/5',
 		'⅘' => '4/5', '⅙' => '1/6', '⅚' => '5/6', '⅛' => '1/8', '⅜' => '3/8',
-		'⅝' => '5/8', '⅞' => '7/8', 'Ⅰ' => 'I',   'Ⅱ' => 'II',  'Ⅲ' => 'III',
-		'Ⅳ' => 'IV',  'Ⅴ' => 'V',   'Ⅵ' => 'Vi',  'Ⅶ' => 'VII', 'Ⅷ' => 'VIII',
-		'Ⅸ' => 'IX',  'Ⅹ' => 'X',   'Ⅺ' => 'XI',  'Ⅻ' => 'XII', 'Ⅼ' => 'L',
-		'Ⅽ' => 'C',   'Ⅾ' => 'D',   'Ⅿ' => 'M',   'ⅰ' => 'i',   'ⅱ' => 'ii',
-		'ⅲ' => 'iii', 'ⅳ' => 'iv',  'ⅴ' => 'v',   'ⅵ' => 'vi',  'ⅶ' => 'vii',
-		'ⅷ' => 'viii','ⅸ' => 'ix',  'ⅹ' => 'x',   'ⅺ' => 'xi',  'ⅻ' => 'xii',
-		'ⅼ' => 'l',   'ⅽ' => 'c',   'ⅾ' => 'd',   'ⅿ' => 'm'
+		'⅝' => '5/8', '⅞' => '7/8', 'Ⅰ' => 'I', 'Ⅱ' => 'II', 'Ⅲ' => 'III',
+		'Ⅳ' => 'IV', 'Ⅴ' => 'V', 'Ⅵ' => 'Vi', 'Ⅶ' => 'VII', 'Ⅷ' => 'VIII',
+		'Ⅸ' => 'IX', 'Ⅹ' => 'X', 'Ⅺ' => 'XI', 'Ⅻ' => 'XII', 'Ⅼ' => 'L',
+		'Ⅽ' => 'C', 'Ⅾ' => 'D', 'Ⅿ' => 'M', 'ⅰ' => 'i', 'ⅱ' => 'ii',
+		'ⅲ' => 'iii', 'ⅳ' => 'iv', 'ⅴ' => 'v', 'ⅵ' => 'vi', 'ⅶ' => 'vii',
+		'ⅷ' => 'viii', 'ⅸ' => 'ix', 'ⅹ' => 'x', 'ⅺ' => 'xi', 'ⅻ' => 'xii',
+		'ⅼ' => 'l', 'ⅽ' => 'c', 'ⅾ' => 'd', 'ⅿ' => 'm'
 	);
-	
+
 	/**
 	 * If the [http://php.net/mbstring mbstring] extension is available
-	 * 
+	 *
 	 * @var boolean
 	 */
 	static private $mbstring_available = NULL;
-	
-	
+
+
 	/**
 	 * Maps UTF-8 ASCII-based latin characters, puntuation, symbols and number forms to ASCII
-	 * 
+	 *
 	 * Any characters or symbols that can not be translated will be removed.
-	 * 
+	 *
 	 * This function is most useful for situation that only allows ASCII, such
 	 * as in URLs.
-	 * 
+	 *
 	 * Translates elements form the following unicode blocks:
-	 * 
+	 *
 	 *  - Latin-1 Supplement
 	 *  - Latin Extended-A
 	 *  - Latin Extended-B
@@ -567,10 +568,10 @@ class fUTF8
 	 *  - General Punctuation
 	 *  - Letterlike symbols
 	 *  - Number Forms
-	 * 
+	 *
 	 * @internal
-	 * 
-	 * @param  string $string  The string to convert
+	 *
+	 * @param  string $string The string to convert
 	 * @return string  The input string in pure ASCII
 	 */
 	static public function ascii($string)
@@ -578,27 +579,27 @@ class fUTF8
 		if (!self::detect($string)) {
 			return $string;
 		}
-		
+
 		$string = strtr($string, self::$utf8_to_ascii);
 		return preg_replace('#[^\x00-\x7F]#', '', $string);
 	}
-	
-	
+
+
 	/**
 	 * Checks to see if the [http://php.net/mbstring mbstring] extension is available
-	 * 
+	 *
 	 * @return void
 	 */
 	static private function checkMbString()
 	{
 		self::$mbstring_available = extension_loaded('mbstring');
 	}
-	
-	
+
+
 	/**
 	 * Converts a unicode value into a UTF-8 character
-	 * 
-	 * @param  mixed $unicode_code_point  The character to create, either the `U+hex` or decimal code point
+	 *
+	 * @param  mixed $unicode_code_point The character to create, either the `U+hex` or decimal code point
 	 * @return string  The UTF-8 character
 	 */
 	static public function chr($unicode_code_point)
@@ -607,35 +608,35 @@ class fUTF8
 			$unicode_code_point = substr($unicode_code_point, 2);
 			$unicode_code_point = hexdec($unicode_code_point);
 		}
-		
+
 		$bin = decbin($unicode_code_point);
 		$digits = strlen($bin);
-		
+
 		$first = $second = $third = $fourth = NULL;
-		
+
 		// One byte characters
 		if ($digits <= 7) {
 			$first = chr(bindec($bin));
-			
-		// Two byte characters
+
+			// Two byte characters
 		} elseif ($digits <= 11) {
-			$first  = chr(bindec('110' . str_pad(substr($bin, 0, -6), 5, '0', STR_PAD_LEFT)));
+			$first = chr(bindec('110' . str_pad(substr($bin, 0, -6), 5, '0', STR_PAD_LEFT)));
 			$second = chr(bindec('10' . substr($bin, -6)));
-			
-		// Three byte characters
+
+			// Three byte characters
 		} elseif ($digits <= 16) {
-			$first  = chr(bindec('1110' . str_pad(substr($bin, 0, -12), 4, '0', STR_PAD_LEFT)));
+			$first = chr(bindec('1110' . str_pad(substr($bin, 0, -12), 4, '0', STR_PAD_LEFT)));
 			$second = chr(bindec('10' . substr($bin, -12, -6)));
-			$third  = chr(bindec('10' . substr($bin, -6)));
-			
-		// Four byte characters
+			$third = chr(bindec('10' . substr($bin, -6)));
+
+			// Four byte characters
 		} elseif ($digits <= 21) {
-			$first  = chr(bindec('11110' . str_pad(substr($bin, 0, -18), 3, '0', STR_PAD_LEFT)));
+			$first = chr(bindec('11110' . str_pad(substr($bin, 0, -18), 3, '0', STR_PAD_LEFT)));
 			$second = chr(bindec('10' . substr($bin, -18, -12)));
-			$third  = chr(bindec('10' . substr($bin, -12, -6)));
+			$third = chr(bindec('10' . substr($bin, -12, -6)));
 			$fourth = chr(bindec('10' . substr($bin, -6)));
 		}
-		
+
 		$ord = ord($first);
 		if ($digits > 21 || $ord == 0xC0 || $ord == 0xC1 || $ord > 0xF4) {
 			throw new fProgrammerException(
@@ -643,72 +644,72 @@ class fUTF8
 				$unicode_code_point
 			);
 		}
-		
+
 		return $first . $second . $third . $fourth;
 	}
-	
-	
+
+
 	/**
 	 * Removes any invalid UTF-8 characters from a string or array of strings
-	 * 
-	 * @param  array|string $value  The string or array of strings to clean
+	 *
+	 * @param  array|string $value The string or array of strings to clean
 	 * @return string  The cleaned string
 	 */
 	static public function clean($value)
 	{
 		if (!is_array($value)) {
 			if (self::$can_ignore_invalid === NULL) {
-				self::$can_ignore_invalid = !in_array(strtolower(ICONV_IMPL), array('unknown', 'ibm iconv'));	
+				self::$can_ignore_invalid = !in_array(strtolower(ICONV_IMPL), array('unknown', 'ibm iconv'));
 			}
 			fCore::startErrorCapture(E_NOTICE);
-			$value = self::iconv('UTF-8', 'UTF-8' . (self::$can_ignore_invalid ? '//IGNORE' : ''), (string) $value);
+			$value = self::iconv('UTF-8', 'UTF-8' . (self::$can_ignore_invalid ? '//IGNORE' : ''), (string)$value);
 			fCore::stopErrorCapture();
 			return $value;
 		}
-		
+
 		$keys = array_keys($value);
 		$num_keys = sizeof($keys);
-		for ($i=0; $i<$num_keys; $i++) {
+		for ($i = 0; $i < $num_keys; $i++) {
 			$value[$keys[$i]] = self::clean($value[$keys[$i]]);
 		}
-		
+
 		return $value;
 	}
-	
-	
+
+
 	/**
 	 * Compares strings, with the resulting order having latin characters that are based on ASCII letters placed after the relative ASCII characters
-	 * 
+	 *
 	 * Please note that this function sorts based on English language sorting
 	 * rules only. Locale-sepcific sorting is done by
 	 * [http://php.net/strcoll strcoll()], however there are technical
 	 * limitations.
-	 * 
-	 * @param  string $str1  The first string to compare
-	 * @param  string $str2  The second string to compare
+	 *
+	 * @param  string $str1 The first string to compare
+	 * @param  string $str2 The second string to compare
 	 * @return integer  < 0 if $str1 < $str2, 0 if they are equal, > 0 if $str1 > $str2
 	 */
 	static public function cmp($str1, $str2)
 	{
 		$ascii_str1 = strtr($str1, self::$utf8_to_ascii);
 		$ascii_str2 = strtr($str2, self::$utf8_to_ascii);
-		
+
 		$res = strcmp($ascii_str1, $ascii_str2);
-		
+
 		// If the ASCII representations are the same, sort by the UTF-8 representations
 		if ($res === 0) {
 			$res = strcmp($str1, $str2);
 		}
-		
+
 		return $res;
 	}
-	
-	
+
+
 	/**
 	 * Converts an offset in characters to an offset in bytes to that we can use the built-in functions for some operations
-	 * 
-	 * @param  string  $string  The string to base the offset on
-	 * @param  integer $offset  The character offset to conver to bytes
+	 *
+	 * @param  string $string The string to base the offset on
+	 * @param  integer $offset The character offset to conver to bytes
 	 * @return integer  The converted offset
 	 */
 	static private function convertOffsetToBytes($string, $offset)
@@ -716,21 +717,21 @@ class fUTF8
 		if ($offset == 0) {
 			return 0;
 		}
-		
+
 		$len = strlen($string);
-		
-		$byte_offset     = 0;
+
+		$byte_offset = 0;
 		$measured_offset = 0;
-		$sign            = 1;
-		
+		$sign = 1;
+
 		// Negative offsets require us to reverse some stuff
 		if ($offset < 0) {
-			$string    = strrev($string);
-			$sign      = -1;
-			$offset    = abs($offset);
+			$string = strrev($string);
+			$sign = -1;
+			$offset = abs($offset);
 		}
-			
-		for ($i=0; $i<$len && $measured_offset<$offset; $i++) {
+
+		for ($i = 0; $i < $len && $measured_offset < $offset; $i++) {
 			$char = $string[$i];
 			++$byte_offset;
 			if (ord($char) < 0x80) {
@@ -746,40 +747,40 @@ class fUTF8
 				}
 			}
 		}
-		
+
 		return $byte_offset * $sign;
 	}
-	
-	
+
+
 	/**
 	 * Detects if a UTF-8 string contains any non-ASCII characters
-	 * 
-	 * @param  string $string  The string to check
+	 *
+	 * @param  string $string The string to check
 	 * @return boolean  If the string contains any non-ASCII characters
 	 */
 	static private function detect($string)
 	{
-		return (boolean) preg_match('#[^\x00-\x7F]#', $string);
+		return (boolean)preg_match('#[^\x00-\x7F]#', $string);
 	}
-	
-	
+
+
 	/**
 	 * Explodes a string on a delimiter
-	 * 
+	 *
 	 * If no delimiter is provided, the string will be exploded with each
 	 * characters being an element in the array.
-	 * 
-	 * @param  string  $string     The string to explode
-	 * @param  string  $delimiter  The string to explode on. If `NULL` or `''` this method will return one character per array index.
+	 *
+	 * @param  string $string The string to explode
+	 * @param  string $delimiter The string to explode on. If `NULL` or `''` this method will return one character per array index.
 	 * @return array  The exploded string
 	 */
-	static public function explode($string, $delimiter=NULL)
+	static public function explode($string, $delimiter = NULL)
 	{
 		// If a delimiter was passed, we just do an explode
 		if ($delimiter || (!$delimiter && is_numeric($delimiter))) {
 			return explode($delimiter, $string);
 		}
-		
+
 		// If no delimiter was passed, we explode the characters into an array
 		preg_match_all('#.|^\z#us', $string, $matches);
 		return $matches[0];
@@ -791,100 +792,100 @@ class fUTF8
 	 * does not seem to properly assign the return value to a variable, but
 	 * does work when returning the value.
 	 *
-	 * @param string $in_charset   The incoming character encoding
-	 * @param string $out_charset  The outgoing character encoding
-	 * @param string $string       The string to convert
+	 * @param string $in_charset The incoming character encoding
+	 * @param string $out_charset The outgoing character encoding
+	 * @param string $string The string to convert
 	 * @return string  The converted string
 	 */
 	static private function iconv($in_charset, $out_charset, $string)
 	{
 		return iconv($in_charset, $out_charset, $string);
 	}
-	
-	
+
+
 	/**
 	 * Compares strings in a case-insensitive manner, with the resulting order having characters that are based on ASCII letters placed after the relative ASCII characters
-	 * 
+	 *
 	 * Please note that this function sorts based on English language sorting
 	 * rules only. Locale-sepcific sorting is done by
 	 * [http://php.net/strcoll strcoll()], however there are technical
 	 * limitations.
-	 * 
-	 * @param  string $str1  The first string to compare
-	 * @param  string $str2  The second string to compare
+	 *
+	 * @param  string $str1 The first string to compare
+	 * @param  string $str2 The second string to compare
 	 * @return integer  < 0 if $str1 < $str2, 0 if they are equal, > 0 if $str1 > $str2
 	 */
 	static public function icmp($str1, $str2)
 	{
 		$str1 = self::lower($str1);
 		$str2 = self::lower($str2);
-		
+
 		return self::cmp($str1, $str2);
 	}
-	
-	
+
+
 	/**
 	 * Compares strings using a natural order algorithm in a case-insensitive manner, with the resulting order having latin characters that are based on ASCII letters placed after the relative ASCII characters
-	 * 
+	 *
 	 * Please note that this function sorts based on English language sorting
 	 * rules only. Locale-sepcific sorting is done by
 	 * [http://php.net/strcoll strcoll()], however there are technical
 	 * limitations.
-	 * 
-	 * @param  string $str1  The first string to compare
-	 * @param  string $str2  The second string to compare
+	 *
+	 * @param  string $str1 The first string to compare
+	 * @param  string $str2 The second string to compare
 	 * @return integer  `< 0` if `$str1 < $str2`, `0` if they are equal, `> 0` if `$str1 > $str2`
 	 */
 	static public function inatcmp($str1, $str2)
 	{
 		$str1 = self::lower($str1);
 		$str2 = self::lower($str2);
-		
+
 		return self::natcmp($str1, $str2);
 	}
-	
-	
+
+
 	/**
 	 * Finds the first position (in characters) of the search value in the string - case is ignored when doing performing a match
-	 * 
-	 * @param  string  $haystack  The string to search in
-	 * @param  string  $needle    The string to search for. This match will be done in a case-insensitive manner.
-	 * @param  integer $offset    The character position to start searching from
+	 *
+	 * @param  string $haystack The string to search in
+	 * @param  string $needle The string to search for. This match will be done in a case-insensitive manner.
+	 * @param  integer $offset The character position to start searching from
 	 * @return mixed  The integer character position of the first occurence of the needle or `FALSE` if no match
 	 */
-	static public function ipos($haystack, $needle, $offset=0)
+	static public function ipos($haystack, $needle, $offset = 0)
 	{
 		// We get better performance falling back for ASCII strings
 		if (!self::detect($haystack)) {
 			return stripos($haystack, $needle, $offset);
 		}
-		
+
 		if (self::$mbstring_available === NULL) {
 			self::checkMbString();
 		}
-		
+
 		if (self::$mbstring_available && function_exists('mb_stripos')) {
 			return mb_stripos($haystack, $needle, $offset, 'UTF-8');
 		}
-		
+
 		$haystack = self::lower($haystack);
-		$needle   = self::lower($needle);
-		
+		$needle = self::lower($needle);
+
 		return self::pos($haystack, $needle, $offset);
 	}
-	
-	
+
+
 	/**
 	 * Replaces matching parts of the string, with matches being done in a a case-insensitive manner
-	 * 
+	 *
 	 * If `$search` and `$replace` are both arrays and `$replace` is shorter,
 	 * the extra `$search` string will be replaced with an empty string. If
 	 * `$search` is an array and `$replace` is a string, all `$search` values
 	 * will be replaced with the string specified.
-	 * 
-	 * @param  string $string   The string to perform the replacements on
-	 * @param  mixed  $search   The string (or array of strings) to search for - see method description for details
-	 * @param  mixed  $replace  The string (or array of strings) to replace with - see method description for details
+	 *
+	 * @param  string $string The string to perform the replacements on
+	 * @param  mixed $search The string (or array of strings) to search for - see method description for details
+	 * @param  mixed $replace The string (or array of strings) to replace with - see method description for details
 	 * @return string  The input string with the specified replacements
 	 */
 	static public function ireplace($string, $search, $replace)
@@ -902,81 +903,81 @@ class fUTF8
 			$string
 		);
 	}
-	
-	
+
+
 	/**
 	 * Finds the last position (in characters) of the search value in the string - case is ignored when doing performing a match
-	 * 
-	 * @param  string  $haystack  The string to search in
-	 * @param  string  $needle    The string to search for. This match will be done in a case-insensitive manner.
-	 * @param  integer $offset    The character position to start searching from. A negative value will stop looking that many characters from the end of the string
+	 *
+	 * @param  string $haystack The string to search in
+	 * @param  string $needle The string to search for. This match will be done in a case-insensitive manner.
+	 * @param  integer $offset The character position to start searching from. A negative value will stop looking that many characters from the end of the string
 	 * @return mixed  The integer character position of the last occurence of the needle or `FALSE` if no match
 	 */
-	static public function irpos($haystack, $needle, $offset=0)
+	static public function irpos($haystack, $needle, $offset = 0)
 	{
 		// We get better performance falling back for ASCII strings
 		if (!self::detect($haystack)) {
 			return strripos($haystack, $needle, $offset);
 		}
-		
+
 		if (self::$mbstring_available === NULL) {
 			self::checkMbString();
 		}
-		
+
 		if (self::$mbstring_available && function_exists('mb_strripos')) {
 			return mb_strripos($haystack, $needle, $offset, 'UTF-8');
 		}
-		
+
 		$haystack = self::lower($haystack);
-		$needle   = self::lower($needle);
-		
+		$needle = self::lower($needle);
+
 		return self::rpos($haystack, $needle, $offset);
 	}
-	
-	
+
+
 	/**
 	 * Matches a string needle in the string haystack, returning a substring from the beginning of the needle to the end of the haystack
-	 * 
+	 *
 	 * Can optionally return the part of the haystack before the needle. Matching
 	 * is done in a case-insensitive manner.
-	 * 
-	 * @param  string  $haystack       The string to search in
-	 * @param  string  $needle         The string to search for. This match will be done in a case-insensitive manner.
-	 * @param  boolean $before_needle  If a substring of the haystack before the needle should be returned instead of the substring from the needle to the end of the haystack
+	 *
+	 * @param  string $haystack The string to search in
+	 * @param  string $needle The string to search for. This match will be done in a case-insensitive manner.
+	 * @param  boolean $before_needle If a substring of the haystack before the needle should be returned instead of the substring from the needle to the end of the haystack
 	 * @return mixed  The specified part of the haystack, or `FALSE` if the needle was not found
 	 */
-	static public function istr($haystack, $needle, $before_needle=FALSE)
+	static public function istr($haystack, $needle, $before_needle = FALSE)
 	{
 		// We get better performance falling back for ASCII strings
 		if ($before_needle == FALSE && !self::detect($haystack)) {
 			return stristr($haystack, $needle);
 		}
-		
+
 		if (self::$mbstring_available === NULL) {
 			self::checkMbString();
 		}
-		
+
 		if (self::$mbstring_available && function_exists('mb_stristr')) {
 			return mb_stristr($haystack, $needle, $before_needle, 'UTF-8');
 		}
-		
+
 		$lower_haystack = self::lower($haystack);
-		$lower_needle   = self::lower($needle);
-		
+		$lower_needle = self::lower($needle);
+
 		$pos = strpos($lower_haystack, $lower_needle);
-		
+
 		if ($before_needle) {
 			return substr($haystack, 0, $pos);
 		}
-		
+
 		return substr($haystack, $pos);
 	}
-	
-	
+
+
 	/**
 	 * Determines the length (in characters) of a string
-	 * 
-	 * @param  string $string  The string to measure
+	 *
+	 * @param  string $string The string to measure
 	 * @return integer  The number of characters in the string
 	 */
 	static public function len($string)
@@ -984,19 +985,19 @@ class fUTF8
 		if (self::$mbstring_available === NULL) {
 			self::checkMbString();
 		}
-		
+
 		if (self::$mbstring_available) {
 			return mb_strlen($string, 'UTF-8');
 		}
-		
+
 		return strlen(utf8_decode($string));
 	}
-	
-	
+
+
 	/**
 	 * Converts all uppercase characters to lowercase
-	 * 
-	 * @param  string $string  The string to convert
+	 *
+	 * @param  string $string The string to convert
 	 * @return string  The input string with all uppercase characters in lowercase
 	 */
 	static public function lower($string)
@@ -1005,80 +1006,80 @@ class fUTF8
 		if (!self::detect($string)) {
 			return strtolower($string);
 		}
-		
+
 		if (self::$mbstring_available === NULL) {
 			self::checkMbString();
 		}
-		
+
 		if (self::$mbstring_available) {
 			$string = mb_strtolower($string, 'utf-8');
 			// For some reason mb_strtolower misses some character
 			return strtr($string, self::$mb_upper_to_lower_fix);
 		}
-		
+
 		return strtr($string, self::$upper_to_lower);
 	}
-	
-	
+
+
 	/**
 	 * Trims whitespace, or any specified characters, from the beginning of a string
-	 * 
-	 * @param  string $string    The string to trim
-	 * @param  string $charlist  The characters to trim
+	 *
+	 * @param  string $string The string to trim
+	 * @param  string $charlist The characters to trim
 	 * @return string  The trimmed string
 	 */
-	static public function ltrim($string, $charlist=NULL)
+	static public function ltrim($string, $charlist = NULL)
 	{
 		if (strlen($charlist) === 0) {
 			return ltrim($string);
 		}
-		
+
 		$search = preg_quote($charlist, '#');
 		$search = str_replace('-', '\-', $search);
 		$search = str_replace('\.\.', '-', $search);
 		return preg_replace('#^[' . $search . ']+#Du', '', $string);
 	}
-	
-	
+
+
 	/**
 	 * Compares strings using a natural order algorithm, with the resulting order having latin characters that are based on ASCII letters placed after the relative ASCII characters
-	 * 
+	 *
 	 * Please note that this function sorts based on English language sorting
 	 * rules only. Locale-sepcific sorting is done by
 	 * [http://php.net/strcoll strcoll()], however there are technical
 	 * limitations.
-	 * 
-	 * @param  string $str1  The first string to compare
-	 * @param  string $str2  The second string to compare
+	 *
+	 * @param  string $str1 The first string to compare
+	 * @param  string $str2 The second string to compare
 	 * @return integer  `< 0` if `$str1 < $str2`, `0` if they are equal, `> 0` if `$str1 > $str2`
 	 */
 	static public function natcmp($str1, $str2)
 	{
 		$ascii_str1 = strtr($str1, self::$utf8_to_ascii);
 		$ascii_str2 = strtr($str2, self::$utf8_to_ascii);
-		
+
 		$res = strnatcmp($ascii_str1, $ascii_str2);
-		
+
 		// If the ASCII representations are the same, sort by the UTF-8 representations
 		if ($res === 0) {
 			$res = strnatcmp($str1, $str2);
 		}
-		
+
 		return $res;
 	}
-	
-	
+
+
 	/**
 	 * Converts a UTF-8 character to a unicode code point
-	 * 
-	 * @param  string $character  The character to decode
+	 *
+	 * @param  string $character The character to decode
 	 * @return string  The U+hex unicode code point for the character
 	 */
 	static public function ord($character)
 	{
-		$b       = array_map('ord', str_split($character));
+		$b = array_map('ord', str_split($character));
 		$invalid = FALSE;
-		
+
 		switch (strlen($character)) {
 			case 1:
 				if ($b[0] > 0x7F) {
@@ -1087,69 +1088,72 @@ class fUTF8
 				}
 				$bin = decbin($b[0]);
 				break;
-			
+
 			case 2:
 				if ($b[0] < 0xC2 || $b[0] > 0xDF ||
-					  $b[1] < 0x80 || $b[1] > 0xBF) {
+					$b[1] < 0x80 || $b[1] > 0xBF
+				) {
 					$invalid = TRUE;
 					break;
 				}
 				$bin = substr(decbin($b[0]), 3) .
-						   substr(decbin($b[1]), 2);
+					substr(decbin($b[1]), 2);
 				break;
-			
+
 			case 3:
 				if ($b[0] < 0xE0 || $b[0] > 0xEF ||
-					  $b[1] < 0x80 || $b[1] > 0xBF ||
-					  $b[2] < 0x80 || $b[2] > 0xBF) {
+					$b[1] < 0x80 || $b[1] > 0xBF ||
+					$b[2] < 0x80 || $b[2] > 0xBF
+				) {
 					$invalid = TRUE;
 					break;
 				}
 				$bin = substr(decbin($b[0]), 4) .
-						   substr(decbin($b[1]), 2) .
-						   substr(decbin($b[2]), 2);
+					substr(decbin($b[1]), 2) .
+					substr(decbin($b[2]), 2);
 				break;
-			
+
 			case 4:
 				if ($b[0] < 0xF0 || $b[0] > 0xF4 ||
-					  $b[1] < 0x80 || $b[1] > 0xBF ||
-					  $b[2] < 0x80 || $b[2] > 0xBF ||
-					  $b[3] < 0x80 || $b[3] > 0xBF) {
+					$b[1] < 0x80 || $b[1] > 0xBF ||
+					$b[2] < 0x80 || $b[2] > 0xBF ||
+					$b[3] < 0x80 || $b[3] > 0xBF
+				) {
 					$invalid = TRUE;
 					break;
 				}
 				$bin = substr(decbin($b[0]), 5) .
-						   substr(decbin($b[1]), 2) .
-						   substr(decbin($b[2]), 2) .
-						   substr(decbin($b[3]), 2);
+					substr(decbin($b[1]), 2) .
+					substr(decbin($b[2]), 2) .
+					substr(decbin($b[3]), 2);
 				break;
-			
+
 			default:
 				$invalid = TRUE;
 				break;
 		}
-		
+
 		if ($invalid) {
 			throw new fProgrammerException(
 				'The UTF-8 character specified is invalid'
 			);
 		}
-		
+
 		$hex = strtoupper(dechex(bindec($bin)));
 		return 'U+' . str_pad($hex, 4, '0', STR_PAD_LEFT);
 	}
-	
-	
+
+
 	/**
 	 * Pads a string to the number of characters specified
-	 * 
-	 * @param  string  $string      The string to pad
-	 * @param  integer $pad_length  The character length to pad the string to
-	 * @param  string  $pad_string  The string to pad the source string with
-	 * @param  string  $pad_type    The type of padding to do: `'left'`, `'right'`, `'both'`
+	 *
+	 * @param  string $string The string to pad
+	 * @param  integer $pad_length The character length to pad the string to
+	 * @param  string $pad_string The string to pad the source string with
+	 * @param  string $pad_type The type of padding to do: `'left'`, `'right'`, `'both'`
 	 * @return string  The input string padded to the specified character width
 	 */
-	static public function pad($string, $pad_length, $pad_string=' ', $pad_type='right')
+	static public function pad($string, $pad_length, $pad_string = ' ', $pad_type = 'right')
 	{
 		$valid_pad_types = array('right', 'left', 'both');
 		if (!in_array($pad_type, $valid_pad_types)) {
@@ -1159,265 +1163,265 @@ class fUTF8
 				join(', ', $valid_pad_types)
 			);
 		}
-		
+
 		// We get better performance falling back for ASCII strings
 		if (!self::detect($string) && !self::detect($pad_string)) {
 			static $type_map = array(
-				'left'  => STR_PAD_LEFT,
+				'left' => STR_PAD_LEFT,
 				'right' => STR_PAD_RIGHT,
-				'both'  => STR_PAD_BOTH
+				'both' => STR_PAD_BOTH
 			);
 			return str_pad($string, $pad_length, $pad_string, $type_map[$pad_type]);
 		}
-		
-		
-		$string_length     = self::len($string);
+
+
+		$string_length = self::len($string);
 		$pad_string_length = self::len($pad_string);
-		
-		$pad_to_length     = $pad_length - $string_length;
-		
+
+		$pad_to_length = $pad_length - $string_length;
+
 		if ($pad_to_length < 1) {
 			return $string;
 		}
-		
-		$padded           = 0;
-		$next_side        = 'left';
-		$left_pad_string  = '';
+
+		$padded = 0;
+		$next_side = 'left';
+		$left_pad_string = '';
 		$right_pad_string = '';
-		
+
 		while ($padded < $pad_to_length) {
-			
+
 			// For pad strings over 1 characters long, they may be too long to fit
 			if ($pad_to_length - $padded < $pad_string_length) {
 				$pad_string = self::sub($pad_string, 0, $pad_to_length - $padded);
 			}
-			
+
 			switch (($pad_type != 'both') ? $pad_type : $next_side) {
 				case 'right':
 					$right_pad_string .= $pad_string;
 					$next_side = 'left';
 					break;
-					
+
 				case 'left':
 					$left_pad_string .= $pad_string;
 					$next_side = 'right';
 					break;
 			}
-			
+
 			$padded += $pad_string_length;
 		}
-		
+
 		return $left_pad_string . $string . $right_pad_string;
 	}
-	
-	
+
+
 	/**
 	 * Finds the first position (in characters) of the search value in the string
-	 * 
-	 * @param  string  $haystack  The string to search in
-	 * @param  string  $needle    The string to search for
-	 * @param  integer $offset    The character position to start searching from
+	 *
+	 * @param  string $haystack The string to search in
+	 * @param  string $needle The string to search for
+	 * @param  integer $offset The character position to start searching from
 	 * @return mixed  The integer character position of the first occurence of the needle or `FALSE` if no match
 	 */
-	static public function pos($haystack, $needle, $offset=0)
+	static public function pos($haystack, $needle, $offset = 0)
 	{
 		if (self::$mbstring_available === NULL) {
 			self::checkMbString();
 		}
-		
+
 		if (self::$mbstring_available) {
 			return mb_strpos($haystack, $needle, $offset, 'UTF-8');
 		}
-		
+
 		$offset = self::convertOffsetToBytes($haystack, $offset);
-		
+
 		$position = strpos($haystack, $needle, $offset);
-		
+
 		if ($position === FALSE) {
 			return FALSE;
 		}
-		
+
 		return strlen(utf8_decode(substr($haystack, 0, $position)));
 	}
-	
-	
+
+
 	/**
 	 * Replaces matching parts of the string
-	 * 
+	 *
 	 * If `$search` and `$replace` are both arrays and `$replace` is shorter,
 	 * the extra `$search` string will be replaced with an empty string. If
 	 * `$search` is an array and `$replace` is a string, all `$search` values
 	 * will be replaced with the string specified.
-	 * 
-	 * @param  string $string   The string to perform the replacements on
-	 * @param  mixed  $search   The string (or array of strings) to search for - see method description for details
-	 * @param  mixed  $replace  The string (or array of strings) to replace with - see method description for details
+	 *
+	 * @param  string $string The string to perform the replacements on
+	 * @param  mixed $search The string (or array of strings) to search for - see method description for details
+	 * @param  mixed $replace The string (or array of strings) to replace with - see method description for details
 	 * @return string  The input string with the specified replacements
 	 */
 	static public function replace($string, $search, $replace)
 	{
 		return str_replace($search, $replace, $string);
 	}
-	
-	
+
+
 	/**
 	 * Resets the configuration of the class
-	 * 
+	 *
 	 * @internal
-	 * 
+	 *
 	 * @return void
 	 */
 	static public function reset()
 	{
 		self::$mbstring_available = NULL;
 	}
-	
-	
+
+
 	/**
 	 * Reverses a string
-	 * 
-	 * @param  string $string   The string to reverse
+	 *
+	 * @param  string $string The string to reverse
 	 * @return string  The reversed string
 	 */
 	static public function rev($string)
 	{
 		$output = '';
 		$len = strlen($string);
-		
+
 		static $char_lens = array(
 			0xF0 => 4,
 			0xE0 => 3,
 			0xD0 => 2,
 			0xC0 => 2
 		);
-		
+
 		$mb_char = '';
-		for ($i=0; $i<$len; $i++) {
+		for ($i = 0; $i < $len; $i++) {
 			$char = $string[$i];
 			if (ord($char) < 128) {
 				$output = $char . $output;
 			} else {
 				switch (ord($char) & 0xF0) {
 					case 0xF0:
-						$output = $string[$i] . $string[$i+1] . $string[$i+2] . $string[$i+3] . $output;
+						$output = $string[$i] . $string[$i + 1] . $string[$i + 2] . $string[$i + 3] . $output;
 						$i += 3;
 						break;
-						
+
 					case 0xE0:
-						$output = $string[$i] . $string[$i+1] . $string[$i+2] . $output;
+						$output = $string[$i] . $string[$i + 1] . $string[$i + 2] . $output;
 						$i += 2;
 						break;
-						
+
 					case 0xD0:
 					case 0xC0:
-						$output = $string[$i] . $string[$i+1] . $output;
+						$output = $string[$i] . $string[$i + 1] . $output;
 						$i += 1;
 						break;
 				}
 			}
 		}
-		
+
 		return $output;
 	}
-	
-	
+
+
 	/**
 	 * Finds the last position (in characters) of the search value in the string
-	 * 
-	 * @param  string  $haystack  The string to search in
-	 * @param  string  $needle    The string to search for.
-	 * @param  integer $offset    The character position to start searching from. A negative value will stop looking that many characters from the end of the string
+	 *
+	 * @param  string $haystack The string to search in
+	 * @param  string $needle The string to search for.
+	 * @param  integer $offset The character position to start searching from. A negative value will stop looking that many characters from the end of the string
 	 * @return mixed  The integer character position of the last occurence of the needle or `FALSE` if no match
 	 */
-	static public function rpos($haystack, $needle, $offset=0)
+	static public function rpos($haystack, $needle, $offset = 0)
 	{
 		// We get better performance falling back for ASCII strings
 		if (!self::detect($haystack)) {
 			return strrpos($haystack, $needle, $offset);
 		}
-		
+
 		// We don't even both trying mb_strrpos since this method is faster
-		
+
 		$offset = self::convertOffsetToBytes($haystack, $offset);
-		
+
 		$position = strrpos($haystack, $needle, $offset);
-		
+
 		if ($position === FALSE) {
 			return FALSE;
 		}
-		
+
 		return strlen(utf8_decode(substr($haystack, 0, $position)));
 	}
-	
-	
+
+
 	/**
 	 * Trims whitespace, or any specified characters, from the end of a string
-	 * 
-	 * @param  string $string    The string to trim
-	 * @param  string $charlist  The characters to trim
+	 *
+	 * @param  string $string The string to trim
+	 * @param  string $charlist The characters to trim
 	 * @return string  The trimmed string
 	 */
-	static public function rtrim($string, $charlist=NULL)
+	static public function rtrim($string, $charlist = NULL)
 	{
 		if (strlen($charlist) === 0) {
 			return rtrim($string);
 		}
-		
+
 		$search = preg_quote($charlist, '#');
 		$search = str_replace('-', '\-', $search);
 		$search = str_replace('\.\.', '-', $search);
 		return preg_replace('#[' . $search . ']+$#Du', '', $string);
 	}
-	
-	
+
+
 	/**
 	 * Matches a string needle in the string haystack, returning a substring from the beginning of the needle to the end of the haystack
-	 * 
+	 *
 	 * Can optionally return the part of the haystack before the needle.
-	 * 
-	 * @param  string  $haystack       The string to search in
-	 * @param  string  $needle         The string to search for
-	 * @param  boolean $before_needle  If a substring of the haystack before the needle should be returned instead of the substring from the needle to the end of the haystack
+	 *
+	 * @param  string $haystack The string to search in
+	 * @param  string $needle The string to search for
+	 * @param  boolean $before_needle If a substring of the haystack before the needle should be returned instead of the substring from the needle to the end of the haystack
 	 * @return mixed  The specified part of the haystack, or `FALSE` if the needle was not found
 	 */
-	static public function str($haystack, $needle, $before_needle=FALSE)
+	static public function str($haystack, $needle, $before_needle = FALSE)
 	{
 		if (self::$mbstring_available === NULL) {
 			self::checkMbString();
 		}
-		
+
 		if (self::$mbstring_available && function_exists('mb_strstr')) {
 			return mb_strstr($haystack, $needle, $before_needle, 'UTF-8');
 		}
-		
+
 		$pos = strpos($haystack, $needle);
-		
+
 		if ($pos === FALSE) {
 			return $pos;
 		}
-		
+
 		if ($before_needle) {
 			return substr($haystack, 0, $pos);
 		}
-		
+
 		return substr($haystack, $pos);
 	}
-	
-	
+
+
 	/**
 	 * Extracts part of a string
-	 * 
-	 * @param  string  $string  The string to extract from
-	 * @param  integer $start   The zero-based starting index to extract from. Negative values will start the extraction that many characters from the end of the string.
-	 * @param  integer $length  The length of the string to extract. If an empty value is provided, the remainder of the string will be returned.
+	 *
+	 * @param  string $string The string to extract from
+	 * @param  integer $start The zero-based starting index to extract from. Negative values will start the extraction that many characters from the end of the string.
+	 * @param  integer $length The length of the string to extract. If an empty value is provided, the remainder of the string will be returned.
 	 * @return mixed  The extracted subtring or `FALSE` if the start is out of bounds
 	 */
-	static public function sub($string, $start, $length=NULL)
+	static public function sub($string, $start, $length = NULL)
 	{
 		if (self::$mbstring_available === NULL) {
 			self::checkMbString();
 		}
-		
+
 		if (self::$mbstring_available) {
 			$str_len = mb_strlen($string, 'UTF-8');
 			if (abs($start) > $str_len) {
@@ -1425,92 +1429,92 @@ class fUTF8
 			}
 			if ($length === NULL) {
 				if ($start >= 0) {
-					$length = $str_len-$start;
+					$length = $str_len - $start;
 				} else {
 					$length = abs($start);
 				}
 			}
 			return mb_substr($string, $start, $length, 'UTF-8');
 		}
-		
+
 		// We get better performance falling back for ASCII strings
 		if (!self::detect($string)) {
 			if ($length === NULL) {
 				if ($start >= 0) {
-					$length = strlen($string)-$start;
+					$length = strlen($string) - $start;
 				} else {
 					$length = abs($start);
 				}
 			}
 			return substr($string, $start, $length);
 		}
-		
-		
+
+
 		// This is the slowest version
 		$str_len = strlen(utf8_decode($string));
-		
+
 		if (abs($start) > $str_len) {
 			return FALSE;
 		}
-		
+
 		// Optimize looking by changing to negative start positions if the
 		// start is in the second half of the string
-		if ($start > $str_len/2) {
-			$start = 0-($str_len-$start);
+		if ($start > $str_len / 2) {
+			$start = 0 - ($str_len - $start);
 		}
-		
+
 		// Substrings to the end of the string are pretty simple
-		$start  = self::convertOffsetToBytes($string, $start);
+		$start = self::convertOffsetToBytes($string, $start);
 		$string = substr($string, $start);
-		
+
 		if ($length === NULL) {
 			return $string;
 		}
-		
+
 		$length = self::convertOffsetToBytes($string, $length);
 		return substr($string, 0, $length);
 	}
-	
-	
+
+
 	/**
 	 * Trims whitespace, or any specified characters, from the beginning and end of a string
-	 * 
-	 * @param  string $string    The string to trim
-	 * @param  string $charlist  The characters to trim, .. indicates a range
+	 *
+	 * @param  string $string The string to trim
+	 * @param  string $charlist The characters to trim, .. indicates a range
 	 * @return string  The trimmed string
 	 */
-	static public function trim($string, $charlist=NULL)
+	static public function trim($string, $charlist = NULL)
 	{
 		if (strlen($charlist) === 0) {
 			return trim($string);
 		}
-		
+
 		$search = preg_quote($charlist, '#');
 		$search = str_replace('-', '\-', $search);
 		$search = str_replace('\.\.', '-', $search);
 		return preg_replace('#^[' . $search . ']+|[' . $search . ']+$#Du', '', $string);
 	}
-	
-	
+
+
 	/**
 	 * Converts the first character of the string to uppercase.
-	 * 
-	 * @param  string $string  The string to process
+	 *
+	 * @param  string $string The string to process
 	 * @return string  The processed string
 	 */
 	static public function ucfirst($string)
 	{
 		return self::upper(self::sub($string, 0, 1)) . self::sub($string, 1);
 	}
-	
-	
+
+
 	/**
 	 * Converts the first character of every word to uppercase
-	 * 
+	 *
 	 * Words are considered to start at the beginning of the string, or after any
 	 * whitespace character.
-	 * 
-	 * @param  string $string  The string to process
+	 *
+	 * @param  string $string The string to process
 	 * @return string  The processed string
 	 */
 	static public function ucwords($string)
@@ -1521,24 +1525,24 @@ class fUTF8
 			$string
 		);
 	}
-	
-	
+
+
 	/**
 	 * Handles converting a character to uppercase for ::ucwords()
-	 * 
-	 * @param array $match  The regex match from ::ucwords()
+	 *
+	 * @param array $match The regex match from ::ucwords()
 	 * @return string  The uppercase character
 	 */
 	static private function ucwordsCallback($match)
 	{
 		return self::upper($match[1]);
 	}
-	
-	
+
+
 	/**
 	 * Converts all lowercase characters to uppercase
-	 * 
-	 * @param  string $string  The string to convert
+	 *
+	 * @param  string $string The string to convert
 	 * @return string  The input string with all lowercase characters in uppercase
 	 */
 	static public function upper($string)
@@ -1547,89 +1551,91 @@ class fUTF8
 		if (!self::detect($string)) {
 			return strtoupper($string);
 		}
-		
+
 		if (self::$mbstring_available === NULL) {
 			self::checkMbString();
 		}
-		
+
 		if (self::$mbstring_available) {
 			$string = mb_strtoupper($string, 'utf-8');
 			// For some reason mb_strtoupper misses some character
 			return strtr($string, self::$mb_lower_to_upper_fix);
 		}
-		
+
 		return strtr($string, self::$lower_to_upper);
 	}
-	
-	
+
+
 	/**
 	 * Wraps a string to a specific character width
-	 * 
-	 * @param  string  $string  The string to wrap
-	 * @param  integer $width	The character width to wrap to
-	 * @param  string  $break   The string to insert as a break
-	 * @param  boolean $cut     If words longer than the character width should be split to fit
+	 *
+	 * @param  string $string The string to wrap
+	 * @param  integer $width The character width to wrap to
+	 * @param  string $break The string to insert as a break
+	 * @param  boolean $cut If words longer than the character width should be split to fit
 	 * @return string  The input string with all lowercase characters in uppercase
 	 */
-	static public function wordwrap($string, $width=75, $break="\n", $cut=FALSE)
+	static public function wordwrap($string, $width = 75, $break = "\n", $cut = FALSE)
 	{
 		// We get better performance falling back for ASCII strings
 		if (!self::detect($string)) {
 			return wordwrap($string, $width, $break, $cut);
 		}
-		
+
 		$words = preg_split('#(?<=\s|[\x{2000}-\x{200A}])#ue', $string);
-		
+
 		$output = '';
-		
+
 		$line_len = 0;
 		foreach ($words as $word) {
 			$word_len = self::len($word);
-			
+
 			// Shorten up words that are too long
 			while ($cut && $word_len > $width) {
-				$output  .= $break;
-				$output  .= self::sub($word, 0, $width);
+				$output .= $break;
+				$output .= self::sub($word, 0, $width);
 				$line_len = $width;
-				$word	  = self::sub($word, $width);
+				$word = self::sub($word, $width);
 				$word_len = self::len($word);
 			}
-			
+
 			if ($line_len && $line_len + $word_len > $width) {
-				$output  .= $break;
+				$output .= $break;
 				$line_len = 0;
 			}
-			$output   .= $word;
+			$output .= $word;
 			$line_len += $word_len;
 		}
-		
+
 		return $output;
 	}
-	
-	
+
+
 	/**
 	 * Forces use as a static class
-	 * 
+	 *
 	 * @return fUTF8
 	 */
-	private function __construct() { }
+	private function __construct()
+	{
+	}
 }
 
 
 
 /**
  * Copyright (c) 2008-2011 Will Bond <will@flourishlib.com>
- * 
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE

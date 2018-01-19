@@ -1,0 +1,113 @@
+.site-logo {
+    height: 70px;
+    line-height: 75px;
+    font-size: 2.5625rem;
+    text-transform: uppercase;
+    overflow: hidden;
+    padding: 1px 0 0;
+}
+.site-header {
+    position: absolute;
+    left: 0;
+    top: 20px;
+    width: 100%;
+    color: #fff;
+    line-height: 52px;
+    z-index: 20;
+}
+.site-header-container {
+    background: white   /*#00a998 */;
+}
+.site-menu {
+    font-family: 'Code Pro LC',sans-serif;
+    font-weight: 500;
+    color: black;
+}
+.site-menu a {
+    text-decoration: none;
+    color: black;
+}
+
+.btn {
+    height: 56px;
+    border: 3px solid #00a998;
+    line-height: 50px;
+    padding: 2px 25px 0;
+    color: #00a998;
+    font-size: 1.125rem;
+    font-weight: 500
+}
+
+.btn:hover {
+    background-color: #00a998;
+    color: #fff
+}
+
+.btn.btn-fill {
+    color: #000;
+    background-color: #B5DA83;
+    border-color: #B5DA83 /*#b1f03e */
+}
+
+.btn.btn-fill:hover {
+    background-color: #96df11; /* #96df11; */
+    border-color: #96df11; /*#96df11*/
+}
+
+.site-header.fixed .btn.btn-fill {
+    background-color: white; /* #96df11; */
+    border-color: #B5DA83; /*#96df11*/
+
+    /*background-color: #00a998;*/
+    /*border-color: #00a998;*/
+    color: black;
+}
+
+.site-header.fixed .btn.btn-fill:hover {
+    background-color: #96df11; /* #96df11; */
+    border-color: #96df11; /*#96df11*/
+    color: black;
+}
+
+.site-header.fixed .site-menu a {
+    text-decoration: none;
+    color: black /* #00a998 */;
+}
+.site-header.fixed .site-menu a:hover {
+    text-decoration: none;
+    color: #6BAE3C; /* #00a998 */;
+}
+
+.site-menu a:hover {
+    text-decoration: none;
+    color: #6BAE3C; /* #b1f03e*/
+}
+
+.site-menu a.current {
+    color: #b1f03e
+}
+.card-item .card-item-caption h1, .card-item .card-item-caption h2, .card-item .card-item-caption h3, .card-item .card-item-caption h4, .card-item .card-item-caption h5, .card-item .card-item-caption h6 {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    font-weight: 500;
+    font-size: 1.125rem;
+    padding: 15px;
+}
+
+.burger {
+    width: 30px;
+    border: none;
+    background: 0 0;
+    position: relative;
+    top: 4px
+}
+
+.burger span {
+    display: block;
+    height: 4px;
+    margin: 8px 0;
+    background: #6BAE3C;  /*#fff*/
+}

@@ -79,4 +79,17 @@
 <file name="skin7-logo.png" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130487131840000000" remote="131003122020000000" Dst="1" />
 <file name="skin8-logo.png" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130487132600000000" remote="131003122020000000" Dst="1" />
 <file name="skin9-logo.png" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130487133180000000" remote="131003122020000000" Dst="1" />
+<file name="logo.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130805428470000000" remote="130805428470000000" Dst="2" />
+<file name="skin1-logo-org.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130487126400000000" remote="130487126400000000" Dst="2" />
+<file name="skin1-logo.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130487162400000000" remote="130487162400000000" Dst="2" />
+<file name="skin10-logo.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130487170140000000" remote="130487170140000000" Dst="2" />
+<file name="skin2-logo-org.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130487128000000000" remote="130487128000000000" Dst="2" />
+<file name="skin2-logo.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130487164000000000" remote="130487164000000000" Dst="2" />
+<file name="skin3-logo.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130487164900000000" remote="130487164900000000" Dst="2" />
+<file name="skin4-logo.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130487166000000000" remote="130487166000000000" Dst="2" />
+<file name="skin5-logo.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130487166800000000" remote="130487166800000000" Dst="2" />
+<file name="skin6-logo.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130487167360000000" remote="130487167360000000" Dst="2" />
+<file name="skin7-logo.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130487167840000000" remote="130487167840000000" Dst="2" />
+<file name="skin8-logo.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130487168600000000" remote="130487168600000000" Dst="2" />
+<file name="skin9-logo.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130487169180000000" remote="130487169180000000" Dst="2" />
 </dwsync>

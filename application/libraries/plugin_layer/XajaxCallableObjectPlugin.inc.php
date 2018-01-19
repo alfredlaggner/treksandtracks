@@ -23,7 +23,7 @@
 		Specifies that the item being registered via the <xajax->register> function is a
 		object who's methods will be callable from the browser.
 */
-if (!defined ('XAJAX_CALLABLE_OBJECT')) define ('XAJAX_CALLABLE_OBJECT', 'callable object');
+if (!defined('XAJAX_CALLABLE_OBJECT')) define('XAJAX_CALLABLE_OBJECT', 'callable object');
 
 //SkipAIO
 require dirname(__FILE__) . '/support/xajaxCallableObject.inc.php';
@@ -32,6 +32,7 @@ require dirname(__FILE__) . '/support/xajaxCallableObject.inc.php';
 /*
 	Class: xajaxCallableObjectPlugin
 */
+
 final class xajaxCallableObjectPlugin extends xajaxRequestPlugin
 {
 	/*
@@ -43,19 +44,19 @@ final class xajaxCallableObjectPlugin extends xajaxRequestPlugin
 		String: sXajaxPrefix
 	*/
 	private $sXajaxPrefix;
-	
+
 	/*
 		String: sDefer
 	*/
 	private $sDefer;
-	
+
 	private $bDeferScriptGeneration;
 
 	/*
 		String: sRequestedClass
 	*/
 	private $sRequestedClass;
-	
+
 	/*
 		String: sRequestedMethod
 	*/
@@ -104,17 +105,14 @@ final class xajaxCallableObjectPlugin extends xajaxRequestPlugin
 	*/
 	public function register($aArgs)
 	{
-		if (1 < count($aArgs))
-		{
+		if (1 < count($aArgs)) {
 			$sType = $aArgs[0];
 
-			if (XAJAX_CALLABLE_OBJECT == $sType)
-			{
+			if (XAJAX_CALLABLE_OBJECT == $sType) {
 				$xco = $aArgs[1];
 
 //SkipDebug
-				if (false === is_object($xco))
-				{
+				if (false === is_object($xco)) {
 					trigger_error("To register a callable object, please provide an instance of the desired class.", E_USER_WARNING);
 					return false;
 				}
@@ -143,12 +141,10 @@ final class xajaxCallableObjectPlugin extends xajaxRequestPlugin
 	*/
 	public function generateClientScript()
 	{
-		if (false === $this->bDeferScriptGeneration || 'deferred' === $this->bDeferScriptGeneration)
-		{
-			if (0 < count($this->aCallableObjects))
-			{
+		if (false === $this->bDeferScriptGeneration || 'deferred' === $this->bDeferScriptGeneration) {
+			if (0 < count($this->aCallableObjects)) {
 				$sCrLf = "\n";
-				
+
 				echo $sCrLf;
 				echo '<';
 				echo 'script type="text/javascript" ';
@@ -159,7 +155,7 @@ final class xajaxCallableObjectPlugin extends xajaxRequestPlugin
 				echo '![CDATA[ */';
 				echo $sCrLf;
 
-				foreach(array_keys($this->aCallableObjects) as $sKey)
+				foreach (array_keys($this->aCallableObjects) as $sKey)
 					$this->aCallableObjects[$sKey]->generateClientScript($this->sXajaxPrefix);
 
 				echo '/* ]]> */';
@@ -197,14 +193,11 @@ final class xajaxCallableObjectPlugin extends xajaxRequestPlugin
 		$objArgumentManager = xajaxArgumentManager::getInstance();
 		$aArgs = $objArgumentManager->process();
 
-		foreach (array_keys($this->aCallableObjects) as $sKey)
-		{
+		foreach (array_keys($this->aCallableObjects) as $sKey) {
 			$xco = $this->aCallableObjects[$sKey];
 
-			if ($xco->isClass($this->sRequestedClass))
-			{
-				if ($xco->hasMethod($this->sRequestedMethod))
-				{
+			if ($xco->isClass($this->sRequestedClass)) {
+				if ($xco->hasMethod($this->sRequestedMethod)) {
 					$xco->call($this->sRequestedMethod, $aArgs);
 					return true;
 				}

@@ -31,10 +31,9 @@ app.utils.log = function(obj)
         if(that.history.length > that.maxRecords)
         {
             that.history.pop();
-        };
-        
+        }
         return that.history;
-    }
+    };;
     
     this.last = function()
     {
@@ -45,7 +44,7 @@ app.utils.log = function(obj)
         return false;
     }
     
-}
+};;
 
 /* !utils.loop */
 
@@ -79,7 +78,7 @@ app.utils.loop = function(obj)
         {
             this.direction = 1;
         }
-    }
+    };;
     
     this.next   = function(set)
     {
@@ -103,7 +102,7 @@ app.utils.loop = function(obj)
             this.index = nextIndex;
             
         return nextIndex;
-    }
+    };;
     
     this.last   = function()
     {
@@ -113,7 +112,7 @@ app.utils.loop = function(obj)
         this.reverse();
         
         return lastIndex;
-    }
+    };;
     
     this.reset  = function()
     {
@@ -121,7 +120,7 @@ app.utils.loop = function(obj)
         this.index = this.min;
         
         return this.index;
-    }
+    };;
     
     this.reverse = function()
     {
@@ -129,13 +128,13 @@ app.utils.loop = function(obj)
         this.direction = (this.direction == 1)? 0 : 1;
         
         return this.direction;
-    }
+    };;
     
     // verify properties on init
     
     this.verify();
     
-}
+};;
 
 /* !recursive call */
 
@@ -148,7 +147,7 @@ app.recursiveCall = function(event)
             this[method][event]();
         }
     }
-}
+};;
 
 /* !jQuery events */
 

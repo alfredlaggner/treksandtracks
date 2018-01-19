@@ -1,0 +1,29 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
+INFO - 2017-04-04 09:46:39 --> Config Class Initialized
+INFO - 2017-04-04 09:46:39 --> Hooks Class Initialized
+INFO - 2017-04-04 09:46:39 --> Utf8 Class Initialized
+INFO - 2017-04-04 09:46:39 --> URI Class Initialized
+INFO - 2017-04-04 09:46:39 --> Router Class Initialized
+INFO - 2017-04-04 09:46:39 --> Output Class Initialized
+INFO - 2017-04-04 09:46:39 --> Security Class Initialized
+INFO - 2017-04-04 09:46:40 --> Input Class Initialized
+INFO - 2017-04-04 09:46:40 --> Language Class Initialized
+INFO - 2017-04-04 10:40:16 --> Config Class Initialized
+INFO - 2017-04-04 10:40:16 --> Hooks Class Initialized
+INFO - 2017-04-04 10:40:16 --> Utf8 Class Initialized
+INFO - 2017-04-04 10:40:16 --> URI Class Initialized
+INFO - 2017-04-04 10:40:16 --> Router Class Initialized
+INFO - 2017-04-04 10:40:16 --> Output Class Initialized
+INFO - 2017-04-04 10:40:16 --> Security Class Initialized
+INFO - 2017-04-04 10:40:16 --> Input Class Initialized
+INFO - 2017-04-04 10:40:16 --> Language Class Initialized
+INFO - 2017-04-04 10:40:26 --> Config Class Initialized
+INFO - 2017-04-04 10:40:26 --> Hooks Class Initialized
+INFO - 2017-04-04 10:40:26 --> Utf8 Class Initialized
+INFO - 2017-04-04 10:40:26 --> URI Class Initialized
+INFO - 2017-04-04 10:40:26 --> Router Class Initialized
+INFO - 2017-04-04 10:40:26 --> Output Class Initialized
+INFO - 2017-04-04 10:40:26 --> Security Class Initialized
+INFO - 2017-04-04 10:40:26 --> Input Class Initialized
+INFO - 2017-04-04 10:40:26 --> Language Class Initialized

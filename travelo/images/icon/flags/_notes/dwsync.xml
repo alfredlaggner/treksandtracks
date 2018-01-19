@@ -12,4 +12,6 @@
 <file name="en-us.png" server="104.236.178.96//var/www/sunnydays.me/public_html/" local="130474378180000000" remote="130991047860000000" Dst="1" />
 <file name="au.png" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130475227340000000" remote="131003121990000000" Dst="1" />
 <file name="en-us.png" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130474378180000000" remote="131003121990000000" Dst="1" />
+<file name="au.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130475263340000000" remote="130475263340000000" Dst="2" />
+<file name="en-us.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130474414180000000" remote="130474414180000000" Dst="2" />
 </dwsync>

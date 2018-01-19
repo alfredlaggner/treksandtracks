@@ -9,17 +9,16 @@
 <file name="decor_inside.png" server="C:/wamp/www/tretra_v12/" local="130279290040000000" remote="130279290040000000" Dst="2" />
 <file name="decor_inside_white.png" server="C:/wamp/www/tretra_v12/" local="130279290040000000" remote="130279290040000000" Dst="2" />
 <file name="decor_testimonial.png" server="C:/wamp/www/tretra_v12/" local="130279290040000000" remote="130279290040000000" Dst="2" />
-<file name=".DS_Store" server="C:/wamp/www/tretra_v12/" local="130465705920000000" remote="130465705920000000" Dst="2" />
-<file name=".DS_Store" server="192.241.211.13//var/www/html/tretra_v2/" local="130465705920000000" remote="130980771950000000" Dst="1" />
 <file name="decor_inside.png" server="192.241.211.13//var/www/html/tretra_v2/" local="130279290040000000" remote="130980771950000000" Dst="1" />
 <file name="decor_inside_white.png" server="192.241.211.13//var/www/html/tretra_v2/" local="130279290040000000" remote="130980771950000000" Dst="1" />
 <file name="decor_testimonial.png" server="192.241.211.13//var/www/html/tretra_v2/" local="130279290040000000" remote="130980771950000000" Dst="1" />
-<file name=".DS_Store" server="104.236.178.96//var/www/sunnydays.me/public_html/" local="130465705920000000" remote="130991046910000000" Dst="1" />
 <file name="decor_inside.png" server="104.236.178.96//var/www/sunnydays.me/public_html/" local="130279290040000000" remote="130991046910000000" Dst="1" />
 <file name="decor_inside_white.png" server="104.236.178.96//var/www/sunnydays.me/public_html/" local="130279290040000000" remote="130991046910000000" Dst="1" />
 <file name="decor_testimonial.png" server="104.236.178.96//var/www/sunnydays.me/public_html/" local="130279290040000000" remote="130991046920000000" Dst="1" />
-<file name=".DS_Store" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130465705920000000" remote="131003121700000000" Dst="1" />
 <file name="decor_inside.png" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130279290040000000" remote="131003121700000000" Dst="1" />
 <file name="decor_inside_white.png" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130279290040000000" remote="131003121700000000" Dst="1" />
 <file name="decor_testimonial.png" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130279290040000000" remote="131003121700000000" Dst="1" />
+<file name="decor_inside.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130279326040000000" remote="130279326040000000" Dst="2" />
+<file name="decor_inside_white.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130279326040000000" remote="130279326040000000" Dst="2" />
+<file name="decor_testimonial.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130279326040000000" remote="130279326040000000" Dst="2" />
 </dwsync>

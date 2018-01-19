@@ -2,7 +2,7 @@
  * $Id: editor_plugin_src.js 201 2007-02-12 15:56:56Z spocke $
  *
  * @author Moxiecode
- * @copyright Copyright © 2004-2008, Moxiecode Systems AB, All rights reserved.
+ * @copyright Copyright ï¿½ 2004-2008, Moxiecode Systems AB, All rights reserved.
  */
 
 (function() {
@@ -78,8 +78,7 @@
 
 			function hasClass(n, c) {
 				return new RegExp('\\b' + c + '\\b', 'g').test(n.className);
-			};
-
+			}
 			each(dom.select('*', el), function(n) {
 				// Replace cdate
 				if (hasClass(n, ed.getParam('template_cdate_classes', 'cdate').replace(/\s+/g, '|')))

@@ -19,18 +19,18 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  *
  * @category   PHPExcel
- * @package	PHPExcel_Shared
+ * @package    PHPExcel_Shared
  * @copyright  Copyright (c) 2006 - 2014 PHPExcel (http://www.codeplex.com/PHPExcel)
- * @license	http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version	1.8.0, 2014-03-02
+ * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
+ * @version    1.8.0, 2014-03-02
  */
 
 if (!defined('DATE_W3C')) {
-  define('DATE_W3C', 'Y-m-d\TH:i:sP');
+	define('DATE_W3C', 'Y-m-d\TH:i:sP');
 }
 
 if (!defined('DEBUGMODE_ENABLED')) {
-  define('DEBUGMODE_ENABLED', false);
+	define('DEBUGMODE_ENABLED', false);
 }
 
 
@@ -38,13 +38,14 @@ if (!defined('DEBUGMODE_ENABLED')) {
  * PHPExcel_Shared_XMLWriter
  *
  * @category   PHPExcel
- * @package	PHPExcel_Shared
+ * @package    PHPExcel_Shared
  * @copyright  Copyright (c) 2006 - 2014 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
-class PHPExcel_Shared_XMLWriter extends XMLWriter {
+class PHPExcel_Shared_XMLWriter extends XMLWriter
+{
 	/** Temporary storage method */
-	const STORAGE_MEMORY	= 1;
-	const STORAGE_DISK		= 2;
+	const STORAGE_MEMORY = 1;
+	const STORAGE_DISK = 2;
 
 	/**
 	 * Temporary filename
@@ -56,10 +57,11 @@ class PHPExcel_Shared_XMLWriter extends XMLWriter {
 	/**
 	 * Create a new PHPExcel_Shared_XMLWriter instance
 	 *
-	 * @param int		$pTemporaryStorage			Temporary storage location
-	 * @param string	$pTemporaryStorageFolder	Temporary storage folder
+	 * @param int $pTemporaryStorage Temporary storage location
+	 * @param string $pTemporaryStorageFolder Temporary storage folder
 	 */
-	public function __construct($pTemporaryStorage = self::STORAGE_MEMORY, $pTemporaryStorageFolder = NULL) {
+	public function __construct($pTemporaryStorage = self::STORAGE_MEMORY, $pTemporaryStorageFolder = NULL)
+	{
 		// Open temporary storage
 		if ($pTemporaryStorage == self::STORAGE_MEMORY) {
 			$this->openMemory();
@@ -85,7 +87,8 @@ class PHPExcel_Shared_XMLWriter extends XMLWriter {
 	/**
 	 * Destructor
 	 */
-	public function __destruct() {
+	public function __destruct()
+	{
 		// Unlink temporary files
 		if ($this->_tempFileName != '') {
 			@unlink($this->_tempFileName);
@@ -97,7 +100,8 @@ class PHPExcel_Shared_XMLWriter extends XMLWriter {
 	 *
 	 * @return $data
 	 */
-	public function getData() {
+	public function getData()
+	{
 		if ($this->_tempFileName == '') {
 			return $this->outputMemory(true);
 		} else {
@@ -115,7 +119,7 @@ class PHPExcel_Shared_XMLWriter extends XMLWriter {
 	public function writeRawData($text)
 	{
 		if (is_array($text)) {
-			$text = implode("\n",$text);
+			$text = implode("\n", $text);
 		}
 
 		if (method_exists($this, 'writeRaw')) {

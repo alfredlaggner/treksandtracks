@@ -244,7 +244,7 @@ Test.prototype = {
 			run();
 		} else {
 			synchronize(run);
-		};
+		}
 	}
 
 };
@@ -1129,10 +1129,10 @@ QUnit.equiv = function () {
 QUnit.jsDump = (function() {
 	function quote( str ) {
 		return '"' + str.toString().replace(/"/g, '\\"') + '"';
-	};
+	}
 	function literal( o ) {
 		return o + '';
-	};
+	}
 	function join( pre, arr, post ) {
 		var s = jsDump.separator(),
 			base = jsDump.indent(),
@@ -1142,7 +1142,7 @@ QUnit.jsDump = (function() {
 		if ( !arr )
 			return pre + post;
 		return [ pre, inner + arr, base + post ].join(s);
-	};
+	}
 	function array( arr ) {
 		var i = arr.length,	ret = Array(i);
 		this.up();
@@ -1150,8 +1150,7 @@ QUnit.jsDump = (function() {
 			ret[i] = this.parse( arr[i] );
 		this.down();
 		return join( '[', ret, ']' );
-	};
-
+	}
 	var reName = /^function (\w+)/;
 
 	var jsDump = {
@@ -1306,9 +1305,8 @@ function getText( elems ) {
 	}
 
 	return ret;
-};
-
-/*
+}
+	/*
  * Javascript Diff Algorithm
  *  By John Resig (http://ejohn.org/)
  *  Modified by Chu Alan "sprite"
@@ -1324,13 +1322,13 @@ function getText( elems ) {
  */
 QUnit.diff = (function() {
 	function diff(o, n){
-		var ns = new Object();
-		var os = new Object();
+		var ns = {};
+		var os = {};
 
 		for (var i = 0; i < n.length; i++) {
 			if (ns[n[i]] == null)
 				ns[n[i]] = {
-					rows: new Array(),
+					rows: [],
 					o: null
 				};
 			ns[n[i]].rows.push(i);
@@ -1339,7 +1337,7 @@ QUnit.diff = (function() {
 		for (var i = 0; i < o.length; i++) {
 			if (os[o[i]] == null)
 				os[o[i]] = {
-					rows: new Array(),
+					rows: [],
 					n: null
 				};
 			os[o[i]].rows.push(i);

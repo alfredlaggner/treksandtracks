@@ -109,7 +109,7 @@
 					if (isTbody) {
 						$(':focus').blur();
 					}
-					return;
+					
 				};
 			// bind to .tablesorter (default class name)
 			$(this).children('tbody')

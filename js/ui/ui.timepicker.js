@@ -1066,7 +1066,7 @@
         * Parse a time string into hours and minutes
         */
         parseTime: function (inst, timeVal) {
-            var retVal = new Object();
+            var retVal = {};
             retVal.hours = -1;
             retVal.minutes = -1;
 
@@ -1331,8 +1331,7 @@
             if (props[name] == null || props[name] == undefined)
                 target[name] = props[name];
         return target;
-    };
-
+    }
     $.timepicker = new Timepicker(); // singleton instance
     $.timepicker.initialized = false;
     $.timepicker.uuid = new Date().getTime();

@@ -814,10 +814,10 @@ Control.FileChooser.Panel = Class.create({
 	selectRow: function(record) {
 		if (this.selectedFile != record) {
 			if (this.selectedFile)
-				Element.removeClassName(this.selectedFile.element, '_pp_highlight')
+				Element.removeClassName(this.selectedFile.element, '_pp_highlight');;
 
 			this.selectedFile = record;
-			Element.addClassName(record.element, '_pp_highlight')
+			Element.addClassName(record.element, '_pp_highlight');;
 			if (record.url) {
 				this.showPreview(record.url);
 				if (this.options.standalone)

@@ -401,7 +401,7 @@
 							gallery.$loadingContainer.show();
 						}
 					}
-				}
+				};;
 
 				if (this.settings.onTransitionOut) {
 					this.settings.onTransitionOut(transitionOutCallback);

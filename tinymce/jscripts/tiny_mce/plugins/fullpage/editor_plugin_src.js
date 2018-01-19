@@ -2,7 +2,7 @@
  * $Id: editor_plugin_src.js 1029 2009-02-24 22:32:21Z spocke $
  *
  * @author Moxiecode
- * @copyright Copyright © 2004-2008, Moxiecode Systems AB, All rights reserved.
+ * @copyright Copyright ï¿½ 2004-2008, Moxiecode Systems AB, All rights reserved.
  */
 
 (function() {
@@ -104,8 +104,7 @@
 					return s.replace(/<\/?[A-Z]+/g, function(a) {
 						return a.toLowerCase();
 					})
-				};
-
+				}
 				t.head = low(t.head);
 				t.foot = low(t.foot);
 			} else {

@@ -2,7 +2,7 @@
  * $Id: editor_plugin_src.js 1222 2009-09-03 17:26:47Z spocke $
  *
  * @author Moxiecode
- * @copyright Copyright © 2004-2008, Moxiecode Systems AB, All rights reserved.
+ * @copyright Copyright ï¿½ 2004-2008, Moxiecode Systems AB, All rights reserved.
  */
 
 (function() {
@@ -17,8 +17,7 @@
 
 			function isMediaElm(n) {
 				return /^(mceItemFlash|mceItemShockWave|mceItemWindowsMedia|mceItemQuickTime|mceItemRealMedia)$/.test(n.className);
-			};
-
+			}
 			ed.onPreInit.add(function() {
 				// Force in _value parameter this extra parameter is required for older Opera versions
 				ed.serializer.addRules('param[name|value|_mce_value]');
@@ -169,8 +168,7 @@
 				n = new RegExp(n + '=\"([^\"]+)\"', 'g').exec(s);
 
 				return n ? ed.dom.decode(n[1]) : '';
-			};
-
+			}
 			ed.onPostProcess.add(function(ed, o) {
 				if (ed.getParam('media_use_script')) {
 					o.content = o.content.replace(/<img[^>]+>/g, function(im) {
@@ -180,7 +178,7 @@
 							at = t._parse(getAttr(im, 'title'));
 							at.width = getAttr(im, 'width');
 							at.height = getAttr(im, 'height');
-							im = '<script type="text/javascript">write' + cl.substring(7) + '({' + t._serialize(at) + '});</script>';
+							im = '<script type="text/javascript">write' + cl.substring(7) + '({' + t._serialize(at) + '})</script>';
 						}
 
 						return im;

@@ -42,4 +42,7 @@
 <file name="location_create_view.php" server="localhost//home/forge/treksandtracks.com/public/" local="130903775120000000" remote="131006733000000000" Dst="1" />
 <file name="location_over_view.php" server="localhost//home/forge/treksandtracks.com/public/" local="130903781360000000" remote="131006733000000000" Dst="1" />
 <file name="location_view.php" server="localhost//home/forge/treksandtracks.com/public/" local="130995995565622485" remote="131006733000000000" Dst="1" />
+<file name="location_create_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130903775120000000" remote="130903775120000000" Dst="2" />
+<file name="location_over_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130903781360000000" remote="130903781360000000" Dst="2" />
+<file name="location_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130995995560000000" remote="131045965950000000" Dst="2" />
 </dwsync>

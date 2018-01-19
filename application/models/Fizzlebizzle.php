@@ -1,12 +1,12 @@
 <?php
 
 
+class Fizzlebizzle extends CI_Model
+{
 
-class Fizzlebizzle extends CI_Model {
 
-
-
-	function get_user() {
+	function get_user()
+	{
 
 		$query = $this->facebook->getUser();
 
@@ -28,13 +28,12 @@ class Fizzlebizzle extends CI_Model {
 
 	}
 
-	
 
-	function get_access_token() {
+	function get_access_token()
+	{
 
 		$query = $this->facebook->getAccessToken();
 
-		
 
 		if ($query) {
 
@@ -54,13 +53,12 @@ class Fizzlebizzle extends CI_Model {
 
 	}
 
-	
 
-	function get_api_secret() {
+	function get_api_secret()
+	{
 
 		$query = $this->facebook->getApiSecret();
 
-		
 
 		if ($query) {
 
@@ -81,12 +79,11 @@ class Fizzlebizzle extends CI_Model {
 	}
 
 
-
-	function get_app_id() {
+	function get_app_id()
+	{
 
 		$query = $this->facebook->getApiSecret();
 
-		
 
 		if ($query) {
 
@@ -106,13 +103,12 @@ class Fizzlebizzle extends CI_Model {
 
 	}
 
-	
 
-	function get_logout_url() {
+	function get_logout_url()
+	{
 
 		$query = $this->facebook->getLogoutUrl(array('next' => base_url()));
 
-		
 
 		if ($query) {
 
@@ -132,13 +128,12 @@ class Fizzlebizzle extends CI_Model {
 
 	}
 
-	
 
-	function get_signed_request() {
+	function get_signed_request()
+	{
 
 		$query = $this->facebook->getSignedRequest();
 
-		
 
 		if ($query) {
 
@@ -158,13 +153,12 @@ class Fizzlebizzle extends CI_Model {
 
 	}
 
-	
 
-	function set_access_token($access_token) {
+	function set_access_token($access_token)
+	{
 
 		$query = $this->facebook->setAccessToken($access_token);
 
-		
 
 		if ($query) {
 
@@ -182,13 +176,12 @@ class Fizzlebizzle extends CI_Model {
 
 	}
 
-	
 
-	function set_api_secret($app_secret) {
+	function set_api_secret($app_secret)
+	{
 
 		$query = $this->facebook->setApiSecret($app_secret);
 
-		
 
 		if ($query) {
 
@@ -206,13 +199,12 @@ class Fizzlebizzle extends CI_Model {
 
 	}
 
-	
 
-	function set_app_id($app_id) {
+	function set_app_id($app_id)
+	{
 
 		$query = $this->facebook->setAppId($app_id);
 
-		
 
 		if ($query) {
 
@@ -230,29 +222,28 @@ class Fizzlebizzle extends CI_Model {
 
 	}
 
-	
+
 
 	//function is formatted for the following
 
 	//https://graph.facebook.com/ID/CONNECTION_TYPE?access_token=123456
 
-	function get_facebook_object($object, $facebook_uid, $access_token) {
+	function get_facebook_object($object, $facebook_uid, $access_token)
+	{
 
-		$fb_connect = curl_init();  
+		$fb_connect = curl_init();
 
-		curl_setopt($fb_connect, CURLOPT_URL, 'https://graph.facebook.com/'.$facebook_uid.'/'.$object.'?access_token='.$access_token);  
+		curl_setopt($fb_connect, CURLOPT_URL, 'https://graph.facebook.com/' . $facebook_uid . '/' . $object . '?access_token=' . $access_token);
 
-		curl_setopt($fb_connect, CURLOPT_RETURNTRANSFER, 1);  
+		curl_setopt($fb_connect, CURLOPT_RETURNTRANSFER, 1);
 
-		$output = curl_exec($fb_connect);  
+		$output = curl_exec($fb_connect);
 
-		curl_close($fb_connect);  
+		curl_close($fb_connect);
 
-		
 
 		$result = json_decode($output);
 
-		
 
 		if (isset($result->error)) {
 
@@ -264,7 +255,6 @@ class Fizzlebizzle extends CI_Model {
 
 			$data['code'] = $result->error->code;
 
-		
 
 			return $data;
 
@@ -274,12 +264,11 @@ class Fizzlebizzle extends CI_Model {
 
 			$data['data'] = $result->data;
 
-			
 
 			return $data;
 
 		}
 
-	}	
+	}
 
 }

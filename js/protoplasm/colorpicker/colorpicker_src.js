@@ -275,7 +275,7 @@ Control.ColorPicker.Panel = Class.create({
 		row = table.insertRow(6);
 		var customColors = this.loadSetting('customColors')
 			?  this.loadSetting('customColors').split(',')
-			: new Array();
+			: [];
 		this.customSwatches = [];
 		for (var i = 0; i < 8; ++i) {
 			cell = row.insertCell(i);

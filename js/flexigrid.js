@@ -1170,8 +1170,8 @@
 			{
 				if (p.rp == p.rpOptions[nx]) sel = 'selected="selected"'; else sel = '';
 				 opt += "<option value='" + p.rpOptions[nx] + "' " + sel + " >" + p.rpOptions[nx] + "&nbsp;&nbsp;</option>";
-			};
-			$('.pDiv2',g.pDiv).prepend("<div class='pGroup'><select name='rp'>"+opt+"</select></div> <div class='btnseparator'></div>");
+			}
+				$('.pDiv2',g.pDiv).prepend("<div class='pGroup'><select name='rp'>"+opt+"</select></div> <div class='btnseparator'></div>");
 			$('select',g.pDiv).change(
 					function ()
 					{

@@ -116,4 +116,14 @@
 <file name="sidebar.php" server="localhost//home/forge/treksandtracks.com/public/" local="130998011486695700" remote="131006733000000000" Dst="1" />
 <file name="top_buttons.php" server="localhost//home/forge/treksandtracks.com/public/" local="130797499580000000" remote="131006733000000000" Dst="1" />
 <file name="head.php" server="localhost//home/forge/sunnydays.me/public/" local="131036724982861589" remote="131036724600000000" Dst="2" />
+<file name="amount_type.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499500000000" remote="130797499500000000" Dst="2" />
+<file name="dialogs.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499500000000" remote="130797499500000000" Dst="2" />
+<file name="footer.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499520000000" remote="130797499520000000" Dst="2" />
+<file name="head.php" server="159.203.224.137//home/forge/sunnydays.me/" local="131036724980000000" remote="131036724980000000" Dst="2" />
+<file name="header.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130941559520000000" remote="131045965960000000" Dst="2" />
+<file name="header_left_sidebar.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130941746620000000" remote="131045965960000000" Dst="2" />
+<file name="pager.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499550000000" remote="130797499550000000" Dst="2" />
+<file name="right_block.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499550000000" remote="130797499550000000" Dst="2" />
+<file name="sidebar.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130998011480000000" remote="131045965960000000" Dst="2" />
+<file name="top_buttons.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499580000000" remote="130797499580000000" Dst="2" />
 </dwsync>

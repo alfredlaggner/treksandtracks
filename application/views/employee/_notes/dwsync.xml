@@ -77,4 +77,11 @@
 <file name="employee_create_view.php" server="localhost//home/forge/treksandtracks.com/public/" local="130797499200000000" remote="131006732400000000" Dst="1" />
 <file name="employee_over_view.php" server="localhost//home/forge/treksandtracks.com/public/" local="130797499220000000" remote="131006732400000000" Dst="1" />
 <file name="employee_view.php" server="localhost//home/forge/treksandtracks.com/public/" local="130797499230000000" remote="131006732400000000" Dst="1" />
+<file name="employee_cms_commission.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499170000000" remote="130797499170000000" Dst="2" />
+<file name="employee_cms_create_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499170000000" remote="130797499170000000" Dst="2" />
+<file name="employee_cms_overview.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499200000000" remote="130797499200000000" Dst="2" />
+<file name="employee_cms_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499200000000" remote="130797499200000000" Dst="2" />
+<file name="employee_create_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499200000000" remote="130797499200000000" Dst="2" />
+<file name="employee_over_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499220000000" remote="130797499220000000" Dst="2" />
+<file name="employee_view.php" server="159.203.224.137//home/forge/sunnydays.me/" local="130797499230000000" remote="130797499230000000" Dst="2" />
 </dwsync>

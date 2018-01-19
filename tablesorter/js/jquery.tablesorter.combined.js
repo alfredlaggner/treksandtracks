@@ -35,8 +35,8 @@
 * @contributor Rob Garrison - https://github.com/Mottie/tablesorter
 */
 /*jshint browser:true, jquery:true, unused:false, expr: true */
-;( function( $ ) {
-	'use strict';
+	(function ($) {
+		'use strict';
 	var ts = $.tablesorter = {
 
 		version : '2.25.3',
@@ -2285,7 +2285,7 @@
 					}
 				}
 			}
-			return;
+			
 		},
 
 		// *** Process table ***
@@ -2736,8 +2736,8 @@
 
 /*! Widget: storage - updated 3/26/2015 (v2.21.3) */
 /*global JSON:false */
-;(function ($, window, document) {
-	'use strict';
+	(function ($, window, document) {
+		'use strict';
 
 	var ts = $.tablesorter || {};
 	// *** Store data in local storage, with a cookie fallback ***
@@ -2826,8 +2826,8 @@
 })(jQuery, window, document);
 
 /*! Widget: uitheme - updated 3/26/2015 (v2.21.3) */
-;(function ($) {
-	'use strict';
+	(function ($) {
+		'use strict';
 	var ts = $.tablesorter || {};
 
 	ts.themes = {
@@ -3012,8 +3012,8 @@
 })(jQuery);
 
 /*! Widget: columns */
-;(function ($) {
-	'use strict';
+	(function ($) {
+		'use strict';
 	var ts = $.tablesorter || {};
 
 	ts.addWidget({
@@ -3094,8 +3094,8 @@
  * Requires tablesorter v2.8+ and jQuery 1.7+
  * by Rob Garrison
  */
-;( function ( $ ) {
-	'use strict';
+	(function ($) {
+		'use strict';
 	var tsf, tsfRegex,
 		ts = $.tablesorter || {},
 		tscss = ts.css,
@@ -4881,8 +4881,8 @@
  * Requires tablesorter v2.8+ and jQuery 1.4.3+
  * by Rob Garrison
  */
-;(function ($, window) {
-	'use strict';
+	(function ($, window) {
+		'use strict';
 	var ts = $.tablesorter || {};
 
 	$.extend(ts.css, {
@@ -5168,8 +5168,8 @@
 
 /*! Widget: resizable - updated 11/4/2015 (v2.24.3) */
 /*jshint browser:true, jquery:true, unused:false */
-;(function ($, window) {
-	'use strict';
+	(function ($, window) {
+		'use strict';
 	var ts = $.tablesorter || {};
 
 	$.extend(ts.css, {
@@ -5563,8 +5563,8 @@
 * Requires tablesorter v2.16+
 * by Rob Garrison
 */
-;(function ($) {
-	'use strict';
+	(function ($) {
+		'use strict';
 	var ts = $.tablesorter || {};
 
 	// this widget saves the last sort only if the

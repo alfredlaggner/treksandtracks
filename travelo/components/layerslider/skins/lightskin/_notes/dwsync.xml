@@ -24,4 +24,8 @@
 <file name="nothumb.png" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130096820400000000" remote="131003121590000000" Dst="1" />
 <file name="skin.css" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130105461600000000" remote="131003121590000000" Dst="1" />
 <file name="skin.png" server="45.55.23.123//var/www/sunnydays.me/public_html/" local="130096820400000000" remote="131003121600000000" Dst="1" />
+<file name="loading.gif" server="159.203.224.137//home/forge/sunnydays.me/" local="130096856400000000" remote="130096856400000000" Dst="2" />
+<file name="nothumb.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130096856400000000" remote="130096856400000000" Dst="2" />
+<file name="skin.css" server="159.203.224.137//home/forge/sunnydays.me/" local="130105497600000000" remote="130105497600000000" Dst="2" />
+<file name="skin.png" server="159.203.224.137//home/forge/sunnydays.me/" local="130096856400000000" remote="130096856400000000" Dst="2" />
 </dwsync>

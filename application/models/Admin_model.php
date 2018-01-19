@@ -1,12 +1,13 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Admin_model extends CI_Model {
-	
+class Admin_model extends CI_Model
+{
+
 	function date_time_zone($indate)
 	{
 		$date = new DateTime($indate, new DateTimeZone('Europe/London'));
 		$date->setTimezone(new DateTimeZone('America/Mexico_City'));
-		return $date->format(TIME_FORMAT); 
+		return $date->format(TIME_FORMAT);
 	}
 }
 

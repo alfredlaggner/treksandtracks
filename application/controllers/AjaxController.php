@@ -3,9 +3,9 @@
 class AjaxController
 {
 
-    function main()
-    {
-        require_once(FCPATH . 'ajaxfw.php');
-    }
+	function main()
+	{
+		require_once(FCPATH . 'ajaxfw.php');
+	}
 
 }

@@ -19,10 +19,10 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  *
  * @category   PHPExcel
- * @package	PHPExcel_Style
+ * @package    PHPExcel_Style
  * @copyright  Copyright (c) 2006 - 2014 PHPExcel (http://www.codeplex.com/PHPExcel)
- * @license	http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
- * @version	1.8.0, 2014-03-02
+ * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt	LGPL
+ * @version    1.8.0, 2014-03-02
  */
 
 
@@ -30,50 +30,50 @@
  * PHPExcel_Style_NumberFormat
  *
  * @category   PHPExcel
- * @package	PHPExcel_Style
+ * @package    PHPExcel_Style
  * @copyright  Copyright (c) 2006 - 2014 PHPExcel (http://www.codeplex.com/PHPExcel)
  */
 class PHPExcel_Style_NumberFormat extends PHPExcel_Style_Supervisor implements PHPExcel_IComparable
 {
 	/* Pre-defined formats */
-	const FORMAT_GENERAL					= 'General';
+	const FORMAT_GENERAL = 'General';
 
-	const FORMAT_TEXT						= '@';
+	const FORMAT_TEXT = '@';
 
-	const FORMAT_NUMBER						= '0';
-	const FORMAT_NUMBER_00					= '0.00';
-	const FORMAT_NUMBER_COMMA_SEPARATED1	= '#,##0.00';
-	const FORMAT_NUMBER_COMMA_SEPARATED2	= '#,##0.00_-';
+	const FORMAT_NUMBER = '0';
+	const FORMAT_NUMBER_00 = '0.00';
+	const FORMAT_NUMBER_COMMA_SEPARATED1 = '#,##0.00';
+	const FORMAT_NUMBER_COMMA_SEPARATED2 = '#,##0.00_-';
 
-	const FORMAT_PERCENTAGE					= '0%';
-	const FORMAT_PERCENTAGE_00				= '0.00%';
+	const FORMAT_PERCENTAGE = '0%';
+	const FORMAT_PERCENTAGE_00 = '0.00%';
 
-	const FORMAT_DATE_YYYYMMDD2				= 'yyyy-mm-dd';
-	const FORMAT_DATE_YYYYMMDD				= 'yy-mm-dd';
-	const FORMAT_DATE_DDMMYYYY				= 'dd/mm/yy';
-	const FORMAT_DATE_DMYSLASH				= 'd/m/y';
-	const FORMAT_DATE_DMYMINUS				= 'd-m-y';
-	const FORMAT_DATE_DMMINUS				= 'd-m';
-	const FORMAT_DATE_MYMINUS				= 'm-y';
-	const FORMAT_DATE_XLSX14				= 'mm-dd-yy';
-	const FORMAT_DATE_XLSX15				= 'd-mmm-yy';
-	const FORMAT_DATE_XLSX16				= 'd-mmm';
-	const FORMAT_DATE_XLSX17				= 'mmm-yy';
-	const FORMAT_DATE_XLSX22				= 'm/d/yy h:mm';
-	const FORMAT_DATE_DATETIME				= 'd/m/y h:mm';
-	const FORMAT_DATE_TIME1					= 'h:mm AM/PM';
-	const FORMAT_DATE_TIME2					= 'h:mm:ss AM/PM';
-	const FORMAT_DATE_TIME3					= 'h:mm';
-	const FORMAT_DATE_TIME4					= 'h:mm:ss';
-	const FORMAT_DATE_TIME5					= 'mm:ss';
-	const FORMAT_DATE_TIME6					= 'h:mm:ss';
-	const FORMAT_DATE_TIME7					= 'i:s.S';
-	const FORMAT_DATE_TIME8					= 'h:mm:ss;@';
-	const FORMAT_DATE_YYYYMMDDSLASH			= 'yy/mm/dd;@';
+	const FORMAT_DATE_YYYYMMDD2 = 'yyyy-mm-dd';
+	const FORMAT_DATE_YYYYMMDD = 'yy-mm-dd';
+	const FORMAT_DATE_DDMMYYYY = 'dd/mm/yy';
+	const FORMAT_DATE_DMYSLASH = 'd/m/y';
+	const FORMAT_DATE_DMYMINUS = 'd-m-y';
+	const FORMAT_DATE_DMMINUS = 'd-m';
+	const FORMAT_DATE_MYMINUS = 'm-y';
+	const FORMAT_DATE_XLSX14 = 'mm-dd-yy';
+	const FORMAT_DATE_XLSX15 = 'd-mmm-yy';
+	const FORMAT_DATE_XLSX16 = 'd-mmm';
+	const FORMAT_DATE_XLSX17 = 'mmm-yy';
+	const FORMAT_DATE_XLSX22 = 'm/d/yy h:mm';
+	const FORMAT_DATE_DATETIME = 'd/m/y h:mm';
+	const FORMAT_DATE_TIME1 = 'h:mm AM/PM';
+	const FORMAT_DATE_TIME2 = 'h:mm:ss AM/PM';
+	const FORMAT_DATE_TIME3 = 'h:mm';
+	const FORMAT_DATE_TIME4 = 'h:mm:ss';
+	const FORMAT_DATE_TIME5 = 'mm:ss';
+	const FORMAT_DATE_TIME6 = 'h:mm:ss';
+	const FORMAT_DATE_TIME7 = 'i:s.S';
+	const FORMAT_DATE_TIME8 = 'h:mm:ss;@';
+	const FORMAT_DATE_YYYYMMDDSLASH = 'yy/mm/dd;@';
 
-	const FORMAT_CURRENCY_USD_SIMPLE		= '"$"#,##0.00_-';
-	const FORMAT_CURRENCY_USD				= '$#,##0_-';
-	const FORMAT_CURRENCY_EUR_SIMPLE		= '[$EUR ]#,##0.00_-';
+	const FORMAT_CURRENCY_USD_SIMPLE = '"$"#,##0.00_-';
+	const FORMAT_CURRENCY_USD = '$#,##0_-';
+	const FORMAT_CURRENCY_EUR_SIMPLE = '[$EUR ]#,##0.00_-';
 
 	/**
 	 * Excel built-in number formats
@@ -94,24 +94,24 @@ class PHPExcel_Style_NumberFormat extends PHPExcel_Style_Supervisor implements P
 	 *
 	 * @var string
 	 */
-	protected $_formatCode	=	PHPExcel_Style_NumberFormat::FORMAT_GENERAL;
+	protected $_formatCode = PHPExcel_Style_NumberFormat::FORMAT_GENERAL;
 
 	/**
 	 * Built-in format Code
 	 *
 	 * @var string
 	 */
-	protected $_builtInFormatCode	= 0;
+	protected $_builtInFormatCode = 0;
 
 	/**
 	 * Create a new PHPExcel_Style_NumberFormat
 	 *
-	 * @param	boolean	$isSupervisor	Flag indicating if this is a supervisor or not
-	 *									Leave this value at default unless you understand exactly what
-	 *										its ramifications are
-	 * @param	boolean	$isConditional	Flag indicating if this is a conditional style or not
-	 *									Leave this value at default unless you understand exactly what
-	 *										its ramifications are
+	 * @param    boolean $isSupervisor Flag indicating if this is a supervisor or not
+	 *                                    Leave this value at default unless you understand exactly what
+	 *                                        its ramifications are
+	 * @param    boolean $isConditional Flag indicating if this is a conditional style or not
+	 *                                    Leave this value at default unless you understand exactly what
+	 *                                        its ramifications are
 	 */
 	public function __construct($isSupervisor = FALSE, $isConditional = FALSE)
 	{
@@ -150,14 +150,14 @@ class PHPExcel_Style_NumberFormat extends PHPExcel_Style_Supervisor implements P
 	 *
 	 * <code>
 	 * $objPHPExcel->getActiveSheet()->getStyle('B2')->getNumberFormat()->applyFromArray(
-	 *		array(
-	 *			'code' => PHPExcel_Style_NumberFormat::FORMAT_CURRENCY_EUR_SIMPLE
-	 *		)
+	 *        array(
+	 *            'code' => PHPExcel_Style_NumberFormat::FORMAT_CURRENCY_EUR_SIMPLE
+	 *        )
 	 * );
 	 * </code>
 	 *
-	 * @param	array	$pStyles	Array containing style information
-	 * @throws	PHPExcel_Exception
+	 * @param    array $pStyles Array containing style information
+	 * @throws    PHPExcel_Exception
 	 * @return PHPExcel_Style_NumberFormat
 	 */
 	public function applyFromArray($pStyles = null)
@@ -186,8 +186,7 @@ class PHPExcel_Style_NumberFormat extends PHPExcel_Style_Supervisor implements P
 		if ($this->_isSupervisor) {
 			return $this->getSharedComponent()->getFormatCode();
 		}
-		if ($this->_builtInFormatCode !== false)
-		{
+		if ($this->_builtInFormatCode !== false) {
 			return self::builtInFormatCode($this->_builtInFormatCode);
 		}
 		return $this->_formatCode;
@@ -314,8 +313,8 @@ class PHPExcel_Style_NumberFormat extends PHPExcel_Style_Supervisor implements P
 	/**
 	 * Get built-in format code
 	 *
-	 * @param	int		$pIndex
-	 * @return	string
+	 * @param    int $pIndex
+	 * @return    string
 	 */
 	public static function builtInFormatCode($pIndex)
 	{
@@ -336,8 +335,8 @@ class PHPExcel_Style_NumberFormat extends PHPExcel_Style_Supervisor implements P
 	/**
 	 * Get built-in format code index
 	 *
-	 * @param	string		$formatCode
-	 * @return	int|boolean
+	 * @param    string $formatCode
+	 * @return    int|boolean
 	 */
 	public static function builtInFormatCodeIndex($formatCode)
 	{
@@ -355,7 +354,7 @@ class PHPExcel_Style_NumberFormat extends PHPExcel_Style_Supervisor implements P
 	/**
 	 * Get hash code
 	 *
-	 * @return string	Hash code
+	 * @return string    Hash code
 	 */
 	public function getHashCode()
 	{
@@ -363,7 +362,7 @@ class PHPExcel_Style_NumberFormat extends PHPExcel_Style_Supervisor implements P
 			return $this->getSharedComponent()->getHashCode();
 		}
 		return md5(
-			  $this->_formatCode
+			$this->_formatCode
 			. $this->_builtInFormatCode
 			. __CLASS__
 		);
@@ -375,61 +374,61 @@ class PHPExcel_Style_NumberFormat extends PHPExcel_Style_Supervisor implements P
 	 * @var array
 	 */
 	private static $_dateFormatReplacements = array(
-			// first remove escapes related to non-format characters
-			'\\'	=> '',
-			//	12-hour suffix
-			'am/pm'	=> 'A',
-			//	4-digit year
-			'e'	=> 'Y',
-			'yyyy'	=> 'Y',
-			//	2-digit year
-			'yy'	=> 'y',
-			//	first letter of month - no php equivalent
-			'mmmmm'	=> 'M',
-			//	full month name
-			'mmmm'	=> 'F',
-			//	short month name
-			'mmm'	=> 'M',
-			//	mm is minutes if time, but can also be month w/leading zero
-			//	so we try to identify times be the inclusion of a : separator in the mask
-			//	It isn't perfect, but the best way I know how
-			':mm'	=> ':i',
-			'mm:'	=> 'i:',
-			//	month leading zero
-			'mm'	=> 'm',
-			//	month no leading zero
-			'm'		=> 'n',
-			//	full day of week name
-			'dddd'	=> 'l',
-			//	short day of week name
-			'ddd'	=> 'D',
-			//	days leading zero
-			'dd'	=> 'd',
-			//	days no leading zero
-			'd'		=> 'j',
-			//	seconds
-			'ss'	=> 's',
-			//	fractional seconds - no php equivalent
-			'.s'	=> ''
-		);
+		// first remove escapes related to non-format characters
+		'\\' => '',
+		//	12-hour suffix
+		'am/pm' => 'A',
+		//	4-digit year
+		'e' => 'Y',
+		'yyyy' => 'Y',
+		//	2-digit year
+		'yy' => 'y',
+		//	first letter of month - no php equivalent
+		'mmmmm' => 'M',
+		//	full month name
+		'mmmm' => 'F',
+		//	short month name
+		'mmm' => 'M',
+		//	mm is minutes if time, but can also be month w/leading zero
+		//	so we try to identify times be the inclusion of a : separator in the mask
+		//	It isn't perfect, but the best way I know how
+		':mm' => ':i',
+		'mm:' => 'i:',
+		//	month leading zero
+		'mm' => 'm',
+		//	month no leading zero
+		'm' => 'n',
+		//	full day of week name
+		'dddd' => 'l',
+		//	short day of week name
+		'ddd' => 'D',
+		//	days leading zero
+		'dd' => 'd',
+		//	days no leading zero
+		'd' => 'j',
+		//	seconds
+		'ss' => 's',
+		//	fractional seconds - no php equivalent
+		'.s' => ''
+	);
 	/**
 	 * Search/replace values to convert Excel date/time format masks hours to PHP format masks (24 hr clock)
 	 *
 	 * @var array
 	 */
 	private static $_dateFormatReplacements24 = array(
-			'hh'	=> 'H',
-			'h'		=> 'G'
-		);
+		'hh' => 'H',
+		'h' => 'G'
+	);
 	/**
 	 * Search/replace values to convert Excel date/time format masks hours to PHP format masks (12 hr clock)
 	 *
 	 * @var array
 	 */
 	private static $_dateFormatReplacements12 = array(
-			'hh'	=> 'h',
-			'h'		=> 'g'
-		);
+		'hh' => 'h',
+		'h' => 'g'
+	);
 
 	private static function _formatAsDate(&$value, &$format)
 	{
@@ -443,11 +442,11 @@ class PHPExcel_Style_NumberFormat extends PHPExcel_Style_Supervisor implements P
 		// OpenOffice.org uses upper-case number formats, e.g. 'YYYY', convert to lower-case
 		$format = strtolower($format);
 
-		$format = strtr($format,self::$_dateFormatReplacements);
-		if (!strpos($format,'A')) {	// 24-hour time format
-			$format = strtr($format,self::$_dateFormatReplacements24);
-		} else {					// 12-hour time format
-			$format = strtr($format,self::$_dateFormatReplacements12);
+		$format = strtr($format, self::$_dateFormatReplacements);
+		if (!strpos($format, 'A')) {    // 24-hour time format
+			$format = strtr($format, self::$_dateFormatReplacements24);
+		} else {                    // 12-hour time format
+			$format = strtr($format, self::$_dateFormatReplacements12);
 		}
 
 		$dateObj = PHPExcel_Shared_Date::ExcelToPHPObject($value);
@@ -457,7 +456,7 @@ class PHPExcel_Style_NumberFormat extends PHPExcel_Style_Supervisor implements P
 	private static function _formatAsPercentage(&$value, &$format)
 	{
 		if ($format === self::FORMAT_PERCENTAGE) {
-			$value = round( (100 * $value), 0) . '%';
+			$value = round((100 * $value), 0) . '%';
 		} else {
 			if (preg_match('/\.[#0]+/i', $format, $m)) {
 				$s = substr($m[0], 0, 1) . (strlen($m[0]) - 1);
@@ -477,16 +476,16 @@ class PHPExcel_Style_NumberFormat extends PHPExcel_Style_Supervisor implements P
 		$sign = ($value < 0) ? '-' : '';
 
 		$integerPart = floor(abs($value));
-		$decimalPart = trim(fmod(abs($value),1),'0.');
+		$decimalPart = trim(fmod(abs($value), 1), '0.');
 		$decimalLength = strlen($decimalPart);
-		$decimalDivisor = pow(10,$decimalLength);
+		$decimalDivisor = pow(10, $decimalLength);
 
-		$GCD = PHPExcel_Calculation_MathTrig::GCD($decimalPart,$decimalDivisor);
+		$GCD = PHPExcel_Calculation_MathTrig::GCD($decimalPart, $decimalDivisor);
 
-		$adjustedDecimalPart = $decimalPart/$GCD;
-		$adjustedDecimalDivisor = $decimalDivisor/$GCD;
+		$adjustedDecimalPart = $decimalPart / $GCD;
+		$adjustedDecimalDivisor = $decimalDivisor / $GCD;
 
-		if ((strpos($format,'0') !== false) || (strpos($format,'#') !== false) || (substr($format,0,3) == '? ?')) {
+		if ((strpos($format, '0') !== false) || (strpos($format, '#') !== false) || (substr($format, 0, 3) == '? ?')) {
 			if ($integerPart == 0) {
 				$integerPart = '';
 			}
@@ -497,8 +496,9 @@ class PHPExcel_Style_NumberFormat extends PHPExcel_Style_Supervisor implements P
 		}
 	}
 
-	private static function _complexNumberFormatMask($number, $mask) {
-		if (strpos($mask,'.') !== false) {
+	private static function _complexNumberFormatMask($number, $mask)
+	{
+		if (strpos($mask, '.') !== false) {
 			$numbers = explode('.', $number . '.0');
 			$masks = explode('.', $mask . '.0');
 			$result1 = self::_complexNumberFormatMask($numbers[0], $masks[0]);
@@ -510,7 +510,7 @@ class PHPExcel_Style_NumberFormat extends PHPExcel_Style_Supervisor implements P
 		if ($r > 1) {
 			$result = array_reverse($result[0]);
 
-			foreach($result as $block) {
+			foreach ($result as $block) {
 				$divisor = 1 . $block[0];
 				$size = strlen($block[0]);
 				$offset = $block[1];
@@ -520,7 +520,7 @@ class PHPExcel_Style_NumberFormat extends PHPExcel_Style_Supervisor implements P
 					fmod($number, $divisor)
 				);
 				$number = floor($number / $divisor);
-				$mask = substr_replace($mask,$blockValue, $offset, $size);
+				$mask = substr_replace($mask, $blockValue, $offset, $size);
 			}
 			if ($number > 0) {
 				$mask = substr_replace($mask, $number, $offset, 0);
@@ -536,10 +536,10 @@ class PHPExcel_Style_NumberFormat extends PHPExcel_Style_Supervisor implements P
 	/**
 	 * Convert a value in a pre-defined format to a PHP string
 	 *
-	 * @param mixed	$value		Value to format
-	 * @param string	$format		Format code
-	 * @param array		$callBack	Callback function for additional formatting of string
-	 * @return string	Formatted string
+	 * @param mixed $value Value to format
+	 * @param string $format Format code
+	 * @param array $callBack Callback function for additional formatting of string
+	 * @return string    Formatted string
 	 */
 	public static function toFormattedString($value = '0', $format = PHPExcel_Style_NumberFormat::FORMAT_GENERAL, $callBack = null)
 	{
@@ -574,14 +574,14 @@ class PHPExcel_Style_NumberFormat extends PHPExcel_Style_Supervisor implements P
 
 			case 3:
 				$format = ($value > 0) ?
-					$sections[0] : ( ($value < 0) ?
+					$sections[0] : (($value < 0) ?
 						$sections[1] : $sections[2]);
 				$value = abs($value); // Use the absolute value
 				break;
 
 			case 4:
 				$format = ($value > 0) ?
-					$sections[0] : ( ($value < 0) ?
+					$sections[0] : (($value < 0) ?
 						$sections[1] : $sections[2]);
 				$value = abs($value); // Use the absolute value
 				break;
@@ -615,7 +615,7 @@ class PHPExcel_Style_NumberFormat extends PHPExcel_Style_Supervisor implements P
 				$format = preg_replace("/\\\\/", '', $format);
 
 				// Some non-number strings are quoted, so we'll get rid of the quotes, likewise any positional * symbols
-				$format = str_replace(array('"','*'), '', $format);
+				$format = str_replace(array('"', '*'), '', $format);
 
 				// Find out if we need thousands separator
 				// This is indicated by a comma enclosed by a digit placeholder:
@@ -666,11 +666,11 @@ class PHPExcel_Style_NumberFormat extends PHPExcel_Style_Supervisor implements P
 						$minWidth = strlen($left) + strlen($dec) + strlen($right);
 						if ($useThousands) {
 							$value = number_format(
-										$value
-										, strlen($right)
-										, PHPExcel_Shared_String::getDecimalSeparator()
-										, PHPExcel_Shared_String::getThousandsSeparator()
-									);
+								$value
+								, strlen($right)
+								, PHPExcel_Shared_String::getDecimalSeparator()
+								, PHPExcel_Shared_String::getThousandsSeparator()
+							);
 							$value = preg_replace($number_regex, $value, $format);
 						} else {
 							if (preg_match('/[0#]E[+-]0/i', $format)) {
@@ -690,11 +690,11 @@ class PHPExcel_Style_NumberFormat extends PHPExcel_Style_Supervisor implements P
 					//	Currency or Accounting
 					$currencyFormat = $m[0];
 					$currencyCode = $m[1];
-					list($currencyCode) = explode('-',$currencyCode);
+					list($currencyCode) = explode('-', $currencyCode);
 					if ($currencyCode == '') {
 						$currencyCode = PHPExcel_Shared_String::getCurrencyCode();
 					}
-					$value = preg_replace('/\[\$([^\]]*)\]/u',$currencyCode,$value);
+					$value = preg_replace('/\[\$([^\]]*)\]/u', $currencyCode, $value);
 				}
 			}
 		}

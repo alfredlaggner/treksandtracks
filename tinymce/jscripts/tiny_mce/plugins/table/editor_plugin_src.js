@@ -2,7 +2,7 @@
  * $Id: editor_plugin_src.js 1209 2009-08-20 12:35:10Z spocke $
  *
  * @author Moxiecode
- * @copyright Copyright © 2004-2008, Moxiecode Systems AB, All rights reserved.
+ * @copyright Copyright ï¿½ 2004-2008, Moxiecode Systems AB, All rights reserved.
  */
 
 (function() {
@@ -20,8 +20,7 @@
 
 		// Check for text characters of other elements that should be treated as content
 		return elm.innerHTML.replace(/<(br|img|object|embed|input|textarea)[^>]*>/gi, '-').replace(/<[^>]+>/g, '').length == 0;
-	};
-
+	}
 	tinymce.create('tinymce.plugins.TablePlugin', {
 		init : function(ed, url) {
 			var t = this;
@@ -77,8 +76,7 @@
 
 						if (last && last.nodeName == 'TABLE')
 							ed.dom.add(ed.getBody(), 'p', null, '<br mce_bogus="1" />');
-					};
-
+					}
 					// Fixes an bug where it's impossible to place the caret before a table in Gecko
 					// this fix solves it by detecting when the caret is at the beginning of such a table
 					// and then manually moves the caret infront of the table
@@ -319,8 +317,7 @@
 					inst.selection.select(td.firstChild || td);
 					inst.selection.collapse(1);
 				}
-			};
-
+			}
 			function makeTD() {
 				var newTD = doc.createElement("td");
 

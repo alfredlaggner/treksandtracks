@@ -50,15 +50,13 @@ var SearchReplaceDialog = {
 			r = se.getRng().cloneRange();
 			ed.getDoc().execCommand('SelectAll', false, null);
 			se.setRng(r);
-		};
-
+		}
 		function replace() {
 			if (tinymce.isIE)
 				ed.selection.getRng().duplicate().pasteHTML(rs); // Needs to be duplicated due to selection bug in IE
 			else
 				ed.getDoc().execCommand('InsertHTML', false, rs);
-		};
-
+		}
 		// IE flags
 		if (ca)
 			fl = fl | 4;

@@ -27,7 +27,7 @@ Control.TreeSelect = function(element, options) {
 
 	function findElementsByClassName(classname, root) {
 		var res = [];
-		var elts = (root||document).getElementsByTagName('*')
+		var elts = (root||document).getElementsByTagName('*');;
 		var re = new RegExp('\\b'+classname+'\\b');
 		for (var i = 0; i < elts.length; ++i)
 			if (elts[i].className.match(re))
@@ -203,6 +203,6 @@ Control.TreeSelect = function(element, options) {
 		// Public members
 		'element': element
 	}
-}
+};;
 
 Protoplasm.register('treeselect', Control.TreeSelect);

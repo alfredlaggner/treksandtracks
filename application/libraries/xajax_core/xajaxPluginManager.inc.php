@@ -25,38 +25,39 @@ require(dirname(__FILE__) . '/xajaxPlugin.inc.php');
 /*
 	Class: xajaxPluginManager
 */
+
 final class xajaxPluginManager
 {
 	/*
 		Array: aRequestPlugins
 	*/
 	private $aRequestPlugins;
-	
+
 	/*
 		Array: aResponsePlugins
 	*/
 	private $aResponsePlugins;
-	
+
 	/*
 		Array: aConfigurable
 	*/
 	private $aConfigurable;
-	
+
 	/*
 		Array: aRegistrars
 	*/
 	private $aRegistrars;
-	
+
 	/*
 		Array: aProcessors
 	*/
 	private $aProcessors;
-	
+
 	/*
 		Array: aClientScriptGenerators
 	*/
 	private $aClientScriptGenerators;
-	
+
 	/*
 		Function: xajaxPluginManager
 		
@@ -66,13 +67,13 @@ final class xajaxPluginManager
 	{
 		$this->aRequestPlugins = array();
 		$this->aResponsePlugins = array();
-		
+
 		$this->aConfigurable = array();
 		$this->aRegistrars = array();
 		$this->aProcessors = array();
 		$this->aClientScriptGenerators = array();
 	}
-	
+
 	/*
 		Function: getInstance
 		
@@ -88,11 +89,11 @@ final class xajaxPluginManager
 	{
 		static $obj;
 		if (!$obj) {
-			$obj = new xajaxPluginManager();    
+			$obj = new xajaxPluginManager();
 		}
 		return $obj;
 	}
-	
+
 	/*
 		Function: loadPlugins
 		
@@ -105,23 +106,23 @@ final class xajaxPluginManager
 	{
 		foreach ($aFolders as $sFolder) {
 			if (is_dir($sFolder))
-			if ($handle = opendir($sFolder)) {
-				while (!(false === ($sName = readdir($handle)))) {
-					$nLength = strlen($sName);
-					if (8 < $nLength) {
-						$sFileName = substr($sName, 0, $nLength - 8);
-						$sExtension = substr($sName, $nLength - 8, 8);
-						if ('.inc.php' == $sExtension) {
-							require $sFolder . '/' . $sFileName . $sExtension;
+				if ($handle = opendir($sFolder)) {
+					while (!(false === ($sName = readdir($handle)))) {
+						$nLength = strlen($sName);
+						if (8 < $nLength) {
+							$sFileName = substr($sName, 0, $nLength - 8);
+							$sExtension = substr($sName, $nLength - 8, 8);
+							if ('.inc.php' == $sExtension) {
+								require $sFolder . '/' . $sFileName . $sExtension;
+							}
 						}
 					}
+
+					closedir($handle);
 				}
-				
-				closedir($handle);
-			}
 		}
 	}
-	
+
 	/*
 		Function: _insertIntoArray
 		
@@ -142,10 +143,10 @@ final class xajaxPluginManager
 	{
 		while (isset($aPlugins[$nPriority]))
 			$nPriority++;
-		
+
 		$aPlugins[$nPriority] = $objPlugin;
 	}
-	
+
 	/*
 		Function: registerPlugin
 		
@@ -161,36 +162,31 @@ final class xajaxPluginManager
 		1000 thru 8999: User created plugins, typically, these plugins don't care about order
 		9000 thru 9999: Plugins that generally need to be last or near the end of the plugin list
 	*/
-	public function registerPlugin($objPlugin, $nPriority=1000)
+	public function registerPlugin($objPlugin, $nPriority = 1000)
 	{
-		if ($objPlugin instanceof xajaxRequestPlugin)
-		{
+		if ($objPlugin instanceof xajaxRequestPlugin) {
 			$this->_insertIntoArray($this->aRequestPlugins, $objPlugin, $nPriority);
-			
+
 			if (method_exists($objPlugin, 'register'))
 				$this->_insertIntoArray($this->aRegistrars, $objPlugin, $nPriority);
-			
+
 			if (method_exists($objPlugin, 'canProcessRequest'))
 				if (method_exists($objPlugin, 'processRequest'))
 					$this->_insertIntoArray($this->aProcessors, $objPlugin, $nPriority);
-		}
-		else if ( $objPlugin instanceof xajaxResponsePlugin)
-		{
+		} else if ($objPlugin instanceof xajaxResponsePlugin) {
 			$this->aResponsePlugins[] = $objPlugin;
-		}
-		else
-		{
+		} else {
 //SkipDebug
 			$objLanguageManager = xajaxLanguageManager::getInstance();
 			trigger_error(
-				$objLanguageManager->getText('XJXPM:IPLGERR:01') 
-				. get_class($objPlugin) 
+				$objLanguageManager->getText('XJXPM:IPLGERR:01')
+				. get_class($objPlugin)
 				. $objLanguageManager->getText('XJXPM:IPLGERR:02')
 				, E_USER_ERROR
-				);
+			);
 //EndSkipDebug
 		}
-		
+
 		if (method_exists($objPlugin, 'configure'))
 			$this->_insertIntoArray($this->aConfigurable, $objPlugin, $nPriority);
 
@@ -210,7 +206,7 @@ final class xajaxPluginManager
 	public function canProcessRequest()
 	{
 		$bHandled = false;
-		
+
 		$aKeys = array_keys($this->aProcessors);
 		sort($aKeys);
 		foreach ($aKeys as $sKey) {
@@ -234,7 +230,7 @@ final class xajaxPluginManager
 	public function processRequest()
 	{
 		$bHandled = false;
-		
+
 		$aKeys = array_keys($this->aProcessors);
 		sort($aKeys);
 		foreach ($aKeys as $sKey) {
@@ -247,7 +243,7 @@ final class xajaxPluginManager
 
 		return $bHandled;
 	}
-	
+
 	/*
 		Function: configure
 		
@@ -266,7 +262,7 @@ final class xajaxPluginManager
 		foreach ($aKeys as $sKey)
 			$this->aConfigurable[$sKey]->configure($sName, $mValue);
 	}
-	
+
 	/*
 		Function: register
 		
@@ -280,11 +276,10 @@ final class xajaxPluginManager
 	{
 		$aKeys = array_keys($this->aRegistrars);
 		sort($aKeys);
-		foreach ($aKeys as $sKey)
-		{
+		foreach ($aKeys as $sKey) {
 			$objPlugin = $this->aRegistrars[$sKey];
 			$mResult = $objPlugin->register($aArgs);
-			if ( $mResult instanceof xajaxRequest )
+			if ($mResult instanceof xajaxRequest)
 				return $mResult;
 			if (is_array($mResult))
 				return $mResult;
@@ -295,13 +290,13 @@ final class xajaxPluginManager
 //SkipDebug
 		$objLanguageManager = xajaxLanguageManager::getInstance();
 		trigger_error(
-			$objLanguageManager->getText('XJXPM:MRMERR:01') 
+			$objLanguageManager->getText('XJXPM:MRMERR:01')
 			. print_r($aArgs, true)
 			, E_USER_ERROR
-			);
+		);
 //EndSkipDebug
 	}
-	
+
 	/*
 		Function: generateClientScript
 		
@@ -317,7 +312,7 @@ final class xajaxPluginManager
 		foreach ($aKeys as $sKey)
 			$this->aClientScriptGenerators[$sKey]->generateClientScript();
 	}
-	
+
 	/*
 		Function: getResponsePlugin
 		
@@ -335,7 +330,7 @@ final class xajaxPluginManager
 		$aKeys = array_keys($this->aResponsePlugins);
 		sort($aKeys);
 		foreach ($aKeys as $sKey)
-			if ( $this->aResponsePlugins[$sKey] instanceof  $sName )
+			if ($this->aResponsePlugins[$sKey] instanceof $sName)
 				return $this->aResponsePlugins[$sKey];
 		$bFailure = false;
 		return $bFailure;
@@ -358,10 +353,10 @@ final class xajaxPluginManager
 		$aKeys = array_keys($this->aRequestPlugins);
 		sort($aKeys);
 		foreach ($aKeys as $sKey) {
-			if ( get_class($this->aRequestPlugins[$sKey]) ==  $sName ) {
+			if (get_class($this->aRequestPlugins[$sKey]) == $sName) {
 				return $this->aRequestPlugins[$sKey];
-			} 
-		}	
+			}
+		}
 
 
 		$bFailure = false;

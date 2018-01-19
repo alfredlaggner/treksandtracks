@@ -7,10 +7,10 @@
 
 // Replace 'center' 'right' and 'left' with the ID names of the columns you want to balance.
 // The last one is there to show how you can add more columns.  Just delete the ones you're not using.
-var divs = new Array('left-text','right-text');
+var divs = ['left-text','right-text'];
 
 // Initialize Scripts - is this a browser that understands DOM?
-function scriptInit() { if (!document.getElementById) { return; } }
+function scriptInit() { if (!document.getElementById) {  } }
 
 // Set up Event Listener
 function addEvent(elm, evType, fn, useCapture) { 
@@ -74,14 +74,13 @@ TextResizeDetector = function() {
  	function _stopDetector() {
 		window.clearInterval(iInterval);
 		iInterval=null;
-	};
+	}
 	function _startDetector() {
 		if (!iInterval) {
 			iInterval = window.setInterval('TextResizeDetector.detect()',iIntervalDelay);
 		}
-	};
-
- 	 function _detect() {
+	}
+	function _detect() {
  		var iNewSize = TextResizeDetector.getSize();
 
  		if(iNewSize!== iCurrSize) {
@@ -98,7 +97,7 @@ TextResizeDetector = function() {
 
  		}
  		return iCurrSize;
- 	};
+	 }
 	var onAvailable = function() {
 		if (!TextResizeDetector.onAvailableCount_i ) {
 			TextResizeDetector.onAvailableCount_i =0;
@@ -140,7 +139,7 @@ TextResizeDetector = function() {
 				aListeners[aListeners.length] = {
 					fn: fn,
 					obj: obj
-				}
+				};;
 				return iBase;
 			},
 			/**
